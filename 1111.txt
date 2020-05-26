@@ -1,6 +1,0 @@
-hoang kim van chuong
-firstname: chuong
-lastname: hoang kim van
-age: 32
-date of birth: 20/04/1988
-
