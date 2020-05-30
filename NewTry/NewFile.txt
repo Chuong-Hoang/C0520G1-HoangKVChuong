@@ -1,2 +1,0 @@
-This is file for new try to git commands
-This second text is added for git pull command.
