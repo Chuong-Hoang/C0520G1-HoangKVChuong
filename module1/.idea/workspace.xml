@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.GitAndHTML/BaiTap/mywebpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/4.GitAndHTML/BaiTap/mywebpage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/4.GitAndHTML/ThucHanh/mywebpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/4.GitAndHTML/ThucHanh/mywebpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +45,8 @@
       <updated>1590475363639</updated>
       <workItem from="1590475367965" duration="1183000" />
       <workItem from="1590715105883" duration="9578000" />
-      <workItem from="1590741358015" duration="1353000" />
+      <workItem from="1590741358015" duration="1956000" />
+      <workItem from="1590745133444" duration="1093000" />
     </task>
     <servers />
   </component>
