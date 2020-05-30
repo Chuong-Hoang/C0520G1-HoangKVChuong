@@ -1,1 +1,2 @@
 This file has been added just for practicing git commands.
+I have added this second text for using git pull command from Local Repository.
