@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Bảng Nâng Cao</title>
+</head>
+<body>
+<style>
+    #t1 {
+        background-color: orange;
+        border: 10px solid orange;
+        border-collapse: collapse;
+
+    }
+    .black {
+        background-color: black;
+    }
+    .white {
+        background-color: white;
+    }
+    td {
+        width: 50px;
+        height: 50px;
+    }
+    th {
+        width: 50px;
+        height: 50px;
+        vertical-align: bottom;
+    }
+</style>
+<p><b>1.Tạo bàn cờ vua</b></p>
+<table id="t1">
+    <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+    </tr>
+    <tr>
+        <th>A</th>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+    </tr>
+    <tr>
+        <th>B</th>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+    </tr>
+    <tr>
+        <th>C</th>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+    </tr>
+    <tr>
+        <th>D</th>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+    </tr>
+    <tr>
+        <th>E</th>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+    </tr>
+    <tr>
+        <th>F</th>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+    </tr>
+    <tr>
+        <th>G</th>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+    </tr>
+    <tr>
+        <th>H</th>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+        <td class="black"></td>
+        <td class="white"></td>
+    </tr>
+</table>
+<br>
+<p><b>2.Phần tạo lịch</b></p>
+<style>
+    #t2 {
+        border-collapse: collapse;
+    }
+    td {
+        border: 4px ridge #dddddd;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+    }
+    th {
+        vertical-align: center;
+        border: 2px solid white;
+    }
+    .western, .western0, .western1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .western0 {
+        color: red;
+    }
+    .western1 {
+        color: blue;
+    }
+    sub {
+        font-size: 18px;
+        font-weight: normal;
+        color: black;
+    }
+    #r1 {
+        color: white;
+        background-color: orange;
+        border-collapse: white;
+        padding: 50px;
+    }
+</style>
+<table id="t2">
+    <caption style="color: blue; font-size: 30px; font-family: Arial;">Tháng 10 - October</caption>
+    <tr id="r1">
+        <th style="background-color:red">C.Nhật</th>
+        <th>T.Hai</th>
+        <th>T.Ba</th>
+        <th>T.Tư</th>
+        <th>T.Năm</th>
+        <th>T.Sáu</th>
+        <th style="background-color:blue">T.Bảy</th>
+    </tr>
+    <tr>
+        <th style="color: red;">Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th style="color: blue;">Sat</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="western">1<sub>13</sub></td>
+        <td class="western">2<sub>14</sub></td>
+        <td class="western1">3<sub>15</sub></td>
+    </tr>
+    <tr>
+        <td class="western0">4<sub>16</sub></td>
+        <td class="western">5<sub>17</sub></td>
+        <td class="western">6<sub>18</sub></td>
+        <td class="western">7<sub>19</sub></td>
+        <td class="western">8<sub>20</sub></td>
+        <td class="western">9<sub>21</sub></td>
+        <td class="western1">10<sub>22</sub></td>
+    </tr>
+    <tr>
+        <td class="western0">11<sub>23</sub></td>
+        <td class="western">12<sub>24</sub></td>
+        <td class="western">13<sub>25</sub></td>
+        <td class="western">14<sub>26</sub></td>
+        <td class="western">15<sub>27</sub></td>
+        <td class="western">16<sub>28</sub></td>
+        <td class="western1">17<sub>29</sub></td>
+    </tr>
+    <tr>
+        <td class="western0">18<sub>1.9</sub></td>
+        <td class="western">19<sub>2</sub></td>
+        <td class="western">20<sub>3</sub></td>
+        <td class="western">21<sub>4</sub></td>
+        <td class="western">22<sub>5</sub></td>
+        <td class="western">23<sub>6</sub></td>
+        <td class="western1">24<sub>7</sub></td>
+    </tr>
+    <tr>
+        <td class="western0">25<sub>8</sub></td>
+        <td class="western">26<sub>9</sub></td>
+        <td class="western">27<sub>10</sub></td>
+        <td class="western">28<sub>11</sub></td>
+        <td class="western">29<sub>12</sub></td>
+        <td class="western">30<sub>13</sub></td>
+        <td class="western1">31<sub>14</sub></td>
+    </tr>
+</table>
+</body>
+</html>
