@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Form Đơn Giản</title>
+    <style>
+        .label {
+            position: relative;
+            width: 20%;
+            float: left;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="width: 100%">
+<p>Phần 1: Tạo form sở thích của bạn</p>
+<form style="width:400px;">
+    <h2 style="text-align:center; background-color:orange; color: white;">SỞ THÍCH CỦA BẠN</h2>
+    <label class="label" name="HoTen">Họ và Tên</label>
+    <input type="text" name="yourname"><br><br>
+    <label class="label" name="Email">Email</label>
+    <input type="text" name="email"><br><br>
+    <label class="label" name="SoThich">Sở thích</label>
+    <input type="checkbox" name="hobby">Thể thao
+    <input type="checkbox" name="hobby">Âm nhạc
+    <input type="checkbox" name="hobby">Đọc sách<br>
+    <input type="checkbox" name="hobby">Lướt web
+    <input type="checkbox" name="hobby">Chơi game
+    <input type="checkbox" name="hobby">Điện ảnh<br>
+    <input type="checkbox" name="hobby">Du lịch<br>
+    <br>
+    <input type="submit" name="Submit" value="Gửi thông tin">
+    <input type="reset" name="Reset" value="Nhập lại">
+</form>
+</div>
+
+<div>
+<p>Phần 2: Tạo form đăng ký học viên</p>
+<form style="width: 500px;">
+    <p>ĐĂNG KÝ HỌC VIÊN</p>
+    <label>Họ và Tên</label>
+    <input type="text" name="yourname"><br>
+    <br>
+    <label>Ngày sinh</label>
+    <input type="text" name="birthday"><br>
+    <br>
+    <label>Giới tính</label>
+    <input type="radio" name="rd">Nam
+    <input type="radio" name="rd">Nữ
+    <br>
+    <label>Địa chỉ</label>
+    <textarea style="width:300px;height:100px;"></textarea><br>
+    <br>
+    <label>Lớp</label>
+    <select>
+        <option>--Chọn lớp--</option>
+        <option>12</option>
+        <option>11</option>
+        <option>10</option>
+        <option>9</option>
+        <option>8</option>
+        <option>7</option>
+    </select><br><br>
+    <label>Email</label>
+    <input type="text" name="email"><br>
+    <br>
+    <label>Điện thoại</label>
+    <input type="number" name="phonenumber"><br>
+    <br>
+    <input type="submit" name="submit" value="Đăng ký" size="50">
+    <input type="reset" name="reset" value="Nhập lại" size="40">
+</form>
+</div>
+</body>
+</html>
