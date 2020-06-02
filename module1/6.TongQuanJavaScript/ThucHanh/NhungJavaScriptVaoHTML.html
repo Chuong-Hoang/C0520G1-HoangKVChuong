@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhúng mã JavaScript</title>
+</head>
+<body>
+<p><b>&#9734; Bài tập 1:&nbsp;</b>Chèn mã JavaScript vào trong thẻ HTML</p>
+<button type="button" onclick="alert('Xin chào bạn!')">Click here</button>
+<p><b>&#9734; Bài tập 2:&nbsp;</b>Sử dụng thẻ &lt;script&gt; để chèn mã JavaScript vào trang HTML</p>
+<button type="button" onclick="showMessage();">Click me</button>
+<script>
+    function showMessage() {
+        alert("Xin chào! Bạn đang xem lại bài tập số 2: chèn mã JavaScript bằng thẻ <script>")
+    }
+</script>
+<p><b>&#9734; Bài tập 3:&nbsp;</b>Chèn mã JavaScript bằng 1 file .js riêng</p>
+<p id="demo">Dòng thông tin này sẽ bị thay đổi nếu bạn Click vào nút Button ở dưới:</p>
+<button type="button" onclick="changeContent();">Click to change</button><br><br>
+<script src="changeContent.js"></script>
+<!--<script>-->
+<!--    let name = prompt("Enter your name, please?");-->
+<!--    document.write("Your name is " + name);-->
+<!--</script>-->
+<h2><b>Tóm tắt nội dung Tổng Quan JavaScript</b></h2>
+<ul style="list-style-type: square;">
+    <li>JavaScript là ngôn ngữ lập trình chạy trên các trình duyệt</li>
+    <li>JavaScript được sử dụng rộng rãi trên các website</li>
+    <li>Các cách nhúng JavaScript vào trang HTML
+        <ol>
+            <li>Viết trực tiếp trên thẻ html (hạn chế dùng)</li>
+            <li>Viết trong thẻ &lt;script&gt; và sử dựng thuộc tính src</li>
+            <li>Viết trong file .js và nhúng vào html sử dụng thẻ &lt;script&gt;</li>
+            <li>Sử dụng file .js online nhúng vào html bằng thẻ &lt;script&gt;</li>
+        </ol></li>
+    <li>JavaScript thực thi từ trên xuống dưới nên để web tải nhanh thì chúng ta
+    nên chèn mã JavaScript ở cuối trang HTML</li>
+    <li>Input và Output đối với JavaScript
+        <ul><b>Input:</b>
+    <li>Dùng lệnh prompt()</li>
+    <li>Dùng thẻ <b>input</b> trong thẻ &lt;form&gt;</li>
+    </ul>
+        <ul><b>Output:</b>
+        <li>Sử dụng lệnh alert()</li>
+        <li>Sử dụng lệnh console.log()</li>
+        <li>Sử dụng lệnh document.write()</li>
+        <li>Sử dụng lệnh document.getElementById().innerHTML</li>
+        <li>Sử dụng lệnh document.getElementById().innerText</li>
+    </ul></li>
+</ul>
+</body>
+</html>

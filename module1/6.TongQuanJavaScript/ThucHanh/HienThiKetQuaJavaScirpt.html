@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kết quả đầu ra JavaScript</title>
+</head>
+<body>
+<p><b>&#9733; Bài tập 1:</b>&nbsp; Hiển thị kết quả sử dụng hàm alert()</p>
+<button type="button" onclick="showMessage();">Click me!</button>
+<script>
+    function showMessage() {
+        // hàm alert() hiển thị cửa sổ alert khi click
+        alert("Hello World!");
+        alert("Good morning everybody :) :) :) ");
+    }
+</script>
+<p><b>&#9733; Bài tập 2:</b>&nbsp; Hiển thị kết quả sử dụng thẻ HTML:</p>
+<div id="messageDiv">Good morning!</div>
+<button type="button" onclick="showMessage2();">Click me!</button>
+<script>
+    function showMessage2() {
+        document.getElementById('messageDiv').innerHTML = "Xin chào các bạn!";
+    }
+</script>
+<p><b>&#9733; Bài tập 3:&nbsp;</b>Hiển thị kết quả sử dụng hàm document.write()</p>
+<p><b>Note: &nbsp</b>Hàm document.write() xóa hết mọi thứ có trước đó.</p>
+<button type="button" onclick="showMessage3();">Click me!</button>
+<script>
+    function showMessage3() {
+        document.write("Xin chào bạn! Tất cả những gì hiển thị trước đó đã bị xóa");
+    }
+</script>
+<p><b>&#9733; Bài tập 4:&nbsp;</b> Hiển thị kết quả sử dụng hàm console.log()</p>
+<button type="button" onclick="showMessage4();">Click me!</button>
+<script>
+    function showMessage4() {
+        console.log("Chào các bạn lớp C0520G1!");
+        console.log("Bài thực hành đã hoàn thành.");
+    }
+</script>
+</body>
+</html>
