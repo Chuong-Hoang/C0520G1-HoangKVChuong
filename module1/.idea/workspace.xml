@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.HTMLFormAndTable/BaiTap/TaoFormLaySurveyKhachHang.html" beforeDir="false" afterPath="$PROJECT_DIR$/5.HTMLFormAndTable/BaiTap/TaoFormLaySurveyKhachHang.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,7 @@
       <workItem from="1590937683564" duration="1805000" />
       <workItem from="1590973798616" duration="448000" />
       <workItem from="1590975199692" duration="19946000" />
-      <workItem from="1591059856572" duration="9651000" />
+      <workItem from="1591059856572" duration="13973000" />
     </task>
     <servers />
   </component>

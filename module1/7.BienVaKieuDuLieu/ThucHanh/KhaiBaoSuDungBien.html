@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Variables</title>
+</head>
+<body>
+<p><b>Bài 1:&nbsp;</b>Khai báo các biến thuộc các kiểu khác nhau
+và bán giá trị cho chúng, in ra tài liệu HTML</p>
+<pre>
+    let i = 10;
+    let f = 20.5;
+    let b = true;
+    let s = 'Hà Nội';
+</pre>
+<p><b>Kết quả in ra màn hình:</b></p>
+<script>
+    //Khai báo các biến
+    let i = 10;
+    let f = 20.5;
+    let b = true;
+    let s = 'Hà Nội';
+    //Dùng hàm document.write() để viết kết quả ra màn hình
+    document.write("i = " + i);
+    document.write("<br/>");
+    document.write("f = " + f);
+    document.write("<br/>");
+    document.write("b = " + b);
+    document.write("<br/>");
+    document.write("s = " + s);
+</script>
+<p><b>Bài 2:&nbsp;</b>Viết mã JavaScript tính diện tích hình chữ nhật</p>
+<pre>
+    let width = 20;
+    let height = 40;
+    let area = width * height;
+    document.write("Area is " + area);
+</pre>
+<p><b>Kết quả in ra màn hình như sau:</b></p>
+<script>
+    let width = 20;
+    let height = 40;
+    let area = width * height;
+   document.write("Area is " + area);
+</script>
+<p><b>Bài 3:&nbsp;</b>Dùng hàm prompt() để gán biến</p>
+<pre>
+        let num1 = prompt("Nhập vào giá trị thứ nhất:");
+        let num2 = prompt("Nhập vào giá trị thứ hai:");
+        let m = num1%num2;
+        if(m==0) {
+            alert("num1 là bội số của num2.");
+        } else {
+            alert("num1 không phải là bội số của num2.");
+        }
+</pre>
+<script>
+    let num1 = prompt("Nhập vào giá trị thứ nhất:");
+    let num2 = prompt("Nhập vào giá trị thứ hai:");
+    let m = num1%num2;
+    if(m==0) {
+        alert("num1 là bội số của num2.");
+    } else {
+        alert("num1 không phải là bội số của num2.");
+    }
+</script>
+</body>
+</html>
