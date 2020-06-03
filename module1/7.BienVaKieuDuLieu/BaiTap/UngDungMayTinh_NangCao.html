@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+</head>
+<body>
+<p><b>&#9734 Ứng dụng máy tính &#9734</b></p>
+<form name="calculator" action="#" method="post">
+    <input type="number" name="input1" id="input1">
+    <input type="number" name="input2" id="input2"><br>
+    <br>
+    <button type="button" onclick="calculate('+');" id="butt1">Addition(+)</button>
+    <button type="button" onclick="calculate('-');" id="butt2">Subtraction(-)</button>
+    <button type="button" onclick="calculate('*');" id="butt3">Multiplication(x)</button>
+    <button type="button" onclick="calculate('/');" id="butt4">Division(/)</button><br>
+    <p style="font-weight:bold" id="output"></p>
+</form>
+<script>
+    function calculate(signal) {
+        let input1 = parseFloat(document.getElementById('input1').value);
+        let input2 = parseFloat(document.getElementById('input2').value);
+        let output = 0;
+        let cal = "";
+        if(signal == "+") {
+            output = input1 + input2;
+            cal = "Addition";
+        } else if(signal == "-") {
+            output = input1 - input2;
+            cal = "Subtraction";
+        } else if(signal == "*") {
+            output = input1 * input2;
+            cal = "Multiplication";
+        } else {
+            output = input1 / input2;
+            cal = "Division";
+        }
+        document.getElementById('output').innerHTML = "Result " + cal + ": " + output;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biến và kiểu dữ liệu</title>
+</head>
+<body>
+<p><b>&#9733; Bài tập 1:&nbsp;</b>Chương trình nhập điểm sinh viên</p>
+<pre>
+    let physics = prompt("Nhập điểm môn Lý:");
+    let chemistry = prompt("Nhập điểm môn Hóa:");
+    let math = prompt("Nhập điểm môn Toán:");
+    let physMark = parseInt(physics);
+    let chemMark = parseInt(chemistry);
+    let mathMark = parseInt(math);
+    let sum = (physMark + chemMark + mathMark);
+    let avg = sum/3;
+    document.write("Tổng điểm 3 môn là: " + sum);
+    document.write("Điểm trung bình là: " + avg);
+</pre>
+<p><mark>Kết quả in ra màn hình:</mark></p>
+<script>
+    // let physics = prompt("Nhập điểm môn Lý:");
+    // let chemistry = prompt("Nhập điểm môn Hóa:");
+    // let math = prompt("Nhập điểm môn Toán:");
+    // let physMark = parseFloat(physics);
+    // let chemMark = parseFloat(chemistry);
+    // let mathMark = parseFloat(math);
+    // let sum = (physMark + chemMark + mathMark);
+    // let avg = sum/3;
+    // document.write("Tổng điểm 3 môn là: " + sum + "<br/>");
+    // document.write("Điểm trung bình là: " + avg);
+</script>
+<br>
+<p><b>&#9733; Bài tập 2:&nbsp;</b>Chương trình chuyển đổi nhiệt độ</p>
+<pre>
+    let celsius = prompt("Nhập nhiệt độ thang Celsius:");
+    let celsiusDeg = parseInt(celsius);
+    let Fahr = (celsius*9/5) + 32;
+    document.write("Nhiệt độ thang Celsius là: " + celsiusDeg);
+    document.write("Nhiệt độ thang Fahrenheit là: " + Fahr);
+</pre>
+<p><mark>Kết quả in ra màn hình:</mark></p>
+<script>
+    // let celsius = prompt("Nhập nhiệt độ thang Celsius:");
+    // let celsiusDeg = parseInt(celsius);
+    // let fahr = (celsius*9/5) + 32;
+    // document.write("Nhiệt độ thang Celsius là: " + celsiusDeg +"<br/>");
+    // document.write("Nhiệt độ thang Fahrenheit là: " + fahr);
+</script>
+<br>
+<p><b>&#9733; Bài tập 3/4:&nbsp;</b>Chương trình tính diện tích và chu vi hình tròn</p>
+<pre>
+    let radius = prompt("Nhập vào bán kính:");
+    let rad = parseFloat(radius);
+    let circleArea = 3.14159*rad*rad;
+    let circlePerimeter = 3.14159*2*rad;
+    document.write("Bán kính hình tròn: " + rad + "<br/>");
+    document.write("Diện tích là: " + circleArea + "<br/>");
+    document.write("Chu vi là: " + circlePerimeter);
+</pre>
+<p><mark>Kết quả in ra màn hình:</mark></p>
+<script>
+    let radius = prompt("Nhập vào bán kính:");
+    let rad = parseFloat(radius);
+    let circleArea = 3.14159*rad*rad;
+    let circlePerimeter = 3.14159*2*rad;
+    document.write("Bán kính hình tròn: " + rad + "<br/>");
+    document.write("Diện tích là: " + circleArea + "<br/>");
+    document.write("Chu vi là: " + circlePerimeter);
+</script>
+<br>
+</body>
+</html>

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../caseStudy1.rar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -33,6 +34,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C0520G1-HoangKVChuong\module1\7.BienVaKieuDuLieu\BaiTap" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -55,6 +62,7 @@
       <workItem from="1590973798616" duration="448000" />
       <workItem from="1590975199692" duration="19946000" />
       <workItem from="1591059856572" duration="13973000" />
+      <workItem from="1591147001077" duration="18816000" />
     </task>
     <servers />
   </component>
@@ -70,5 +78,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="462" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1590896019675" />
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591149790899">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591149790899" />
   </component>
 </project>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CALCULATOR</title>
+</head>
+<body>
+<style>
+    button {
+        width: 35px;
+        height: 35px;
+        border: 1px ridge black;
+        margin-top: 3px;
+        margin-left: 6px;
+    }
+</style>
+<form name="calculator">
+    <input id="input" type="text" name="input"><br>
+    <br>
+    <button class="butt" id="b7" type="button" name="b7" value="7" onclick="bay()">7</button>
+    <button class="butt" id="b8" type="button" name="b8" value="8" onclick="tam()">8</button>
+    <button class="butt" id="b9" type="button" name="b9" value="9" onclick="chin()">9</button>
+    <button id="div" type="button" onclick="chia()" name="div" value="/">/</button><br><br>
+    <button class="butt" id="b4" type="button" name="b4" value="4" onclick="bon()">4</button>
+    <button class="butt" id="b5" type="button" name="b5" value="5" onclick="nam()">5</button>
+    <button class="butt" id="b6" type="button" name="b6" value="6" onclick="sau()">6</button>
+    <button id="mul" type="button" onclick="nhan()" name="mul" value="x">x</button><br><br>
+    <button class="butt" id="b1" type="button" name="b1" value="1" onclick="mot()">1</button>
+    <button class="butt" id="b2" type="button" name="b2" value="2" onclick="hai()">2</button>
+    <button class="butt" id="b3" type="button" name="b3" value="3" onclick="ba()">3</button>
+    <button id="sub" type="button" onclick="tru()" name="sub" value="-">-</button><br><br>
+    <button class="butt" id="b0" type="button" name="b0" value="0" onclick="khong()">0</button>
+    <button id="dot" type="button" name="dot" value="." onclick="dot()">.</button>
+    <button id="equal" type="button" onclick="bang()" name="equal" value="=" style="background-color:lightblue;">=</button>
+    <button id="add" type="button" onclick="cong()" name="add" value="+">+</button><br><br>
+</form>
+<script>
+    // function updateValue(num) {
+    //     let input = "";
+    //     if(num == "one") {input = input + 1;}
+    //     else if (num == 'two') {input = input + 2;}
+    //     else if (num == 'three') {input = input + 3;}
+    //     else if (num =='four') {input = input + 4;}
+    //     else if (num =='five') {input = input + 5;}
+    //     else if (num =='six') {input = input + 6;}
+    //     else if (num =='seven') {input = input + 7;}
+    //     else if (num =='eight') {input = input + 8;}
+    //     else if (num =='nine') {input = input + 9;}
+    //     else {input = input + 0;}
+    //     document.getElementById('input').value = input;
+    // }
+    function mot() {
+        document.getElementById('input').value += 1;
+    }
+    function hai() {
+        document.getElementById('input').value += 2;
+    }
+    function ba() {
+        document.getElementById('input').value += 3;
+    }
+    function bon() {
+        document.getElementById('input').value += 4;
+    }
+    function nam() {
+        document.getElementById('input').value += 5;
+    }
+    function sau() {
+        document.getElementById('input').value += 6;
+    }
+    function bay() {
+        document.getElementById('input').value += 7;
+    }
+    function tam() {
+        document.getElementById('input').value += 8;
+    }
+    function chin() {
+        document.getElementById('input').value += 9;
+    }
+    function khong() {
+        document.getElementById('input').value += 0;
+    }
+    function cong() {
+        document.getElementById('input').value += '+';
+    }
+    function tru() {
+        document.getElementById('input').value += '-';
+    }
+    function nhan() {
+        document.getElementById('input').value += '*';
+    }
+    function chia() {
+        document.getElementById('input').value += '/';
+    }
+    function dot() {
+        document.getElementById('input').value += '.';
+    }
+    function bang() {
+        let pt = document.getElementById('input').value;
+        let kq = eval(pt);
+        document.getElementById('input').value = kq;
+    }
+
+</script>
+</body>
+</html>
