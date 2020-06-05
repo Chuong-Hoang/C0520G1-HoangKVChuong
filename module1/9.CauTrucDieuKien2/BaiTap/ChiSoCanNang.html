@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chỉ số cân nặng</title>
+</head>
+<body>
+<form name="bmi" action="#" method="">
+    <label>Your weight</label>
+    <input id="weight" type="number" name="weight"><br><br>
+    <label>Your height</label>
+    <input id="height" type="number" name="height"><br><br>
+    <p id="result"></p>
+    <input type="button" onclick="check()" name="check_health" value="Check Health">
+</form>
+<script>
+    function check() {
+        let weight = parseInt(document.getElementById('weight').value);
+        let height = parseFloat(document.getElementById('height').value);
+        let bmi = weight / (height * height);
+        let message = ''
+        if (bmi >= 30) {
+            message = 'obese';
+        } else if (bmi >= 25) {
+            message = 'overweight';
+        } else if (bmi >= 18.5) {
+            message = 'normal';
+        } else {
+            message = 'underweight';
+        }
+        document.getElementById('result').innerHTML = "<b>Result:</b>" + " " + message;
+    }
+</script>
+</body>
+</html>

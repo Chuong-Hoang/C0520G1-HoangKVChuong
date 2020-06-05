@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama Resort</title>
+</head>
+<body>
+<button type="button" onclick="addNewCustomer()">Add New Customer</button>
+<button type="button" onclick="display()">Display Customer Information</button>
+<script>
+    function addNewCustomer() {
+        location.reload();
+    }
+</script>
+<script>
+        let customerName = prompt("1.Customer name: ");
+        let idNumber = prompt("2.Customer's ID: ");
+        let birthDay = prompt("3.Customer's DOB: ");
+        let email = prompt("4.Customer's email: ");
+        let addr = prompt("5.Customer's address: ");
+        let customerType = prompt("6.Customer type: ");
+        let discount = prompt("7.Discount(%): ");
+        let peopleIncluded = prompt("8.People stay with customer: ");
+        let rentDays = prompt("9.Rent days: ");
+        let serviceType = prompt("10.Service Type: ");
+        let roomClass = prompt("11.Accommodation class: ");
+        let villa = 500;
+        let house = 300;
+        let room = 100;
+        let price = 0;
+        let totalAmount = 0;
+        // Calculate totalAmount based on discount and service type:
+        if (serviceType == 'Villa') {
+            price = villa;
+        } else if (serviceType == 'House') {
+            price = house;
+        } else {
+            price = room;
+        }
+        totalAmount = price * rentDays * (1 - discount/100);
+
+    function display() {
+        alert("CUSTOMER INFORMATION" + "\n" +
+            "1.Customer name: " + customerName + "\n" +
+            "2.Customer's ID: " + idNumber +"\n" +
+            "3.Customer's DOB: " + birthDay + "\n" +
+            "4.Customer's email: " + email + "\n" +
+            "5.Customer's address: " + addr + "\n" +
+            "6.Customer type: " + customerType + "\n" +
+            "7.Discount (%): " + discount + "\n" +
+            "8.People stay with customer: " + peopleIncluded + "\n" +
+            "9.Rent days: " + rentDays + "\n" +
+            "10.Service Type: " + serviceType + "\n" +
+            "11.Accommodation class: " + roomClass + "\n" +
+            "12.Price before discount ($/day): " + price + "\n" +
+            "12.Total Amount ($): " + totalAmount + "\n"
+        );
+    }
+</script>
+
+</body>
+</html>

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../caseStudy1/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../caseStudy1/Check List CaseStudy C0520G1.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/Calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/Calculator.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +42,20 @@
       <recent name="D:\C0520G1-HoangKVChuong\module1\7.BienVaKieuDuLieu\BaiTap" />
     </key>
   </component>
+  <component name="RunManager" selected="JavaScript Debug.test.html">
+    <configuration name="GoodFastCheap.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Module1/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Module1/9.CauTrucDieuKien2/BaiTap/test.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.test.html" />
+        <item itemvalue="JavaScript Debug.GoodFastCheap.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -65,7 +78,11 @@
       <workItem from="1590975199692" duration="19946000" />
       <workItem from="1591059856572" duration="13973000" />
       <workItem from="1591147001077" duration="18816000" />
-      <workItem from="1591189696456" duration="871000" />
+      <workItem from="1591189696456" duration="2585000" />
+      <workItem from="1591193119893" duration="5506000" />
+      <workItem from="1591237427151" duration="12927000" />
+      <workItem from="1591277455097" duration="7995000" />
+      <workItem from="1591319282458" duration="22686000" />
     </task>
     <servers />
   </component>
@@ -77,13 +94,99 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1590827043274" />
-    <state x="462" y="111" key="FileChooserDialogImpl" timestamp="1590896019675">
+    <state x="462" y="111" key="FileChooserDialogImpl" timestamp="1591192424955">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="462" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1590896019675" />
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591149790899">
+    <state x="462" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1591192424955" />
+    <state width="833" height="222" key="GridCell.Tab.0.bottom" timestamp="1591353381213">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591149790899" />
+    <state width="833" height="222" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.0.center" timestamp="1591353381212">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1591353381212" />
+    <state width="833" height="222" key="GridCell.Tab.0.left" timestamp="1591353381212">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1591353381212" />
+    <state width="833" height="222" key="GridCell.Tab.0.right" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.1.bottom" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.1.center" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.1.left" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.1.right" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.2.bottom" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state width="833" height="222" key="GridCell.Tab.2.center" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state width="833" height="222" key="GridCell.Tab.2.left" timestamp="1591353381213">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1591353381213" />
+    <state width="833" height="222" key="GridCell.Tab.2.right" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state width="833" height="222" key="GridCell.Tab.3.bottom" timestamp="1591353381215">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.3.bottom/0.0.1366.738@0.0.1366.738" timestamp="1591353381215" />
+    <state width="833" height="222" key="GridCell.Tab.3.center" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.3.center/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state width="833" height="222" key="GridCell.Tab.3.left" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.3.left/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state width="833" height="222" key="GridCell.Tab.3.right" timestamp="1591353381214">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="833" height="222" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1591319512049">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591319512049" />
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591194911389">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591194911389" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html</url>
+          <line>19</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/test.html</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

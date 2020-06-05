@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Puzzle</title>
+</head>
+<body>
+<style>
+    img {
+        width: 450px;
+        height: 120px;
+        border: 2px solid white;
+    }
+</style>
+<button onclick="change1()"><img id ="img1" src="images/panda1.jpg" alt="panda"></button><br>
+<button onclick="change2()"><img id ="img2" src="images/cat2.jpg" alt="panda"></button><br>
+<button onclick="change3()"><img id ="img3" src="images/panda3.jpg" alt="panda"></button><br>
+<button onclick="change4()"><img id ="img4" src="images/cat4.jpg" alt="panda"></button><br>
+<button onclick="change5()"><img id ="img5" src="images/monkey5.jpg" alt="panda"></button><br>
+<script>
+    function checkImg() {
+        let img1 = document.getElementById('img1').getAttribute('src');
+        let img2 = document.getElementById('img2').getAttribute('src');
+        let img3 = document.getElementById('img3').getAttribute('src');
+        let img4 = document.getElementById('img4').getAttribute('src');
+        let img5 = document.getElementById('img5').getAttribute('src');
+        if ((img1 == "images/panda1.jpg" && img2 == "images/panda2.jpg" && img3 == "images/panda3.jpg"
+            && img4 == "images/panda4.jpg" && img5 == "images/panda5.jpg") ||
+            (img1 == "images/cat1.jpg" && img2 == "images/cat2.jpg" && img3 == "images/cat3.jpg"
+            && img4 == "images/cat4.jpg" && img5 == "images/cat5.jpg") ||
+            (img1 == "images/monkey1.jpg" && img2 == "images/monkey2.jpg" && img3 == "images/monkey3.jpg"
+                && img4 == "images/monkey4.jpg" && img5 == "images/monkey5.jpg")) {
+            for (let i = 0; i < 5; i++) {
+                document.getElementsByTagName('img')[i].style.borderColor = "red";
+            }
+        } else {
+            for (let i = 0; i < 5; i++) {
+                document.getElementsByTagName('img')[i].style.borderColor = "white";
+            }
+        }
+    }
+    function change1() {
+        let img1 = document.getElementById('img1').getAttribute('src');
+        if (img1 == "images/panda1.jpg") {
+            document.getElementById('img1').src = "images/cat1.jpg";
+        } else if (img1 == "images/cat1.jpg") {
+            document.getElementById('img1').src = "images/monkey1.jpg";
+        } else {
+            document.getElementById('img1').src = "images/panda1.jpg";
+        }
+        checkImg();
+    }
+    function change2() {
+        let img2 = document.getElementById('img2').getAttribute('src');
+        if (img2 == "images/panda2.jpg") {
+            document.getElementById('img2').src = "images/cat2.jpg";
+        } else if (img2 == "images/cat2.jpg") {
+            document.getElementById('img2').src = "images/monkey2.jpg";
+        } else {
+            document.getElementById('img2').src = "images/panda2.jpg";
+        }
+        checkImg();
+    }
+    function change3() {
+        let img3 = document.getElementById('img3').getAttribute('src');
+        if (img3 == "images/panda3.jpg") {
+            document.getElementById('img3').src = "images/cat3.jpg";
+        } else if (img3 == "images/cat3.jpg") {
+            document.getElementById('img3').src = "images/monkey3.jpg";
+        } else {
+            document.getElementById('img3').src = "images/panda3.jpg";
+        }
+        checkImg();
+    }
+    function change4() {
+        let img4 = document.getElementById('img4').getAttribute('src');
+        if (img4 == "images/panda4.jpg") {
+            document.getElementById('img4').src = "images/cat4.jpg";
+        } else if (img4 == "images/cat4.jpg") {
+            document.getElementById('img4').src = "images/monkey4.jpg";
+        } else {
+            document.getElementById('img4').src = "images/panda4.jpg";
+        }
+        checkImg();
+    }
+    function change5() {
+        let img5 = document.getElementById('img5').getAttribute('src');
+        if (img5 == "images/panda5.jpg") {
+            document.getElementById('img5').src = "images/cat5.jpg";
+        } else if (img5 == "images/cat5.jpg") {
+            document.getElementById('img5').src = "images/monkey5.jpg";
+        } else {
+            document.getElementById('img5').src = "images/panda5.jpg";
+        }
+        checkImg();
+    }
+</script>
+</body>
+</html>

@@ -34,6 +34,7 @@
     <button type="button" name="dot" value="." onclick="cham()">.</button>
     <button type="button" onclick="bang()" name="equal" value="=" style="background-color:lightblue;">=</button>
     <button type="button" onclick="cong()" name="add" value="+">+</button><br><br>
+    <button type="button" onclick="xoa()" name="clear" value="CLEAR ALL" style="width:170px;">CLEAR ALL</button>
 </form>
 <script>
     function mot() {
@@ -86,7 +87,9 @@
         let kq = eval(pt);
         document.getElementById('input').value = kq;
     }
-
+    function xoa() {
+        document.getElementById('input').value = '';
+    }
 </script>
 </body>
 </html>

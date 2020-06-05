@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Event</title>
+</head>
+<body>
+<form>
+    <img id="myImage" src="images/horse.jpg" style="height: 300px; width: 500px; border-radius: 50%;" />
+    <p>Click the buttons below to move the image to right or left</p>
+    <input type="button" onclick="moveLeft()" value="<<" />
+    <input type="button" onclick="moveRight()" value=">>" />
+</form>
+<script>
+    let imgObj = null;
+    function init() {
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+    }
+    window.onload = init;
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 20 + 'px';
+    }
+    function moveLeft() {
+        if (parseInt(imgObj.style.left) > 0) {
+            imgObj.style.left = parseInt(imgObj.style.left) - 20 + 'px';
+        }
+    }
+</script>
+<script>
+    let $name = 'Chuong Hoang';
+    alert($name);
+</script>
+</body>
+</html>

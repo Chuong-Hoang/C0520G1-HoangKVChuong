@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toán tử ba ngôi</title>
+</head>
+<body>
+<p><b>&#9734; Bài 1:&nbsp;</b>Sum of two numbers</p>
+<pre>
+    let a = parseInt(prompt("Enter a value:"));
+    let b = parseInt(prompt("Enter another value:"));
+    let result = (a + b > 4)? 'Over' : 'Below';
+    alert("Result is " + result + " " + 4);
+</pre>
+<p><b>&#9734; Bài 2:&nbsp;</b>Enter value of string</p>
+<pre>
+    let pos = prompt("Enter your position:");
+    let message = (pos =='Employee') ? 'Hello' :
+        ((pos == 'Director') ? 'Greetings' :
+            ((pos == '') ? 'No login' : ''))
+    alert(message);
+</pre>
+<script>
+    let a = parseInt(prompt("Enter a value:"));
+    let b = parseInt(prompt("Enter another value:"));
+    let result = (a + b > 4)? 'Over' : 'Below';
+    alert("Result is " + result + " " + 4);
+</script>
+<script>
+    let pos = prompt("Enter your position:");
+    let message = (pos =='Employee') ? 'Hello' :
+        ((pos == 'Director') ? 'Greetings' :
+            ((pos == '') ? 'No login' : ''))
+    alert(message);
+
+</script>
+</body>
+</html>

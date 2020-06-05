@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you love me?</title>
+</head>
+<body>
+
+<form name="form">
+    <h2>Do you love me?</h2>
+    <button name="yes" onclick="accept();" type="button" value="yes">YES</button>
+
+    <input id="butt" name="no" onmouseover="reject();" type="button" value="NO" style="position: absolute; left: 80px; top:67px;">
+</form>
+<script>
+    function accept() {
+        alert('<3');
+    }
+    function reject() {
+        let x = window.innerWidth * Math.random();
+        let y = window.innerHeight * Math.random();
+        let element = document.getElementById('butt');
+        element.style.left = x +'px';
+        element.style.top = y +'px';
+    }
+</script>
+</body>
+</html>

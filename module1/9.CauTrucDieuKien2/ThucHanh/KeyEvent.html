@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện nhấn phím</title>
+</head>
+<body onload="doReady();">
+<img id="myImage" src="images/horse.jpg" style="position:absolute; left:0; top:0; width:450px; height:300px;">
+<script>
+    function upArrowPressed() {
+        let element = document.getElementById('myImage');
+        if (parseInt(element.style.top) > 0) {
+            element.style.top = parseInt(element.style.top) - 5 + 'px';
+        }
+    }
+    function downArrowPressed() {
+        let element = document.getElementById('myImage');
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
+    }
+    function leftArrowPressed() {
+        let element = document.getElementById('myImage');
+        if (parseInt(element.style.left) > 0) {
+            element.style.left = parseInt(element.style.left) - 5 + 'px';
+        }
+    }
+    function rightArrowPressed() {
+        let element = document.getElementById('myImage');
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+    }
+    function home() {
+        let element = document.getElementById('myImage');
+        element.style.left = 0;
+        element.style.top = 0;
+    }
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+            case 27:
+                home();
+                break;
+        }
+    }
+    function doReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+
+</script>
+</body>
+</html>

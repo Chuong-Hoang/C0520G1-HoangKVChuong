@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama Resort Management</title>
+</head>
+<body>
+<style>
+    label {
+        font-weight: normal;
+        font-style: italic;
+        color: blue;
+    }
+</style>
+<form name="customer_info" action="#" method="">
+    <h3>CUSTOMER INFORMATION</h3>
+    <label>1.Customer's name</label>
+    <input id="name" type="text" name="name" value="Chuong"><br><br>
+
+    <label>2.ID Number</label>
+    <input id="id" type="number" name="id" value="123456"><br><br>
+
+    <label>3.Birthday</label>
+    <input id="bd" type="date" name="bd" value="20/04/1988"><br><br>
+
+    <label>4.Email</label>
+    <input id="email" type="text" name="email" value="chuonghoang@gmail.com"><br><br>
+
+    <label>5.Address</label>
+    <input id="add" type="text" name="add" value="Da Nang"><br><br>
+
+    <label>6.Customer Type</label>
+    <select id="customer_type" name="customer_type">
+        <option value="diamond">Diamond</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="member" selected>Member</option>
+    </select><br><br>
+
+    <label>7.Service Type</label>
+    <input type="radio" name="service_type" value="villa">Villa
+    <input type="radio" name="service_type" value="house">House
+    <input type="radio" name="service_type" value="room" checked>Room
+    <br><br>
+
+    <label>8.Room Class</label>
+    <input type="radio" name="room_class" value="vip" checked>Vip
+    <input type="radio" name="room_class" value="business">Business
+    <input type="radio" name="room_class" value="normal">Normal
+    <br><br>
+
+    <label>9.People Included</label>
+    <input id="people_included" type="number" name="people_included" value="3"><br><br>
+
+    <label>10.Rent days quantity</label>
+    <input id="rent_days" type="number" name="rent_days" value="7"><br><br>
+
+    <label>11.Discount</label>
+    <input id="discount" type="number" name="discount" value="20"><br><br>
+
+    <input id="save" onclick="display();" type="button" name="save" value="Save Booking Information">
+
+</form>
+<script>
+    let customerName = document.getElementById('name').value;
+    let idNumber = document.getElementById('id').value;
+    let birthDay = document.getElementById('bd').value;
+    let email = document.getElementById('email').value;
+    let addr = document.getElementById('add').value;
+    let customerType = document.getElementById('customer_type').value;
+    let discount = document.getElementById('discount').value;
+    let peopleIncluded = document.getElementById('people_included').value;
+    let rentDays = document.getElementById('rent_days').value;
+    let serviceType = document.getElementById('service_type').value;
+    let roomClass = document.getElementById('room_class').value;
+    let villa = 500;
+    let house = 300;
+    let room = 100;
+    let price = 0;
+    let totalAmount = 0;
+    // Calculate totalAmount based on discount and service type:
+    if (serviceType == 'Villa') {
+        price = villa;
+    } else if (serviceType == 'House') {
+        price = house;
+    } else {
+        price = room;
+    }
+    totalAmount = price * rentDays * (1 - discount/100);
+
+    function display() {
+        alert("CUSTOMER INFORMATION" + "\n"+
+             "1.Customer name: " + customerName+ "\n" +
+             "2.Customer's ID: " + idNumber +"\n" +
+             "3.Customer's DOB: " + birthDay + "\n" +
+             "4.Customer's email: " + email + "\n" +
+             "5.Customer's address: " + addr + "\n" +
+             "6.Customer type: " + customerType + "\n" +
+             "7.Discount (%): " + discount + "\n" +
+             "8.People stay with customer: " + peopleIncluded + "\n" +
+             "9.Rent days: " + rentDays + "\n"); //+
+            // "10.Service Type: " + serviceType + "\n" );//+
+            // "11.Accommodation class: " + roomClass + "\n" +
+            // "12.Price before discount ($/day): " + price + "\n" +
+            // "12.Total Amount ($): " + totalAmount + "\n"
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu lệnh switch case</title>
+</head>
+<body>
+<p><b>&#9734; Bài tập 1:&nbsp;</b>switch-case and if else if</p>
+<button type="button" onclick="location.reload()">Check Browser</button>
+<pre>
+  let browser = prompt("Enter your browser name:");
+    switch (browser) {
+        case 'Edge':
+            alert("You've got the Edge!");
+            break;
+        case 'Chrome':
+        case 'Firefox':
+        case 'Safari':
+        case 'Opera':
+            alert("Okey, we support these browsers too");
+            break;
+        default:
+            alert("We hope that this page looks ok!");
+    }
+</pre>
+<br>
+<p><b>&#9734; Bài tập 2:&nbsp;</b> Rewrite if-programme with switch-case</p>
+<pre>
+  let a = parseInt(prompt('a?', ''));
+    switch (a) {
+        case 0:
+            alert(0);
+            break;
+        case 1:
+            alert(1);
+            break;
+        case 2:
+        case 3:
+            alert('2,3');
+            break;
+    }
+</pre>
+<br>
+<p><b>&#9734; Bài tập 3:&nbsp;</b>Using if-else structure</p>
+<pre>
+    let value = parseInt(prompt("Enter a number:"));
+    if (value > 0) {
+        alert(1);
+    } else if (value < 0) {
+        alert(-1);
+    } else {
+        alert(0);
+    }
+</pre>
+<script>
+    let browser = prompt("Enter your browser name:");
+    switch (browser) {
+        case 'Edge':
+            alert("You've got the Edge!");
+            break;
+        case 'Chrome':
+        case 'Firefox':
+        case 'Safari':
+        case 'Opera':
+            alert("Okey, we support these browsers too");
+            break;
+        default:
+            alert("We hope that this page looks ok!");
+    }
+</script>
+<br>
+<script>
+let a = parseInt(prompt('a?', ''));
+switch (a) {
+    case 0:
+    alert(0);
+    break;
+    case 1:
+    alert(1);
+    break;
+    case 2:
+    case 3:
+    alert('2,3');
+    break;
+}
+</script>
+<br>
+<script>
+    let value = parseInt(prompt("Enter a number:"));
+    if (value > 0) {
+        alert(1);
+    } else if (value < 0) {
+        alert(-1);
+    } else {
+        alert(0);
+    }
+</script>
+</body>
+</html>

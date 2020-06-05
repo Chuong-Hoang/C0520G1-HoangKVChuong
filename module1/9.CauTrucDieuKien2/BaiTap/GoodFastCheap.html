@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Good Fast Cheap</title>
+</head>
+<body>
+<input type="radio" id="good" value="good" onclick="check('good')">GOOD<br>
+<br>
+<input type="radio" id="fast" value="fast" onclick="check('fast')">FAST<br>
+<br>
+<input type="radio" id="cheap" value="cheap" onclick="check('cheap')">CHEAP<br>
+<script>
+    function check(choose) {
+        let objGood = document.getElementById('good');
+        let objFast = document.getElementById('fast');
+        let objCheap = document.getElementById('cheap');
+
+        let turn = true;
+        if (choose == 'good') {
+            if (turn == true) {
+                objGood.checked = true;
+                goodValue = true;
+                if (objFast.checked && objCheap.checked) {
+                    objFast.checked = false;
+                }
+                turn = false;
+            } else {
+                objGood.checked = false;
+            }
+
+        }
+
+        if(choose == 'cheap') {
+            if (objFast.checked && objGood.checked) {
+                objGood.checked = false;
+            }
+        }
+
+        if(choose == 'fast') {
+            if (objGood.checked && objCheap.checked) {
+                objCheap.checked = false;
+            }
+        }
+
+    }
+</script>
+</body>
+</html>
