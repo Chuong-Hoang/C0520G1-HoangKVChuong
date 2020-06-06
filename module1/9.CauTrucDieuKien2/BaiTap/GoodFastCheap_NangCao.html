@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Good Fast Cheap</title>
+    <title>Good Fast Cheap Nang Cao</title>
 </head>
 <body>
 <input type="radio" id="good" value="good" onclick="check('good')">GOOD<br>
@@ -10,27 +10,44 @@
 <input type="radio" id="fast" value="fast" onclick="check('fast')">FAST<br>
 <br>
 <input type="radio" id="cheap" value="cheap" onclick="check('cheap')">CHEAP<br>
+<br>
+<p><b>Count:&nbsp;</b><span id="sp"></span></p>
 <script>
+    let count = 0;
+
     function check(choose) {
         let objGood = document.getElementById('good');
         let objFast = document.getElementById('fast');
         let objCheap = document.getElementById('cheap');
 
+
         if (choose == 'good') {
-            if (objFast.checked && objCheap.checked) {
+            if (count == 0) {
+
+                if (objFast.checked && objCheap.checked) {
                     objFast.checked = false;
+                    count = 1;
+                }
+
+            } else {
+                count = 0;
+                objGood.checked = false;
+                objFast.checked = true;
+                objCheap.checked = true;
+
+            }
+            document.getElementById('sp').innerHTML = count;
+        }
+
+        if(choose == 'fast') {
+            if (objGood.checked && objCheap.checked) {
+                objCheap.checked = false;
             }
         }
 
         if(choose == 'cheap') {
             if (objFast.checked && objGood.checked) {
                 objGood.checked = false;
-            }
-        }
-
-        if(choose == 'fast') {
-            if (objGood.checked && objCheap.checked) {
-                objCheap.checked = false;
             }
         }
     }

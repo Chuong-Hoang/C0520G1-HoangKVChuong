@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/Calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/Calculator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html" beforeDir="false" afterPath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/test.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +35,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C0520G1-HoangKVChuong\module1\9.CauTrucDieuKien2\BaiTap" />
       <recent name="D:\C0520G1-HoangKVChuong\module1\7.BienVaKieuDuLieu\BaiTap" />
     </key>
   </component>
@@ -83,6 +84,8 @@
       <workItem from="1591237427151" duration="12927000" />
       <workItem from="1591277455097" duration="7995000" />
       <workItem from="1591319282458" duration="22686000" />
+      <workItem from="1591365688271" duration="7914000" />
+      <workItem from="1591407548707" duration="4695000" />
     </task>
     <servers />
   </component>
@@ -94,6 +97,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="418" y="172" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738@0.0.1366.738" timestamp="1590827043274" />
+    <state x="666" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591409650090">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="666" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1591409650090" />
     <state x="462" y="111" key="FileChooserDialogImpl" timestamp="1591192424955">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -162,31 +169,13 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="833" height="222" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
-    <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1591319512049">
+    <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1591407583309">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591319512049" />
+    <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591407583309" />
     <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591194911389">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591194911389" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html</url>
-          <line>19</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/test.html</url>
-          <line>14</line>
-          <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

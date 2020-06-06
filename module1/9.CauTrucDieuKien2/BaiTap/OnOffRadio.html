@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="radio" id="element" onclick="turn()">&nbsp;&nbsp;<label id="lb">OFF</label>
+<p>Count:&nbsp;<span id="sp"></span></p>
+<script>
+    let radioObj = document.getElementById('element');
+    let count = 0;
+    function turn() {
+        if (count == 0) {
+            //radioObj.checked = true; => default
+            count = 1;
+            document.getElementById('lb').innerHTML = 'ON';
+        } else {
+            radioObj.checked = false;
+            count = 0;
+            document.getElementById('lb').innerHTML = 'OFF';
+        }
+        document.getElementById('sp').innerHTML = count;
+
+    }
+
+</script>
+</body>
+</html>
