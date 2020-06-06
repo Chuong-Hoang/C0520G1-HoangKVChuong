@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cấu trúc điều kiện 2</title>
+</head>
+<style>
+    label {
+        font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif;
+        color: blue;
+        font-size: 14px;
+    }
+    input[type = button] {
+        color: red;
+        font-weight: bold;
+        background-color: whitesmoke;
+        border: 3px outset lavender;
+    }
+</style>
+<body>
+<p><b>Bài 1: Chuyển từ độ C sang độ F</b></p>
+<label>From degree: &nbsp;</label>
+<input id="input" type="number" name="input">
+<select id="from">
+    <option>C</option>
+    <option>F</option>
+</select><br><br>
+<label>Change to degree: &nbsp;</label>
+<select id="to">
+    <option>F</option>
+    <option>C</option>
+</select><br><br>
+<input type="button" name="change" onclick="convert()" value="CONVERT">
+<label>&nbsp; <b>Result:</b>&nbsp;<span id="output"></span></label>
+<script>
+    //---------Bai 1:
+    function convert() {
+        let input = parseInt(document.getElementById('input').value);
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        let output = document.getElementById('output');
+        if (from == 'C' && to == 'F') {
+            output.innerHTML = (input * 9 / 5) + 32;
+        } else if (from == 'F' && to == 'C') {
+            output.innerHTML = (input - 32)/(9/5);
+        } else {
+            output.innerHTML = input;
+        }
+    }
+</script>
+<p><b>Bài 2: Chuyển từ hệ mét sang hệ feet</b></p>
+<label>From system</label>
+<select id="fromSys">
+    <option>m</option>
+    <option>ft</option>
+</select>
+<input type="number" id="in" name="inputNum"><br><br>
+<input type="button" name="convert" onclick="change()" value="Change Into">
+<br><br>
+<label>System</label>
+<select id="toSys">
+    <option>ft</option>
+    <option>m</option>
+</select>
+<input type="number" id="out" name="outputNum"><br><br>
+<script>
+    function change() {
+        let inputNum = parseFloat(document.getElementById('in').value);
+        let fromSystem = document.getElementById('fromSys').value;
+        let toSystem = document.getElementById('toSys').value;
+        let outputNum = document.getElementById('out');
+        if ( fromSystem == 'm' && toSystem == 'ft') {
+            outputNum.value = inputNum / 3.2808;
+        } else if (fromSystem == 'ft' && toSystem == 'm') {
+            outputNum.value = inputNum * 3.2808;
+        } else {
+            outputNum.value = inputNum;
+        }
+    }
+</script>
+<p><b>Bài 3: Tính diện tích hình vuông có cạnh bằng a</b></p>
+<label>Square Dimension &nbsp;</label>
+<input type="number" id="length" name="dimension"><br><br>
+<input type="button" onclick="areaCal()" name="squareArea" value="Area Calculate" style="font-weight: bold;color:red;">
+<input type="text" id="area" name="area">
+<script>
+    function areaCal() {
+        let length = parseFloat(document.getElementById('length').value);
+        let area = document.getElementById('area');
+        if (length > 0) {
+            area.value = length * length;
+        } else {
+            area.value = "Invalid length";
+        }
+    }
+</script>
+<p><b>Bài 4: Tính diện tích hình chữ nhật</b></p>
+<label>The first dimension a = </label>
+<input type="number" id = 'firstDim' name="firstDim"><br><br>
+<label>The second dimension b = </label>
+<input type="number" id = 'secondDim' name="secondDim"><br><br>
+<input type="button" id="choose" onclick="areaIs()" name="calculate" value="Rectangle Area">
+<input type="text" id="result" name="area">
+<script>
+    function areaIs() {
+        let firstDim = parseFloat(document.getElementById('firstDim').value);
+        let secondDim = parseFloat(document.getElementById('secondDim').value);
+        let result = document.getElementById('result');
+        if (firstDim > 0 && secondDim > 0) {
+            result.value = firstDim * secondDim;
+        } else {
+            result.value = "Invalid dimension"
+        }
+    }
+</script>
+<p><b>Bài 5: Tính diện tích tam giác vuông có cạnh kề a, b</b></p>
+<label>The first length: </label>
+<input type="number" id = 'firstLen' name="firstLen"><br><br>
+<label>The second length: </label>
+<input type="number" id = 'secondLen' name="secondLen"><br><br>
+<input type="button" id="areaResult" onclick="areaTriangle()" name="calculation" value="Triangle Area">
+<input type="text" id="resultArea" name="area">
+<script>
+    function areaTriangle() {
+        let firstLen = parseFloat(document.getElementById('firstLen').value);
+        let secondLen = parseFloat(document.getElementById('secondLen').value);
+        let resultArea = document.getElementById('resultArea');
+        if (firstLen > 0 && secondLen > 0) {
+            resultArea.value = firstLen * secondLen / 2;
+        } else {
+            resultArea.value = "---Invalid dimension---";
+        }
+    }
+</script>
+<p><b>Bài 6: Giải phương trình bậc nhất</b></p>
+<label>Equation: ax + b = 0</label><br><br>
+<label>a = </label>
+<input type="number" id="para1" name="para1"><br><br>
+<label>b = </label>
+<input type="number" id="para2" name="para2"><br><br>
+<input type="button" onclick="solution()" value="Solution"><br><br>
+<label>x = </label>
+<input type="text" id="variableX" name="variableX"><br><br>
+<script>
+    function solution() {
+        let a = parseFloat(document.getElementById('para1').value);
+        let b = parseFloat(document.getElementById('para2').value);
+        let variableX = document.getElementById('variableX');
+        if (a == 0) {
+            if (b == 0) {
+                variableX.value = 'Every Number!';
+            } else {
+                variableX.value = 'No number is valid';
+            }
+        } else {
+            variableX.value = - (b / a);
+        }
+    }
+</script>
+<p><b>Bài 7: Giải phương trình bậc hai</b></p>
+<label>Equation: ax<sup>2</sup> + bx + c = 0</label><br><br>
+<label>a = </label>
+<input type="number" id="paraA" name="parameter1"><br><br>
+<label>b = </label>
+<input type="number" id="paraB" name="parameter2"><br><br>
+<label>c = </label>
+<input type="number" id="paraC" name="parameter3"><br><br>
+<input type="button" onclick="solve()" value="Solve It"><br><br>
+<label>x<sub>1</sub> = </label>
+<input type="text" id="result1" name="result1"><br><br>
+<label>x<sub>2</sub> = </label>
+<input type="text" id="result2" name="result2"><br><br>
+<script>
+    function solve() {
+        let a1 = parseFloat(document.getElementById('paraA').value);
+        let b1 = parseFloat(document.getElementById('paraB').value);
+        let c1 = parseFloat(document.getElementById('paraC').value);
+        let result1 = document.getElementById('result1');
+        let result2 = document.getElementById('result2');
+        if (a1 == 0) {
+            result1.value = '--a is not a valid value';
+            result2.value = '--a is not a valid value';
+        } else {
+            let delta = (b1 * b1) - (4 * a1 * c1);
+            if (delta < 0 ) {
+                result1.value = 'No number is valid';
+                result2.value = 'No number is valid';
+            } else if ( delta == 0) {
+                result1.value = - (b1 / (2 * a1));
+                result2.value = result1.value;
+            } else {
+                result1. value = (-b1 - Math.sqrt(delta)) / (2 * a1);
+                result2. value = (-b1 + Math.sqrt(delta)) / (2 * a1);
+            }
+        }
+    }
+</script>
+<p><b>Bài 8: Kiểm tra tuổi hợp lệ</b></p>
+<label>Input age:</label>
+<input type="text" id="age" name="age"><br><br>
+<input type="button" onclick="testAge()" value="Test Age">
+<input type="text" id="testResult" name="test"><br>
+<p id="ppp"></p>
+<script>
+    function testAge() {
+        let age = parseInt(document.getElementById('age').value);
+        let testResult = document.getElementById('testResult');
+        let isNumber = (typeof(age) == 'number');
+        if(isNumber) {
+            if(age > 0 && age < 120) {
+                testResult.value = 'This age is valid';
+            } else {
+                testResult.value = 'This age is NOT valid';
+            }
+        }
+        document.getElementById('ppp').innerHTML = "Input data: " + "<b>"
+            + age + "</b>";
+    }
+</script>
+<p><b>Bài 9: Kiểm tra 3 cạnh tam giác</b></p>
+<label>Số thứ nhất: </label>
+<input id="s1" type="number" name="so1"><br><br>
+<label>Số thứ hai: </label>
+<input id="s2" type="number" name="so2"><br><br>
+<label>Số thứ ba: </label>
+<input id="s3" type="number" name="so3"><br><br>
+<input id="try" type="button" onclick="tryIt()" value="Kiểm tra">
+<label>Kết quả:</label>
+<input id="endResult" type="text" name="endResult">
+<script>
+    function  tryIt() {
+        let s1 = parseInt(document.getElementById('s1').value);
+        let s2 = parseInt(document.getElementById('s2').value);
+        let s3 = parseInt(document.getElementById('s3').value);
+        let endResult = document.getElementById('endResult');
+        let msg1 = "là cạnh của 1 tam giác";
+        let msg2 = "không là cạnh 1 tam giác";
+        if (s1 > 0 && s2 > 0 && s3 > 0) {
+            let isValid = ((s1 + s2 > s3) && (s2 + s3 > s1) && (s1 + s3 > s2));
+            if(isValid) {
+                endResult.value = msg1;
+            } else {
+                endResult.value = msg2;
+            }
+        } else {
+            endResult.value = msg2;
+        }
+    }
+</script>
+<p><b>Bài 10: Chương trình tính giá điện</b></p>
+<label>Customer Type:</label>
+<input type="radio" name="rd" id="household" value="household">Household
+<input type="radio" name="rd" id="business" value="business">Business
+<br><br>
+<label>Consumed Quantity:</label>
+<input type="text" id="qty" name="quantity"><br><br>
+<label>Unit price:</label>
+<select id="price" name="price">
+    <option>2000</option>
+    <option>3000</option>
+    <option>3500</option>
+    <option>4000</option>
+</select>
+<br><br>
+<label>Total amount</label>
+<input type="text" id="amount" name="amount"><br><br>
+<input type="button" id="calculation" onclick="calcTotalAmount()" value="TOTAL AMOUNT">
+<script>
+    function calcTotalAmount() {
+        let household = document.getElementById('household');
+        let business = document.getElementById('business');
+        let qty = parseInt(document.getElementById('qty').value);
+        let price = document.getElementById('price');
+        let amount = document.getElementById('amount');
+        if(household.checked) {
+            if(qty >= 300) {
+                price.value = 3000;
+            } else {
+                price.value = 2000;
+            }
+        } else if (business.checked) {
+            if(qty >= 1000) {
+                price.value = 4000;
+            } else {
+                price.value = 3500;
+            }
+        } else {
+            price.value = 0;
+        }
+        amount.value = qty * price.value;
+    }
+</script>
+<p><b>Bài 11: Chương trình tính thuế thu nhập cá nhân</b></p>
+<label>Taxed Income</label>
+<input type="text" id="taxedIncome" name="taxedIncome">
+<label> VNĐ</label><br><br>
+<input type="button" name="tax" onclick="taxCalculate()" value="Tax Calculate">
+<input type="text" name="taxAmount" id="taxAmount">
+<label> VNĐ</label><br><br>
+<script>
+    function taxCalculate() {
+        let taxedIncome = parseFloat(document.getElementById('taxedIncome').value);
+        let taxAmount = 0;
+        if (taxedIncome > 80000000) {
+           taxAmount = (0.35 * taxedIncome) -  9850000;
+        } else if (taxedIncome > 52000000) {
+            taxAmount = (0.3 * taxedIncome) - 5850000;
+        } else if (taxedIncome > 32000000) {
+            taxAmount = (0.25 * taxedIncome) - 3250000;
+        } else if (taxedIncome > 18000000) {
+            taxAmount = (0.2 * taxedIncome) - 1650000;
+        } else if (taxedIncome > 10000000) {
+            taxAmount = (0.15 * taxedIncome) - 750000;
+        } else if (taxedIncome > 5000000) {
+            taxAmount = (0.1 * taxedIncome) - 250000;
+        } else {
+            taxAmount = 0.05 * taxedIncome;
+        }
+        document.getElementById('taxAmount').value = taxAmount;
+    }
+</script>
+<p><b>Bài 12: Chương trình tính lãi ngân hàng</b></p>
+<label>Capital</label>
+<input type="text" id="capital" name="capital">
+<label> VNĐ</label><br><br>
+<label>Interest Rate</label>
+<input type="text" id="interestRate" name="interestRate">
+<label> %/month</label><br><br>
+<label>Period</label>
+<input type="number" id="period" name="period">
+<label> month(s)</label><br><br>
+<input type="button" name="button" onclick="interestCalc()" value="Total Interest">
+<input type="text" name="interestAmount" id="interestAmount">
+<label> VNĐ</label><br><br>
+<label><b>Total Pay Amount</b></label>
+<input type="text" id="totalPay" name="totalPay">
+<label>VNĐ</label>
+<script>
+    function interestCalc() {
+        let capital = parseFloat(document.getElementById('capital').value);
+        let interestRate = parseFloat(document.getElementById('interestRate').value);
+        let period = parseInt(document.getElementById('period').value);
+        let interestPerMonth = 0;
+        let interestAmount = 0;
+        for (let i = 1; i <= period; i++) {
+            interestPerMonth = (capital * interestRate / 100);
+            capital += interestPerMonth;
+            interestAmount += interestPerMonth;
+        }
+        document.getElementById('interestAmount').value = interestAmount;
+        document.getElementById('totalPay').value = capital;
+    }
+</script>
+</body>
+</html>

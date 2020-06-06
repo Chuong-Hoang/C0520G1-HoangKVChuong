@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html" beforeDir="false" afterPath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/GoodFastCheap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap/test.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,9 @@
       <workItem from="1591277455097" duration="7995000" />
       <workItem from="1591319282458" duration="22686000" />
       <workItem from="1591365688271" duration="7914000" />
-      <workItem from="1591407548707" duration="4695000" />
+      <workItem from="1591407548707" duration="9221000" />
+      <workItem from="1591426971058" duration="10088000" />
+      <workItem from="1591451940039" duration="7374000" />
     </task>
     <servers />
   </component>
@@ -173,9 +173,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591407583309" />
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591194911389">
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591458477173">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591194911389" />
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591458477173" />
   </component>
 </project>
