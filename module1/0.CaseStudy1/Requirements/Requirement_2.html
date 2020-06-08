@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requirement 2</title>
+</head>
+<body>
+<h2>FURAMA RESORT MANAGEMENT</h2>
+<label><b>1.Display Customer Information</b></label>
+<button type="button" onclick="display()">DISPLAY</button><br><br>
+
+<label><b>2.Show Menu</b></label>
+<button type="button" onclick="showMenu()">SHOW MENU</button><br><br>
+
+<!-- JavaScript goes here-->
+<script>
+        let customerName = "Hoang Kim Van Chuong";
+        let customerId = 234789123;
+        let customerBirthday = "04/20/1988";
+        let customerEmail = "chuonghoang@gmail.com";
+        let customerAdd = "Da Nang";
+        let customerType = "Diamond";
+        let discount = 15;
+        let peopleIncluded = 3;
+        let rentDays = 7;
+        let serviceType = 'villa';
+        let roomClass = 'vip';
+        let villa = 500;
+        let house = 300;
+        let room = 100;
+        let price = 0;
+        let totalAmount = 0;
+
+    //function for displaying customer information
+    function display() {
+        alert("CUSTOMER INFORMATION" + "\n" +
+            "1. Customer name: " + customerName + "\n" +
+            "2. Customer ID: " + customerId +"\n" +
+            "3. Customer DOB: " + customerBirthday + "\n" +
+            "4. Customer email: " + customerEmail + "\n" +
+            "5. Customer address: " + customerAdd + "\n" +
+            "6. Customer type: " + customerType + "\n" +
+            "7. Discount (%): " + discount + "\n" +
+            "8. Quantity staying with the customer: " + peopleIncluded + "\n" +
+            "9. Rent days: " + rentDays + "\n" +
+            "10. Service type: " + serviceType + "\n" +
+            "11. Accommodation class: " + roomClass + "\n" +
+            "");
+    }
+
+    //function for edit customer information
+    function editInfo() {
+
+            let editInfo = parseInt(prompt("CUSTOMER INFORMATION" + "\n" +
+            "1. Customer name: " + customerName + "\n" +
+            "2. Customer ID: " + customerId + "\n" +
+            "3. Customer DOB: " + customerBirthday + "\n" +
+            "4. Customer email: " + customerEmail + "\n" +
+            "5. Customer address: " + customerAdd + "\n" +
+            "6. Customer type: " + customerType + "\n" +
+            "7. Discount (%): " + discount + "\n" +
+            "8. Quantity staying with the customer: " + peopleIncluded + "\n" +
+            "9. Rent days: " + rentDays + "\n" +
+            "10. Service type: " + serviceType + "\n" +
+            "11. Accommodation class: " + roomClass + "\n" +
+            ""));
+            // select information to be edited
+            switch (editInfo) {
+                case 1:
+                    customerName = prompt("1. Customer name: ");
+                    break;
+                case 2:
+                    customerId = prompt("2. Customer ID: ");
+                    break;
+                case 3:
+                    customerBirthday = prompt("3. Customer DOB: ");
+                    break;
+                case 4:
+                    customerEmail = prompt("4. Customer email: ");
+                    break;
+                case 5:
+                    customerAdd = prompt("5. Customer address: ");
+                    break;
+                case 6:
+                    customerType = prompt("6. Customer type: ");
+                    break;
+                case 7:
+                    discount = parseFloat(prompt("7. Discount (%): "));
+                    break;
+                case 8:
+                    peopleIncluded = parseInt(prompt("8. Quantity staying with the customer: "));
+                    break;
+                case 9:
+                    rentDays = parseInt(prompt("9. Rent days: "));
+                    break;
+                case 10:
+                    serviceType = prompt("10. Service type: ");
+                    break;
+                case 11:
+                    roomClass = prompt("11. Accommodation class: ");
+                    break;
+                default:
+                    alert("Failed");
+                    break;
+            }
+            //display customer information after editing
+            display();
+    }
+
+    //function for showing total amount to be paid
+    function showAmount() {
+        // Calculate the price based on service type
+        if (serviceType == 'Villa' || serviceType == 'villa') {
+            price = villa;
+        } else if (serviceType == 'House' || serviceType == 'house') {
+            price = house;
+        } else if(serviceType =='Room' || serviceType =='room') {
+            price = room;
+        } else {
+            price = 0;
+        }
+        totalAmount = price * rentDays * (1 - discount/100);
+        // Calculate discount based on customer address
+        if (customerAdd == 'da nang' || customerAdd == 'Da Nang') {
+            totalAmount -= 20;
+        } else if (customerAdd == 'hue' || customerAdd == 'Hue') {
+            totalAmount -= 10;
+        } else if (customerAdd == 'quang nam' || customerAdd == 'Quang Nam') {
+            totalAmount -= 5;
+        } else {
+            totalAmount -= 0;
+        }
+        // Calculate discount based on rent days
+        if (rentDays >= 7) {
+            totalAmount -= 30;
+        } else if (rentDays >= 5) {
+            totalAmount -= 20;
+        } else if (rentDays >= 2) {
+            totalAmount -= 10
+        } else {
+            totalAmount -= 0;
+        }
+        // Calculate discount based on customer type
+        switch (customerType) {
+            case "Diamond":
+            case "diamond":
+                totalAmount -= 15;
+                break;
+            case "Platinum":
+            case "platinum":
+                totalAmount -= 10;
+                break;
+            case "Gold":
+            case "gold":
+                totalAmount -= 5;
+                break;
+            case "Silver":
+            case "silver":
+                totalAmount -= 2;
+                break;
+            default:
+                totalAmount -= 0;
+                break;
+        }
+        // Calculate discount based on customer age and address
+        let currentYear = new Date().getFullYear();
+        let birthday = new Date(customerBirthday).getFullYear(); // need to be edited
+        alert(customerBirthday);
+        alert(new Date());
+
+        let customerAge = currentYear - birthday;
+        alert(customerAge);
+        if (customerAge >= 30 && (customerAdd == "da nang" || customerAdd == "Da Nang")) {
+            totalAmount -= 2;
+        } else if (customerAge >= 20 && (customerAdd == "da nang" || customerAdd == "Da Nang")) {
+            totalAmount -= 1;
+        } else {
+            totalAmount -= 0;
+        }
+        alert("1. Price before discount: " + price + "\n" +
+              "2. Discount (%): " + discount + "\n" +
+              "3. Total Amount ($): " + totalAmount + "\n" +
+              "");
+    }
+
+    //function for showing menu
+    function showMenu() {
+        let choose = parseInt(prompt("MANAGEMENT MENU" + "\n" +
+                        "1. Show Customer Information" + "\n" +
+                        "2. Edit Customer Information" + "\n" +
+                        "3. Show the amount to be paid after discount" + "\n" +
+                        ""));
+        if(choose == 1) {
+            display();
+        } else if (choose == 2) {
+            editInfo();
+        } else if (choose == 3) {
+            showAmount();
+        } else {
+            alert("Failed");
+        }
+    }
+</script>
+
+</body>
+</html>
