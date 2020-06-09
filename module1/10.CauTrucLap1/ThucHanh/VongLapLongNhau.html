@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vòng lặp lồng nhau</title>
+</head>
+<body>
+<style>
+    td {
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+<script>
+    let content;
+    content = "<table border='1' width='300' cellspacing ='0' cellpadding='5'>"
+    for (let i = 1; i <= 10; i++) {
+        content = content + "<tr>";
+        for (j=1; j <= 10; j++) {
+            content = content + "<td>" + (i*j) + "</td>";
+        }
+        content = content + "</tr>";
+    }
+    content = content + "</table>";
+    document.write(content);
+</script>
+<hr>
+<script>
+    let sout, i, j;
+    sout = "<table border='1' width = '300' cellspacing='0' cellpadding='3'>";
+    i = 1;
+    while (i <= 10) {
+        sout = sout + "<tr>";
+        j = 1;
+        while (j <= 10) {
+            sout = sout + "<td>" + (i * j) + "</td>";
+            j++;
+        }
+        sout = sout + "</tr>";
+        i++;
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+</script>
+</body>
+</html>

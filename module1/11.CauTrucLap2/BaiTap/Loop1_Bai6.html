@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop1_B6</title>
+</head>
+<body>
+<h3>Tính tổng của 30 số chia hết cho 7 đầu tiên</h3>
+
+<script>
+     let count = 1;
+     let sum = 0;
+     let num;
+     let string = '';
+     for(num = 0; count <= 30 ;num++) {
+         if(num%7 == 0) {
+             sum += num;
+             string += count + ": " + num + " -Sum: " + sum + "<br>";
+             count++;
+         }
+     }
+     document.write(string);
+     document.write('The sum of ' + count + ' is: ' + sum);
+</script>
+</body>
+</html>

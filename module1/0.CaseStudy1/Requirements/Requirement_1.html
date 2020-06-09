@@ -14,10 +14,10 @@
 </script>
 <script>
         let customerName = prompt("1.Customer name: ");
-        let idNumber = prompt("2.Customer ID: ");
-        let birthDay = prompt("3.Customer DOB: ");
-        let email = prompt("4.Customer email: ");
-        let addr = prompt("5.Customer address: ");
+        let customerId = prompt("2.Customer ID: ");
+        let customerBirthday = prompt("3.Customer DOB: ");
+        let customerEmail = prompt("4.Customer email: ");
+        let customerAdd = prompt("5.Customer address: ");
         let customerType = prompt("6.Customer type (Diamond/Platinum/Gold/Silver/Member): ");
         let discount = prompt("7.Discount (%): ");
         let peopleIncluded = prompt("8.Quantity staying with the customer: ");
@@ -44,10 +44,10 @@
     function display() {
         alert("CUSTOMER INFORMATION" + "\n" +
             "1.Customer name: " + customerName + "\n" +
-            "2.Customer ID: " + idNumber +"\n" +
-            "3.Customer DOB: " + birthDay + "\n" +
-            "4.Customer email: " + email + "\n" +
-            "5.Customer address: " + addr + "\n" +
+            "2.Customer ID: " + customerId +"\n" +
+            "3.Customer DOB: " + customerBirthday + "\n" +
+            "4.Customer email: " + customerEmail + "\n" +
+            "5.Customer address: " + customerAdd + "\n" +
             "6.Customer type: " + customerType + "\n" +
             "7.Discount (%): " + discount + "\n" +
             "8.Quantity staying with the customer: " + peopleIncluded + "\n" +
@@ -55,7 +55,7 @@
             "10.Service type: " + serviceType + "\n" +
             "11.Accommodation class: " + roomClass + "\n" +
             "12.Price before discount ($/day): " + price + "\n" +
-            "13.Total Amount ($): " + totalAmount + "\n"
+            "TOTAL AMOUNT: " + "$." + totalAmount + "\n"
         );
     }
 </script>

@@ -5,6 +5,28 @@
     <title>Vòng lặp for</title>
 </head>
 <body>
+<p><b>Bài 1: Chương trình hiển thị chuỗi "The number is N"</b></p>
+<input type="button" onclick="displayNumber()" name="button" value="Display Number">
+<p id="result"></p>
+<script>
+    function displayNumber() {
+       for( let i = 0; i < 5; i++) {
+           document.getElementById('result').innerHTML += "The number is " + i + "<br>";
+       }
+    }
+</script>
+<p><b>Bài 2: Chương trình tính tổng các phần tử</b></p>
+<input type="button" id="total" onclick="startNow()" name="start" value="Start Now">
+<script>
+    function startNow() {
+        let number = parseInt(prompt("Input a number: "));
+        let total = 0;
+        for (let i = 1; i <= number; i++) {
+            total += i;
+        }
+        document.getElementById('total').value = "Result is: " + total;
+    }
+</script>
 
 </body>
 </html>

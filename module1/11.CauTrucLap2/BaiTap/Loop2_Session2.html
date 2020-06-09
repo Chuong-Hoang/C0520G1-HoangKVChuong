@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop2 Session2</title>
+</head>
+<body>
+<h3>Bài 2: Tính giai thừa của một số nguyên dương</h3>
+<input type="button" onclick="tinhGiaiThua()" name="input" value="TÍNH GIAI THỪA">
+<script>
+ function tinhGiaiThua() {
+     let giaiThua = 1;
+     let num = parseInt(prompt('Input a number '));
+     for (let i = 1; i <= num; i++) {
+         giaiThua *= i;
+     }
+     alert('Giai thừa của ' + num + " là: " + giaiThua);
+ }
+</script>
+</body>
+</html>

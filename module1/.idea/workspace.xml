@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Check List CaseStudy C0520G1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirement1/FuramaTask1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirement1/FuramaTask2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/10.CauTrucLap1/ThucHanh/SuDungVongLap_for.html" beforeDir="false" afterPath="$PROJECT_DIR$/10.CauTrucLap1/ThucHanh/SuDungVongLap_for.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +92,9 @@
       <workItem from="1591451940039" duration="11124000" />
       <workItem from="1591490859875" duration="10480000" />
       <workItem from="1591544632713" duration="2072000" />
-      <workItem from="1591578194671" duration="1523000" />
+      <workItem from="1591578194671" duration="19553000" />
+      <workItem from="1591620058889" duration="8075000" />
+      <workItem from="1591664666182" duration="12161000" />
     </task>
     <servers />
   </component>
@@ -180,9 +182,9 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591407583309" />
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591458477173">
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1591625828010">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591458477173" />
+    <state x="666" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1591625828010" />
   </component>
 </project>

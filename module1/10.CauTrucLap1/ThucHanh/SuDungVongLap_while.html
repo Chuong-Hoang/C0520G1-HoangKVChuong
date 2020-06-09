@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vòng lặp while</title>
+</head>
+<body>
+<p><b>Bài 1: Sử dụng vòng lặp while để tính tổng số nhập vào</b></p>
+<input type="button" name="butt" onclick="startNow()" value="Start Now">
+<p><b>Bài 2: Chương trình hiển thị thẻ &lt;hr&gt; theo độ rộng 1-100</b></p>
+<input type="submit" name="input" onclick="draw()" value="Draw Now">
+<p><b>Note:</b>Never call document.write() after the page has finished loading.<br>
+    It will override the content previously shown.</b></p>
+<script>
+    function startNow() {
+        let num = parseInt(prompt("Enter a number: "));
+        let total = 0;
+        while (num != -1) {
+            alert(num);
+            total += num;
+            num = parseInt(prompt("Enter a number: "));
+        }
+        alert(total);
+    }
+
+    function draw() {
+        let lineWidth = 0;
+        let i = 0;
+        while (i < 100) {
+            document.write("<hr width = " + i + "%" + ">");
+            i += 3;
+        }
+    }
+</script>
+
+<p><b></b></p>
+</body>
+</html>

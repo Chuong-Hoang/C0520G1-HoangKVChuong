@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop1 Bai4</title>
+</head>
+<body>
+<h3>Tìm số đầu tiên trong dãy Fibonacci chia hết cho 5</h3>
+<script>
+    let num1 = 0;
+    let num2 = 1;
+    let count = 2;
+    let num3;
+    do {
+        num3 = num1 + num2;
+        if(num3 % 5 == 0) {
+            break;
+        }
+        //count++;
+        num1 = num2;
+        num2 = num3;
+    } while (count !== 0);
+    document.write("The number is: " + num3);
+</script>
+</body>
+</html>

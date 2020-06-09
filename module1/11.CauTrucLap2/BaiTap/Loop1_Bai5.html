@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop1 Bai5</title>
+</head>
+<body>
+<script>
+    let num1 = 0;
+    let num2 = 1;
+    let count = 3;
+    let num3;
+    let sum = 1;
+    while (count <= 20) {
+        num3 = num1 + num2;
+        sum += num3;
+        count++;
+        num1 = num2;
+        num2 = num3;
+    }
+    document.write('The total of the first ' + (count-1) + " numbers is: " + sum);
+</script>
+</body>
+</html>

@@ -51,7 +51,7 @@
     //function for edit customer information
     function editInfo() {
 
-            let editInfo = parseInt(prompt("CUSTOMER INFORMATION" + "\n" +
+            let editOption = parseInt(prompt("CUSTOMER INFORMATION" + "\n" +
             "1. Customer name: " + customerName + "\n" +
             "2. Customer ID: " + customerId + "\n" +
             "3. Customer DOB: " + customerBirthday + "\n" +
@@ -63,48 +63,77 @@
             "9. Rent days: " + rentDays + "\n" +
             "10. Service type: " + serviceType + "\n" +
             "11. Accommodation class: " + roomClass + "\n" +
+            "12.CANCEL EDIT" + "\n" +
             ""));
             // select information to be edited
-            switch (editInfo) {
+            switch (editOption) {
                 case 1:
                     customerName = prompt("1. Customer name: ");
+                    display();
+                    editInfo();
                     break;
                 case 2:
                     customerId = prompt("2. Customer ID: ");
+                    display();
+                    editInfo();
                     break;
                 case 3:
                     customerBirthday = prompt("3. Customer DOB: ");
+                    display();
+                    editInfo();
                     break;
                 case 4:
                     customerEmail = prompt("4. Customer email: ");
+                    display();
+                    editInfo();
                     break;
                 case 5:
                     customerAdd = prompt("5. Customer address: ");
+                    display();
+                    editInfo();
                     break;
                 case 6:
                     customerType = prompt("6. Customer type: ");
+                    display();
+                    editInfo();
                     break;
                 case 7:
                     discount = parseFloat(prompt("7. Discount (%): "));
+                    display();
+                    editInfo();
                     break;
                 case 8:
                     peopleIncluded = parseInt(prompt("8. Quantity staying with the customer: "));
+                    display();
+                    editInfo();
                     break;
                 case 9:
                     rentDays = parseInt(prompt("9. Rent days: "));
+                    display();
+                    editInfo();
                     break;
                 case 10:
                     serviceType = prompt("10. Service type: ");
+                    display();
+                    editInfo();
                     break;
                 case 11:
                     roomClass = prompt("11. Accommodation class: ");
+                    display();
+                    editInfo();
                     break;
+                case 12:
+                    break;
+                    // not edit information
                 default:
-                    alert("Failed");
+                    alert("Finish Edit");
                     break;
+
             }
             //display customer information after editing
-            display();
+            //display();
+            //editInfo();
+
     }
 
     //function for showing total amount to be paid
@@ -165,11 +194,7 @@
         // Calculate discount based on customer age and address
         let currentYear = new Date().getFullYear();
         let birthday = new Date(customerBirthday).getFullYear(); // need to be edited
-        alert(customerBirthday);
-        alert(new Date());
-
         let customerAge = currentYear - birthday;
-        alert(customerAge);
         if (customerAge >= 30 && (customerAdd == "da nang" || customerAdd == "Da Nang")) {
             totalAmount -= 2;
         } else if (customerAge >= 20 && (customerAdd == "da nang" || customerAdd == "Da Nang")) {
@@ -179,26 +204,43 @@
         }
         alert("1. Price before discount: " + price + "\n" +
               "2. Discount (%): " + discount + "\n" +
-              "3. Total Amount ($): " + totalAmount + "\n" +
+              "3. Customer Age: " + customerAge + "\n" +
+              "4. Service Type: " + serviceType + "\n" +
+              "5. Rent Days: " + rentDays + "\n" +
+              "\n" + " TOTAL AMOUNT ($): " + totalAmount + "\n" +
               "");
     }
 
     //function for showing menu
     function showMenu() {
-        let choose = parseInt(prompt("MANAGEMENT MENU" + "\n" +
+        let choose = prompt("MANAGEMENT MENU" + "\n" +
                         "1. Show Customer Information" + "\n" +
                         "2. Edit Customer Information" + "\n" +
                         "3. Show the amount to be paid after discount" + "\n" +
-                        ""));
-        if(choose == 1) {
-            display();
-        } else if (choose == 2) {
-            editInfo();
-        } else if (choose == 3) {
-            showAmount();
-        } else {
-            alert("Failed");
+                        "4. EXIT MENU" + "\n" +
+                        "");
+        switch (choose) {
+            case "1":
+                display();
+                showMenu();
+                break;
+            case "2":
+                editInfo();
+                showMenu();
+                break;
+            case "3":
+                showAmount();
+                showMenu();
+                break;
+            case "4":
+            case null:
+                 break;
+            default:
+                alert("Not valid entry");
+                showMenu();
+                break;
         }
+
     }
 </script>
 

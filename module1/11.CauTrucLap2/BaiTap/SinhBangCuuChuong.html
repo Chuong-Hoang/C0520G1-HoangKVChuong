@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+<h3>BẢNG CỬU CHƯƠNG</h3>
+<script>
+    let content, i, j;
+    content = "<table border='1' width='700' cellspacing='1' cellpadding='5'>";
+    for (i = 1; i <= 9; i++) {
+        content = content + "<tr>";
+        for (j = 2; j <= 9; j++) {
+            content = content + "<td border='1'>" + (j + "x" + i + "=") + (j*i) + "</td>";
+        }
+        content = content + "</tr>";
+    }
+    content = content + "</table>";
+    document.write(content);
+</script>
+</body>
+</html>

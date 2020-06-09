@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop2 session1</title>
+</head>
+<body>
+<h3>Bài 1: In dãy Fibonacci</h3>
+<script>
+    let num1 = 0;
+    let num2 = 1;
+    let count = 3;
+    let string = "0 <br> 1 <br>";
+    let num3;
+    for (count; count <= 30; count++) {
+        num3 = num1 + num2;
+        string += num3 + "<br>";
+        num1 = num2;
+        num2 = num3;
+    }
+    document.write(string);
+</script>
+</body>
+</html>
