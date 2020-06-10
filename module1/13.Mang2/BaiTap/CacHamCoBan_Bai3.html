@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 3: Chuyển đổi từ chữ thường sang chữ hoa và ngược lại</b></p>
+<!-- Hàm indexOf() trả về vị trí xuất hiện lần ĐẦU TIÊN
+ của một giá trị được tìm thấy trong chuỗi. -->
+<script>
+    let string = prompt("Enter a string: ");
+    let upperChar = "ABCDEFGHIJKLMNOPQRSTUWVXYZ";
+    let lowerChar = "abcdefghijklmnopqrstuwvxyz";
+    let myArr = [];
+    for (let i = 0; i < string.length; i++) {
+        if(upperChar.indexOf(string.charAt(i)) !== -1) {
+            myArr.push(string.charAt(i).toLowerCase());
+        } else if (lowerChar.indexOf(string.charAt(i)) !== -1) {
+            myArr.push(string.charAt(i).toUpperCase());
+        } else {
+            myArr.push(string.charAt(i));
+        }
+    }
+    alert(myArr.join(""));
+</script>
+</body>
+</html>

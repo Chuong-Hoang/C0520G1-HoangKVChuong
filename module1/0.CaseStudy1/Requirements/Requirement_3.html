@@ -26,38 +26,49 @@
     // --finished--
 
     // 3.Input customer birthday as format DD/MM/YYYY
-    let cnt, customerBirthday;
+    let customerBirthday;
     do {
         customerBirthday = prompt("3. Customer DOB (DD/MM/YYYY): ");
-        cnt = customerBirthday.length;
+        count = customerBirthday.length;
         let num;
-        for (let i = 0; i < cnt; i++) {
+        for (let i = 0; i < count; i++) {
             num = customerBirthday.substring(i, i+1);
             if (i == 2 || i == 5) {
                 if (num !== '/') {count--;}
             } else {continue;}
         }
         let dd = parseInt(customerBirthday.substring(0, 2));
-        if (dd >= 32 || dd <= 0 || Number.isNaN(dd)) {cnt--;}
+        if (dd >= 32 || dd <= 0 || Number.isNaN(dd)) {count--;}
         let mm = parseInt(customerBirthday.substring(3, 5));
-        if (mm >= 13 || mm <= 0 || Number.isNaN(mm)) {cnt--;}
-        if (mm == 2 && dd > 29) {cnt--;}
+        if (mm >= 13 || mm <= 0 || Number.isNaN(mm)) {count--;}
+        if (mm == 2 && dd > 29) {count--;}
         switch (mm) {
             case 4:
             case 6:
             case 9:
             case 11:
-                if (dd > 30) {cnt--;}
+                if (dd > 30) {count--;}
                 break;
         }
         let yyyy = parseInt(customerBirthday.substr(6, 4));
         let currentYear = new Date().getFullYear();
-        if (yyyy >= (currentYear - 18) || yyyy <= (currentYear - 100)) {cnt--;}
-    } while (cnt !== 10);
+        if (yyyy >= (currentYear - 18) || yyyy <= (currentYear - 100)) {count--;}
+    } while (count !== 10);
     // --finished--
 
     // 4.Input customer email
-    let customerEmail = prompt("4. Customer email: ");
+    let customerEmail;
+    let cnt, dotCnt;
+    do {
+        customerEmail = prompt("4. Customer email: ");
+        count = customerEmail.length;
+        cnt = 0;
+        dotCnt = 0;
+        for (let i = 0; i < count; i++) {
+            if (customerEmail.charAt(i) === "@") {cnt++;}
+            if (customerEmail.charAt(i) === ".") {dotCnt++;}
+        }
+    } while (!(cnt === 1 && dotCnt >= 1));
 
     // 5.Input customer address
     let customerAdd = prompt("5. Customer address " + "\n" +
@@ -96,6 +107,9 @@
         case "5":
             customerType = 'Member';
             break;
+        default:
+            customerType = null;
+            alert("Input is invalid");
     }
 
     // 7.Input discount
@@ -128,6 +142,9 @@
         case "3":
             serviceType = "Room";
             break;
+        default:
+            serviceType = null;
+            alert("Input is invalid");
     }
 
     // 11.Input room class
@@ -142,6 +159,9 @@
         case "3":
             roomClass = 'Normal';
             break;
+        default:
+            roomClass = null;
+            alert("Input is invalid");
     }
 
     // Calculate total Amount based on discount and service type
@@ -171,8 +191,8 @@
             "10. Service type: " + serviceType + "\n" +
             "11. Accommodation class: " + roomClass + "\n" +
             "12. Price before discount ($/day): " + price + "\n" +
-            "TOTAL AMOUNT: " +"$" + totalAmount + "\n"
-        );
+            "TOTAL AMOUNT: " +"$" + totalAmount + "\n" +
+        "");
     }
 </script>
 

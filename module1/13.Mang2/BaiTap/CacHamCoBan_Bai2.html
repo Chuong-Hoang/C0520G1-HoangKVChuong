@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 2: Chương trình chèn dấu (-) giữa 2 số chẵn</b></p>
+<script>
+    let number = prompt("Enter a number with more than 4 digits: ");
+    let count = number.length;
+    let arr = new Array(count);
+    for (let i = 0; i < count; i++) {
+        arr[i] = number.charAt(i);
+    }
+    for (let i = 0; i < count; i++) {
+        if (arr[i] % 2 == 0 && arr[i+1] % 2 == 0) {
+            arr[i] += "-";
+        }
+    }
+    alert("Result is: " + arr.join(""));
+</script>
+</body>
+</html>
