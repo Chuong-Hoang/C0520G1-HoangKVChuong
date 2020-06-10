@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="caro"></p>
+<input type="button" value="Play Now" onclick="playCaro()">
+
+<script>
+    let caro = [];
+    let row = 6;
+    let col = 6;
+    for (let i = 0; i < row; i++) {
+        caro[i] = Array(col);
+        for(let j = 0; j < col; j++) {
+            caro[i][j] = 0;
+        }
+    }
+
+    let entry = "";
+    for (let loop1 of caro) {
+        for (let loop2 of loop1) {
+            entry += loop2 + "&nbsp;&nbsp;&nbsp;"
+        }
+        entry += "<br>";
+    }
+    document.getElementById('caro').innerHTML = entry;
+function playCaro() {
+    let newRow = prompt("row = ");
+    let newCol = prompt("column = ");
+
+    entry = "";
+    caro[newRow][newCol] = "x";
+    for (let i = 0; i < row; i++) {
+        for (let j = 0; j < col; j++) {
+            entry += caro[i][j] + "&nbsp;&nbsp;&nbsp;";
+        }
+        entry += "<br>";
+    }
+    document.getElementById('caro').innerHTML = entry;
+}
+</script>
+</body>
+</html>
