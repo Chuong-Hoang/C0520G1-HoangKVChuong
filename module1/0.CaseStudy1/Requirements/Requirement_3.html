@@ -10,47 +10,153 @@
 
 <script>
     // 1.Input customer name
-    let customerName = prompt("1.Customer name: ");
+    let customerName = prompt("1. Customer name: ");
 
-    // 2.Input customer Identification number
-    customerId = prompt("2.Customer ID: ");
-    let cnt = customerId.length;
-    
-    let customerBirthday = prompt("3.Customer DOB: ");
+    // 2.Input customer Identification number (8 digits)
+    let count, customerId;
+    do {
+        customerId = prompt("2. Customer ID: ");
+        count = customerId.length;
+        let num;
+        for (let i = 0; i < count; i++) {
+            num = parseInt(customerId.substring(i, i+1));
+            if (Number.isNaN(num) || num == 0) {count--;}
+        }
+    } while (count !== 8);
+    // --finished--
 
-    let customerEmail = prompt("4.Customer email: ");
+    // 3.Input customer birthday as format DD/MM/YYYY
+    let cnt, customerBirthday;
+    do {
+        customerBirthday = prompt("3. Customer DOB (DD/MM/YYYY): ");
+        cnt = customerBirthday.length;
+        let num;
+        for (let i = 0; i < cnt; i++) {
+            num = customerBirthday.substring(i, i+1);
+            if (i == 2 || i == 5) {
+                if (num !== '/') {count--;}
+            } else {continue;}
+        }
+        let dd = parseInt(customerBirthday.substring(0, 2));
+        if (dd >= 32 || dd <= 0 || Number.isNaN(dd)) {cnt--;}
+        let mm = parseInt(customerBirthday.substring(3, 5));
+        if (mm >= 13 || mm <= 0 || Number.isNaN(mm)) {cnt--;}
+        if (mm == 2 && dd > 29) {cnt--;}
+        switch (mm) {
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (dd > 30) {cnt--;}
+                break;
+        }
+        let yyyy = parseInt(customerBirthday.substr(6, 4));
+        let currentYear = new Date().getFullYear();
+        if (yyyy >= (currentYear - 18) || yyyy <= (currentYear - 100)) {cnt--;}
+    } while (cnt !== 10);
+    // --finished--
 
-    let customerAdd = prompt("5.Customer address: ");
+    // 4.Input customer email
+    let customerEmail = prompt("4. Customer email: ");
 
-    let customerType = prompt("6.Customer type (Diamond/Platinum/Gold/Silver/Member): ");
+    // 5.Input customer address
+    let customerAdd = prompt("5. Customer address " + "\n" +
+        "(1.Da Nang/2.Hue/3.Quang Nam/4.Other): ");
+    switch (customerAdd) {
+        case "1":
+            customerAdd = 'Da Nang';
+            break;
+        case "2":
+            customerAdd = 'Hue';
+            break;
+        case "3":
+            customerAdd = 'Quang Nam';
+            break;
+        case "4":
+            customerAdd = 'Other';
+            break;
+    }
 
-    let discount = prompt("7.Discount (%): ");
+    // 6. Input customer type
+    let customerType = prompt("6. Customer type " + "\n" +
+        "(1.Diamond/2.Platinum/3.Gold/4.Silver/5.Member): ");
+    switch (customerType) {
+        case "1":
+            customerType = 'Diamond';
+            break;
+        case "2":
+            customerType = 'Platinum';
+            break;
+        case "3":
+            customerType = 'Gold';
+            break;
+        case "4":
+            customerType = 'Silver';
+            break;
+        case "5":
+            customerType = 'Member';
+            break;
+    }
 
-    let peopleIncluded = prompt("8.Quantity staying with the customer: ");
+    // 7.Input discount
+    let discount;
+    do {
+        discount = parseFloat(prompt("7. Discount (%): "));
+    } while (discount <= 0 || !Number.isInteger(discount));
 
-    let rentDays = prompt("9.Rent days: ");
+    // 8.Input people included
+    let peopleIncluded;
+    do {
+        peopleIncluded = parseFloat(prompt("8. Quantity staying with the customer: "));
+    } while (peopleIncluded <= 0 || !Number.isInteger(peopleIncluded));
 
-    let serviceType = prompt("10.Service type (villa/house/room): ");
+    // 9.Input rent days
+    let rentDays;
+    do {
+        rentDays = parseFloat(prompt("9. Rent days: "));
+    } while (rentDays <= 0 || !Number.isInteger(rentDays));
 
-    let roomClass = prompt("11.Accommodation class (vip/business/normal): ");
+    // 10.Input service type
+    let serviceType = prompt("10. Service type (1.Villa/2.House/3.Room): ");
+    switch (serviceType) {
+        case "1":
+            serviceType = "Villa";
+            break;
+        case "2":
+            serviceType = "House";
+            break;
+        case "3":
+            serviceType = "Room";
+            break;
+    }
 
+    // 11.Input room class
+    let roomClass = prompt("11. Accommodation class (1.Vip/2.Business/3.Normal): ");
+    switch (roomClass) {
+        case "1":
+            roomClass = 'Vip';
+            break;
+        case "2":
+            roomClass = 'Business';
+            break;
+        case "3":
+            roomClass = 'Normal';
+            break;
+    }
+
+    // Calculate total Amount based on discount and service type
     let villa = 500;
     let house = 300;
     let room = 100;
     let price = 0;
     let totalAmount = 0;
-    // Calculate totalAmount based on discount and service type
-    if (serviceType == 'Villa' || serviceType == 'villa') {
-        price = villa;
-    } else if (serviceType == 'House' || serviceType == 'house') {
-        price = house;
-    } else if(serviceType =='Room' || serviceType =='room') {
-        price = room;
-    } else {
-        price = 0;
-    }
+    if (serviceType == 'Villa') {price = villa;}
+    else if (serviceType == 'House') {price = house;}
+    else if(serviceType =='Room') {price = room;}
+    else {price = 0;}
     totalAmount = price * rentDays * (1 - discount/100);
 
+    // Function to display customer information
     function display() {
         alert("CUSTOMER INFORMATION" + "\n" +
             "1. Customer name: " + customerName + "\n" +

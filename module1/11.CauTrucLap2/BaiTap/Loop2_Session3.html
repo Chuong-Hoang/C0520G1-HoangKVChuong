@@ -8,7 +8,7 @@
 <h3>In tam giác vuông với các góc vuông nằm ở các vị trí khác nhau</h3>
 <script>
     let string1 = '';
-    for(let i = 1; i <=5; i++) {
+    for(let i = 1; i <= 5; i++) {
         for(let j = i; j >= 1; j--) {
             string1 += "*";
         }
@@ -29,18 +29,35 @@
 </script>
 <br>
 <script>
+    // Figure 3
     let string3 = "";
     for(let i = 1; i <= 5; i++) {
-        for(let j = i; j >= 1; j--) {
-            if (j == i) {
-                string3 += "*"
+        for(let j = 5; j >= 1; j--) {
+            if (j > i) {
+                string3 += "&nbsp;&nbsp;";
             } else {
-                string3 += "&nbsp;";
+                string3 += "*";
             }
         }
         string3 += "<br>";
     }
     document.write(string3);
+</script>
+<br>
+<script>
+    // Figure 4
+    let string4 = "";
+    for (let i = 5; i >= 1; i--) {
+        for (let j = 5; j >= 1; j--) {
+            if (j > i) {
+                string4 += "&nbsp;&nbsp;";
+            } else {
+                string4 += "*";
+            }
+        }
+        string4 += "<br>";
+    }
+    document.write(string4);
 </script>
 </body>
 </html>

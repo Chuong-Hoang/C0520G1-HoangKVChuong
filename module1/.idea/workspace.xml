@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/10.CauTrucLap1/ThucHanh/SuDungVongLap_for.html" beforeDir="false" afterPath="$PROJECT_DIR$/10.CauTrucLap1/ThucHanh/SuDungVongLap_for.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/11.CauTrucLap2/BaiTap/Loop2_Session3.html" beforeDir="false" afterPath="$PROJECT_DIR$/11.CauTrucLap2/BaiTap/Loop2_Session3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,8 @@
       <workItem from="1591544632713" duration="2072000" />
       <workItem from="1591578194671" duration="19553000" />
       <workItem from="1591620058889" duration="8075000" />
-      <workItem from="1591664666182" duration="12161000" />
+      <workItem from="1591664666182" duration="28823000" />
+      <workItem from="1591707979023" duration="8037000" />
     </task>
     <servers />
   </component>
