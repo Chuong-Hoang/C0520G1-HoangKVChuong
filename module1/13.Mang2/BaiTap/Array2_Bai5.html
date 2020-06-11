@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Kiểm tra xem 2 chuỗi có giống nhau không</b></p>
+<pre>
+ str1 = "Hoang Kim Van Chuong";
+ str2 = "HOanG KiM vaN cHuoNG";
+</pre>
+<p id="match"></p>
+<script>
+    let str1 = "Hoang Kim Van Chuong";
+    let str2 = "HOanG KiM vaN cHuoNG";
+    let len1 = str1.length;
+    let len2 = str2.length;
+    let string = "";
+    let match = true;
+    if (len1 !== len2) {
+        string = "Two strings are NOT similar";
+    } else {
+
+        for (let i = 0; i < len1; i++) {
+           if ((str1.toLowerCase()).charAt(i) !== (str2.toLowerCase()).charAt(i)) {
+               match = false;
+               break;
+           }
+        }
+        if (match === true) {
+            string = "Two strings are similar!";
+        } else {
+            string = "Two strings are NOT similar";
+        }
+    }
+    document.getElementById('match').innerHTML = string;
+</script>
+</body>
+</html>

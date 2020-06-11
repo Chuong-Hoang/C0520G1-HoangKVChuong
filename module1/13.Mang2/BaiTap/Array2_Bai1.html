@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [
+        [1, 2, 1, 24],
+        [31, 23, 15, 24],
+        [19, 32, 11, 44],
+        [7, 4, 28, 22],
+        [3, 10, 26, 7]
+    ]
+    let string = "";
+    for (let x in a) {
+        string += "row " + x + ": ";
+        for (let y in a[x]) {
+            string += a[x][y] + " ";
+        }
+        string += "<br>";
+    }
+    document.write(string);
+</script>
+</body>
+</html>

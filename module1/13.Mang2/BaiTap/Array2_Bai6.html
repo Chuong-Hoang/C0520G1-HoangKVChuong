@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Thay thế ký tự trong mảng</b></p>
+<pre>
+string = ['c','-', 'h', '-', 'n', '-', 'q', 'l', '-', 2, '-', '0', '-', 9];
+</pre>
+<label>Trước khi thay thế:</label><br>
+<p id="before"></p>
+<label>Sau khi thay thế:</label><br>
+<p id="after"></p>
+<script>
+    let string = ['c', '-', 'h', '-', 'n', '-', 'q', 'l', '-', 2, '-', '0', '-', 9];
+    document.getElementById('before').innerHTML = string.join("")
+    for (let i = 0; i< string.length; i++) {
+        if (string[i] === '-') {
+            string[i] = '_';
+        }
+    }
+    document.getElementById('after').innerHTML = string.join("")
+    document.write(string.toString());
+</script>
+</body>
+</html>

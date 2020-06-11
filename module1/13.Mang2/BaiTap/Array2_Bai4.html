@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = "Today I have given 15 people 30 pens and 75 pencils for using in 12 weeks";
+    let len = string.length;
+    let arr = [];
+    let count = 0;
+    let num;
+    for (let i = 0; i < len; i++) {
+       let num = parseFloat(string.charAt(i));
+        if (num > 0 || num <= 0) {count++;}
+    }
+    alert(count);
+</script>
+</body>
+</html>

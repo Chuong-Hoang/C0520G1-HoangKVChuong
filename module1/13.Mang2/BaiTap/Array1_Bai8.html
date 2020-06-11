@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<lab>
+<p id="result"></p>
+    <label><b>After Arrangement</b></label>
+<p id="end"></p>
+<script>
+    let myArray = [];
+    let string = "";
+    for (let i = 0; i < 10; i++) {
+        myArray[i] = parseInt(prompt("Enter a value: "));
+        string += myArray[i] + " ";
+    }
+    document.getElementById('result').innerHTML = "Array: " + string.substr(0, (string.length - 1));
+    let newArray = new Array(10);
+    let max;
+    let index;
+    let str = "";
+    for (let i = 0; i < 10; i++) {
+        max = -Infinity;
+        for (let j = 0; j < myArray.length; j++) {
+
+            if (max < myArray[j]) {
+                max = myArray[j];
+                index = j;
+            }
+
+        }
+        myArray.splice(index, 1);
+        //alert("length is " + myArray.length + ", and max= " + max);
+        newArray[i] = max;
+        str += newArray[i] + " ";
+
+    }
+    document.getElementById('end').innerHTML = str;
+</script>
+</body>
+</html>

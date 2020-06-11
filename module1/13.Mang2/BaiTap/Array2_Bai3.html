@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+  mixedArr = ['b', 4, -8, 'g', 'h', 'o', 11, 0, 'p', 2, 'x'];
+</pre>
+<script>
+    let mixedArr = ['b', 4, -8, 'g', 'h', 'o', 11, 0, 'p', 2, 'x'];
+    let count = 0;
+    for (let i = 0; i < mixedArr.length; i++) {
+        //alert(typeof(mixedArr[i]));
+        if (typeof(mixedArr[i]) == 'number') {count++;}
+    }
+    document.write(mixedArr.join(" "));
+    document.write("<br>");
+    document.write("Quantity of number: " + count);
+</script>
+</body>
+</html>
