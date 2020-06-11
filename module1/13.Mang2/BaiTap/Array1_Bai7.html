@@ -25,11 +25,10 @@
         for (let i = 0; i < len; i++) {
             if (myArray[i] === search) {
                 index = i;
-                for (index; index < len; index++) {
-                    
-                }
+                myArray[myArray.length] = 0;
+                myArray.splice(index, 1)
             }
-            str += myArray[x] + "_";
+            str += myArray[i] + "_";
         }
         document.getElementById('end').innerHTML = str.substr(0, (str.length-1));
     }
