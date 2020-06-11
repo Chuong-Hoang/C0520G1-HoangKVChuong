@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+Array: numbers = [20, 6, 9, 19, 12, 4, -5, 8, 11, 33, -14, 22];
+</pre>
+<p id="result"></p>
+<script>
+    let numbers = [20, 6, 9, 19, 12, 4, -5, 8, 11, 33, -14, 22];
+    let overTen = 0;
+    let str = "";
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] >= 10) {
+            overTen++;
+            str += numbers[i] + "&nbsp;";
+        }
+    }
+    document.getElementById('result').innerHTML = "Array has " + overTen +
+        " element(s) over 10: " + str;
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking textarea on typing</title>
+</head>
+<body>
+<h2>Type anything slowly</h2>
+<textarea id="inputText" onkeydown="insertText()" style="color: red; font-weight: bold; font-size: 16px;" rows = "3" cols="35"></textarea>
+<script>
+    let string = "YOU ARE REALLY VERY BEAUTIFUL";
+    let count = string.length;
+    let myArray = [];
+    let init = 0;
+    let inputString = "";
+    function insertText() {
+        if (init >= count) {
+            init = 0;
+            inputString = "";
+        } else {
+            //myArray[init] = string.charAt(init);
+            inputString += string.charAt(init);
+            init++;
+            //document.getElementById('inputText').value = '';
+        }
+        document.getElementById('inputText').value = inputString;
+    }
+
+</script>
+</body>
+</html>

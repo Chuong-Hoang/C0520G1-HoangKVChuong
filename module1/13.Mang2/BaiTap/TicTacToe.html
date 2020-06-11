@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tic tac toe</title>
+</head>
+<body>
+<h3><u>GAME TIC-TAC-TOE</u></h3>
+<input type="button" id="start" onclick="playNow()" value="PLAY NOW">
+<p id="caro"></p>
+<br>
+<input type="button" name="b1" onclick="player1()" value="Player 1">
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input type="button" name="b2" onclick="player2()" value="Player 2">
+<br><br>
+<p id="result" style="color: red; font-weight: bold;"></p>
+<script>
+   let caro = [];
+   let row = 20;
+   let col = 20;
+   let string = "";
+   for (let i = 0; i < row; i++) {
+       caro[i] = [];
+       for(let j = 0; j < col; j++) {
+           caro[i][j] = ".";
+           string += caro[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+       }
+       string += "<br>";
+   }
+   document.getElementById('caro').innerHTML = string;
+   function playNow() {
+       let choose = parseInt(prompt("Who first? Player 1 - choose 1, else choose 2"));
+       if (choose === 1) {
+           player1();
+       }
+       if (choose === 2) {
+           player2();
+       }
+   }
+   function player1() {
+       string = "";
+       let posX = parseInt(prompt("What row next? "));
+       let posY = parseInt(prompt("What column next? "));
+       caro[posX-1][posY-1] = "x";
+       for(let loop1 of caro) {
+           for (let loop2 of loop1) {
+               string += loop2 + "&nbsp;&nbsp;&nbsp;&nbsp;";
+           }
+           string += "<br>";
+       }
+       document.getElementById('caro').innerHTML = string;
+       for (let i = 0; i < row; i++) {
+           for (let j=0; j < col; j++) {
+               if ((caro[i][j] === caro[i][j+1] &&
+                   caro[i][j] === caro[i][j+2] &&
+                   caro[i][j] === 'x') ||
+                   (caro[i][j] === caro[i+1][j] &&
+                       caro[i][j] === caro[i+2][j] &&
+                       caro[i][j] === 'x') ||
+                   (caro[i][j] === caro[i+1][j+1] &&
+                       caro[i][j] === caro[i+2][j+2] &&
+                       caro[i][j] === 'x')) {
+                   document.getElementById('result').innerHTML = "Player 1 wins the game!";
+                   break;
+               }
+           }
+       }
+   }
+
+   function player2() {
+       string = "";
+       let posX = parseInt(prompt("What row next? "));
+       let posY = parseInt(prompt("What column next? "));
+       caro[posX-1][posY-1] = "o";
+       for (let loop1 of caro) {
+           for (let loop2 of loop1) {
+               string += loop2 + "&nbsp;&nbsp;&nbsp;&nbsp;";
+           }
+           string += "<br>";
+       }
+       document.getElementById('caro').innerHTML = string;
+       for (let i = 0; i < row; i++) {
+           for (let j=0; j < col; j++) {
+               if ((caro[i][j] === caro[i][j+1] &&
+                   caro[i][j] === caro[i][j+2] &&
+                   caro[i][j] === 'o') ||
+                   (caro[i][j] === caro[i+1][j] &&
+                       caro[i][j] === caro[i+2][j] &&
+                       caro[i][j] === 'o') ||
+                   (caro[i][j] === caro[i+1][j+1] &&
+                       caro[i][j] === caro[i+2][j+2] &&
+                       caro[i][j] === 'o')) {
+                   document.getElementById('result').innerHTML = "Player 2 wins the game!";
+                   break;
+               }
+           }
+       }
+   }
+</script>
+</body>
+</html>

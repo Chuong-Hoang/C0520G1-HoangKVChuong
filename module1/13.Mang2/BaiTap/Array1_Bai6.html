@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result"></p>
+<input type="button" name="butt" onclick="check()" value = "Check Match">
+<p id="match"></p>
+<script>
+    let myArray = [];
+    let string = "";
+    for (let i = 0; i < 5; i++) {
+        myArray[i] = parseInt(prompt("Enter a value: "));
+        string += myArray[i] + "_";
+    }
+
+    document.getElementById('result').innerHTML = "Array: " + string.substr(0, (string.length - 1));
+
+    function check() {
+        let goal = parseInt(prompt("Enter a searching value: "));
+        let index = -1;
+        for (let x in myArray) {
+            if (goal == myArray[x]) {
+                index = x;
+                document.getElementById('match').innerHTML = goal + " is in the array";
+                document.getElementById('match').style.color = "navy";
+                document.getElementById('match').style.fontWeight = 'bold';
+                document.getElementById('match').style.fontSize = '20px';
+                break;
+            }
+
+        }
+        if (index == -1) {
+            document.getElementById('match').innerHTML = goal + " is NOT in the array";
+            document.getElementById('match').style.color = 'red';
+            document.getElementById('match').style.fontWeight = 'normal';
+            document.getElementById('match').style.fontSize = '14px';
+        }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<h3>ENG-VIET DICTIONARY</h3>
+<label>English</label>
+<input type="text" name="english" id="eng"><br>
+<br>
+<label>Vietnamese</label>
+<input type="text" name="vietnam" id="viet" onkeydown="translateWord()"><br>
+<br>
+<input type="button" onclick="translateWord()" name="trans" value="Translate">
+<br>
+<p id="result"></p>
+<script>
+    let english = ["dog", "love", "happy", "taciturn", "flounce"];
+    let vietnamese = ["con chó", "tình yêu", "hạnh phúc", "trầm mặc", "xông vào"];
+    function translateWord() {
+        let index = -1;
+        let engInput = document.getElementById('eng').value;
+        for (let i = 0; i < english.length; i++) {
+            if (engInput === english[i]) {
+                index = i;
+                document.getElementById('viet').value = vietnamese[index];
+                document.getElementById('result').innerHTML = "";
+                break;
+            }
+
+        }
+        if (index == -1) {
+            document.getElementById('result').innerHTML = "*The word not existed*";
+            document.getElementById('result').style.color = "red";
+            document.getElementById('viet').value = "";
+        }
+    }
+
+</script>
+</body>
+</html>

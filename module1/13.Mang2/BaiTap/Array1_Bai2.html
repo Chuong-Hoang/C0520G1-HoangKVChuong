@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+Array: numbers = [4, 7, 1, 8, 12, 9, 20, 11, 5, 15, 33, 22, 6];
+</pre>
+<p id="result"></p>
+<script>
+    let numbers = [4, 7, 1, 8, 12, 9, 20, 11, 5, 15, 33, 22, 6];
+    let maxNum = numbers[0];
+    let index = 0;
+    for (let i = 1; i < numbers.length; i++) {
+        if (maxNum < numbers[i]) {
+            maxNum = numbers[i];
+            index = i;
+        }
+    }
+    document.getElementById('result').innerHTML = "Max number is " + maxNum + " at index " + index;
+</script>
+</body>
+</html>

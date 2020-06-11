@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+Array: numbers = [2, 5, 1, 7, 12, 9, 20, 17, 8, 25, 43, 24, 6];
+</pre>
+<p id="result"></p>
+<script>
+    let numbers = [4, 7, 1, 8, 12, 9, 20, 11, 5, 15, 33, 22, 6];
+    let average;
+    let sum = 0;
+    for (let i = 1; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    average = sum / (numbers.length);
+    document.getElementById('result').innerHTML = "Average value is " + average;
+</script>
+</body>
+</html>
