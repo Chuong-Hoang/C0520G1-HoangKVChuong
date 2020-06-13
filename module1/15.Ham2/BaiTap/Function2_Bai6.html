@@ -7,11 +7,8 @@
 <body>
 <script>
     let x = prompt("Enter a number:");
-    if(isPositiveNumber(x)) {
-        alert(x + " is a positive number");
-    } else {
-        alert(x + " is NOT a positive number");
-    }
+    alert(x + " is a positive number? " + isPositiveNumber(x));
+
     function isPositiveNumber(num) {
         num = parseInt(num);
         if(num > 0) return true;

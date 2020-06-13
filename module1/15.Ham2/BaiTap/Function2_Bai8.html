@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 8: Hàm đảo ngược mảng số nguyên</b></p>
+<button type="button" name="butt" onclick="createAndReverseArray()">CREATE AND REVERSE ARRAY
+</button>
+<p>Before swap array: <span id="in"></span></p>
+<p>After swap array: <span id="out"></span></p>
+<script>
+    //let arr = [3, -5, 9, 12, -24, -41, 36, 27, -11, 20, -33, 19];
+    function createAndReverseArray() {
+        let len = parseInt(prompt("How length the array is?"));
+        let arr = new Array(len);
+        for(let i = 0; i < len; i++) {
+            arr[i] = 10 + i*i - i;
+        }
+        document.getElementById('in').innerHTML = arr.join(" ");
+        let temp;
+        for (let i = 0; i <= len/2; i++) {
+            temp = arr[i];
+            arr[i] = arr[len-i];
+            arr[len-i] = temp;
+        }
+        document.getElementById('out').innerHTML = arr.join(" ");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+<body>
+
+<style>
+    td, th {
+        text-align: center;
+        color: blue;
+        height: 50px;
+    }
+    button {
+        font-weight: normal;
+        color: white;
+        background-color: rgb(100, 200, 50);
+        font-size: 14px;
+        width: 80px;
+        height: 30px;
+        border: 1px outset green;
+        border-radius: 3px;
+    }
+    input[name='newProduct'] {
+        font-weight: normal;
+        color: black;
+        background-color: #dddddd;
+        font-size: 12px;
+        width: 300px;
+        height: 26px;
+        border: 2px inset darkgray;
+        border-radius: 3px;
+    }
+    input[name='addNewProduct'] {
+        font-weight: normal;
+        color: white;
+        background-color: rgb(100, 200, 50);
+        font-size: 14px;
+        width: 50px;
+        height: 30px;
+        border: 1px outset green;
+        border-radius: 3px;
+    }
+    input[name='butt'] {
+        font-weight: normal;
+        color: white;
+        background-color: rgb(100, 200, 50);
+        font-size: 14px;
+        width: 150px;
+        height: 30px;
+        border: 1px outset green;
+        border-radius: 3px;
+    }
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+</style>
+
+<h2>PRODUCT MANAGEMENT</h2>
+<label><b>Add new product</b></label><br><br>
+<input type="text" name="newProduct" id="addNew">
+<input type="button" name="addNewProduct" onclick="addNewProduct()" value="Add">
+
+<p><span><b>List of products:</b></span>&nbsp;&nbsp;<span id="total"></span>&nbsp;&nbsp;
+    <input type="button" name="butt" id ='show' onclick="display()" value="Display All Products"></p>
+<p id="end"></p>
+<script>
+  let product = new Array("Sony Ericson", "Motorola", "Samsung",
+      "Nokia", "Apple", "Oppo", "Huwei", "B-Phone", "Vertu JS5", "Xphone W3");
+  let len = product.length;
+
+  // Add a new product
+  function addNewProduct() {
+      let newProduct = document.getElementById('addNew').value;
+      product.push(newProduct);
+      len++;
+      display();
+      document.getElementById('addNew').value = '';
+  }
+
+  // Delete a product
+  function deleteProduct(x) {
+      let choose = confirm("Do you really want to delete this product?" + "\n" +
+                                    "Click 'OK' to delete or 'Cancel' to abort");
+      if (choose) {
+          product.splice(x, 1);
+          len--;
+          display();
+      }
+  }
+
+  // Edit a product
+  function editProduct(x) {
+      let selectedProduct = prompt("Retype this product: " + product[x]);
+      product[x] = selectedProduct;
+      display();
+  }
+
+  // Display list of products
+  function display() {
+      let productString = "";
+      let productTable = new Array(len);
+      productString += '<table border="2" style="border-collapse:collapse">';
+      productString +='<tr>\n' +
+          '        <th>No.</th>\n' +
+          '        <th>Product Description</th>\n' +
+          '        <th colspan="2">Option</th>\n' +
+          '    </tr>';
+      for(let i = 0; i < len; i++) {
+          productString += '<tr>';
+          for(let j = 0; j < 4; j++) {
+              if (j == 0) {
+                  productString += '<td width="50" height="50">' + '<b>' + (i+1) + '</b>' + '</td>';
+              } else if (j == 1) {
+                  productString += '<td width="250" height="50">' + product[i] + '</td>';
+              } else if (j == 2) {
+                  productString += '<td width="150" height="50">' +
+                      '<button onclick="editProduct('+ i + ')">Edit</button>' + '</td>';
+              } else {
+                  productString += '<td width="150" height="50">' +
+                      '<button onclick="deleteProduct(' + i + ')">Delete</button>' + '</td>';
+              }
+          }
+          productString += '</tr>';
+      }
+      productString += '</table>';
+      document.getElementById('end').innerHTML = productString;
+      document.getElementById('total').innerHTML = len + " products.";
+  }
+
+</script>
+</body>
+</html>

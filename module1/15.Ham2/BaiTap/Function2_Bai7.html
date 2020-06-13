@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 7: Đổi chổ 2 số bất kỳ</b></p>
+<pre>
+    let a = 5;
+    let b = 12
+    alert("Variable a = " + a + " and variable b = " + b);
+    swap(5, 12);
+    alert("Variable a = " + a + " and variable b = " + b);
+    function swap(a,b) {
+        alert("Before swap: a = " + a + " and b = " + b);
+        let temp = a;
+        a = b;
+        b = temp;
+        alert("After swap: a = " + a + " and b = " + b);
+    }
+</pre>
+<script>
+    let a = 5;
+    let b = 12
+    alert("Variable a = " + a + " and variable b = " + b);
+    swap(5, 12);
+    alert("Variable a = " + a + " and variable b = " + b);
+    function swap(a, b) {
+        alert("Before swap: a = " + a + " and b = " + b);
+        let temp = a;
+        a = b;
+        b = temp;
+        alert("After swap: a = " + a + " and b = " + b);
+    }
+</script>
+</body>
+</html>
