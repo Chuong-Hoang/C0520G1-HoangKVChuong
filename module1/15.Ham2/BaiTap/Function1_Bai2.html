@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Tạo hàm tăng giá trị của đối số</b></p>
+<label>Giá trị đầu vào</label>
+<input type="number" id="in" name="input" oninput="add(this.value)">
+<br><br>
+<label>Giá trị gia tăng</label>
+<input type="number" id="out" name="output">
+
+<script>
+
+    function add(num) {
+        document.getElementById('out').value = ++num;
+    }
+
+</script>
+</body>
+</html>

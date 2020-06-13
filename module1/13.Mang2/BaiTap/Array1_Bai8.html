@@ -21,8 +21,8 @@
     let index;
     let str = "";
     for (let i = 0; i < 10; i++) {
-        max = -Infinity;
-        for (let j = 0; j < myArray.length; j++) {
+        max = myArray[0];
+        for (let j = 1; j < myArray.length; j++) {
 
             if (max < myArray[j]) {
                 max = myArray[j];

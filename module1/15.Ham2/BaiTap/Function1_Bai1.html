@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Tạo hàm alert() và gọi trong phần body</b></p>
+<input type="button" id="butt" onmouseout="changeMessage()" onmouseover="alertMessage()" value="Hover me!">
+
+<script>
+    function alertMessage() {
+        //alert("Good morning :) ");
+        document.getElementById('butt').value = "Good morning! Have a nice day!";
+    }
+    function changeMessage() {
+        document.getElementById('butt').value = "Hover me!";
+    }
+</script>
+</body>
+</html>

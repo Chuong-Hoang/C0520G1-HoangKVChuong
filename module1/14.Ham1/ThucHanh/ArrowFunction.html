@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="in"></p>
+<p id="out"></p>
+<p id="out2"></p>
+<script>
+    let arr = [1, 4, 9, -12, 30, -44, 15, 7, 22, -17, 33];
+    document.getElementById('in').innerHTML = arr.join(" ");
+
+    let out = arr.sort((a,b) => a-b);
+    document.getElementById('out').innerHTML = out.join(" ");
+
+    let out2 = out.sort((a,b) => b-a);
+    document.getElementById('out2').innerHTML = out2.join(" ");
+    alert(arr);
+    alert(out);
+    alert(out2);
+
+</script>
+</body>
+</html>

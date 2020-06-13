@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương Hoàng: Cờ ca-rô</title>
+</head>
+<style>
+    body {
+        margin-left: 300px;
+    }
+    td {
+        text-align: center;
+        background-color: bisque;
+        font-weight: bold;
+        color: navy;
+    }
+</style>
+<body>
+<h3> CỜ CA-RÔ &#9733 CHƯƠNG HOÀNG &#9733&nbsp<button type="button" onclick="playAgain()">PLAY AGAIN</h3>
+
+<p id="out"></p>
+<script type="text/javascript">
+    let arr = new Array(20);
+    for (let i = 0; i < 20; i++) {
+        arr[i] = new Array(20);
+        for (let j = 0; j < 20; j++) {
+            arr[i][j] = "";
+        }
+    }
+    display();
+
+    function display() {
+        let str = "<table border=\"3\" style=\"border-collapse: collapse\">";
+        for (let i = 0; i < 20; i++) {
+            str += "<tr>";
+            for (let j = 0; j < 20; j++) {
+                str += "<td border=\"1\" height=\"25\" width=\"25\" onclick=\"play(" + i + ", " + j + ")\">" + arr[i][j] + "</td>";
+            }
+            str += "</tr>";
+        }
+        str += "</table>";
+        document.getElementById('out').innerHTML = str;
+    }
+
+    let turn = true;
+    function play(a, b) {
+        if (turn && !isFilled(a, b)) {
+            arr[a][b] = "X";
+            turn = false;
+        }
+
+        if (!turn && !isFilled(a, b)) {
+            arr[a][b] = "O";
+            turn = true;
+        }
+        display();
+        setTimeout(checkWin, 300);
+    }
+
+    function isFilled(i, j) {
+        if (arr[i][j] === "X" || arr[i][j] === "O") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkWin() {
+        for (let i = 0; i < 20; i++) {
+            for (let j = 0; j < 20; j++) {
+                if ((arr[i][j] === arr[i][j+1] &&
+                    arr[i][j] === arr[i][j+2] &&
+                    arr[i][j] === arr[i][j+3] &&
+                    arr[i][j] === "X") ||
+                    (arr[i][j] === arr[i+1][j] &&
+                    arr[i][j] === arr[i+2][j] &&
+                    arr[i][j] === arr[i+3][j] &&
+                    arr[i][j] === "X") ||
+                    (arr[i][j] === arr[i+1][j+1] &&
+                    arr[i][j] === arr[i+2][j+2] &&
+                    arr[i][j] === arr[i+3][j+3] &&
+                    arr[i][j] === "X") ||
+                    (arr[i][j] === arr[i+1][j-1] &&
+                    arr[i][j] === arr[i+2][j-2] &&
+                    arr[i][j] === arr[i+3][j-3] &&
+                    arr[i][j] === "X")) {
+                   alert("Player X-X-X wins!");
+                   break;
+                }
+
+                if ((arr[i][j] === arr[i][j+1] &&
+                    arr[i][j] === arr[i][j+2] &&
+                    arr[i][j] === arr[i][j+3] &&
+                    arr[i][j] === "O") ||
+                    (arr[i][j] === arr[i+1][j] &&
+                        arr[i][j] === arr[i+2][j] &&
+                        arr[i][j] === arr[i+3][j] &&
+                        arr[i][j] === "O") ||
+                    (arr[i][j] === arr[i+1][j+1] &&
+                        arr[i][j] === arr[i+2][j+2] &&
+                        arr[i][j] === arr[i+3][j+3] &&
+                        arr[i][j] === "O") ||
+                    (arr[i][j] === arr[i+1][j-1] &&
+                        arr[i][j] === arr[i+2][j-2] &&
+                        arr[i][j] === arr[i+3][j-3] &&
+                        arr[i][j] === "O")) {
+                    alert("Player O-O-O wins!");
+                    break;
+                }
+            }
+        }
+    }
+
+    function playAgain() {
+       for (let i = 0; i < 20; i++) {
+          for (let j = 0; j < 20; j++) {
+             arr[i][j] = "";
+          }
+       }
+       display();
+    }
+</script>
+</body>
+</html>

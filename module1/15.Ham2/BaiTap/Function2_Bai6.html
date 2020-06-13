@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x = prompt("Enter a number:");
+    if(isPositiveNumber(x)) {
+        alert(x + " is a positive number");
+    } else {
+        alert(x + " is NOT a positive number");
+    }
+    function isPositiveNumber(num) {
+        num = parseInt(num);
+        if(num > 0) return true;
+        return false;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số nguyên tố</title>
+</head>
+<body>
+<p><b>Kiểm tra những số nguyên dương nhỏ hơn 10000 có phải là số nguyên tố</b></p>
+<p id="result"></p>
+<script>
+    let result = "";
+    let count = 0;
+    for (let i = 0; i < 10000; i++) {
+        if (isPrime(i)) {
+            result += "<b>" + i + "</b> is a prime number. <br>";
+            count++;
+        }
+    }
+    result += "And quantity of prime numbers is: " + count;
+    document.getElementById('result').innerHTML = result;
+
+    function isPrime(number) {
+        if (number <= 1) {
+            return false;
+        } else if (number === 2) {
+            return true;
+        } else {
+            for (let j = 2; j <= Math.sqrt(number); j++) {
+                if (number % j === 0) {
+                    return false;
+                    break;
+                }
+            }
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

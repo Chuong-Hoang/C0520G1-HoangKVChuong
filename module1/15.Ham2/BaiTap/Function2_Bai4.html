@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 4: Kiểm tra ký tự nhập vào có phải là số hay không</b></p>
+<script>
+    function isNumber(x) {
+        x = parseInt(x);
+        if (x >= 0 || x < 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let input = prompt("Nhập vào một ký tự");
+    alert(input + " là ký tự số: " + isNumber(input));
+</script>
+
+</body>
+</html>
