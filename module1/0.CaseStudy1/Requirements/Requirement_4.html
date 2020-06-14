@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requirement 4</title>
+</head>
+<body>
+<h3>FURAMA MANAGEMENT</h3>
+<label><b>Add new customer: </b></label>
+<input type="button" name="buttAdd" onclick="addNewCustomer()" value="Add New Customer">
+<br><br>
+<lable><b>Display all customers: </b></lable>
+<input type="button" name="buttDisplay" onclick="displayCustomer()" value="Display All Customers">
+<br><br>
+<lable><b>Delete customer: </b></lable>
+<input type="button" name="buttDelete" onclick="deleteCustomer()" value="Delete Customer">
+<br><br>
+<p id="show"></p>
+
+<script>
+    let customerList = new Array('Chuong', 'Anh', 'Nhat', 'Bien', 'Tien',
+        'Minh', 'Kien', 'Phuong', 'Diem', 'Uyen');
+    let len = customerList.length;
+
+    // Add a new customer
+    function addNewCustomer() {
+        let num = parseInt(prompt("How many customers to be added?"));
+        for (let i = 0; i < num; i++) {
+            let inputName = prompt("Enter the customer name No. " + (i + 1) + ":");
+            customerList.push(inputName);
+        }
+        len += num;
+        displayCustomer();
+    }
+
+    // Delete a customer
+    function deleteCustomer() {
+        let customerString = "CUSTOMERS LIST" + "\n";
+        for (let i = 0; i < len; i++) {
+            customerString += (i + 1) + ". " + customerList[i] + "\n";
+        }
+        let choose = parseInt(prompt('Which customer to be deleted? ' + "\n" + customerString));
+
+        let agree = confirm("Do you really want to delete customer: " + customerList[choose-1] + "?");
+        if (agree) {
+            customerList.splice(choose-1, 1);
+            len--;
+        }
+        displayCustomer();
+    }
+
+    // Display all customers
+    function displayCustomer() {
+        customerList.sort(function (a, b) {
+            let x = a.toLowerCase();
+            let y = b.toLowerCase();
+            if (x > y) {return 1;}
+            if (x < y) {return -1;}
+            return 0;
+        } );
+        let customerString = "<b>Customers List</b>" + "<br>";
+        for (let i = 0; i < len; i++) {
+            customerString += (i + 1) + ". " + customerList[i] + "<br>";
+        }
+        document.getElementById('show').innerHTML = customerString;
+    }
+</script>
+</body>
+</html>

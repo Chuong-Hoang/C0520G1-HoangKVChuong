@@ -11,6 +11,20 @@
 <script>
     // 1.Input customer name
     let customerName = prompt("1. Customer name: ");
+    customerName = customerName.trim().toLowerCase();
+    let newName = '';
+    for (let i = 0; i < customerName.length; i++) {
+        if(customerName.charAt(i) === " " && customerName.charAt(i+1) === " ") {
+            continue;
+        }
+        if(i === 0 || customerName.charAt(i-1) === " ") {
+            newName += customerName.charAt(i).toUpperCase();
+            continue;
+        }
+        newName += customerName.charAt(i);
+    }
+    customerName = newName;
+    // --finished--
 
     // 2.Input customer Identification number (8 digits)
     let count, customerId;
