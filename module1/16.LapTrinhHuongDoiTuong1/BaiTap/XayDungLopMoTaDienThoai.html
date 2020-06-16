@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(name) {
+            this.name = name;
+            this.battery = 12;
+            this.textMemo = 0;
+            this.inboxMemo = 0;
+            this.sentMemo = 0;
+            this.onStatus = true;
+            this.offStatus = false;
+            this.msg = "";
+        }
+        turnOn(){
+            if (this.offStatus) {
+                alert(this.name + " turned on!");
+                this.battery--;
+                return this.onStatus;
+            }
+        }
+        turnOff(){
+            if (this.onStatus) {
+                this.offStatus = true;
+                alert(this.name + " turned off!");
+                this.battery--;
+            }
+        }
+        checkBattery(){
+            if(this.offStatus) {
+                this.turnOn();
+            }
+            if(this.battery <= 10) {
+                alert("Battery low: " + this.battery + ". Please charge now!");
+            }
+        }
+        checkOnOffStatus(){
+            if(this.onStatus) {
+                this.battery--;
+                alert(this.name + ' is now ON.');
+            }
+            if(this.offStatus) {
+                this.battery--;
+                alert(this.name + ' is now OFF.');
+            }
+            this.checkBattery();
+        }
+        batteryCharge(){
+            alert("Battery: " + this.battery + "%. It is charging.");
+            for (this.battery; this.battery < 15;) {
+                this.battery++;
+            }
+            alert("Battery full: " + this.battery + "%");
+        }
+        createMessage(){
+            if(this.offStatus) {
+                this.turnOn();
+            }
+            this.msg = prompt("Enter a message:");
+            alert(this.name + " is making a message: " + this.msg);
+            this.textMemo++;
+            this.battery--;
+            this.checkBattery();
+
+        }
+        receiveMessage(){
+            alert(this.name + " has a new message");
+            this.inboxMemo++;
+            this.battery--;
+            this.checkBattery();
+
+        }
+        sendMessage(){
+            if(this.textMemo > 0) {
+                alert(this.name + " has sent a message");
+                this.textMemo--;
+                this.sentMemo++;
+                this.battery--;
+                this.checkBattery();
+            }
+        }
+
+        openInboxMessages(msg){
+            if(this.offStatus) {
+                this.turnOn();
+            }
+            alert("Inbox message: " + msg);
+            this.battery--;
+            this.checkBattery();
+        }
+        openSentMessages(){
+            if(this.offStatus) {
+                this.turnOn();
+            }
+            alert("Sent message: " + this.msg);
+            this.battery--;
+            this.checkBattery();
+        }
+    }
+    // Use class Mobile
+    let nokia = new Mobile('Nokia 6300');
+    let iphone = new Mobile('Iphone SE');
+    nokia.createMessage();
+    nokia.sendMessage();
+    nokia.openSentMessages();
+    iphone.receiveMessage();
+    iphone.openInboxMessages(nokia.msg);
+    nokia.turnOff();
+    nokia.checkBattery();
+    nokia.batteryCharge();
+    iphone.checkOnOffStatus();
+    iphone.batteryCharge();
+
+
+</script>
+</body>
+</html>

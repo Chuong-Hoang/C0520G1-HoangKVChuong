@@ -21,9 +21,11 @@
             newName += customerName.charAt(i).toUpperCase();
             continue;
         }
+
         newName += customerName.charAt(i);
     }
     customerName = newName;
+    alert(customerName);
     // --finished--
 
     // 2.Input customer Identification number (8 digits)
@@ -34,7 +36,7 @@
         let num;
         for (let i = 0; i < count; i++) {
             num = parseInt(customerId.substring(i, i+1));
-            if (Number.isNaN(num) || num == 0) {count--;}
+            if (Number.isNaN(num) || num === 0) {count--;}
         }
     } while (count !== 8);
     // --finished--
@@ -47,15 +49,15 @@
         let num;
         for (let i = 0; i < count; i++) {
             num = customerBirthday.substring(i, i+1);
-            if (i == 2 || i == 5) {
+            if (i === 2 || i === 5) {
                 if (num !== '/') {count--;}
-            } else {continue;}
+            }
         }
         let dd = parseInt(customerBirthday.substring(0, 2));
         if (dd >= 32 || dd <= 0 || Number.isNaN(dd)) {count--;}
         let mm = parseInt(customerBirthday.substring(3, 5));
         if (mm >= 13 || mm <= 0 || Number.isNaN(mm)) {count--;}
-        if (mm == 2 && dd > 29) {count--;}
+        if (mm === 2 && dd > 29) {count--;}
         switch (mm) {
             case 4:
             case 6:

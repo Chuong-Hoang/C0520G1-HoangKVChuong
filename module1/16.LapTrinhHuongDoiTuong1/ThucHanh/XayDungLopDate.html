@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Create a class named MyDate
+    class MyDate {
+        constructor () {
+            this.day = 5;
+            this.month = 5;
+            this.year = 2005;
+
+        }
+        //methods()
+        getDay() {
+            return this.day;
+        };
+        getMonth() {
+            return this.month;
+        };
+        getYear() {
+            return this.year;
+        }
+        setDay(day) {
+            this.day = day;
+        }
+        setMonth(month) {
+            this.month = month;
+        }
+        setYear(year){
+            this.year = year;
+        }
+        display(){
+            alert(this.day + "/" + this.month + "/" + this.year);
+        }
+    }
+
+    // Use class MyDate
+    let date = new MyDate();
+    // Browse methods of class MyDate
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getYear();
+    // Display variables day, month, year
+    alert(day + "/" + month + "/" + year);
+    date.display();
+    date.setDay(23);
+    date.setMonth(5);
+    date.setYear(2000);
+    day = date.getDay();
+    month = date.getMonth();
+    year = date.getYear();
+    alert(day + "/" + month + "/" + year);
+    date.display();
+
+</script>
+</body>
+</html>

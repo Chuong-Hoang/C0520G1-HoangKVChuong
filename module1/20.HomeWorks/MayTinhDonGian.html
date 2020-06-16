@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính đơn giản</title>
+</head>
+<body>
+<style>
+    td {
+        width: 40px;
+        height: 40px;
+        border: 2px solid darkgray;
+        border-radius: 20px;
+        background-color: darkgray;
+        color: white;
+        text-align: center;
+        font-family: Arial;
+        font-weight: normal;
+        font-size: 20px;
+    }
+
+    input {
+        height: 25px;
+        width: 185px;
+        background-color: lightblue;
+        border: 2px inset darkgray;
+        border-radius: 3px;
+        font-size: 14px;
+    }
+    form {
+        width: 200px;
+        padding: 30px 10px 10px;
+        background-color: bisque;
+        border: 1px solid black;
+        border-radius: 3px;
+    }
+    #output {
+        text-align: right;
+    }
+</style>
+<h3>MÁY TÍNH ĐƠN GIẢN</h3>
+<form>
+    <input type="text" name="in" id="input"><br>
+
+    <input type="text" name="out" id="output"><br>
+    <br>
+    <table>
+        <tr>
+            <td onclick="getValue('C')">C</td>
+            <td>+/-</td>
+            <td onclick="getValue('%')">%</td>
+            <td onclick="getValue('/')">/</td>
+        </tr>
+        <tr>
+            <td onclick="getValue('7')">7</td>
+            <td onclick="getValue('8')">8</td>
+            <td onclick="getValue('9')">9</td>
+            <td onclick="getValue('*')">x</td>
+        </tr>
+        <tr>
+            <td onclick="getValue('4')">4</td>
+            <td onclick="getValue('5')">5</td>
+            <td onclick="getValue('6')">6</td>
+            <td onclick="getValue('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="getValue('1')">1</td>
+            <td onclick="getValue('2')">2</td>
+            <td onclick="getValue('3')">3</td>
+            <td onclick="getValue('+')">+</td>
+        </tr>
+        <tr>
+            <td colspan="2" onclick="getValue('0')">0</td>
+            <td onclick="getValue('.')">.</td>
+            <td onclick="getValue('=')">=</td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    let input = document.getElementById('input');
+    input.value ='';
+    function getValue(x) {
+        switch (x) {
+            case 'C':
+                input.value = '';
+                document.getElementById('output').value = 0;
+                break;
+            case '%':
+                input.value += '*100';
+                break;
+            
+            default:
+                input.value += x;
+                break;
+
+        }
+        let kq = eval(input.value);
+        if (kq >= 0 || kq < 0) {
+            document.getElementById('output').value = kq;
+        } else {
+            document.getElementById('output').value = 0;
+        }
+
+    }
+</script>
+</body>
+</html>

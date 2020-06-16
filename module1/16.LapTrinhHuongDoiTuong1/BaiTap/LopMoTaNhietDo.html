@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả nhiệt độ</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+        toFahrenheit() {
+            return 1.8*this.celsius +32;
+        }
+        toKelvin() {
+            return this.celsius + 273.15;
+        }
+        setDegree(cel) {
+            this.celsius = cel;
+        }
+        display() {
+            alert("Celsius: " + this.celsius + '\n' +
+                  "To Fahrenheit: " + this.toFahrenheit() + '\n' +
+                  "To Kelvin: " + this.toKelvin());
+        }
+    }
+    // Use class
+    let temper = new Temperature(25);
+    temper.display();
+    alert(temper.celsius + ' change to Kelvin: '+ temper.toKelvin());
+    alert(temper.celsius + ' change to Fahrenheit: '+ temper.toFahrenheit());
+    temper.setDegree(40);
+    temper.display();
+    alert(temper.celsius + ' change to Kelvin: '+ temper.toKelvin());
+    alert(temper.celsius + ' change to Fahrenheit: '+ temper.toFahrenheit());
+</script>
+</body>
+</html>

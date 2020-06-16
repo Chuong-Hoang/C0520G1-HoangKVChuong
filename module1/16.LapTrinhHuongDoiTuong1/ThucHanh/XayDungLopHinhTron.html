@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Create class named Circle
+    class Circle {
+        constructor(radius) {
+            this.radius = radius;
+            this.color = 'red';
+        }
+        getRadius() {
+            return this.radius;
+        }
+        getArea() {
+            return this.radius * this.radius * Math.PI;
+        }
+        getPeri() {
+            return 2*this.radius * Math.PI;
+        }
+        info() {
+            alert('Radius: ' + this.getRadius() + '\n' +
+            'Perimeter: ' + this.getPeri() + '\n' +
+            'Area: ' + this.getArea());
+        }
+        setRadius(x) {
+            this.radius = x;
+        }
+    }
+
+    // Use class Circle
+    let myCircle = new Circle(25);
+
+    // Browse methods
+    let rad = myCircle.getRadius();
+    let peri = myCircle.getPeri();
+    let area = myCircle.getArea();
+    alert('The circle has radius ' + rad + ' and area ' + area);
+    alert('The circle has perimeter ' + peri);
+    myCircle.info();
+    myCircle.setRadius(33);
+    // rad = myCircle.getRadius();
+    // area = myCircle.getArea();
+    // peri = myCircle.getPeri();
+    // alert('The circle has radius ' + rad + ' and area ' + area);
+    // alert('The circle has perimeter ' + peri);
+    myCircle.info();
+</script>
+</body>
+</html>

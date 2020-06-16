@@ -29,7 +29,7 @@
             let inputName = prompt("Enter the customer name No. " + (i + 1) + ":");
             customerList.push(inputName);
         }
-        len += num;
+        //len += num;
         displayCustomer();
     }
 
@@ -44,7 +44,7 @@
         let agree = confirm("Do you really want to delete customer: " + customerList[choose-1] + "?");
         if (agree) {
             customerList.splice(choose-1, 1);
-            len--;
+            //len--;
         }
         displayCustomer();
     }
@@ -59,7 +59,7 @@
             return 0;
         } );
         let customerString = "<b>Customers List</b>" + "<br>";
-        for (let i = 0; i < len; i++) {
+        for (let i = 0; i < customerList.length; i++) {
             customerString += (i + 1) + ". " + customerList[i] + "<br>";
         }
         document.getElementById('show').innerHTML = customerString;

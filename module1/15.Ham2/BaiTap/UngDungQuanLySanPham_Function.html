@@ -11,6 +11,7 @@
         text-align: center;
         color: blue;
         height: 50px;
+        border: none;
     }
     button {
         font-weight: normal;
@@ -21,6 +22,7 @@
         height: 30px;
         border: 1px outset green;
         border-radius: 3px;
+        cursor: pointer;
     }
     input[name='newProduct'] {
         font-weight: normal;
@@ -41,6 +43,7 @@
         height: 30px;
         border: 1px outset green;
         border-radius: 3px;
+        cursor: pointer;
     }
     input[name='butt'] {
         font-weight: normal;
@@ -51,24 +54,28 @@
         height: 30px;
         border: 1px outset green;
         border-radius: 3px;
+        cursor: pointer;
     }
     tr:nth-child(odd) {
         background-color: #dddddd;
+        border: none;
     }
 </style>
 
 <h2>PRODUCT MANAGEMENT</h2>
 <label><b>Add new product</b></label><br><br>
-<input type="text" name="newProduct" id="addNew">
+<input type="text" name="newProduct" id="addNew" placeholder="Product name">
 <input type="button" name="addNewProduct" onclick="addNewProduct()" value="Add">
 
 <p><span><b>List of products:</b></span>&nbsp;&nbsp;<span id="total"></span>&nbsp;&nbsp;
-    <input type="button" name="butt" id ='show' onclick="display()" value="Display All Products"></p>
+    <!--<input type="button" name="butt" id ='show' onclick="display()" value="Display All Products"></p> -->
 <p id="end"></p>
 <script>
   let product = new Array("Sony Ericson", "Motorola", "Samsung",
       "Nokia", "Apple", "Oppo", "Huwei", "B-Phone", "Vertu JS5", "Xphone W3");
   let len = product.length;
+
+  display();
 
   // Add a new product
   function addNewProduct() {
@@ -93,7 +100,10 @@
   // Edit a product
   function editProduct(x) {
       let selectedProduct = prompt("Retype this product: " + product[x]);
-      product[x] = selectedProduct;
+      if (selectedProduct !== null) {
+          product[x] = selectedProduct;
+      }
+
       display();
   }
 
@@ -109,19 +119,17 @@
           '    </tr>';
       for(let i = 0; i < len; i++) {
           productString += '<tr>';
-          for(let j = 0; j < 4; j++) {
-              if (j == 0) {
-                  productString += '<td width="50" height="50">' + '<b>' + (i+1) + '</b>' + '</td>';
-              } else if (j == 1) {
-                  productString += '<td width="250" height="50">' + product[i] + '</td>';
-              } else if (j == 2) {
-                  productString += '<td width="150" height="50">' +
+
+          productString += '<td width="50" height="50">' + '<b>' + (i+1) + '</b>' + '</td>';
+
+          productString += '<td width="250" height="50">' + product[i] + '</td>';
+
+          productString += '<td width="150" height="50">' +
                       '<button onclick="editProduct('+ i + ')">Edit</button>' + '</td>';
-              } else {
-                  productString += '<td width="150" height="50">' +
+
+          productString += '<td width="150" height="50">' +
                       '<button onclick="deleteProduct(' + i + ')">Delete</button>' + '</td>';
-              }
-          }
+
           productString += '</tr>';
       }
       productString += '</table>';

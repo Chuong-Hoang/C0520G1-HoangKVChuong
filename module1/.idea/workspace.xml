@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/~$seStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Read_me/~$seStudy_FuramaResort_Module1_final.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/~$seStudy_FuramaResort_Module1_final.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/15.Ham2/BaiTap/Function2_Bai9.html" beforeDir="false" afterPath="$PROJECT_DIR$/15.Ham2/BaiTap/Function2_Bai9.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/15.Ham2/BaiTap/UngDungQuanLySanPham_Function.html" beforeDir="false" afterPath="$PROJECT_DIR$/15.Ham2/BaiTap/UngDungQuanLySanPham_Function.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/UngDungMayTinh.html" beforeDir="false" afterPath="$PROJECT_DIR$/7.BienVaKieuDuLieu/BaiTap/UngDungMayTinh.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +43,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/9.CauTrucDieuKien2/BaiTap" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C0520G1-HoangKVChuong\module1\16.LapTrinhHuongDoiTuong1\BaiTap" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\C0520G1-HoangKVChuong\module1\9.CauTrucDieuKien2\BaiTap" />
       <recent name="D:\C0520G1-HoangKVChuong\module1\7.BienVaKieuDuLieu\BaiTap" />
@@ -105,7 +113,12 @@
       <workItem from="1592029970912" duration="11955000" />
       <workItem from="1592054718631" duration="7144000" />
       <workItem from="1592095344300" duration="7346000" />
-      <workItem from="1592125202302" duration="7146000" />
+      <workItem from="1592125202302" duration="7348000" />
+      <workItem from="1592146303386" duration="4701000" />
+      <workItem from="1592183780843" duration="16043000" />
+      <workItem from="1592226166405" duration="9468000" />
+      <workItem from="1592269763571" duration="12227000" />
+      <workItem from="1592311747376" duration="8152000" />
     </task>
     <servers />
   </component>
@@ -193,10 +206,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" width="607" height="738" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1591407583309" />
-    <state x="631" y="167" key="run.anything.popup" timestamp="1592141234643">
+    <state x="631" y="167" key="run.anything.popup" timestamp="1592188795019">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="631" y="167" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1592141234643" />
+    <state x="631" y="167" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1592188795019" />
     <state x="666" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1592020966048">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

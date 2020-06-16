@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" style="border: 1px solid blue;" height="400" width="700"></canvas>
+<script>
+    class Rectangle {
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+        getArea() {
+            return this.width * this.height;
+        }
+        getPerimeter() {
+            return (this.width + this.height) * 2;
+        }
+        setDimension(a, b) {
+            this.width = a;
+            this.height = b;
+        }
+        display() {
+            let ctx = document.getElementById('myCanvas').getContext('2d');
+            ctx.beginPath();
+            ctx.strokeStyle = 'green';
+            ctx.strokeRect(10, 20, this.width, this.height);
+        }
+    }
+
+    let myRectangle = new Rectangle(150, 150);
+    myRectangle.display();
+    alert('Perimeter: ' + myRectangle.getPerimeter() + '\n' +
+        'Area: ' + myRectangle.getArea());
+    myRectangle.setDimension(400, 300);
+    myRectangle.display();
+    alert('Perimeter: ' + myRectangle.getPerimeter() + '\n' +
+            'Area: ' + myRectangle.getArea());
+</script>
+</body>
+</html>
