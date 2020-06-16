@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama Management</title>
+</head>
+<body>
+
+<script>
+    let customerList = [
+        ['Nguyen Hung', '191 Hong Bang'],
+        ['To Xuan Lich', '20 Hoang Dieu'],
+        ['Luu Nghiem', '37/4 Thach Han'],
+        ['Tran Bach', '30/24 Le Loi']
+    ];
+    mainMenu();
+    function display() {
+        let string = 'CUSTOMERS LIST:' + '\n';
+        for(let i = 0; i < customerList.length; i++) {
+            for(let j = 0; j < customerList[i].length; j++) {
+                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+            }
+            string += "\n";
+        }
+        alert(string);
+    }
+    function addCustomer() {
+        let num = prompt("How many customer to be added?");
+
+        for(let i = 0; i < num; i++) {
+            let newCustomer = new Array();
+            for(let j = 0; j < 2; j++) {
+               newCustomer[j] = prompt("Enter new customer with prop " + j);
+            }
+            customerList.push(newCustomer);
+            //display();
+        }
+        display();
+    }
+
+    function editCustomer() {
+        let string = 'CUSTOMERS LIST:' + '\n';
+        for(let i = 0; i < customerList.length; i++) {
+            for(let j = 0; j < customerList[i].length; j++) {
+                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+            }
+            string += "\n";
+        }
+        let choose = prompt('Which customer to be edited?' + '\n' +
+                string);
+        let newEditCustomer = new Array();
+        for(let j = 0; j < 2; j++) {
+            let prop;
+            if(j === 0) {prop = 'Customer Name';}
+            else {prop = 'Customer Address';}
+            newEditCustomer[j] = prompt("Enter new " + prop);
+        }
+        customerList[choose-1] = newEditCustomer;
+        display();
+        mainMenu();
+    }
+
+    function deleteCustomer() {
+        let string = 'CUSTOMERS LIST:' + '\n';
+        for(let i = 0; i < customerList.length; i++) {
+            for(let j = 0; j < customerList[i].length; j++) {
+                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+            }
+            string += "\n";
+        }
+        let opt = prompt('Which customer to be deleted?' + '\n' +
+            string);
+        if(opt > 0) {
+            let choose = confirm('Do you really want to delete ' + customerList[opt-1] +'?');
+            if(choose) {
+                customerList.splice(opt-1, 1);
+            } else {
+                alert("You do not delete any customer");
+            }
+        } else {
+            alert("You do not delete any customer");
+        }
+
+        display();
+
+    }
+    function mainMenu() {
+        let opt = prompt("MAIN MENU" +"\n" +
+        "1. Add new customer" + "\n" +
+        "2. Edit customer" + "\n" +
+        "3. Delete customer" + "\n" +
+        "4. Display all customer" + "\n" +
+        "5. Cancel the main menu" + "\n" +
+        "");
+        switch (opt) {
+            case '1':
+                addCustomer();
+                break;
+            case '2':
+                editCustomer();
+                break;
+            case '3':
+                deleteCustomer();
+                break;
+            case '4':
+                display();
+                break;
+            case '5':
+            default:
+                alert("You just cancel the main menu");
+                break;
+
+        }
+    }
+</script>
+</body>
+</html>
