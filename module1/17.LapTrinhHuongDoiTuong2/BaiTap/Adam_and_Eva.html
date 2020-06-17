@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam and Eva</title>
+</head>
+<body>
+
+<script>
+    class Apple {
+        constructor(){
+            this.weight = 10;
+        }
+        getAppleWeight(){
+            return this.weight;
+        }
+        decrease(){
+            this.weight--;
+        }
+        isEmpty(){
+            if(this.weight === 0){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    class Human{
+        constructor(name, gender, weight){
+           this.name = name;
+           this.gender = gender;
+           this.weight = weight;
+        }
+        isMale(){
+            if(this.gender === 'male'){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        setGender(male){
+            this.gender = male;
+        }
+        speak(){
+            if(this.isMale()) {
+                alert("Em ăn thêm nữa đi, ngon lắm!");
+            } else {
+                alert("Trái này ngon ghê, anh hỉ!");
+            }
+
+        }
+        setName(string){
+            this.name = string;
+        }
+        getName(){
+            return this.name;
+        }
+        setWeight(w){
+            this.weight = w;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        checkAppleWeight(Apple){
+            return Apple.getAppleWeight();
+        }
+        eat(Apple){
+            if(this.checkAppleWeight(Apple)) {
+                alert(this.name + ' đang ăn táo');
+                Apple.decrease();
+                this.weight++;
+            }
+        }
+    }
+
+    // Use class Apple and Human
+    let initApple = new Apple();
+    let adam = new Human();
+    adam.setName('ADAM đẹp trai');
+    adam.setGender('male');
+    adam.setWeight(55);
+    let eva = new Human('Eva');
+    eva.setName('EVA xinh gái');
+    eva.setGender('female');
+    eva.setWeight(48);
+    for(initApple.weight; initApple.weight > 0;) {
+        adam.eat(initApple);
+        adam.speak();
+        eva.eat(initApple);
+        eva.speak();
+    }
+    if(initApple.isEmpty()) {
+        alert("Thượng đế đã đánh mất một quả táo ngon!!!");
+    }
+    alert('After eating apple: ' + adam.getName() + " is " + adam.getWeight());
+    alert('After eating apple: ' + eva.getName() + " is "  + eva.getWeight());
+
+</script>
+</body>
+</html>

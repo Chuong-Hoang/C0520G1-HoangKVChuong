@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Công tắc bóng đèn</title>
+</head>
+<body>
+<img src="bulbOFF.gif" width="300" height="400">
+
+<script>
+   class Lamp {
+       constructor(){
+           this.onStatus = false;
+       }
+   }
+   class Switch {
+       constructor(){
+           this.lamp = Lamp;
+       }
+       turnOnOff(Lamp){
+           if(Lamp.onStatus) {
+               Lamp.onStatus = false;
+               alert("Light is off now");
+           } else {
+               Lamp.onStatus = true;
+               alert("Light is ON");
+           }
+       }
+   }
+   let myLamp = new Lamp();
+   let switchButton = new Switch();
+   switchButton.turnOnOff(myLamp);
+   switchButton.turnOnOff(myLamp);
+</script>
+</body>
+</html>

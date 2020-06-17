@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game di chuyển đối tượng</title>
+</head>
+<body onload="doReady()">
+<p id="screen" onmouseover="moveRight()"></p>
+<!--<img src="" width="" height="" style="top: 1px; left: 1px; position: absolute;">-->
+<script>
+    class Bumblebee {
+        constructor(image, top, left, size, speed) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+            this.speed = speed;
+        }
+        getBeeFigure(){
+            return '<img src="'+ this.image + '" width="'+ this.size + '" height="' +
+                this.size + '" style="top:' + this.top + 'px; left:' + this.left + 'px; position: absolute;">';
+        }
+        setSpeed(x){
+            this.speed = x;
+        };
+        getSpeed(){
+            return this.speed;
+        };
+
+        moveRight(){
+            this.left += this.getSpeed();
+        }
+        moveDown() {
+            this.top += this.getSpeed();
+        }
+        moveLeft(){
+            this.left -= this.getSpeed();
+        }
+        moveUp(){
+            this.top -= this.getSpeed();
+        }
+
+    }
+
+    let bee = new Bumblebee('bee.gif', 100, 100, 100, 10);
+    bee.setSpeed(20);
+    document.getElementById('screen').innerHTML = bee.getBeeFigure();
+    function moveRight() {
+        if(bee.size < window.innerWidth - bee.left) {
+            bee.moveRight();
+        }
+        //document.getElementById('screen').innerHTML = bee.getBeeFigure();
+    }
+    function moveDown() {
+        if(bee.size < window.innerHeight - bee.top) {
+            bee.moveDown();
+        }
+        //document.getElementById('screen').innerHTML = bee.getBeeFigure();
+    }
+    function moveUp() {
+        if(bee.size >= bee.getSpeed()) {
+            bee.moveUp()
+        }
+    }
+    function moveLeft() {
+        if (bee.size >= bee.getSpeed()) {
+            bee.moveLeft();
+        }
+        //document.getElementById('screen').innerHTML = bee.getBeeFigure();
+    }
+
+    function movement(evt){
+        switch (evt.keyCode){
+            case 38:
+                moveUp();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+            case 37:
+                moveLeft();
+                break;
+        }
+        document.getElementById('screen').innerHTML = bee.getBeeFigure();
+    }
+    function doReady() {
+        window.addEventListener('keydown', movement);
+    }
+
+
+</script>
+</body>
+</html>
