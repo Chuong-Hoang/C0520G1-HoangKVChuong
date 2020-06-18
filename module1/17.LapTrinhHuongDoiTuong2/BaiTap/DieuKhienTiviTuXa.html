@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class TiVi {
+        constructor(channel, volume) {
+            this.channel = channel;
+            this.volume = volume;
+            this.onStatus = true;
+        }
+        currentChannel(){
+            alert("The current channel is: " + this.channel);
+        }
+        currentVolume(){
+            alert("The current volume is: " + this.volume);
+        }
+        currentStatus(){
+            if(this.onStatus) {
+                alert('Tivi is On now channel: ' + this.channel);
+            } else {
+                alert('Tivi is now OFF');
+            }
+        }
+        changeChannel(c){
+            this.channel = c;
+            this.currentChannel();
+        }
+        changeVolume(v){
+            if(this.volume < v) {
+                let n = v - this.volume;
+                for(let i = 0; i < n; i++) {
+                    this.volume++;
+                }
+            }
+
+            this.currentVolume();
+        }
+    }
+    class Remote {
+        constructor(code) {
+            this.code = code;
+        }
+        changeChannel(){
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>requirement 5</title>
 </head>
-<body>
+<body onload="totalAmount(index)">
 <style>
     table {
         border: 1px solid blue;
@@ -25,32 +25,35 @@
 <label>Add new customer -</label>
 <input type="button" onclick="addNewCustomer()" value="ADD">
 <br><br>
+<label>Total Amount -</label>
+<input type="button" onclick="totalAmount()" value="VIEW">
+<br><br>
 <p id="result"></p>
 
 <script>
     let customerList = [
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-        15, 3, 7, 'Villa', 'Vip'],
+        15, 3, 7, 'Villa', 'Vip', 0],
         ['Van Chuong', 12345678, '10/09/1977', 'abc@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 6, 'House', 'Normal'],
+            15, 2, 6, 'House', 'Normal', 0],
         ['Hoang Kim', 12345678, '22/06/1980', 'kkkkk@hoang.com','Huế', 'Silver',
-            15, 4, 9, 'Room', 'Business'],
+            15, 4, 9, 'Room', 'Business',0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 7, 'Villa', 'Vip'],
+            15, 3, 4, 'Villa', 'Vip', 0],
         ['Van Chuong', 12345678, '10/09/1977', 'bbbbb@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 6, 'House', 'Normal'],
+            15, 2, 8, 'House', 'Normal', 0],
         ['Hoang Kim', 12345678, '22/06/1980', 'hhhhhhh@hoang.com','Huế', 'Silver',
-            15, 4, 9, 'Room', 'Business'],
+            15, 4, 5, 'Room', 'Business', 0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'sssss@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 7, 'Villa', 'Vip'],
+            15, 3, 3, 'Villa', 'Vip', 0],
         ['Van Chuong', 12345678, '10/09/1977', 'chuong@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 6, 'House', 'Normal'],
+            15, 2, 4, 'House', 'Normal', 0],
         ['Hoang Kim', 12345678, '22/06/1980', 'love@hoang.com','Huế', 'Silver',
-            15, 4, 9, 'Room', 'Business'],
+            15, 4, 6, 'Room', 'Business', 0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@happy.com','Quảng Trị', 'Platinum',
-            15, 3, 7, 'Villa', 'Vip']
+            15, 3, 8, 'Villa', 'Vip', 0]
     ];
-    display()
+    display();
 
     function display() {
         let tableString = '';
@@ -58,18 +61,18 @@
             '    <caption><b>FURAMA RESORT CUSTOMER MANAGEMENT</b></caption>\n' + '<br>' +
             '    <tr>\n' +
             '        <th>No.</th>\n' +
-            '        <th>Customer Name</th>\n' +
-            '        <th>Identity No.</th>\n' +
-            '        <th>Birthday</th>\n' +
-            '        <th>Email</th>\n' +
-            '        <th>Address</th>\n' +
-            '        <th>Customer Type</th>\n' +
-            '        <th>Discount</th>\n' +
-            '        <th>People Include</th>\n' +
-            '        <th>Rent Days</th>\n' +
-            '        <th>Service Type</th>\n' +
-            '        <th>Room Class</th>\n' +
-            '        <th>Total Amount</th>\n' +
+            '        <th>Customer Name (0)</th>\n' +
+            '        <th>Identity No. (1)</th>\n' +
+            '        <th>Birthday (2)</th>\n' +
+            '        <th>Email (3)</th>\n' +
+            '        <th>Address (4)</th>\n' +
+            '        <th>Customer Type (5)</th>\n' +
+            '        <th>Discount (6)</th>\n' +
+            '        <th>People Include (7)</th>\n' +
+            '        <th>Rent Days (8)</th>\n' +
+            '        <th>Service Type (9)</th>\n' +
+            '        <th>Room Class (10)</th>\n' +
+            '        <th>Total Amount (11)</th>\n' +
             '        <th>Edit Info</th>\n' +
             '        <th>Delete Info</th>\n' +
             '    </tr>';
@@ -79,8 +82,7 @@
             for(let j = 0; j < customerList[i].length; j++) {
                 tableString += '<td>'+ customerList[i][j]+'</td>';
             }
-            tableString += '<td>'+ 'Total Amount' + '</td>' +
-            '<td><button onclick="editCustomer('+ i + ')">Edit</button></td>' +
+            tableString += '<td><button onclick="editCustomer('+ i + ')">Edit</button></td>' +
             '<td><button onclick="deleteCustomer('+ i + ')">Delete</button></td>';
             tableString += '</tr>';
         }
@@ -130,6 +132,7 @@
                        break;
                }
                newCustomer[j] = prompt("Person " + (i+1) + "_" + msg + ":");
+               newCustomer[11] = 0;
            }
            customerList.push(newCustomer);
        }
@@ -188,6 +191,29 @@
             customerList.splice(num, 1);
         } else {
             alert('You do not delete any customer.');
+        }
+        display();
+    }
+    let villa = 500;
+    let house = 300;
+    let room = 100;
+    let price = 0;
+    let total = 0;
+    function totalAmount(index) {
+        for (index = 0; index < customerList.length; index++) {
+        switch (customerList[index][9]) {
+            case 'Villa':
+                price = villa;
+                break;
+            case 'House':
+                price = house;
+                break;
+            case 'Room':
+                price = room;
+                break;
+        }
+        total = customerList[index][6] * customerList[index][8] * price/100;
+        customerList[index][11] = total;
         }
         display();
     }

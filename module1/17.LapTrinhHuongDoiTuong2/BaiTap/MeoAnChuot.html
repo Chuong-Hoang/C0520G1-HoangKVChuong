@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mèo ăn chuột</title>
+</head>
+<body>
+
+<script>
+    class Rat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.isAlive = true;
+        }
+        speak(){
+            alert(this.name + ' is speaking: chit! chit!');
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.maxSpeed = 10;
+        }
+        speak(){
+            alert(this.name + ' is speaking: meow! meow!');
+        }
+        checkFull(){
+            if(this.weight >= 15){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        catchRat(Rat){
+            if(!this.checkFull() && this.speed > Rat.speed) {
+                alert(this.name + ' has caught ' + Rat.name);
+                return true;
+            } else {
+                this.speed++;
+                return false;
+            }
+        }
+
+        eatRat(Rat){
+            if(this.catchRat(Rat)) {
+                if(Rat.isAlive) {
+                    alert(this.name + ' ate ' + Rat.name);
+                }
+                Rat.isAlive = false;
+                this.weight += Rat.weight;
+            } else {
+                alert(this.name + ' need to speed up');
+            }
+
+        }
+    }
+
+
+    let cat = new Cat('Tom', 10, 2);
+    cat.speak();
+    while(!cat.checkFull()) {
+        let rat = new Rat('Jerry', 2, 3);
+        rat.speak();
+        cat.catchRat(rat);
+        cat.eatRat(rat);
+    }
+    alert(cat.name + ' is now full: ' + cat.weight);
+
+
+</script>
+</body>
+</html>

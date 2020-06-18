@@ -4,33 +4,41 @@
     <meta charset="UTF-8">
     <title>Công tắc bóng đèn</title>
 </head>
-<body>
-<img src="bulbOFF.gif" width="300" height="400">
-
+<p>
+<p><img id="result" src="bulbOFF.gif" width="250" height="400"></p>
+<button type="button" onclick="switchLamp()" value="ON/OFF">TURN ON/TURN OFF</button>
 <script>
    class Lamp {
        constructor(){
            this.onStatus = false;
        }
-   }
-   class Switch {
-       constructor(){
-           this.lamp = Lamp;
-       }
-       turnOnOff(Lamp){
-           if(Lamp.onStatus) {
-               Lamp.onStatus = false;
-               alert("Light is off now");
+       checkStatus(){
+           if (this.onStatus) {
+               return true;
            } else {
-               Lamp.onStatus = true;
-               alert("Light is ON");
+               return false;
            }
        }
    }
+   class Switch {
+       constructor(){
+       }
+       turnOnOff(Lamp){
+           if(Lamp.checkStatus()) {
+               document.getElementById('result').src = 'bulbOFF.gif';
+               Lamp.onStatus = false;
+           } else {
+               document.getElementById('result').src = 'bulbON.gif';
+               Lamp.onStatus = true;
+           }
+       }
+   }
+
    let myLamp = new Lamp();
    let switchButton = new Switch();
-   switchButton.turnOnOff(myLamp);
-   switchButton.turnOnOff(myLamp);
+   function switchLamp(){
+       switchButton.turnOnOff(myLamp);
+   }
 </script>
 </body>
 </html>
