@@ -10,19 +10,21 @@
         constructor(channel, volume) {
             this.channel = channel;
             this.volume = volume;
-            this.onStatus = true;
+            this.onStatus = false;
         }
         currentChannel(){
-            alert("The current channel is: " + this.channel);
+            alert("Channel is: " + this.channel);
         }
         currentVolume(){
-            alert("The current volume is: " + this.volume);
+            alert("Volume is: " + this.volume);
         }
-        currentStatus(){
+        turnOnOff(){
             if(this.onStatus) {
-                alert('Tivi is On now channel: ' + this.channel);
+                this.onStatus = false;
+                alert('Tv is now OFF');
             } else {
-                alert('Tivi is now OFF');
+                this.onStatus = true;
+                alert('On channel: ' + this.channel + '\n' + 'On volume: ' + this.volume);
             }
         }
         changeChannel(c){
@@ -35,19 +37,41 @@
                 for(let i = 0; i < n; i++) {
                     this.volume++;
                 }
+            } else {
+                let n = this.volume - v;
+                for(let i = 0; i < n; i++) {
+                    this.volume--;
+                }
             }
-
             this.currentVolume();
         }
     }
+
     class Remote {
         constructor(code) {
             this.code = code;
         }
-        changeChannel(){
-
+        changeChannel(TiVi, c){
+            TiVi.channel = c;
+            TiVi.currentChannel();
+        }
+        changeVolume(TiVi, v){
+            TiVi.changeVolume(v);
+        }
+        turnOnOff(TiVi){
+            TiVi.turnOnOff();
         }
     }
+
+    let sony = new TiVi ('QTV', 12);
+    let sonyRemote = new Remote(12345);
+    sony.turnOnOff();
+    sony.changeChannel(7);
+    sonyRemote.changeChannel(sony, 3);
+    sony.changeVolume(14);
+    sonyRemote.changeVolume(sony, 8);
+    sonyRemote.turnOnOff(sony);
+
 </script>
 </body>
 </html>
