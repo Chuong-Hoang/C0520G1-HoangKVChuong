@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for(let i = 1; i < 999999; i++){
+        checkPerfectNumber(i);
+    }
+
+    function checkPerfectNumber(num){
+        //let num = parseInt(prompt("Input a number: "));
+        //alert(num);
+        if(num > 0){
+            let sum = 0;
+            for(let i = 1; i < num; i++){
+                if(num%i === 0) {sum += i;}
+            }
+            if(sum === num) {
+                alert(num + ' is a perfect number.');
+            } else {
+                //alert('Not a perfect number');
+            }
+        } else {
+            //alert('Not ...');
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function gradingStudents(grades) {
+        // Write your code here
+        if(grades >= 38){
+            if(grades % 5 > 2){
+                grades = grades - (grades % 5) + 5;
+            }
+        }
+        return grades;
+    }
+    alert(gradingStudents(72));
+    alert(gradingStudents(68));
+    alert(gradingStudents(38));
+    alert(gradingStudents(33));
+</script>
+</body>
+</html>

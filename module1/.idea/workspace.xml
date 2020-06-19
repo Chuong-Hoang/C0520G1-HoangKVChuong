@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/17.LapTrinhHuongDoiTuong2/BaiTap/CongTac_BongDen.html" beforeDir="false" afterPath="$PROJECT_DIR$/17.LapTrinhHuongDoiTuong2/BaiTap/CongTac_BongDen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/17.LapTrinhHuongDoiTuong2/BaiTap/DieuKhienTiviTuXa.html" beforeDir="false" afterPath="$PROJECT_DIR$/17.LapTrinhHuongDoiTuong2/BaiTap/DieuKhienTiviTuXa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Read_me/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5_Opt2.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5_Opt2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/20.HomeWorks/DemoAll.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/20.HomeWorks/FuramaResortManagement.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/20.HomeWorks/MayTinhDonGian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/20.HomeWorks/Requirement_5_Opt2.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/0.CaseStudy1/Requirements" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -120,7 +127,11 @@
       <workItem from="1592311747376" duration="14747000" />
       <workItem from="1592355839496" duration="20168000" />
       <workItem from="1592398257760" duration="13161000" />
-      <workItem from="1592441913739" duration="3658000" />
+      <workItem from="1592441913739" duration="11442000" />
+      <workItem from="1592473101727" duration="1133000" />
+      <workItem from="1592474290433" duration="1610000" />
+      <workItem from="1592485857142" duration="9184000" />
+      <workItem from="1592528783507" duration="2871000" />
     </task>
     <servers />
   </component>
@@ -204,6 +215,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state width="833" height="222" key="GridCell.Tab.3.right/0.0.1366.738@0.0.1366.738" timestamp="1591353381214" />
+    <state x="184" y="12" key="SettingsEditor" timestamp="1592529056166">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="12" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1592529056166" />
     <state x="0" y="0" width="607" height="738" key="find.popup" timestamp="1591407583309">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

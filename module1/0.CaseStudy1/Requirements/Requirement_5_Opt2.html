@@ -11,14 +11,18 @@
         ['Nguyen Hung', '191 Hong Bang'],
         ['To Xuan Lich', '20 Hoang Dieu'],
         ['Luu Nghiem', '37/4 Thach Han'],
-        ['Tran Bach', '30/24 Le Loi']
+        ['Tran Bach', '30/24 Le Loi'],
+        ['Vuong Ly', '24/4/12 Bui Vien'],
+        ['Le Viet', '01 Yen Bai'],
+        ['Hoang Kim', '7 Ngo Ha']
     ];
     mainMenu();
     function display() {
         let string = 'CUSTOMERS LIST:' + '\n';
         for(let i = 0; i < customerList.length; i++) {
+            string += (i + 1) + '. ';
             for(let j = 0; j < customerList[i].length; j++) {
-                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+                string += customerList[i][j] + ' --> ';
             }
             string += "\n";
         }
@@ -28,27 +32,28 @@
         let num = prompt("How many customer to be added?");
 
         for(let i = 0; i < num; i++) {
-            let newCustomer = new Array();
+            let newCustomer = [];
             for(let j = 0; j < 2; j++) {
-               newCustomer[j] = prompt("Enter new customer with prop " + j);
+               newCustomer[j] = prompt("Enter new customer with property " + j);
             }
             customerList.push(newCustomer);
-            //display();
         }
         display();
+        mainMenu();
     }
 
     function editCustomer() {
         let string = 'CUSTOMERS LIST:' + '\n';
         for(let i = 0; i < customerList.length; i++) {
+            string += (i + 1) +'. ';
             for(let j = 0; j < customerList[i].length; j++) {
-                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+                string += customerList[i][j] + ' --> ';
             }
             string += "\n";
         }
         let choose = prompt('Which customer to be edited?' + '\n' +
                 string);
-        let newEditCustomer = new Array();
+        let newEditCustomer = [];
         for(let j = 0; j < 2; j++) {
             let prop;
             if(j === 0) {prop = 'Customer Name';}
@@ -64,7 +69,7 @@
         let string = 'CUSTOMERS LIST:' + '\n';
         for(let i = 0; i < customerList.length; i++) {
             for(let j = 0; j < customerList[i].length; j++) {
-                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + "  ";
+                string += (i + 1) +'.' + (j + 1) + ' ' + customerList[i][j] + '  ';
             }
             string += "\n";
         }
@@ -82,6 +87,7 @@
         }
 
         display();
+        mainMenu();
 
     }
     function mainMenu() {
@@ -89,8 +95,8 @@
         "1. Add new customer" + "\n" +
         "2. Edit customer" + "\n" +
         "3. Delete customer" + "\n" +
-        "4. Display all customer" + "\n" +
-        "5. Cancel the main menu" + "\n" +
+        "4. Display all customers" + "\n" +
+        "5. CANCEL" + "\n" +
         "");
         switch (opt) {
             case '1':
@@ -107,7 +113,7 @@
                 break;
             case '5':
             default:
-                alert("You just cancel the main menu");
+                alert("You just exit the main menu");
                 break;
 
         }

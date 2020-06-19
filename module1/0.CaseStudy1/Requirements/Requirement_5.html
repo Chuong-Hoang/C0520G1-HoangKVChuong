@@ -4,61 +4,71 @@
     <meta charset="UTF-8">
     <title>requirement 5</title>
 </head>
-<body onload="totalAmount(index)">
 <style>
     table {
         border: 1px solid blue;
         border-collapse: collapse;
     }
     td, th {
-        border: 1px solid lightgrey;
+        border: 1px solid darkgray;
         width: 120px;
         height: 35px;
         text-align: center;
     }
     input, label {
-        font-size: 20px;
+        font-size: 14px;
         color: blue;
+        cursor: pointer;
 
     }
+    tr:nth-child(odd) {
+        background-color: #dddddd;
+    }
+    button {
+        background-color: beige;
+        color: blue;
+        border: 1px solid darkgray;
+        cursor: pointer;
+    }
 </style>
+
+<body>
 <label>Add new customer -</label>
 <input type="button" onclick="addNewCustomer()" value="ADD">
 <br><br>
 <label>Total Amount -</label>
 <input type="button" onclick="totalAmount()" value="VIEW">
-<br><br>
 <p id="result"></p>
 
 <script>
     let customerList = [
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-        15, 3, 7, 'Villa', 'Vip', 0],
+        15, 3, 7, 'Villa', 'Vip',0],
         ['Van Chuong', 12345678, '10/09/1977', 'abc@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 6, 'House', 'Normal', 0],
+            15, 2, 6, 'House', 'Normal',0],
         ['Hoang Kim', 12345678, '22/06/1980', 'kkkkk@hoang.com','Huế', 'Silver',
             15, 4, 9, 'Room', 'Business',0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 4, 'Villa', 'Vip', 0],
+            15, 3, 4, 'Villa', 'Vip',0],
         ['Van Chuong', 12345678, '10/09/1977', 'bbbbb@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 8, 'House', 'Normal', 0],
+            15, 2, 8, 'House', 'Normal',0],
         ['Hoang Kim', 12345678, '22/06/1980', 'hhhhhhh@hoang.com','Huế', 'Silver',
-            15, 4, 5, 'Room', 'Business', 0],
+            15, 4, 5, 'Room', 'Business',0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'sssss@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 3, 'Villa', 'Vip', 0],
+            15, 3, 3, 'Villa', 'Vip',0],
         ['Van Chuong', 12345678, '10/09/1977', 'chuong@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 4, 'House', 'Normal', 0],
+            15, 2, 4, 'House', 'Normal',0],
         ['Hoang Kim', 12345678, '22/06/1980', 'love@hoang.com','Huế', 'Silver',
-            15, 4, 6, 'Room', 'Business', 0],
+            15, 4, 6, 'Room', 'Business',0],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@happy.com','Quảng Trị', 'Platinum',
-            15, 3, 8, 'Villa', 'Vip', 0]
+            15, 3, 8, 'Villa', 'Vip',0]
     ];
     display();
 
     function display() {
         let tableString = '';
         tableString += '<table>\n' +
-            '    <caption><b>FURAMA RESORT CUSTOMER MANAGEMENT</b></caption>\n' + '<br>' +
+            '    <caption><b>FURAMA RESORT CUSTOMER MANAGEMENT</b><br><br></caption>\n' +
             '    <tr>\n' +
             '        <th>No.</th>\n' +
             '        <th>Customer Name (0)</th>\n' +
@@ -82,6 +92,7 @@
             for(let j = 0; j < customerList[i].length; j++) {
                 tableString += '<td>'+ customerList[i][j]+'</td>';
             }
+            //tableString += '<td id="td'+ i + '"' + ' onclick="totalAmount('+ i + ')">0</td>';
             tableString += '<td><button onclick="editCustomer('+ i + ')">Edit</button></td>' +
             '<td><button onclick="deleteCustomer('+ i + ')">Delete</button></td>';
             tableString += '</tr>';
@@ -141,48 +152,90 @@
 
     function editCustomer(num) {
         let string = '';
+        let prop = '';
         for(let j = 0; j < 11; j++) {
-            string += (j+1) +'. ' + customerList[num][j] + '\n';
-        }
-        let choose = prompt("Choose field to be edited: " + '\n' + string);
-        let msg = '';
-            switch (choose-1){
+            switch (j) {
                 case 0:
-                    msg = 'customer name';
+                    prop = 'Customer name';
                     break;
                 case 1:
-                    msg = 'customer ID';
+                    prop = 'Customer ID';
                     break;
                 case 2:
-                    msg = 'customer birthday';
+                    prop = 'Customer birthday';
                     break;
                 case 3:
-                    msg = 'customer email';
+                    prop = 'Customer email';
                     break;
                 case 4:
-                    msg = 'customer address';
+                    prop = 'Customer address';
                     break;
                 case 5:
-                    msg = 'customer type';
+                    prop = 'Customer type';
                     break;
                 case 6:
-                    msg = 'discount';
+                    prop = 'Discount';
                     break;
                 case 7:
-                    msg = 'people included';
+                    prop = 'People included';
                     break;
                 case 8:
-                    msg = 'rent days';
+                    prop = 'Rent days';
                     break;
                 case 9:
-                    msg = 'service type';
+                    prop = 'Service type';
                     break;
                 case 10:
-                    msg = 'room class';
+                    prop = 'Room class';
                     break;
             }
-           customerList[num][choose-1] = prompt('Enter ' + msg + ":");
-            display();
+            string += (j+1) +'. ' + prop + ": " + customerList[num][j] + '\n';
+        }
+        string += '12. CANCEL editing';
+        let choose = prompt("Choose field to be edited: " + '\n' + string);
+        let msg = '';
+        switch (choose-1){
+            case 0:
+                msg = 'customer name';
+                break;
+            case 1:
+                msg = 'customer ID';
+                break;
+            case 2:
+                msg = 'customer birthday';
+                break;
+            case 3:
+                msg = 'customer email';
+                break;
+            case 4:
+                msg = 'customer address';
+                break;
+            case 5:
+                msg = 'customer type';
+                break;
+            case 6:
+                msg = 'discount';
+                break;
+            case 7:
+                msg = 'people included';
+                break;
+            case 8:
+                msg = 'rent days';
+                break;
+            case 9:
+                msg = 'service type';
+                break;
+            case 10:
+                msg = 'room class';
+                break;
+            case 11:
+            default:
+               break;
+        }
+        if(choose >= 1 && choose <= 11){
+            customerList[num][choose-1] = prompt('Enter ' + msg + ":");
+        }
+        display();
     }
 
     function deleteCustomer(num){
@@ -194,6 +247,8 @@
         }
         display();
     }
+
+    // Calculate the total amount to be paid
     let villa = 500;
     let house = 300;
     let room = 100;
@@ -212,8 +267,9 @@
                 price = room;
                 break;
         }
-        total = customerList[index][6] * customerList[index][8] * price/100;
-        customerList[index][11] = total;
+        total = (1-customerList[index][6]/100) * customerList[index][8] * price;
+        customerList[index][11] = Math.ceil(total);
+        //document.getElementById('td'+ index).innerHTML = total;
         }
         display();
     }
