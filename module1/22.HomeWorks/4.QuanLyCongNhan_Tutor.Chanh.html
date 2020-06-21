@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .khung{
+            border: solid;
+            border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="khung" style="margin-left: 200px;width: 700px;height: 500px">
+    <h1 style="margin-left: 150px">Quản lý Nhân Viên</h1>
+    <input type="button" style="background: lightgreen" value="Thêm mới Nhân Viên" onclick="themNhanVien()">
+    <p id="display"></p>
+</div>
+​
+<script>
+    let listNhanVien = [];
+    hienThi();
+
+    function hienThi() {
+        let tableString = '<table border="1">\n' +
+            '<tr>\n' +
+            '<th>Số thứ tự</th>\n' +
+            '<th> Tên nhân Viên</th>\n' +
+            '<th> Ngày tháng năm sinh</th>\n'+
+            '<th> Địa chỉ</th>\n'+
+            '<th> Lương</th>\n'+
+            '<th> Chức vụ</th>\n'+
+            '<th style="background: yellow"> Sửa</th>\n' +
+            '<th style="background: red"> Xóa</th>\n' +
+            '</tr>';
+        for (let i = 0; i < listNhanVien.length; i++) {
+            tableString += ' <tr>\n' +
+                '<td>' + (i + 1) + '</td>\n' +
+                '<td>' + listNhanVien[i].getTen()+ '</td>\n' +
+                '<td>' + listNhanVien[i].getNgaySinh() + '</td>\n'+
+                '<td>' + listNhanVien[i].getDiaChi() + '</td>\n'+
+                '<td>' + listNhanVien[i].getLuong() + '</td>\n'+
+                '<td>' + listNhanVien[i].getChucVu() + '</td>\n'+
+                '<td> <input type="button" value="Sửa" style="background: yellow" onclick="suaThongTin(' + i + ')"></td>\n' +
+                ' <td> <input type="button" value="Xóa" style="background: crimson" onclick="xoaNhanVien(' + i + ')"></td>\n' +
+                '</tr>';
+        }
+        tableString += '</table>';
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function themNhanVien() {
+        let ten = prompt("nhập tên công nhân:");
+        let ngaySinh = prompt("nhập ngày tháng năm sinh:");
+        let diaChi = prompt("nhập địa chỉ:");
+        let luong = prompt("nhập lương:");
+        let chucVu = prompt("nhập chức vụ:");
+        let nhanVien =new NhanVien(ten,ngaySinh,diaChi,luong,chucVu);
+        listNhanVien.push(nhanVien);
+        hienThi();
+    }
+
+    function suaThongTin(i) {
+        listNhanVien[i].setTen(prompt("Sửa lại tên"));
+        listNhanVien[i].setNgaySinh(prompt("Sửa lại ngày sinh"));
+        listNhanVien[i].setDiaChi(prompt("Sử lịa địa chỉ"));
+        listNhanVien[i].setLuong(prompt("Sửa lại Lương"));
+        listNhanVien[i].setChuVu(prompt("Sửa lại chức vụ"));
+        hienThi();
+    }
+
+    function xoaNhanVien(id) {
+        let xacNhanXoa = confirm("Bạn có muốn xóa sản phẩm " + listNhanVien[id].getTen() + "không?")
+        if (xacNhanXoa) {
+            listNhanVien.splice(id, 1);
+        }
+        hienThi();
+    }
+
+    class NhanVien{
+        constructor(ten, ngaySinh, diaChi, luong, chucVu) {
+            this.ten=ten;
+            this.ngaySinh=ngaySinh;
+            this.diaChi=diaChi;
+            this.luong=luong;
+            this.chucVu=chucVu;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh= ngaySinh
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        setDiaChi(diaChi){
+            this.diaChi=diaChi;
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setLuong(luong){
+            this.luong=luong;
+        }
+        getLuong(){
+            return this.luong;
+        }
+        setChuVu(chucVu){
+            this.chucVu= chucVu;
+        }
+        getChucVu(){
+            return this.chucVu;
+        }
+    }
+</script>
+</body>
+</html>

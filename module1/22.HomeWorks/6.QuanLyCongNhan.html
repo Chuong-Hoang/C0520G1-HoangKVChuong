@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan ly cong nhan</title>
+</head>
+<style>
+    td {
+        text-align: center;
+        cursor: text;
+    }
+</style>
+<body>
+<div>
+    <h2>WORKER MANAGEMENT FIELD</h2>
+    <input type="button" onclick="addNewWorker()" value="ADD NEW WORKER">
+    <p id="show"></p>
+</div>
+<script>
+    let workerList = [];
+    display();
+    function display(){
+        let string = '<table border="1" style="border-collapse: collapse">';
+        string += '<tr>\n' +
+            '        <th width="50">STT</th>\n' +
+            '        <th width="250">Họ tên</th>\n' +
+            '        <th width="150">Ngày sinh</th>\n' +
+            '        <th width="150">Địa chỉ</th>\n' +
+            '        <th width="150">Vị trí</th>\n' +
+            '        <th width="150">Mức lương</th>\n' +
+            '        <th width="150">Xóa thông tin</th>\n' +
+            '    </tr>';
+        for(let i = 0; i < workerList.length; i++) {
+            string += '<tr>';
+
+            string += '<td>' + (i+1) + '</td>';
+            string += '<td ondblclick="editName(' + i + ')">' + workerList[i].getName() + '</td>';
+            string += '<td ondblclick="editBirthday(' + i + ')">' + workerList[i].getBirthday() + '</td>';
+            string += '<td ondblclick="editAddress(' + i + ')">' + workerList[i].getAddress() + '</td>';
+            string += '<td ondblclick="editPosition(' + i + ')">' + workerList[i].getPosition() + '</td>';
+            string += '<td ondblclick="editSalary(' + i + ')">' + workerList[i].getSalary() + '</td>';
+            string += '<td ondblclick="deleteWorker(' + i + ')">DELETE</td>';
+
+            string += '</tr>';
+        }
+        string += '</table>';
+        document.getElementById('show').innerHTML = string;
+    }
+
+    function addNewWorker(){
+        let newWorker = new Workers();
+        let name = prompt('Enter name:');
+        let birthday = prompt('Enter birthday of ' + name);
+        let address = prompt('Enter address of ' + name);
+        let position = prompt('Enter position of ' + name);
+        let salary = prompt('Enter salary of ' + name);
+        newWorker.setName(name);
+        newWorker.setBirthday(birthday);
+        newWorker.setAddress(address);
+        newWorker.setPosition(position);
+        newWorker.setSalary(salary);
+        workerList.push(newWorker);
+        display();
+    }
+
+    function deleteWorker(i){
+        let choose = confirm('Really want to delete ' + workerList[i].getName() + '?');
+        if (choose) {
+            workerList.splice(i, 1);
+        } else {
+            alert('No worker deleted!');
+        }
+        display();
+    }
+
+    function editName(i){
+        let name = prompt('Rename of ' + workerList[i].getName());
+        workerList[i].setName(name);
+        display();
+    }
+    function editBirthday(i){
+        let birthday = prompt('Input birthday of ' + workerList[i].getName());
+        workerList[i].setBirthday(birthday);
+        display();
+    }
+    function editAddress(i){
+        let address = prompt('Input new address of ' + workerList[i].getName());
+        workerList[i].setAddress(address);
+        display();
+    }
+    function editPosition(i){
+        let position = prompt('Input new position of ' + workerList[i].getName());
+        workerList[i].setPosition(position);
+        display();
+    }
+    function editSalary(i){
+        let salary = parseFloat(prompt('Input new salary of ' + workerList[i].getName()));
+        workerList[i].setSalary(salary);
+        display();
+    }
+
+    class Workers {
+        constructor(name, birthday, address, position, salary){
+            this.name = name;
+            this.birthday = birthday;
+            this.address = address;
+            this.position = position;
+            this.salary = salary;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setAddress(address){
+            this.address = address;
+        }
+        getAddress(){
+            return this.address;
+        }
+        setPosition(position){
+            this.position = position;
+        }
+        getPosition(){
+            return this.position;
+        }
+        setSalary(salary){
+            this.salary = salary;
+        }
+        getSalary(){
+            return this.salary;
+        }
+    }
+</script>
+</body>
+</html>

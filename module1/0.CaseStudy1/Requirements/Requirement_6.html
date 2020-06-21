@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Management</title>
+</head>
+<body>
+<style>
+    table {
+        border: 1px solid blue;
+        border-collapse: collapse;
+    }
+    td, th {
+        width: 180px;
+        height: 30px;
+        border: 1px solid darkgray;
+        text-align: center;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    td:hover{
+        background-color: coral;
+    }
+</style>
+
+<div>
+    <h2>CUSTOMER MANAGEMENT FIELD</h2>
+    <input type="button" onclick="addNewCustomer()" value="ADD NEW CUSTOMER">
+    <p id="table"></p>
+</div>
+
+<script>
+    //---Create class and objects
+    class Customer {
+        constructor (name, birthday, email, address, customerType,
+        serviceType, roomClass, discount, rentDays, peopleIncluded) {
+            this.name = name;
+            this.birthday = birthday;
+            this.email = email;
+            this.address = address;
+            this.customerType = customerType;
+            this.serviceType = serviceType;
+            this.roomClass = roomClass;
+            this.discount = discount;
+            this.rentDays = rentDays;
+            this.peopleIncluded = peopleIncluded;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setEmail(email){
+            this.email = email;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setAddress(address){
+            this.address = address;
+        }
+        getAddress(){
+            return this.address;
+        }
+        setCustomerType(customerType){
+            this.customerType = customerType;
+        }
+        getCustomerType(){
+            return this.customerType;
+        }
+        setServiceType(serviceType){
+            this.serviceType = serviceType;
+        }
+        getServiceType(){
+            return this.serviceType;
+        }
+        setRoomClass(roomClass){
+            this.roomClass = roomClass;
+        }
+        getRoomClass(){
+            return this.roomClass;
+        }
+        setDiscount(discount){
+            this.discount = discount;
+        }
+        getDiscount(){
+            return this.discount;
+        }
+        setRentDays(rentDays){
+            this.rentDays = rentDays;
+        }
+        getRentDays(){
+            return this.rentDays;
+        }
+        setPeopleIncluded(peopleIncluded){
+            this.peopleIncluded = peopleIncluded;
+        }
+        getPeopleIncluded(){
+            return this.peopleIncluded;
+        }
+        setUnitPrice(){
+            switch (this.serviceType){
+                case 'Villa':
+                    this.unitPrice = 500;
+                    break;
+                case 'House':
+                    this.unitPrice = 300;
+                    break;
+                case 'Room':
+                    this.unitPrice = 100;
+                    break;
+                default:
+                    this.unitPrice = 0;
+                    break;
+            }
+        }
+        getUnitPrice(){
+            return this.unitPrice;
+        }
+        setTotalAmount(){
+            this.totalAmount = this.getUnitPrice() * this.getRentDays() * (1 - this.getDiscount()/100);
+        }
+        getTotalAmount(){
+            return this.totalAmount;
+        }
+    }
+    //---End of class Customer{}
+
+    let customersList = [];
+    let customerOne = new Customer('Chuong Hoang', '20/04/1988','chuong@hoang.com', 'Da Nang', 'Platinum',
+    'House', 'Business', 15, 10, 3);
+    customerOne.setUnitPrice();
+    customerOne.setTotalAmount();
+    customersList.push(customerOne);
+    displayAll();
+    function displayAll(){
+        let string = '<table>\n' +
+        '<caption><b>CUSTOMER LIST</b><br><br></caption>\n';
+        string += '<tr>\n' +
+            '        <th id="stt">No.</th>\n' +
+            '        <th id="name">Full name</th>\n' +
+            '        <th id="birthday">Birthday</th>\n' +
+            '        <th id="email">Email</th>\n' +
+            '        <th id="address">Address</th>\n' +
+            '        <th id="customerType">Customer Type</th>\n' +
+            '        <th id="serviceType">Service Type</th>\n' +
+            '        <th id="roomClass">Room Class</th>\n' +
+            '        <th id="discount">Discount (%)</th>\n' +
+            '        <th id="rentDays">Rent days</th>\n' +
+            '        <th id="peopleIncluded">People Included</th>\n' +
+            '        <th id="unitPrice">Unit Price</th>\n' +
+            '        <th id="totalAmount">Total Amount</th>\n' +
+            '        <th id="delete">Delete Info</th>\n' +
+            '    </tr>';
+        for(let i = 0; i < customersList.length; i++){
+           string += '<tr>';
+           //-- go rows
+           string += '<td>' + (i+1) + '</td>'; //1
+           string += '<td ondblclick="editName('+i+')">' + customersList[i].getName() + '</td>'; //2
+           string += '<td ondblclick="editBirthday('+i+')">' + customersList[i].getBirthday() + '</td>'; //3
+           string += '<td ondblclick="editEmail('+i+')">' + customersList[i].getEmail() + '</td>'; //4
+           string += '<td ondblclick="editAddress('+i+')">' + customersList[i].getAddress() + '</td>'; //5
+           string += '<td ondblclick="editCustomerType('+i+')">' + customersList[i].getCustomerType() + '</td>'; //6
+           string += '<td ondblclick="editServiceType('+i+')">' + customersList[i].getServiceType() + '</td>'; //7
+           string += '<td ondblclick="editRoomClass('+i+')">' + customersList[i].getRoomClass() + '</td>'; //8
+           string += '<td ondblclick="editDiscount('+i+')">' + customersList[i].getDiscount() + '</td>'; //9
+           string += '<td ondblclick="editRentDays('+i+')">' + customersList[i].getRentDays() + '</td>'; //10
+           string += '<td ondblclick="editPeopleIncluded('+i+')">' + customersList[i].getPeopleIncluded() + '</td>'; //11
+           string += '<td>' + customersList[i].getUnitPrice() + '</td>';//12
+           string += '<td style="font-weight: bold">' + customersList[i].getTotalAmount() + '</td>'; //13
+           string += '<td style="color: red;" onclick="deleteCustomer(' + i + ')">DELETE</td>'; //14
+           //-- end rows
+           string += '</tr>';
+        }
+        string += '</table>';
+        document.getElementById('table').innerHTML = string;
+    }
+
+    function addNewCustomer(){
+        let number = parseInt(prompt('How many customers to be added?'));
+        if(number > 0){
+            for(let i = 0; i < number; i++){
+
+                //standardize name---------------------------------------
+                let name = prompt('Input name of customer ' + (i+1) + ':');
+                name = name.trim().toLowerCase();
+                let tempName = '';
+                for (let i = 0; i < name.length; i++){
+                    if (name.charAt(i) === ' ' && name.charAt(i+1) === ' '){
+                        tempName += '';
+                    } else {
+                        if(i === 0 || (name.charAt(i-1) === ' ' && name.charAt(i) !== ' ')){
+                            tempName += name.charAt(i).toUpperCase();
+                        } else {
+                            tempName += name.charAt(i);
+                        }
+                    }
+                }
+                name = tempName;
+                //alert(name);
+
+                // input birthday with regular expression---------------------------------
+                let birthday;
+                let bdLength;
+                do {
+                    birthday = prompt("Birthday (dd/mm/yyyy)?");
+                    bdLength = birthday.length;
+                    if(birthday.charAt(2) !== '/' || birthday.charAt(5) !== '/') {
+                        bdLength--;
+                        alert('Need 2 characters "/"');
+                    }
+                    let dd = parseInt(birthday.substr(0, 2));
+                    if(dd < 0 || dd > 31) {
+                        bdLength--;
+                        alert('day not valid!');
+                    }
+                    let mm = parseInt(birthday.substr(3, 2));
+                    if(mm < 0 || mm > 12){
+                        bdLength--;
+                        alert('month not valid!');
+                    }
+                    let yyyy = parseInt(birthday.substr(6, 4));
+                    let date = new Date();
+                    let currentYear = date.getFullYear();
+                    if(yyyy < 1920 || yyyy > (currentYear - 16)){
+                        bdLength--;
+                        alert('Year invalid!');
+                    }
+                } while (bdLength !== 10);
+
+                //Input email with regular expression-------------------------------
+                let email;
+                let fault = 0;
+                do {
+                    email = prompt('Email?');
+                    if(email.charAt(0) === '@' || email.charAt(0) === '.') {
+                        fault++;
+                        alert('"@" or dot cannot be at the first position');
+                    }
+                    console.log('Fault 1 = ' + fault);//check
+                    if(email.charAt(email.length-1) === '@' || email.charAt(email.length-1) === '.') {
+                        fault++;
+                        alert('"@" or dot cannot be at the last position');
+                    }
+                    console.log('Fault 2 = ' + fault);//check
+                    let countAt = 0;
+                    let countDot = 0;
+                    for(let i = 0; i < email.length; i++){
+                        if(email.charAt(i) === '@') {countAt++;}
+                        if(email.charAt(i) === '.') {countDot++;}
+                    }
+                    console.log('Fault 3 = ' + fault);//check
+                    if(countAt !== 1){
+                        fault++;
+                        alert('Must have only one character "@"');
+                    }
+                    console.log('Fault 4 = ' + fault);//check
+                    if(countDot < 1){
+                        fault++;
+                        alert('Must have at least one dot');
+                    }
+                    console.log('Fault 5 = ' + fault);//check
+                } while (fault > 0);
+
+                let address = prompt('Address?');
+
+                let customerType; //------------------------------------
+                do {
+                    customerType = prompt('Customer-Type (Diamond/Platinum/Gold/Silver/Member)?');
+                } while (!(customerType === 'Diamond' || customerType === 'Gold' ||
+                customerType === 'Platinum' || customerType === 'Silver' ||
+                customerType === 'Member'));
+
+                let serviceType; //----------------------------------------
+                do {
+                    serviceType = prompt('Service-Type (Villa/House/Room)?');
+                } while (!(serviceType === 'Villa' || serviceType === 'House' ||
+                serviceType === 'Room'));
+
+                let roomClass; //------------------------------------------
+                do {
+                    roomClass = prompt('Room-Class (Vip/Business/Normal)?');
+                } while(!(roomClass === 'Vip' || roomClass === 'Business' ||
+                    roomClass === 'Normal'));
+
+                let discount; //-------------------------------------------
+                do {
+                    discount = parseInt(prompt('Discount (%)?'));
+                } while (discount < 0);
+
+                let rentDays; //------------------------------------------
+                do {
+                    rentDays = parseInt(prompt('Rent Days?'));
+                } while (rentDays <= 0);
+
+                let peopleIncluded; //------------------------------------
+                do {
+                    peopleIncluded = parseInt(prompt('How many people included?'));
+                } while (peopleIncluded < 0);
+
+                //-- create new object of customer
+                let newCustomer = new Customer(name, birthday, email, address, customerType,
+                    serviceType, roomClass, discount, rentDays, peopleIncluded);
+                newCustomer.setUnitPrice();
+                newCustomer.setTotalAmount();
+                customersList.push(newCustomer);
+                displayAll();
+            }
+        } else {
+            alert('No new customer added!');
+        }
+    }
+
+    // delete a customer information
+    function deleteCustomer(i){
+        let choose = confirm('You really want to delete customer named: ' + customersList[i].getName() + '?');
+        if (choose) {
+            customersList.splice(i, 1);
+        } else {
+           alert('No customer deleted!');
+        }
+        displayAll();
+    }
+
+    // editing functions for each field
+    function editName(i){
+        customersList[i].setName(prompt('change name of ' + customersList[i].getName()));
+        displayAll();
+    }
+    function editEmail(i){
+        customersList[i].setEmail(prompt('change email of ' + customersList[i].getName()));
+        displayAll();
+    }
+    function editBirthday(i){
+        customersList[i].setBirthday(prompt('change birthday of ' + customersList[i].getName()));
+        //customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editAddress(i){
+        customersList[i].setAddress(prompt('change address of ' + customersList[i].getName()));
+        //customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editCustomerType(i){
+        customersList[i].setCustomerType(prompt('change customer-type of ' + customersList[i].getName()));
+        //customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editServiceType(i){
+        let serviceType = prompt('change service-type of ' + customersList[i].getName());
+        customersList[i].setServiceType(serviceType);
+        customersList[i].setUnitPrice();
+        customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editRoomClass(i){
+        customersList[i].setRoomClass(prompt('change room-class of ' + customersList[i].getName()));
+        //customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editDiscount(i){
+        customersList[i].setDiscount(parseInt(prompt('change discount of ' + customersList[i].getName())));
+        customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editRentDays(i){
+        customersList[i].setRentDays(parseInt(prompt('change rent-days of ' + customersList[i].getName())));
+        customersList[i].setTotalAmount();
+        displayAll();
+    }
+    function editPeopleIncluded(i){
+        customersList[i].setPeopleIncluded(parseInt(prompt('People included number of ' + customersList[i].getName())));
+        // customersList[i].setTotalAmount();
+        displayAll();
+    }
+
+</script>
+</body>
+</html>

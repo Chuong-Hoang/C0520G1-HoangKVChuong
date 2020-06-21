@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý công nhân</title>
+</head>
+<body>
+
+<p id="show"></p>
+<script>
+
+    let workers = [
+        ['Nguyen Van A', '20/10/1990', 9000000]
+    ];
+    mainMenu();
+    function display(){
+        let string = '';
+        for(let i = 0; i < workers.length; i++){
+            string += (i+1) + ". " + workers[i].join(" _ ");
+            string += '\n';
+        }
+        alert(string);
+        mainMenu();
+    }
+    function addNewWorker(){
+        let num = parseInt(prompt("How many workers to be added?"));
+        for (let i = 0; i < num; i++){
+            let newWorker = [];
+            newWorker[0] = prompt("Worker's name:");
+            newWorker[1] = prompt('Worker birthday:');
+            newWorker[2] = prompt('Salary: ');
+            workers.push(newWorker);
+        }
+        display();
+        //mainMenu();
+
+    }
+    function editInfo() {
+        let string = '';
+        for (let i = 0; i < workers.length; i++) {
+
+            string += (i + 1) + ". " + workers[i].join(" _ ");
+
+            string += '\n';
+        }
+        string += (workers.length + 1) + ". CANCEL edit";
+        let choose = parseInt(prompt("Choose worker field to be edited:" + '\n' + string));
+        if (choose >= 1 && choose < workers.length + 1) {
+            workers[choose - 1][0] = prompt("Worker's name:");
+            workers[choose - 1][1] = prompt('Worker birthday:');
+            workers[choose - 1][2] = prompt('Salary:');
+        }
+        display();
+        //mainMenu();
+    }
+    function deleteInfo(){
+        let string = '';
+        for (let i = 0; i < workers.length; i++) {
+
+            string += (i + 1) + ". " + workers[i].join(" _ ");
+
+            string += '\n';
+        }
+        string += (workers.length + 1) + ". CANCEL Delete";
+        let choose = parseInt(prompt("Choose worker field to be deleted:" + '\n' + string));
+        if (choose >= 1 && choose < workers.length + 1) {
+            let confirmDelete = confirm("Delete " + workers[choose-1][0] + '?');
+            if(confirmDelete){
+                workers.splice(choose-1, 1);
+            }else{
+                alert("No worker info deleted.");
+            }
+
+        }
+        display();
+        //mainMenu();
+    }
+    function mainMenu(){
+        let choose = prompt('Choose option:' + '\n'+
+        '1. Display all workers' + '\n'+
+        '2. Add new worker' + '\n'+
+        '3. Edit worker info' + '\n'+
+        '4. Delete worker info' + '\n'+
+        '5. CANCEL menu' + '\n'+
+        '');
+        switch (choose){
+            case '1':
+                display();
+                break;
+            case '2':
+                addNewWorker();
+                break;
+            case '3':
+                editInfo();
+                break;
+            case '4':
+                deleteInfo();
+                break;
+            case '5':
+            default:
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

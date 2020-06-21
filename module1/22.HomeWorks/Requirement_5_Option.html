@@ -43,25 +43,25 @@
 <script>
     let customerList = [
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-        15, 3, 7, 'Villa', 'Vip',0],
+        15, 3, 7, 'Villa', 'Vip',2500],
         ['Van Chuong', 12345678, '10/09/1977', 'abc@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 6, 'House', 'Normal',0],
+            15, 2, 6, 'House', 'Normal',3025],
         ['Hoang Kim', 12345678, '22/06/1980', 'kkkkk@hoang.com','Huế', 'Silver',
-            15, 4, 9, 'Room', 'Business',0],
+            15, 4, 9, 'Room', 'Business',2020],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 4, 'Villa', 'Vip',0],
+            15, 3, 4, 'Villa', 'Vip',1033],
         ['Van Chuong', 12345678, '10/09/1977', 'bbbbb@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 8, 'House', 'Normal',0],
+            15, 2, 8, 'House', 'Normal',2074],
         ['Hoang Kim', 12345678, '22/06/1980', 'hhhhhhh@hoang.com','Huế', 'Silver',
-            15, 4, 5, 'Room', 'Business',0],
+            15, 4, 5, 'Room', 'Business',1090],
         ['Chuong Hoang', 12345678, '20/04/1988', 'sssss@hoang.com','Quảng Trị', 'Platinum',
-            15, 3, 3, 'Villa', 'Vip',0],
+            15, 3, 3, 'Villa', 'Vip',2025],
         ['Van Chuong', 12345678, '10/09/1977', 'chuong@hoang.com','Đà Nẵng', 'Diamond',
-            15, 2, 4, 'House', 'Normal',0],
+            15, 2, 4, 'House', 'Normal',1084],
         ['Hoang Kim', 12345678, '22/06/1980', 'love@hoang.com','Huế', 'Silver',
-            15, 4, 6, 'Room', 'Business',0],
+            15, 4, 6, 'Room', 'Business',2253],
         ['Chuong Hoang', 12345678, '20/04/1988', 'chuong@happy.com','Quảng Trị', 'Platinum',
-            15, 3, 8, 'Villa', 'Vip',0]
+            15, 3, 8, 'Villa', 'Vip',1903]
     ];
     display();
 
@@ -143,7 +143,7 @@
                        break;
                }
                newCustomer[j] = prompt("Person " + (i+1) + "_" + msg + ":");
-               newCustomer[11] = 0;
+               newCustomer[11] = totalAmount(i);
            }
            customerList.push(newCustomer);
        }
@@ -255,7 +255,6 @@
     let price = 0;
     let total = 0;
     function totalAmount(index) {
-        for (index = 0; index < customerList.length; index++) {
         switch (customerList[index][9]) {
             case 'Villa':
                 price = villa;
@@ -268,10 +267,7 @@
                 break;
         }
         total = (1-customerList[index][6]/100) * customerList[index][8] * price;
-        customerList[index][11] = Math.ceil(total);
-        //document.getElementById('td'+ index).innerHTML = total;
-        }
-        display();
+        return total;
     }
 </script>
 </body>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương: Quản lý công nhân</title>
+</head>
+<style>
+    td,th {
+        height: 30px;
+        text-align: center;
+    }
+    #stt {
+        width: 50px;
+    }
+    #name {
+        width: 200px;
+    }
+    #dob {
+        width: 150px;
+    }
+    #salary {
+        width: 150px;
+    }
+    #delete {
+        width: 100px;
+    }
+    td {
+        cursor: text;
+    }
+</style>
+<body>
+<div>
+    <h3>QUẢN LÝ CÔNG NHÂN</h3>
+    <input type="button" onclick="addNewWorker()" value="ADD NEW WORKER">
+    <br><br>
+    <p id="show"></p>
+</div>
+<script>
+    class Workers{
+        constructor(name, birthday, salary) {
+            this.name = name;
+            this.birthday = birthday;
+            this.salary = salary;
+        }
+
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setSalary(salary){
+            this.salary = salary;
+        }
+        getSalary(){
+            return this.salary;
+        }
+    }
+
+    let allWorkers = [];
+    let chuong = new Workers('Chuong Hoang', '20/04/1988', 10000000);
+    let quang = new Workers('Quang Nguyen', '03/02/1990', 20000000);
+    let nhat = new Workers('Nhat Le', '05/10/2000', 30000000);
+    let toan = new Workers('Toan Nguyen', '22/02/1993', 40000000);
+    let hien = new Workers('Hien Vo', '30/11/1995', 50000000);
+    allWorkers.push(chuong);
+    allWorkers.push(quang);
+    allWorkers.push(nhat);
+    allWorkers.push(toan);
+    allWorkers.push(hien);
+    display();
+
+    function display(){
+        let string ='<table border="1" style="border-collapse: collapse">\n' +
+            '<caption>DANH SÁCH CÔNG NHÂN<br><br></caption>\n' +
+            '    <tr>\n' +
+            '        <th id="stt">STT</th>\n' +
+            '        <th id="name">Họ và Tên</th>\n' +
+            '        <th id="dob">Ngày sinh</th>\n' +
+            '        <th id="salary">Mức lương</th>\n' +
+            '        <th id="delete" style="color: red;">Xóa</th>\n' +
+            '    </tr>';
+        for(let i = 0; i < allWorkers.length; i++){
+            string += '<tr>';
+            //---row has 4 columns
+            string += '<td>' + (i+1) + '</td>';
+            string += '<td ondblclick="editName(' + i + ')">' + allWorkers[i].getName() + '</td>';
+            string += '<td ondblclick="editBirthday(' + i + ')">' + allWorkers[i].getBirthday() + '</td>';
+            string += '<td ondblclick="editSalary(' + i + ')">' + allWorkers[i].getSalary() + '</td>';
+            //---end row
+            string += '<td>' + '<button onclick="deleteWorker(' + i + ')">Delete</button>' + '</td>';
+            string += '</tr>';
+        }
+        string += '</table>';
+        document.getElementById('show').innerHTML = string;
+    }
+
+    function addNewWorker(){
+        let num = parseInt(prompt('How many workers to be added?'));
+        for (let i = 0; i < num; i++) {
+            let name = prompt('Enter worker name of person ' + (i+1) + ':');
+            let birthday = prompt('Enter worker birthday:');
+            let salary = prompt('Enter worker salary');
+            let worker = new Workers(name, birthday, salary);
+            if(name !== null && birthday !== null && salary !== null) {
+                allWorkers.push(worker);
+                display();
+            }
+        }
+    }
+    function deleteWorker(i){
+        let choose = confirm('Do you really want to delete ' + allWorkers[i].getName() + '?');
+        if (choose) {
+            allWorkers.splice(i, 1);
+        } else {
+            alert('No worker deleted!');
+        }
+        display();
+    }
+    function editName(i){
+        allWorkers[i].setName(prompt('Input new name of ' + allWorkers[i].getName() + ':'));
+        display();
+    }
+    function editBirthday(i){
+        allWorkers[i].setBirthday(prompt('Input birthday of ' + allWorkers[i].getName() + ':'));
+        display();
+    }
+    function editSalary(i){
+        allWorkers[i].setSalary(parseInt(prompt('Input salary of ' + allWorkers[i].getName() + ':')));
+        display();
+    }
+
+</script>
+</body>
+</html>
