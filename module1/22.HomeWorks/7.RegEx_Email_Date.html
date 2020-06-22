@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex</title>
+</head>
+<body>
+<script>
+    let check = true;
+    do {
+        let email = prompt("nhap email");
+        let patEmail = /^(\w{3,}@\w+\.\w+)$/;
+        check=patEmail.test(email);
+    }while (!check);
+    do {
+        let ngay = prompt("nhap ngay dd/MM/yyyy");
+        let patNgay = /^(([0][1-9]|[1-2]\d|[3][0-1])\/(0[1-9]|1[0-2])\/(19\d{2}|(20[0-2]\d)))$/;
+        check = patNgay.test(ngay);
+    }while (!check)
+</script>
+</body>
+</html>

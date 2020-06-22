@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<h3>Bài 5: Chương trình tính lãi ngân hàng</h3>
+<script>
+    let loan = parseFloat(prompt("Original Loan: "));
+    let rate = parseFloat(prompt("Interest Rate per month (%): "));
+    let period = parseInt(prompt("Period: "));
+    let totalInterest = 0;
+    let interestPerMonth;
+    let originLoan = loan;
+    for (let i = 1; i <= period; i++) {
+        interestPerMonth = loan * rate / 100;
+        totalInterest += interestPerMonth;
+        loan += interestPerMonth;
+    }
+    document.write("Original loan: " + originLoan + "<br>");
+    document.write("Interest Rate: " + rate + "<br>");
+    document.write("Period (month): " + period + "<br>");
+    document.write("Total interest: " + totalInterest + "<br>");
+    document.write("Loan now: " + loan + "<br>");
+</script>
+</body>
+</html>

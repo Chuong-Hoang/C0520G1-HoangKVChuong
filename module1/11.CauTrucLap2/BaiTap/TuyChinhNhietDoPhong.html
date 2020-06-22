@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop 1 B2</title>
+</head>
+<body>
+<h3>Bài 2: Tùy chỉnh nhiệt độ phòng</h3>
+<script>
+  let roomTemp = parseInt(prompt("Input the room temperature: "));
+  let increase, decrease;
+  while (roomTemp < 20) {
+      increase = confirm("Too low! Please increase the temp");
+      if(increase) {
+          roomTemp++;
+      } else {
+          break;
+      }
+  }
+  while (roomTemp > 100) {
+      decrease = confirm("Too hight! Please decrease the temp");
+      if (decrease) {
+          roomTemp--;
+      } else {
+          break;
+      }
+  }
+  while (roomTemp >= 20 && roomTemp <= 100) {
+      alert("The temperature now is OK.");
+      break;
+  }
+
+</script>
+
+</body>
+</html>

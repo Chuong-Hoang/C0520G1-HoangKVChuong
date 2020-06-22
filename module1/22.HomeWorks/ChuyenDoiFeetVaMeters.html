@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Chuyển đổi giữa đơn vị feet và mét</b></p>
+<label>From</label>
+<select id="from">
+    <option>meter</option>
+    <option>feet</option>
+</select>
+<input type="number" id="input" name="in" onkeyup="convert(this.value)">
+<br><br>
+<label>To</label>
+<select id="to">
+    <option>feet</option>
+    <option>meter</option>
+</select>
+<input type="number" id="output" name="out">
+<br><br>
+<script>
+    function feetToMeter(feet) {
+        return 0.305 * feet;
+    }
+
+    function meterToFeet(meter) {
+        return 3.279 * meter;
+    }
+    function convert(val) {
+        let from = document.getElementById('from').value;
+        let to = document.getElementById('to').value;
+        if (from === 'meter' && to === 'feet') {
+            document.getElementById('output').value = meterToFeet(val);
+        } else if (from === 'feet' && to === 'meter') {
+            document.getElementById('output').value = feetToMeter(val);
+        } else {
+            document.getElementById('output').value = val;
+        }
+    }
+</script>
+</body>
+</html>

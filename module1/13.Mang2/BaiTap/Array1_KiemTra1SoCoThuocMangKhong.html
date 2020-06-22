@@ -22,7 +22,7 @@
         let goal = parseInt(prompt("Enter a searching value: "));
         let index = -1;
         for (let x in myArray) {
-            if (goal == myArray[x]) {
+            if (goal === myArray[x]) {
                 index = x;
                 document.getElementById('match').innerHTML = goal + " is in the array";
                 document.getElementById('match').style.color = "navy";

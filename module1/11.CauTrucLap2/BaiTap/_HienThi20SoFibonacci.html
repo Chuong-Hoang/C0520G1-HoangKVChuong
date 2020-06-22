@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loop 1 B3</title>
+</head>
+<body>
+<h3>Bài 3: Hiển thị 20 số đầu tiên của chuỗi Fibonacci</h3>
+<script>
+    let num1 = 0;
+    let num2 = 1;
+    let num3;
+    let count = 3;
+    let string = "1: 0<br>2: 1<br>";
+    while (count <= 20) {
+        num3 = num1 + num2;
+        string += count+": " + num3 + "<br>";
+        count++;
+        num1 = num2;
+        num2 = num3;
+    }
+    document.write(string);
+</script>
+</body>
+</html>

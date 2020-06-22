@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputString = prompt("Enter a string:");
+    if(isPalindrome(inputString)) {
+        alert(true);
+    } else {
+        alert(false);
+    }
+    function isPalindrome(str) {
+        let first = 0;
+        let last = str.length - 1;
+        if(str[first] !== str[last]) {
+            return false;
+        } else if(last <= 0) {
+            return true;
+        } else {
+            str = str.slice(1, last);
+            return isPalindrome(str);
+        }
+    }
+</script>
+
+</body>
+</html>

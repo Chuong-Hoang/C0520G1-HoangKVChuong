@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 5: Hàm tìm giá trị nhỏ/lớn nhất</b></p>
+
+<script>
+    let num = parseInt(prompt("Có bao nhiêu giá trị?"));
+    let arr = new Array(num);
+    for (let j = 0; j < num; j++) {
+        arr[j] = prompt("Input giá trị thứ " + (j + 1));
+    }
+    findMinMaxValue(arr);
+    function findMinMaxValue(a) {
+        let min = Infinity;
+        let max = -Infinity;
+        for (let i = 0; i < a.length; i++) {
+            if (min > a[i]) {min = a[i];}
+            if (max < a[i]) {max = a[i];}
+        }
+    alert("Min value is: " + min +"\n" +
+            "Max value is: " + max);
+    }
+</script>
+</body>
+</html>

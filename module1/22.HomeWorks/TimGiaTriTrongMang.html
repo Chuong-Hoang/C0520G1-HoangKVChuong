@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+Array: x = [2, 5, 10, 14, -5, 7, -9, 22];
+</pre>
+<input type="text" id="input" name="input">
+<input type="button" name="butt" onclick="checkNumber()" value="Check Number">
+<script>
+    function checkNumber() {
+        let goal = parseFloat(document.getElementById('input').value);
+        let x = [2, 5, 10, 14, -5, 7, -9, 22];
+        document.write(x + "<br>");
+        for (let i = 0; i < x.length; i++) {
+            if (goal == x[i]) {
+                document.write("<mark>" + goal + " is at index " + i + "</mark>");
+                break;
+            }
+            document.write(x[i] + " not existed in array" + "<br>");
+
+        }
+    }
+</script>
+</body>
+</html>

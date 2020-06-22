@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Xây dựng hàm đệ quy để kiểm tra từ đối xứng</b></p>
+<pre>
+    let str = 'redder';
+    alert(isPalindrome(str));
+    function isPalindrome(s) {
+        let count = s.length;
+        for (let i = 0; i <= count/2; i++) {
+            if (s.charAt(i) !== s.charAt(count-1-i)) {
+               return false;
+            }
+
+        }
+        return true;
+    }
+</pre>
+<script>
+    let str = 'redder';
+    alert(isPalindrome(str));
+    function isPalindrome(s) {
+        let count = s.length;
+        for (let i = 0; i <= count/2; i++) {
+            if (s.charAt(i) !== s.charAt(count-1-i)) {
+               return false;
+            }
+
+        }
+        return true;
+    }
+
+</script>
+</body>
+</html>

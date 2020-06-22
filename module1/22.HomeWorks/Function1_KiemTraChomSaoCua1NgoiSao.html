@@ -8,7 +8,7 @@
 <p><b>Bài 5: Check as if a star is in any constellation</b></p>
 <script>
     let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
-    let constellation = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let constellation = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
     checkConstellOfStar();
     function checkConstellOfStar() {
         let unit = prompt("Enter a start that you want to seek: ");
@@ -20,7 +20,7 @@
                 break;
             }
         }
-        if (index == -1) {
+        if (index === -1) {
             msg = "The star " + unit.toUpperCase() + " is NOT in any constellation at all.";
         } else {
             msg = "The star " + unit.toUpperCase() + " is in constellation: " + constellation[index];

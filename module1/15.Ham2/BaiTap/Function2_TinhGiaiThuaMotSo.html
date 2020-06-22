@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 3: Hàm tính giai thừa một số nhập vào</b></p>
+
+<script>
+    let x = prompt("Nhập vào một số nguyên dương: ");
+    alert("Giai thừa của " + x + ": " + giaiThua(x));
+    function giaiThua(num) {
+        num = parseInt(num);
+        if (num >= 1) {
+            let init = 1;
+                for (let i = 1; i <= num; i++) {
+                    init *= i;
+                }
+            return init;
+        } else {
+            init = ("Vui lòng nhập số nguyên dương");
+            return init;
+        }
+    }
+</script>
+</body>
+</html>

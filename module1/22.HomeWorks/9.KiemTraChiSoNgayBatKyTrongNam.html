@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra ngày bao nhiêu của năm</title>
+</head>
+<body>
+<script>
+    let dayString = prompt('Input a string of day:');
+    let day = new Date(dayString);
+    let dd = day.getDay();
+    let mm = day.getMonth();
+    let yyyy = day.getFullYear();
+
+    // Check leap year
+    function isLeapYear(year) {
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    return true;
+                    //alert(year + " is a leap year");
+                } else {
+                    return false;
+                    //alert(year + " is NOT a leap year");
+                }
+            } else {
+                return true;
+                //alert(year + " is a leap year");
+            }
+        } else {
+            return false;
+            //alert(year + " is NOT a leap year");
+        }
+    }
+</script>
+</body>
+</html>

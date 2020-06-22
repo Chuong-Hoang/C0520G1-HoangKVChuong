@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+<script>
+    let m=parseInt(prompt("m?:"));
+    let count = 0;
+    let number;
+    for (number = 2; count < m; number++) {
+        if(isElementalNumber(number)) {
+            count++;
+            document.write("The elemental number " + count + ": " + number + "<br>");
+        }
+    }
+
+    function isElementalNumber(n) {
+        for(let i = 2; i < n; i++) {
+            if(n%i == 0) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+</script>
+</body>
+</html>

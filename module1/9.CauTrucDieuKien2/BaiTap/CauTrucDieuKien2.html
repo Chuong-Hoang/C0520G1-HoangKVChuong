@@ -39,9 +39,9 @@
         let from = document.getElementById('from').value;
         let to = document.getElementById('to').value;
         let output = document.getElementById('output');
-        if (from == 'C' && to == 'F') {
+        if (from === 'C' && to === 'F') {
             output.innerHTML = (input * 9 / 5) + 32;
-        } else if (from == 'F' && to == 'C') {
+        } else if (from === 'F' && to === 'C') {
             output.innerHTML = (input - 32)/(9/5);
         } else {
             output.innerHTML = input;

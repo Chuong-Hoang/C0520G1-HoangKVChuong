@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Bài 9: Hàm kiểm tra một ký tự có trong mảng ký tự cho trước hay không</b></p>
+<input type="button" onclick="createArrayAndCheckMatch()" value="START NOW">
+<p id="goal"></p>
+<p><b>The character array: </b><span id="in"></span></p>
+<p><b>Check match: </b><span id="result"></span></p>
+<script>
+    let template = "abcdefghijklmnopqrstuvwxyz";
+    let len = template.length;
+    //createArrayAndCheckMatch();
+    function createArrayAndCheckMatch() {
+        let goal = prompt("Input a character to search:").toUpperCase();
+        let num = parseInt(prompt("How long the character array is?"));
+        let charArray = new Array(num);
+        for(let i = 0; i < num; i++) {
+            charArray[i] = template.charAt(Math.random()*len).toUpperCase();
+        }
+        let index = -1;
+        let msg = '';
+        for(let i = 0; i < num; i++) {
+            if (charArray[i] === goal) {
+                index = i;
+            }
+        }
+        if (index !== -1) {
+            msg = goal + " is at index " + index + " in the array.";
+        } else {
+            msg = goal + " is NOT in the array."
+        }
+        document.getElementById('goal').innerHTML = "<b>Goal seeked:</b> " + goal;
+        document.getElementById('in').innerHTML = charArray.join(" _ ");
+        document.getElementById('result').innerHTML = msg;
+    }
+
+</script>
+</body>
+</html>
