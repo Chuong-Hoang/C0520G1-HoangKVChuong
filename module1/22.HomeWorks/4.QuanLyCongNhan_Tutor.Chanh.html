@@ -18,7 +18,48 @@
 </div>
 ​
 <script>
+    class NhanVien{
+        constructor(ten, ngaySinh, diaChi, luong, chucVu) {
+            this.ten=ten;
+            this.ngaySinh=ngaySinh;
+            this.diaChi=diaChi;
+            this.luong=luong;
+            this.chucVu=chucVu;
+        }
+        setTen(ten){
+            this.ten=ten;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setNgaySinh(ngaySinh){
+            this.ngaySinh= ngaySinh
+        }
+        getNgaySinh(){
+            return this.ngaySinh;
+        }
+        setDiaChi(diaChi){
+            this.diaChi=diaChi;
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setLuong(luong){
+            this.luong=luong;
+        }
+        getLuong(){
+            return this.luong;
+        }
+        setChuVu(chucVu){
+            this.chucVu= chucVu;
+        }
+        getChucVu(){
+            return this.chucVu;
+        }
+    }
     let listNhanVien = [];
+    let newNhanVien = new NhanVien('Chuong','22/2/1988', 'Ngo Quyen', 2000, 'Manager');
+    listNhanVien.push(newNhanVien);
     hienThi();
 
     function hienThi() {
@@ -77,45 +118,7 @@
         hienThi();
     }
 
-    class NhanVien{
-        constructor(ten, ngaySinh, diaChi, luong, chucVu) {
-            this.ten=ten;
-            this.ngaySinh=ngaySinh;
-            this.diaChi=diaChi;
-            this.luong=luong;
-            this.chucVu=chucVu;
-        }
-        setTen(ten){
-            this.ten=ten;
-        }
-        getTen(){
-            return this.ten;
-        }
-        setNgaySinh(ngaySinh){
-            this.ngaySinh= ngaySinh
-        }
-        getNgaySinh(){
-            return this.ngaySinh;
-        }
-        setDiaChi(diaChi){
-            this.diaChi=diaChi;
-        }
-        getDiaChi(){
-            return this.diaChi;
-        }
-        setLuong(luong){
-            this.luong=luong;
-        }
-        getLuong(){
-            return this.luong;
-        }
-        setChuVu(chucVu){
-            this.chucVu= chucVu;
-        }
-        getChucVu(){
-            return this.chucVu;
-        }
-    }
+
 </script>
 </body>
 </html>

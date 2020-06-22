@@ -19,18 +19,26 @@
         cursor: pointer;
     }
     td:hover{
-        background-color: coral;
+        background-color: lightgrey;
     }
 </style>
 
 <div>
     <h2>CUSTOMER MANAGEMENT FIELD</h2>
+    <label>I. Customers</label><br>
     <input type="button" onclick="addNewCustomer()" value="ADD NEW CUSTOMER">
-    <p id="table"></p>
+    <input type="button" onclick="showTotalAmount()" value="SHOW TOTAL AMOUNT">
+    <br><br>
+    <label>II. Employees</label><br>
+    <input type="button" onclick="addNewEmployee()" value="ADD NEW EMPLOYEE">
+    <input type="button" onclick="displayEmployees()" value="DISPLAY EMPLOYEES">
+    <input type="button" onclick="deleteEmployee()" value="DELETE EMPLOYEE">
+    <input type="button" onclick="editEmployee()" value="EDIT EMPLOYEE INFORMATION">
+    <p id="tableCustomer"></p>
 </div>
 
 <script>
-    //---Create class and objects
+    //---Create class for CUSTOMER
     class Customer {
         constructor (name, birthday, email, address, customerType,
         serviceType, roomClass, discount, rentDays, peopleIncluded) {
@@ -134,13 +142,23 @@
     //---End of class Customer{}
 
     let customersList = [];
-    let customerOne = new Customer('Chuong Hoang', '20/04/1988','chuong@hoang.com', 'Da Nang', 'Platinum',
+    let customer1 = new Customer('Chuong Hoang', '20/04/1988','chuong@hoang.com', 'Da Nang', 'Platinum',
     'House', 'Business', 15, 10, 3);
-    customerOne.setUnitPrice();
-    customerOne.setTotalAmount();
-    customersList.push(customerOne);
-    displayAll();
-    function displayAll(){
+    let customer2 = new Customer('Hoang Kim', '20/04/1988','chuong@hoang.com', 'Hue', 'Diamond',
+        'Room', 'Vip', 12, 6, 4);
+    let customer3 = new Customer('Van Chuong', '20/04/1988','chuong@hoang.com', 'Quang Tri', 'Gold',
+        'Villa', 'Normal', 10, 8, 2);
+    customer1.setUnitPrice();
+    customer1.setTotalAmount();
+    customersList.push(customer1);
+    customer2.setUnitPrice();
+    customer2.setTotalAmount();
+    customersList.push(customer2);
+    customer3.setUnitPrice();
+    customer3.setTotalAmount();
+    customersList.push(customer3);
+    displayCustomers();
+    function displayCustomers(){
         let string = '<table>\n' +
         '<caption><b>CUSTOMER LIST</b><br><br></caption>\n';
         string += '<tr>\n' +
@@ -180,7 +198,7 @@
            string += '</tr>';
         }
         string += '</table>';
-        document.getElementById('table').innerHTML = string;
+        document.getElementById('tableCustomer').innerHTML = string;
     }
 
     function addNewCustomer(){
@@ -206,32 +224,31 @@
                 name = tempName;
                 //alert(name);
 
-                // input birthday with regular expression---------------------------------
+                // input birthday with regular expression-------------------------
                 let birthday;
                 let bdLength;
                 do {
                     birthday = prompt("Birthday (dd/mm/yyyy)?");
                     bdLength = birthday.length;
-                    if(birthday.charAt(2) !== '/' || birthday.charAt(5) !== '/') {
-                        bdLength--;
-                        alert('Need 2 characters "/"');
-                    }
                     let dd = parseInt(birthday.substr(0, 2));
-                    if(dd < 0 || dd > 31) {
-                        bdLength--;
-                        alert('day not valid!');
-                    }
                     let mm = parseInt(birthday.substr(3, 2));
-                    if(mm < 0 || mm > 12){
-                        bdLength--;
-                        alert('month not valid!');
-                    }
                     let yyyy = parseInt(birthday.substr(6, 4));
                     let date = new Date();
                     let currentYear = date.getFullYear();
-                    if(yyyy < 1920 || yyyy > (currentYear - 16)){
-                        bdLength--;
-                        alert('Year invalid!');
+                    if (bdLength > 10){
+                        alert('Birthday not valid!');
+                    } else if(birthday.charAt(2) !== '/' || birthday.charAt(5) !== '/') {
+                        bdLength++;
+                        alert('Need 2 characters "/" at position 2 and 5 of the text');
+                    } else if(isNaN(dd) || dd < 0 || dd > 31) {
+                        bdLength++;
+                        alert('Day not valid!');
+                    } else if(isNaN(mm) || mm < 0 || mm > 12){
+                        bdLength++;
+                        alert('Month not valid!');
+                    } else if(isNaN(yyyy) || yyyy < 1920 || yyyy > (currentYear - 16)){
+                        bdLength++;
+                        alert('Year not valid!');
                     }
                 } while (bdLength !== 10);
 
@@ -240,34 +257,33 @@
                 let fault = 0;
                 do {
                     email = prompt('Email?');
-                    if(email.charAt(0) === '@' || email.charAt(0) === '.') {
+                    if (email.charAt(0) === '@' || email.charAt(0) === '.') {
                         fault++;
                         alert('"@" or dot cannot be at the first position');
-                    }
-                    console.log('Fault 1 = ' + fault);//check
-                    if(email.charAt(email.length-1) === '@' || email.charAt(email.length-1) === '.') {
+                        console.log('Fault 1 = ' + fault); //check
+                    } else if (email.charAt(email.length - 1) === '@' || email.charAt(email.length - 1) === '.') {
                         fault++;
                         alert('"@" or dot cannot be at the last position');
+                        console.log('Fault 2 = ' + fault); //check
+                    } else {
+                        let countAt = 0;
+                        let countDot = 0;
+                        for (let i = 0; i < email.length; i++) {
+                            if (email.charAt(i) === '@') {countAt++;}
+                            if (email.charAt(i) === '.') {countDot++;}
+                        }
+                        if (countAt !== 1) {
+                            fault++;
+                            alert('Email must have only one character "@"');
+                            console.log('Fault 3 = ' + fault); //check
+                        } else if (countDot < 1) {
+                            fault++;
+                            alert('Email must have at least one dot');
+                            console.log('Fault 4 = ' + fault); //check
+                        }
+
                     }
-                    console.log('Fault 2 = ' + fault);//check
-                    let countAt = 0;
-                    let countDot = 0;
-                    for(let i = 0; i < email.length; i++){
-                        if(email.charAt(i) === '@') {countAt++;}
-                        if(email.charAt(i) === '.') {countDot++;}
-                    }
-                    console.log('Fault 3 = ' + fault);//check
-                    if(countAt !== 1){
-                        fault++;
-                        alert('Must have only one character "@"');
-                    }
-                    console.log('Fault 4 = ' + fault);//check
-                    if(countDot < 1){
-                        fault++;
-                        alert('Must have at least one dot');
-                    }
-                    console.log('Fault 5 = ' + fault);//check
-                } while (fault > 0);
+                } while (fault !== 0);
 
                 let address = prompt('Address?');
 
@@ -293,17 +309,17 @@
                 let discount; //-------------------------------------------
                 do {
                     discount = parseInt(prompt('Discount (%)?'));
-                } while (discount < 0);
+                } while (isNaN(discount) || discount < 0);
 
                 let rentDays; //------------------------------------------
                 do {
                     rentDays = parseInt(prompt('Rent Days?'));
-                } while (rentDays <= 0);
+                } while (isNaN(rentDays) || rentDays <= 0);
 
                 let peopleIncluded; //------------------------------------
                 do {
                     peopleIncluded = parseInt(prompt('How many people included?'));
-                } while (peopleIncluded < 0);
+                } while (isNaN(peopleIncluded) || peopleIncluded < 0);
 
                 //-- create new object of customer
                 let newCustomer = new Customer(name, birthday, email, address, customerType,
@@ -311,7 +327,7 @@
                 newCustomer.setUnitPrice();
                 newCustomer.setTotalAmount();
                 customersList.push(newCustomer);
-                displayAll();
+                displayCustomers();
             }
         } else {
             alert('No new customer added!');
@@ -326,61 +342,312 @@
         } else {
            alert('No customer deleted!');
         }
-        displayAll();
+        displayCustomers();
     }
 
     // editing functions for each field
     function editName(i){
         customersList[i].setName(prompt('change name of ' + customersList[i].getName()));
-        displayAll();
+        displayCustomers();
     }
     function editEmail(i){
         customersList[i].setEmail(prompt('change email of ' + customersList[i].getName()));
-        displayAll();
+        displayCustomers();
     }
     function editBirthday(i){
         customersList[i].setBirthday(prompt('change birthday of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editAddress(i){
         customersList[i].setAddress(prompt('change address of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editCustomerType(i){
         customersList[i].setCustomerType(prompt('change customer-type of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editServiceType(i){
         let serviceType = prompt('change service-type of ' + customersList[i].getName());
         customersList[i].setServiceType(serviceType);
         customersList[i].setUnitPrice();
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editRoomClass(i){
         customersList[i].setRoomClass(prompt('change room-class of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editDiscount(i){
         customersList[i].setDiscount(parseInt(prompt('change discount of ' + customersList[i].getName())));
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editRentDays(i){
         customersList[i].setRentDays(parseInt(prompt('change rent-days of ' + customersList[i].getName())));
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editPeopleIncluded(i){
         customersList[i].setPeopleIncluded(parseInt(prompt('People included number of ' + customersList[i].getName())));
         // customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
 
+    // Show list of customers with only NAMES and TOTAL AMOUNT
+    function showTotalAmount(){
+        let amountString = '';
+        for(let i = 0; i < customersList.length; i++){
+            amountString += (i+1) + '. ' + customersList[i].getName() + ': ' + customersList[i].getTotalAmount() + '\n';
+        }
+        alert('TOTAL AMOUNT' + '\n' + amountString);
+    }
+
+    //--CLASS FOR EMPLOYEES
+    class Employees {
+        constructor(name, id, birthday, email, address, position, basicSalary){
+            this.name = name;
+            this.id = id;
+            this.birthday = birthday;
+            this.email = email;
+            this.address = address;
+            this.position = position;
+            this.basicSalary = basicSalary;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setId(id){
+            this.id = id;
+        }
+        getId(){
+            return this.id;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setEmail(email){
+            this.email = email;
+        }
+        getEmail(){
+            return this.email;
+        }
+        setAddress(address){
+            this.address = address;
+        }
+        getAddress(){
+            return this.address;
+        }
+        setPosition(position){
+            this.position = position;
+        }
+        getPosition(){
+            return this.position;
+        }
+        setBasicSalary(basicSalary){
+            this.basicSalary = basicSalary;
+        }
+        getBasicSalary(){
+            return this.basicSalary;
+        }
+        //Add method of allowance for employees
+        setAllowance(){
+            switch (this.getPosition()){
+                case 'Manager':
+                    this.allowance = 500;
+                    break;
+                case 'Sale':
+                    this.allowance = 300;
+                    break;
+                case 'Marketing':
+                    this.allowance = 200;
+                    break;
+                default:
+                    this.allowance = 0;
+                    break;
+            }
+        }
+        getAllowance(){
+            return this.allowance;
+        }
+        setSalary(){
+            this.salary = this.getBasicSalary() + this.getAllowance();
+        }
+        getSalary(){
+            return this.salary;
+        }
+    }
+
+    // Create array of employees and objects of employees
+    let arrEmployees = [];
+    let employee1 = new Employees('Hoang Kim', 12345678, '20/04/1988', 'hoang@kim.com', 'Quang Tri', 'Manager', 2000);
+    let employee2 = new Employees('Van Chuong', 11111111, '20/04/1988', 'van@chuong.vn', 'Sai Gon', 'Sale', 1000);
+    employee1.setAllowance();
+    employee1.setSalary();
+    employee2.setAllowance();
+    employee2.setSalary();
+    arrEmployees.push(employee1);
+    arrEmployees.push(employee2);
+
+    // Display employees
+    function displayEmployees(){
+        let employeeString = '';
+        for(let i = 0; i < arrEmployees.length; i++){
+            employeeString += (i+1) + '. ' + arrEmployees[i].getName() + ' -- '+ arrEmployees[i].getId() + ' -- ' +
+                              arrEmployees[i].getBirthday() + ' -- ' + arrEmployees[i].getEmail() + ' -- ' +
+                              arrEmployees[i].getAddress() + ' -- ' + arrEmployees[i].getPosition() + ' -- ' +
+                              arrEmployees[i].getSalary() + '\n';
+        }
+        alert('LIST OF EMPLOYEES' + '\n' + employeeString);
+    }
+
+    // Add new employee
+    function addNewEmployee(){
+        let name = prompt('Input name of new employee:');
+
+        //--Input ID with enough 8 digits [regular expression]
+        let id;
+        let check;
+        do {
+            id = parseInt(prompt('Input ID of ' + name));
+            if(isNaN(id)) {
+                check = false;
+                alert('ID must be a number with enough 8 digits');
+            } else if(id <= 10000000 || id > 99999999) {
+                check = false;
+                alert('Please input ID number with enough 8 digits');
+            } else {
+                check = true;
+            }
+        } while (!check);
+
+        //--Input birthday with format dd/mm/yyyy
+        let birthday;
+        let bdLength;
+        do {
+            birthday = prompt('Input birthday (dd/mm/yyyy) of ' + name);
+            bdLength = birthday.length;
+            let dd = parseInt(birthday.substr(0, 2));
+            let mm = parseInt(birthday.substr(3, 2));
+            let yyyy = parseInt(birthday.substr(6, 4));
+            let day = new Date();
+            let currentYear = day.getFullYear();
+            if (bdLength > 10){
+                alert('Birthday is not valid');
+            } else if(birthday.charAt(2) !== '/' || birthday.charAt(5) !== '/'){
+                bdLength++;
+                alert("Birthday needs 2 characters '/'");
+            } else if (isNaN(dd) || dd <= 0 || dd > 31) {
+                bdLength++;
+                alert('Day not valid!');
+            } else if (isNaN(mm) || mm <= 0 || mm > 12) {
+                bdLength++;
+                alert('Month not valid');
+            } else if (isNaN(yyyy) || yyyy < 1920 || yyyy > currentYear - 16) {
+                bdLength++;
+                alert('Year not valid!');
+            }
+        } while (bdLength !== 10);
+
+        //--Input email with regular expression
+        let email;
+        let fault = 0;
+        do {
+            email = prompt('Email?');
+            if (email.charAt(0) === '@' || email.charAt(0) === '.') {
+                fault++;
+                alert('"@" or dot cannot be at the first position');
+                console.log('Fault 1 = ' + fault); //check
+            } else if (email.charAt(email.length - 1) === '@' || email.charAt(email.length - 1) === '.') {
+                fault++;
+                alert('"@" or dot cannot be at the last position');
+                console.log('Fault 2 = ' + fault); //check
+            } else {
+                let countAt = 0;
+                let countDot = 0;
+                for (let i = 0; i < email.length; i++) {
+                    if (email.charAt(i) === '@') {countAt++;}
+                    if (email.charAt(i) === '.') {countDot++;}
+                }
+                if (countAt !== 1) {
+                    fault++;
+                    alert('Email must have only one character "@"');
+                    console.log('Fault 3 = ' + fault); //check
+                } else if (countDot < 1) {
+                    fault++;
+                    alert('Email must have at least one dot');
+                    console.log('Fault 4 = ' + fault); //check
+                }
+
+            }
+        } while (fault !== 0);
+
+        let address = prompt('Input address of ' + name);
+        let position = prompt('Input position of ' + name);
+        let basicSalary;
+        do {
+            basicSalary = parseInt(prompt('Input basic salary of ' + name));
+        } while (isNaN(basicSalary) || basicSalary <= 0);
+
+        let newEmployee = new Employees(name, id, birthday, email, address, position, basicSalary);
+        newEmployee.setAllowance();
+        newEmployee.setSalary();
+        arrEmployees.push(newEmployee);
+
+        displayEmployees();
+    }
+
+    // Delete employee from arrEmployees
+    function deleteEmployee(){
+        let str = '';
+        for(let i = 0; i < arrEmployees.length; i++){
+            str += (i+1) + '. ' + arrEmployees[i].getName() + '\n';
+        }
+        let delChoose = parseInt(prompt('Choose number of employee field to be deleted: ' + '\n' + str));
+        if(delChoose > 0) {
+            let confirmDel = confirm('Delete the employee: ' + arrEmployees[delChoose-1].getName() + '?');
+            if (confirmDel) {
+                arrEmployees.splice(delChoose-1, 1);
+            } else {
+                alert(arrEmployees[delChoose-1].getName() + ' not removed!');
+            }
+            displayEmployees();
+        } else {
+            alert('No employee removed!');
+        }
+    }
+
+    // Edit employee information
+    function editEmployee(){
+        let str = '';
+        for(let i = 0; i < arrEmployees.length; i++){
+            str += (i+1) + '. ' + arrEmployees[i].getName() + '\n';
+        }
+        let editChoose = prompt('Choose number of employee field to be edited: ' + '\n' + str);
+        if(editChoose > 0) {
+            arrEmployees[editChoose-1].setName(prompt('Change name of ' + arrEmployees[editChoose-1].getName()));
+            arrEmployees[editChoose-1].setId(parseInt(prompt('Change ID of ' + arrEmployees[editChoose-1].getName())));
+            arrEmployees[editChoose-1].setBirthday(prompt('Change birthday of ' + arrEmployees[editChoose-1].getName()));
+            arrEmployees[editChoose-1].setAddress(prompt('Change address of ' + arrEmployees[editChoose-1].getName()));
+            arrEmployees[editChoose-1].setEmail(prompt('Change email of ' + arrEmployees[editChoose-1].getName()));
+            arrEmployees[editChoose-1].setPosition(prompt('Change position of ' + arrEmployees[editChoose-1].getName()));
+            arrEmployees[editChoose-1].setBasicSalary(parseInt(prompt('Change basic salary of ' + arrEmployees[editChoose-1].getName())));
+            arrEmployees[editChoose-1].setAllowance();
+            arrEmployees[editChoose-1].setSalary();
+            displayEmployees();
+        } else {
+            alert('No employee information edited!');
+        }
+    }
 </script>
 </body>
 </html>

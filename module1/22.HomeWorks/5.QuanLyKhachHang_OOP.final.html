@@ -133,8 +133,8 @@
     customerOne.setUnitPrice();
     customerOne.setTotalAmount();
     customersList.push(customerOne);
-    displayAll();
-    function displayAll(){
+    displayCustomers();
+    function displayCustomers(){
         let string = '<table>';
         string += '<tr>\n' +
             '        <th id="stt">No.</th>\n' +
@@ -198,7 +198,7 @@
                 newCustomer.setUnitPrice();
                 newCustomer.setTotalAmount();
                 customersList.push(newCustomer);
-                displayAll();
+                displayCustomers();
             }
         } else {
             alert('No customer added!');
@@ -213,58 +213,58 @@
         } else {
            alert('No customer deleted!');
         }
-        displayAll();
+        displayCustomers();
     }
 
     // edit functions for each field
     function editName(i){
         customersList[i].setName(prompt('change name of ' + customersList[i].getName()));
-        displayAll();
+        displayCustomers();
     }
     function editEmail(i){
         customersList[i].setEmail(prompt('change email of ' + customersList[i].getName()));
-        displayAll();
+        displayCustomers();
     }
     function editBirthday(i){
         customersList[i].setBirthday(prompt('change birthday of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editAddress(i){
         customersList[i].setAddress(prompt('change address of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editCustomerType(i){
         customersList[i].setCustomerType(prompt('change customer-type of ' + customersList[i].getName()));
         //customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editServiceType(i){
         customersList[i].setServiceType(prompt('change service-type of ' + customersList[i].getName()));
         customersList[i].setUnitPrice();
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editRoomClass(i){
         customersList[i].setRoomClass(prompt('change room-class of ' + customersList[i].getName()));
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editDiscount(i){
         customersList[i].setDiscount(prompt('change discount of ' + customersList[i].getName()));
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editRentDays(i){
         customersList[i].setRentDays(prompt('change rent-days of ' + customersList[i].getName()));
         customersList[i].setTotalAmount();
-        displayAll();
+        displayCustomers();
     }
     function editPeopleIncluded(i){
         customersList[i].setPeopleIncluded(prompt('change people included number of ' + customersList[i].getName()));
         //customersList[i].getTotalAmount();
-        displayAll();
+        displayCustomers();
     }
 
 </script>
