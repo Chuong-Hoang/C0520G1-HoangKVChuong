@@ -7,10 +7,7 @@
 <body>
 <script>
     let dayString = prompt('Input a string of day:');
-    let day = new Date(dayString);
-    let dd = day.getDay();
-    let mm = day.getMonth();
-    let yyyy = day.getFullYear();
+    alert('Chi so ngay cua nam la: ' + checkDayIndexOfYear(dayString));
 
     // Check leap year
     function isLeapYear(year) {
@@ -31,6 +28,50 @@
             return false;
             //alert(year + " is NOT a leap year");
         }
+    }
+
+    // Number of days in a month
+    function datePerMonth(month){
+        let quantity = 0;
+        switch (month+1){ // Plus 1
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                quantity = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                quantity = 30;
+                break;
+            case 2:
+                quantity = 28;
+                break;
+        }
+        return quantity;
+    }
+
+    // Check index of day in the year
+    function checkDayIndexOfYear(dayString){
+        let dateIndex = 0;
+        let day = new Date(dayString);
+        let dd = day.getDate();
+        //alert(dd);
+        let mm = day.getMonth();
+        //alert(mm);
+        let yyyy = day.getFullYear();
+        for(let i = 0; i < mm; i++) {
+              dateIndex += datePerMonth(i);
+        }
+        if(mm >= 2 && isLeapYear(yyyy)){
+            dateIndex += 1;
+        }
+        return dateIndex + dd;
     }
 </script>
 </body>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan ly can bo</title>
+</head>
+<body>
+<script>
+    class CanBo{
+        constructor(maSo, hoTen, gioiTinh, queQuan, namSinh, chuyenMon, trinhDo, hsl, pc) {
+            this.maSo = maSo;
+            this.hoTen = hoTen;
+            this.gioiTinh = gioiTinh;
+            this.queQuan = queQuan;
+            this.namSinh = namSinh;
+            this.chuyenMon = chuyenMon;
+            this.trinhDo = trinhDo;
+            this.hsl = hsl;
+            this.pc = pc;
+        }
+        setMaSo(maSo){
+            this.maSo = maSo;
+        }
+        getMaSo(){
+            return this.maSo;
+        }
+        setHoTen(hoTen){
+            this.hoTen = hoTen;
+        }
+        getHoTen(){
+            return this.hoTen;
+        }
+        setGioiTinh(gioiTinh){
+            this.gioiTinh = gioiTinh;
+        }
+        getGioiTinh(){
+            return this.gioiTinh;
+        }
+        setQueQuan(queQuan){
+            this.queQuan = queQuan;
+        }
+        getQueQuan(){
+            return this.queQuan;
+        }
+        setNamSinh(namSinh){
+            this.namSinh = namSinh;
+        }
+        getNamSinh(){
+            return this.namSinh;
+        }
+        setChuyenMon(chuyenMon){
+            this.chuyenMon = chuyenMon;
+        }
+        getChuyenMon(){
+            return this.chuyenMon;
+        }
+        setTrinhDo(trinhDo){
+            this.trinhDo = trinhDo;
+        }
+        getTrinhDo(){
+            return this.trinhDo;
+        }
+        setHsl(hsl){
+            this.hsl = hsl;
+        }
+        getHsl(){
+            return this.hsl;
+        }
+        setPc(pc){
+            this.pc = pc;
+        }
+        getPc(){
+            return this.pc;
+        }
+        getThucLinh(){
+            return Math.round((this.getHsl() + this.getPc())*450000);
+        }
+    }
+
+    // Create and Input list of CanBo
+    let canBoList = [];
+    let cb1 = new CanBo('CB001','Ngo Quyen', 'Nu','Nam Dinh','1990','CNTT', 'DH', 4.55, 1.15);
+    let cb2 = new CanBo('CB001','Yen Bai', 'Nam','Ha Giang','1988','DT', 'CD', 4.55, 0.45);
+    let cb3 = new CanBo('CB001','Le Thu', 'Nu','Da Nang','1992','CNTT', 'DH', 4.55, 1.45);
+    let cb4 = new CanBo('CB001','Dong Ky', 'Nam','Tam Ky','1995','DT', 'DH', 4.55, 1.05);
+    let cb5 = new CanBo('CB001','Vuong Nguyet', 'Nu','Quang Tri','1980','CNTT', 'CD', 4.55, 0.75);
+    canBoList.push(cb1);
+    canBoList.push(cb2);
+    canBoList.push(cb3);
+    canBoList.push(cb4);
+    canBoList.push(cb5);
+    //displayCanBo();
+    //danhSachNangLuong();
+    //demCanBoNu();
+    //tinhTongThuNhapCanBo();
+    lietKeCNTT();
+
+    // menu 1: display
+    function displayCanBo(){
+        let cbString = 'Ho ten -- G.Tinh -- Que quan -- N.sinh -- C.Mon -- Tr.do -- HSL -- PC' + '\n';
+        let i = 1;
+        for(let x of canBoList){
+            cbString += i + '. ' + x.getMaSo() + ' -- ';
+            cbString +=  x.getHoTen() + ' -- ';
+            cbString +=  x.getGioiTinh() + ' -- ';
+            cbString +=  x.getQueQuan() + ' -- ';
+            cbString +=  x.getNamSinh() + ' -- ';
+            cbString +=  x.getChuyenMon() + ' -- ';
+            cbString +=  x.getTrinhDo() + ' -- ';
+            cbString +=  x.getHsl() + ' -- ';
+            cbString +=  x.getPc() + '\n';
+            i++
+        }
+        alert(cbString);
+    }
+
+    // menu 2: hien thi ds den thoi diem nang luong
+    function danhSachNangLuong(){
+        let luongString = 'Ho ten --- HSL --- PC --- Thuc linh' + '\n';
+        let i = 0;
+        for(let x of canBoList){
+            luongString += i + '. ' + x.getHoTen() + ' -- ';
+            luongString += x.getHsl() + ' -- ';
+            luongString += x.getPc() + ' -- ';
+            luongString += x.getThucLinh() + '\n';
+        }
+        alert(luongString);
+    }
+
+    // menu 3: dem can bo nu
+    function demCanBoNu(){
+        //let nuString = '';
+        let cbNu_Dem = 0;
+        for(let x of canBoList){
+            if(x.getGioiTinh().toLowerCase() === 'nu'){cbNu_Dem++;}
+        }
+        alert('So luong can bo nu la: ' + cbNu_Dem);
+    }
+
+    // menu 4: tong thu nhap tat ca can bo
+    function tinhTongThuNhapCanBo(){
+        let tongThuNhap = 0;
+        for(let x of canBoList){
+            tongThuNhap += x.getThucLinh();
+        }
+        alert('Tong thu nhap tat ca can bo trong thang: ' + tongThuNhap);
+    }
+
+    // menu 5: Liet ke can bo co chuyen mon 'CNTT'
+    function lietKeCNTT(){
+        let cnttString = 'Ho ten --- Chuyen mon' + '\n';
+        let i = 1;
+        for(let x of canBoList){
+            if(x.getChuyenMon().toLowerCase() === 'cntt'){
+                cnttString += i + '. ' + x.getHoTen() + ' --- ' + x.getChuyenMon() + '\n';
+                i++;
+            }
+        }
+        alert(cnttString);
+    }
+</script>
+</body>
+</html>

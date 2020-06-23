@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate with marks</title>
+</head>
+<body>
+<script>
+    class Candidate {
+        constructor(name, code, birthday, math, literature, english) {
+            this.name = name;
+            this.code = code;
+            this.birthday = birthday;
+            this.math = math;
+            this.literature = literature;
+            this.english = english;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setCode(code){
+            this.code = code;
+        }
+        getCode(){
+            return this.code;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setMath(math){
+            this.math = math;
+        }
+        getMath(){
+            return this.math;
+        }
+        setLiterature(literature){
+            this.literature = literature;
+        }
+        getLiterature(){
+            return this.literature;
+        }
+        setEnglish(english){
+            this.english = english;
+        }
+        getEnglish(){
+            return this.english;
+        }
+        getToTalMark(){
+            return this.getMath() + this.getLiterature() + this.getEnglish();
+        }
+    }
+
+    quantity = parseInt(prompt('Nhap so luong thi sinh:'));
+    let string = 'Name --- Code --- DOB --- Math --- Literature --- English' + '\n';
+    for (let i = 0; i < quantity; i++) {
+        let candidate = new Candidate();
+        let name = prompt('Input name of candidate: ' + (i + 1));
+        let code = prompt('Input code of ' + name);
+        let birthday = prompt('Input birthday of ' + name);
+        let math = parseFloat(prompt('Input mark of Math:'));
+        let literature = parseFloat(prompt('Input mark of Literature:'));
+        let english = parseFloat(prompt('Input mark of English:'));
+        candidate.setName(name);
+        candidate.setCode(code);
+        candidate.setBirthday(birthday);
+        candidate.setMath(math);
+        candidate.setLiterature(literature);
+        candidate.setEnglish(english);
+        if(candidate.getToTalMark() > 15) {
+            string += candidate.getName() + " ";
+            string += candidate.getCode() + " ";
+            string += candidate.getBirthday() + " ";
+            string += candidate.getMath() + " ";
+            string += candidate.getLiterature() + " ";
+            string += candidate.getEnglish() + " ";
+            string += candidate.getToTalMark() + " ";
+            string += '\n'
+        }
+    }
+    alert('Danh sach thi sinh co tong diem lon hon 15: '+ '\n' + string);
+</script>
+</body>
+</html>

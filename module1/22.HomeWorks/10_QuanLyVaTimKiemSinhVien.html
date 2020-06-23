@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý và tìm kiếm sinh viên</title>
+</head>
+<body>
+<script>
+    class Students {
+        constructor(mssv, name, birthday, gender, className, schoolYear) {
+            this.mssv = mssv;
+            this.name = name;
+            this.birthday = birthday;
+            this.gender = gender;
+            this.className = className;
+            this.schoolYear = schoolYear;
+        }
+        setMssv(mssv){
+            this.mssv = mssv;
+        }
+        getMssv(){
+            return this.mssv;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getName(){
+            return this.name;
+        }
+        setBirthday(birthday){
+            this.birthday = birthday;
+        }
+        getBirthday(){
+            return this.birthday;
+        }
+        setGender(gender){
+            this.gender = gender;
+        }
+        getGender(){
+            return this.gender;
+        }
+        setClassName(className){
+            this.className = className;
+        }
+        getClassName(){
+            return this.className;
+        }
+        setSchooYear(schooYear){
+            this.schoolYear = schooYear;
+        }
+        getSchoolYear(){
+            return this.schoolYear;
+        }
+
+    }
+    let studentList = [];
+    let student1 = new Students('1101', 'Hoang Chuong', '20/04/1988', 'Male', 'C0520', 2020);
+    let student2 = new Students('0101', 'Nguyen Thu', '25/08/1980', 'Female', 'C0219', 2019);
+    let student3 = new Students('0111', 'Bui Phuong', '30/10/1978', 'Female', 'C0120', 2020);
+    let student4 = new Students('1001', 'To Hien', '22/07/1998', 'Male', 'C0420', 2020);
+    let student5 = new Students('1221', 'Tran Lan', '10/04/1985', 'Female', 'C0519', 2019);
+    let student6 = new Students('1212', 'Le Nhat', '28/02/1987', 'Male', 'C0320', 2020);
+    studentList.push(student1);
+    studentList.push(student2);
+    studentList.push(student3);
+    studentList.push(student4);
+    studentList.push(student5);
+    studentList.push(student6);
+    //displayStudents();
+    menuList();
+    function menuList(){
+        let option = prompt('Menu List' + '\n'+
+        '1. Display Students' + '\n' +
+        '2. Add New Student' + '\n' +
+        '3. Remove Student With MSSV' + '\n' +
+        '4. Remove Student With Index' + '\n' +
+        '5. Search Student' + '\n' +
+        '6. Sort Students' + '\n' +
+        '7. CANCEL MENU' + '\n' +
+        '');
+        switch (option) {
+            case "1":
+                displayStudents();
+                break;
+            case "2":
+                addStudent();
+                break;
+            case "3":
+                removeStudentWithMssv();
+                break;
+            case "4":
+                removeStudentWithIndex();
+                break;
+            case "5":
+                searchStudent();
+                break;
+            case "6":
+                sortStudents();
+                break;
+            case "7":
+            default:
+                alert('Menu cancelled!');
+                break;
+        }
+    }
+
+    // menu 1
+    function displayStudents(){
+        let listString = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
+        for(let i = 0; i < studentList.length; i++){
+            listString += (i+1) + '. ' + studentList[i].getMssv() + ' --- ' +
+                studentList[i].getName() + ' --- ' + studentList[i].getBirthday() + ' --- ' +
+                studentList[i].getGender() + ' --- ' +  studentList[i].getClassName() + ' --- ' +
+                studentList[i].getSchoolYear() + '\n';
+        }
+        alert(listString);
+        menuList();
+    }
+
+    // menu 2
+    function addStudent(){
+        let mssv = prompt('Input MSSV:');
+        let name = prompt('Input name:');
+        let birthday = prompt('Input birthday:');
+        let gender = prompt('Input gender:');
+        let className = prompt('Input className:');
+        let schoolYear = prompt('Input schoolYear:');
+        let newStudent = new Students();
+        newStudent.setMssv(mssv);
+        newStudent.setName(name);
+        newStudent.setBirthday(birthday);
+        newStudent.setGender(gender);
+        newStudent.setClassName(className);
+        newStudent.setSchooYear(schoolYear);
+        studentList.push(newStudent);
+        displayStudents();
+        menuList();
+    }
+
+    // menu 3
+    function removeStudentWithMssv(){
+        let mssv = prompt('Input mssv to be removed:');
+        let index = -1;
+        for(let i = 0; i < studentList.length; i++){
+            if(mssv === studentList[i].getMssv()) {
+                index = i;
+                break;
+            }
+        }
+        if(index !== -1) {
+            let choose = confirm('Really want to remove student ' + studentList[index].getName() + '?');
+            if(choose){
+                studentList.splice(index, 1);
+            } else {
+                alert('No student removed!');
+            }
+
+        } else {
+            alert('No mssv matched!');
+        }
+        displayStudents();
+        menuList();
+    }
+
+    // menu 4
+    function removeStudentWithIndex(){
+        let index = prompt('Input the index of the student to be removed:');
+        if(index >= 1) {
+            let choose = confirm('Really want to remove student ' + studentList[index-1].getName() + '?');
+            if (choose){
+                studentList.splice(index-1, 1);
+            } else {
+                alert('No student removed!');
+            }
+        } else {
+            alert('No student matched!');
+        }
+        displayStudents();
+        menuList();
+    }
+
+    // menu 5
+    function searchStudent(){
+        let searchInput = prompt('Input student information to be searched:');
+        let searchResult = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
+        let index = -1;
+        for(let i = 0; i < studentList.length; i++) {
+            if (searchInput === studentList[i].getMssv() ||
+                searchInput === studentList[i].getName().toUpperCase() ||
+                searchInput === studentList[i].getName().toLowerCase()) {
+                index = i;
+                break;
+            }
+        }
+        if(index !== -1){
+            searchResult += (index + 1) + ' --- ' +
+                            studentList[index].getMssv() + ' --- ' +
+                            studentList[index].getName() + ' --- ' +
+                            studentList[index].getBirthday() + ' --- ' +
+                            studentList[index].getGender() + ' --- ' +
+                            studentList[index].getClassName() + ' --- ' +
+                            studentList[index].getSchoolYear();
+            alert('Result' + '\n' + searchResult);
+        }
+        menuList();
+    }
+
+    // menu 7 sort with mssv
+    function sortStudents(){
+        let arrMssv = [];
+        for(let i = 0; i < studentList.length; i++){
+            arrMssv.push(parseInt(studentList[i].getMssv()));
+        }
+        arrMssv.sort(function(a, b){
+            if (a > b) return 1;
+            if (a < b) return -1;
+            return 0;
+        });
+        let sortString = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
+        for (let i = 0; i < arrMssv.length; i++) {
+            for (let x of studentList){
+                if (arrMssv[i] === parseInt(x.getMssv())) {
+                    sortString += (i + 1) + ' --- ' +
+                        x.getMssv() + ' --- ' +
+                        x.getName() + ' --- ' +
+                        x.getBirthday() + ' --- ' +
+                        x.getGender() + ' --- ' +
+                        x.getClassName() + ' --- ' +
+                        x.getSchoolYear() + '\n';
+                }
+            }
+        }
+        alert(sortString);
+    }
+
+    // menu 7 sort by objects (option 2)----> NOT WORK
+    // function sortStudents(){
+    //     for(let i = 0; i < studentList.length; i++){
+    //         for(let j = 0; j < studentList.length; j++){
+    //             let temp = new Students();
+    //             if(parseInt(studentList[j].getMssv()) > parseInt(studentList[j].getMssv())){
+    //                 temp.setMssv(studentList[j].getMssv());
+    //                 temp.setName(studentList[j].getName());
+    //                 temp.setBirthday(studentList[j].getBirthday());
+    //                 temp.setGender(studentList[j].getGender());
+    //                 temp.setClassName(studentList[j].getClassName());
+    //                 temp.setSchooYear(studentList[j].getSchoolYear());
+    //
+    //                 studentList[j].setMssv(studentList[j+1].getMssv());
+    //                 studentList[j].setName(studentList[j+1].getName());
+    //                 studentList[j].setBirthday(studentList[j+1].getBirthday());
+    //                 studentList[j].setGender(studentList[j+1].getGender());
+    //                 studentList[j].setClassName(studentList[j+1].getClassName());
+    //                 studentList[j].setSchooYear(studentList[j+1].getSchoolYear());
+    //
+    //                 studentList[j+1].setMssv(temp.getMssv());
+    //                 studentList[j+1].setName(temp.getName());
+    //                 studentList[j+1].setBirthday(temp.getBirthday());
+    //                 studentList[j+1].setGender(temp.getGender());
+    //                 studentList[j+1].setClassName(temp.getClassName());
+    //                 studentList[j+1].setSchooYear(temp.getSchoolYear());
+    //             }
+    //         }
+    //     }
+    //     displayStudents();
+    // }
+
+
+
+
+    // // menu 8 Reverse list
+    // function reverseList(){
+    //     studentList.sort(function (a, b) {
+    //         for(let i = 0; i < studentList.length; i++){
+    //             a = parseInt(studentList[i].getMssv());
+    //             b = parseInt(studentList[i+1].getMssv());
+    //             if(a < b) return 1;
+    //             if(a > b) return -1;
+    //             return 0;
+    //         }
+    //
+    //     });
+    //     displayStudents();
+    // }
+</script>
+</body>
+</html>

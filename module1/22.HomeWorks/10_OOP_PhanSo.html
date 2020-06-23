@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class PhanSo {
+        constructor(tuSo, mauSo) {
+            this.tuSo = tuSo;
+            this.mauSo = mauSo;
+        }
+        setTuSo(tuSo){
+            this.tuSo = tuSo;
+        }
+        getTuSo(){
+            return this.tuSo;
+        }
+        setMauSo(mauSo){
+            this.mauSo = mauSo;
+        }
+        getMauSo(){
+            return this.mauSo;
+        }
+
+        getGiaTri(){
+            return this.getTuSo() / this.getMauSo();
+        }
+        cong(PhanSo){
+            return this.getGiaTri() + PhanSo.getGiaTri();
+        }
+        tru(PhanSo){
+            return this.getGiaTri() - PhanSo.getGiaTri();
+        }
+        nhan(PhanSo){
+            return this.getGiaTri() * PhanSo.getGiaTri();
+        }
+        chia(PhanSo){
+            return this.getGiaTri() / PhanSo.getGiaTri();
+        }
+    }
+    let ps1 = new PhanSo();
+    let ps2 = new PhanSo();
+    let ts1 = parseInt(prompt('Input tu so cua ps1:'));
+    let ms1 = parseInt(prompt('Input mau so cua ps1:'));
+    let ts2 = parseInt(prompt('Input tu so cua ps2:'));
+    let ms2 = parseInt(prompt('Input mau so cua ps2:'));
+    ps1.setTuSo(ts1);
+    ps1.setMauSo(ms1);
+    ps2.setTuSo(ts2);
+    ps2.setMauSo(ms2);
+    alert('Ket qua cong 2 phan so: ' + ps1.cong(ps2));
+    alert('Ket qua tru 2 phan so: ' + ps1.tru(ps2));
+    alert('Ket qua nhan 2 phan so: ' + ps1.nhan(ps2));
+    alert('Ket qua chia 2 phan so: ' + ps1.chia(ps2));
+</script>
+</body>
+</html>

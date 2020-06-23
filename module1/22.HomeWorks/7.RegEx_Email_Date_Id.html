@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex</title>
+</head>
+<body>
+<script>
+    let check = true;
+    do {
+        let email = prompt("Input email:");
+        let emailPatt = /^(\w{3,}@\w+\.\w+)$/;
+        check = emailPatt.test(email);
+    } while (!check);
+
+    do {
+        let date = prompt("Input date dd/MM/yyyy:");
+        let datePatt = /^(([0][1-9]|[1-2]\d|[3][0-1])\/(0[1-9]|1[0-2])\/(19\d{2}|(20[0-2]\d)))$/;
+        check = datePatt.test(date);
+    } while (!check);
+
+    do {
+        let id = prompt('Input ID:');
+        let idPatt = /^([1-9]\d{8})$/;
+        check = idPatt.test(id);
+    } while (!check);
+</script>
+</body>
+</html>
