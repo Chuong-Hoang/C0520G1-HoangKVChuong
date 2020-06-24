@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Input the length of an array:'));
+    let arr = [];
+    for(let i = 0; i < n; i++){
+        arr.push(parseInt(prompt('Input the element number ' + i)));
+    }
+    //alert('The array: ' + arr);
+    let sum = 0;
+    for(let i = 0; i < n; i++){
+        if(arr[i]%2 !== 0 && arr[i] > 0){
+            sum += arr[i];
+        }
+    }
+    //alert('Tong so duong le trong mang: ' + sum);
+    let seek = parseInt(prompt('Input a number to be searched:'));
+    checkMatch(seek);
+    function checkMatch(seek){
+        let index = -1;
+        for(let i = 0; i < n; i++){
+            if(seek === arr[i]){
+                index = i;
+                break;
+            }
+        }
+        if(index !== -1){
+            alert(seek + ' is at index: ' + index);
+        } else {
+            alert(seek + ' is NOT in the array');
+        }
+    }
+    arr.sort(function(a,b) {
+        if (a > b) return 1;
+        if (a < b) return -1;
+        return 0;
+    });
+    alert(arr);
+    arr.push(parseInt(prompt('Input a number to be inserted:')));
+    arr.sort(function(a,b){
+        if(a>b) return 1;
+        if(a<b) return -1;
+        return 0;
+    });
+    alert(arr);
+</script>
+</body>
+</html>

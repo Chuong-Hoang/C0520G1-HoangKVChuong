@@ -104,7 +104,7 @@
         }
     }
 
-    // menu 1
+    // menu 1: display
     function displayStudents(){
         let listString = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
         for(let i = 0; i < studentList.length; i++){
@@ -117,7 +117,7 @@
         menuList();
     }
 
-    // menu 2
+    // menu 2: add new student
     function addStudent(){
         let mssv = prompt('Input MSSV:');
         let name = prompt('Input name:');
@@ -137,7 +137,7 @@
         menuList();
     }
 
-    // menu 3
+    // menu 3: remove with mssv
     function removeStudentWithMssv(){
         let mssv = prompt('Input mssv to be removed:');
         let index = -1;
@@ -162,7 +162,7 @@
         menuList();
     }
 
-    // menu 4
+    // menu 4: remove with index
     function removeStudentWithIndex(){
         let index = prompt('Input the index of the student to be removed:');
         if(index >= 1) {
@@ -179,7 +179,7 @@
         menuList();
     }
 
-    // menu 5
+    // menu 5: search student
     function searchStudent(){
         let searchInput = prompt('Input student information to be searched:');
         let searchResult = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
@@ -205,70 +205,54 @@
         menuList();
     }
 
-    // menu 7 sort with mssv
-    function sortStudents(){
-        let arrMssv = [];
-        for(let i = 0; i < studentList.length; i++){
-            arrMssv.push(parseInt(studentList[i].getMssv()));
-        }
-        arrMssv.sort(function(a, b){
-            if (a > b) return 1;
-            if (a < b) return -1;
-            return 0;
-        });
-        let sortString = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
-        for (let i = 0; i < arrMssv.length; i++) {
-            for (let x of studentList){
-                if (arrMssv[i] === parseInt(x.getMssv())) {
-                    sortString += (i + 1) + ' --- ' +
-                        x.getMssv() + ' --- ' +
-                        x.getName() + ' --- ' +
-                        x.getBirthday() + ' --- ' +
-                        x.getGender() + ' --- ' +
-                        x.getClassName() + ' --- ' +
-                        x.getSchoolYear() + '\n';
-                }
-            }
-        }
-        alert(sortString);
-    }
+    // menu 7: sort with mssv
+    // function sortStudents(){
+    //     let arrMssv = [];
+    //     for(let i = 0; i < studentList.length; i++){
+    //         arrMssv.push(parseInt(studentList[i].getMssv()));
+    //     }
+    //     arrMssv.sort(function(a, b){
+    //         if (a > b) return 1;
+    //         if (a < b) return -1;
+    //         return 0;
+    //     });
+    //     let sortString = 'No. --- MSSV --- Fullname --- DOB --- Gender --- Class --- SchoolYear' + '\n';
+    //     for (let i = 0; i < arrMssv.length; i++) {
+    //         for (let x of studentList){
+    //             if (arrMssv[i] === parseInt(x.getMssv())) {
+    //                 sortString += (i + 1) + ' --- ' +
+    //                     x.getMssv() + ' --- ' +
+    //                     x.getName() + ' --- ' +
+    //                     x.getBirthday() + ' --- ' +
+    //                     x.getGender() + ' --- ' +
+    //                     x.getClassName() + ' --- ' +
+    //                     x.getSchoolYear() + '\n';
+    //             }
+    //         }
+    //     }
+    //     alert(sortString);
+    // }
 
-    // menu 7 sort by objects (option 2)----> NOT WORK
+    // // menu 7 sort by objects (option 2)---->
     // function sortStudents(){
     //     for(let i = 0; i < studentList.length; i++){
     //         for(let j = 0; j < studentList.length; j++){
-    //             let temp = new Students();
     //             if(parseInt(studentList[j].getMssv()) > parseInt(studentList[j].getMssv())){
-    //                 temp.setMssv(studentList[j].getMssv());
-    //                 temp.setName(studentList[j].getName());
-    //                 temp.setBirthday(studentList[j].getBirthday());
-    //                 temp.setGender(studentList[j].getGender());
-    //                 temp.setClassName(studentList[j].getClassName());
-    //                 temp.setSchooYear(studentList[j].getSchoolYear());
-    //
-    //                 studentList[j].setMssv(studentList[j+1].getMssv());
-    //                 studentList[j].setName(studentList[j+1].getName());
-    //                 studentList[j].setBirthday(studentList[j+1].getBirthday());
-    //                 studentList[j].setGender(studentList[j+1].getGender());
-    //                 studentList[j].setClassName(studentList[j+1].getClassName());
-    //                 studentList[j].setSchooYear(studentList[j+1].getSchoolYear());
-    //
-    //                 studentList[j+1].setMssv(temp.getMssv());
-    //                 studentList[j+1].setName(temp.getName());
-    //                 studentList[j+1].setBirthday(temp.getBirthday());
-    //                 studentList[j+1].setGender(temp.getGender());
-    //                 studentList[j+1].setClassName(temp.getClassName());
-    //                 studentList[j+1].setSchooYear(temp.getSchoolYear());
+    //                 swap(studentList[j], studentList[j+1]);
     //             }
     //         }
     //     }
     //     displayStudents();
     // }
+    //
+    // function swap(a, b){
+    //     let temp = a;
+    //     a = b;
+    //     b = temp;
+    // }
 
 
-
-
-    // // menu 8 Reverse list
+    // // menu 8: Reverse list
     // function reverseList(){
     //     studentList.sort(function (a, b) {
     //         for(let i = 0; i < studentList.length; i++){

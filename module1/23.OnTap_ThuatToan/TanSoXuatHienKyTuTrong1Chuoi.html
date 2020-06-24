@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lần xuất hiện của các ký tự</title>
+</head>
+<body>
+<script>
+    let string = prompt('Input a string:');
+    let tempStr = '';
+    let count = 0;
+    let hz = [];
+    for(let i = 0; i < string.length; i++){
+        let s = string.charAt(i);
+        if(s !== ' '){
+            tempStr += s + '\n';
+            count++;
+        }
+    }
+    alert(tempStr);
+    alert('So tu: ' + count);
+   console.log(computeFrequency(string));
+
+    function computeFrequency(string) {
+        // Create the frequency-hashtable
+        const freqTable = new Map();
+        // for each character in the string
+        for (let char of string) {
+            // Check if we have seen it already
+            if (!freqTable.has(char.toLowerCase())) {
+                freqTable.set(char.toLowerCase(), 1);
+            } else {
+                // Just increase the existing entry
+                freqTable.set(char.toLowerCase(), freqTable.get(char.toLowerCase()) + 1);
+            }
+        }
+        // Return result
+        return freqTable;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>swap object</title>
+</head>
+<body>
+<script>
+    class Students{
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+    }
+    let student1 = new Students('A', 30);
+    let student2 = new Students('B', 25);
+    alert(student1.name + ' ' + student1.age);
+    swap(student1, student2);
+    alert(student1.name + ' ' + student1.age);
+    function swap(a,b){
+        let temp = a;
+        a = b;
+        b = temp;
+    }
+</script>
+</body>
+</html>

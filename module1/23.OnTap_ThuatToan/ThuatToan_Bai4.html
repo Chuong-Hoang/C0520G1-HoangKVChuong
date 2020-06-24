@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+  4.	Viết chương trình tính :
+     S=15-1+1/2-1/3!+....+(-1)n  1/n!
+</pre>
+<script>
+    let sum = 15;
+    let n = parseInt(prompt('Input gia tri n:'));
+    for(let i = 1; i <= n; i++){
+        sum += Math.pow(-1, i)/tinhGiaiThua(i);
+    }
+    alert('Sum is: ' + sum);
+    function tinhGiaiThua(n){
+        let giaiThua1 = 1;
+        if(n === 1) {
+            return giaiThua1;
+        } else {
+            return n * tinhGiaiThua(n-1);
+        }
+    }
+</script>
+</body>
+</html>

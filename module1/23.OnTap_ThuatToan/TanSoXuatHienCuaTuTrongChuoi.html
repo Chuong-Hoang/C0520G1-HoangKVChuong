@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tần số xuất hiện</title>
+</head>
+<body>
+<script>
+    let string = prompt('Input a string: ').trim();
+    let count = 1;
+    let temp = '';
+    let newString = [];
+    for (let i = 0; i < string.length; i++) {
+        let s = string.charAt(i);
+        if(s !== ' '){
+            temp += s;
+        }
+        if(s === ' ' && string.charAt(i+1) !== ' '){
+            newString.push(temp);
+            temp = '';
+            count++;
+        }
+
+    }
+    alert(newString.join('\n'));
+    //alert('So tu co trong chuoi: ' + count);
+    let word = [
+        ['work', 0]
+    ];
+    temp = '';
+    let count2 = 0;
+    for(let i = 0; i < string.length; i++){
+        let s = string.charAt(i);
+        if(s !== ' '){
+            temp += s;
+        }
+        if(s === ' ') {
+            for (let j = 0; j < word.length; j++) {
+                if (word[j][0] !== temp) {
+                    let a = [temp, 1];
+                    word.push(a);
+                    temp = '';
+                    count2++;
+                    break;
+                } else {
+                    word[j][1] += 1;
+                    temp = '';
+                    count2++;
+                    break;
+                }
+            }
+        }
+    }
+    alert(word);
+</script>
+</body>
+</html>

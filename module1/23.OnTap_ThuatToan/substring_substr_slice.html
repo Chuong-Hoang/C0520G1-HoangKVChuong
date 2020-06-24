@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 hàm string</title>
+</head>
+<body>
+<pre>
+   *** string.substr(start, length)
+Nếu start dương và lớn hơn hoặc bằng với chiều dài của chuỗi,
+    phương thức substr() sẽ trả về một chuỗi rỗng.
+Nếu start âm và nhỏ hơn chiều dài của chuỗi,
+    phương thức sẽ xác định vị trí từ cuối chuỗi.
+Nếu start âm và giá trị tuyệt đối của nó lớn hơn chiều dài chuỗi,
+    start sẽ được đặt về 0.
+    length là số kí tự sẽ được trích xuất, nếu không được truyền vào,
+    phương thức sẽ trích xuất từ start đến hết chuỗi.
+    <!-- End -->
+
+    *** string.substring(start, end)
+    Nếu start > end, phương thức sẽ hoán đổi vị trị 2 tham số này.
+    Ví dụ string.substring(4, 2) ---> string.substring(2, 4).
+    Nếu start hoặc end nhỏ hơn 0, phương thức sẽ đặt giá trị
+    cho nó thành 0.
+</pre>
+<script>
+    // substr(start, length)
+    let myString = 'Hoang Kim Van Chuong';
+    let str1 = myString.substr(0, 5); //--> Hoang
+    alert(str1);
+    let str2 = myString.substr(25,5);
+    //alert(str2);
+    let str3 = myString.substr(-10, 6);
+    //alert(str3);
+    let str4 = myString.substr(-22, 5);
+    //alert(str4);
+
+    // substring(start, end[not_included]): |start|---> end
+    let string1 = myString.substring(0, 4); //--> Hoan
+    alert(string1);
+    let string2 = myString.substring(7, 4);
+    alert(string2);
+
+    // slice(start, end)
+    let sl1 = myString.slice(4, 8);
+    alert(sl1);
+</script>
+</body>
+</html>

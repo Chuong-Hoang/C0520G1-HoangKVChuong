@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UCLN và BCNN</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('Input so nguyen duong thu nhat:'));
+    let b = parseInt(prompt('Input so nguyen duong thu hai:'));
+    timUCLN_va_BCNN(a,b);
+    function timUCLN_va_BCNN(a,b){
+        let UCLN;
+        let BCNN;
+        if(a%b === 0) {
+            UCLN = b;
+            BCNN = a;
+        } else if(b%a === 0){
+            UCLN = a;
+            BCNN = b;
+        } else {
+            let min = a > b ? b:a;
+            //alert(min);
+            for (let i = 1; i < min; i++) {
+                if(a%i === 0 && b%i === 0) {
+                    UCLN = i;
+                    if (UCLN !== 1) {
+                        BCNN = i* ((a>b)?a:b);
+                    } else {
+                        BCNN = a*b;
+                    }
+                }
+            }
+        }
+        alert('Uoc chung lon nhat: ' + UCLN);
+        alert('Boi chung nho nhat: ' + BCNN);
+    }
+</script>
+</body>
+</html>

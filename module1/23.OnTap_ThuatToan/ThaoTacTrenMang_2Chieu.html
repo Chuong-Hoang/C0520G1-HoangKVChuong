@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt('Input number of rows:'));
+    let n = parseInt(prompt('Input number of cols:'));
+    let arr = [];
+    let string = '';
+    for (let i = 0; i < m; i++) {
+        arr[i] = [];
+        string += '[';
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt('Input element ['+i+']['+j+']'));
+        }
+        string += arr[i].join(' _ ') + ']\n';
+    }
+    //alert(arr);
+    //alert(string);
+    let product = 1;
+    for(let j = 0; j < arr[0].length; j++){
+        if(arr[0][j]%3 === 0) {
+            product *= arr[0][j];
+        }
+    }
+    alert('Product of numbers that divided by 3 is 0: ' + product);
+    let Xi = [];
+    for (let i = 0; i < m; i++){
+        let max = arr[i][0];
+        for(let j = 0; j < n; j++){
+            if(max < arr[i][j]){
+                max = arr[i][j];
+            }
+        }
+        Xi.push(max);
+    }
+    alert(Xi.join((" _ ")));
+    Xi.splice(0,1);
+    alert(Xi.join((" _ ")));
+</script>
+</body>
+</html>

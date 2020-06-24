@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt('Nhap mot gia tri vao:'));
+    tinhTongVaTich(m);
+    tinhTongVaTich(12121212);
+
+    function tinhTongVaTich(m){
+        let string = m.toString();
+        //alert(string);
+        let tong = 0;
+        let tich = 1;
+        for(let i = 0; i < string.length; i++){
+            tong += parseInt(string.charAt(i));
+            tich *= parseInt(string.charAt(i));
+        }
+        alert('Tong cac so ' + tong);
+        alert('Tich cac so ' + tich);
+    }
+
+</script>
+</body>
+</html>

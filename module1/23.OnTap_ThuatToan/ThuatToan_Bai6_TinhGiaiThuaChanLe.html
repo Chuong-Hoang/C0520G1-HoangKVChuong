@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa chẵn lẽ</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Input number: '));
+    alert(tinhGiaiThua(n));
+    function tinhGiaiThua(n){
+        let kq = 1;
+        let i;
+        if(n%2=== 0){
+            i = 2;
+        } else {
+            i = 1;
+        }
+        for(; i <= n; i += 2){
+           kq *= i;
+        }
+        return kq;
+    }
+</script>
+</body>
+</html>
