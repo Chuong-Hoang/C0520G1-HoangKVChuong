@@ -57,21 +57,22 @@
     }
 
     quantity = parseInt(prompt('Nhap so luong thi sinh:'));
-    let string = 'Name --- Code --- DOB --- Math --- Literature --- English' + '\n';
+    let string = 'Name -- Code -- DOB -- Math -- Literature -- English' + '\n';
     for (let i = 0; i < quantity; i++) {
-        let candidate = new Candidate();
+
         let name = prompt('Input name of candidate: ' + (i + 1));
         let code = prompt('Input code of ' + name);
         let birthday = prompt('Input birthday of ' + name);
         let math = parseFloat(prompt('Input mark of Math:'));
         let literature = parseFloat(prompt('Input mark of Literature:'));
         let english = parseFloat(prompt('Input mark of English:'));
-        candidate.setName(name);
-        candidate.setCode(code);
-        candidate.setBirthday(birthday);
-        candidate.setMath(math);
-        candidate.setLiterature(literature);
-        candidate.setEnglish(english);
+        let candidate = new Candidate(name, code, birthday, math, literature, english);
+        // candidate.setName(name);
+        // candidate.setCode(code);
+        // candidate.setBirthday(birthday);
+        // candidate.setMath(math);
+        // candidate.setLiterature(literature);
+        // candidate.setEnglish(english);
         if(candidate.getToTalMark() > 15) {
             string += candidate.getName() + " ";
             string += candidate.getCode() + " ";

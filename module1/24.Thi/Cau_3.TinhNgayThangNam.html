@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dateString;
+    do {
+        dateString = prompt("Input date mm/yyyy:");
+        let datePat = /^((0[1-9]|1[0-2])\/([1-9]\d{3}))$/;
+        check = datePat.test(dateString);
+    } while (!check);
+
+    let month = parseInt(dateString.substr(0, 2));
+    let year = parseInt(dateString.substr(3, 4));
+    if(isLeapYear(year)){
+        if(month === 2){
+            alert('So ngay cua thang 2 la: ' + 29);
+        } else {
+            alert('So ngay cua thang ' + month + ' la ' + datePerMonth(month-1));
+        }
+        alert('So ngay cua nam ' + year + ' la ' + 366);
+    } else {
+        alert('So ngay cua thang ' + month + ' la' + datePerMonth(month));
+        alert('So ngay cua nam ' + year + ' la ' + 365);
+    }
+
+    // Check leap year
+    function isLeapYear(year) {
+        if (year % 4 === 0) {
+            if (year % 100 === 0) {
+                if (year % 400 === 0) {
+                    return true;
+                    //alert(year + " is a leap year");
+                } else {
+                    return false;
+                    //alert(year + " is NOT a leap year");
+                }
+            } else {
+                return true;
+                //alert(year + " is a leap year");
+            }
+        } else {
+            return false;
+            //alert(year + " is NOT a leap year");
+        }
+    }
+
+    // Number of days in a month
+    function datePerMonth(month){
+        let quantity = 0;
+        switch (month+1){ // Plus 1
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                quantity = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                quantity = 30;
+                break;
+            case 2:
+                quantity = 28;
+                break;
+        }
+        return quantity;
+    }
+
+</script>
+</body>
+</html>

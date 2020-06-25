@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý công nhân</title>
+</head>
+<style>
+    tr:nth-child(odd){
+        background-color: darkgray;
+    }
+    td {
+        text-align: center;
+        cursor: text;
+    }
+</style>
+<body>
+<input type="button" onclick="display()" value="Hiển thị danh sách"><br><br>
+<input type="button" onclick="sortWorkersByName()" value="Sắp xếp trước khi hiển thị"><br><br>
+<p id="show"></p>
+<script>
+class Workers {
+    constructor(hoTen, ngaySinh, diaChi, luong, chucVu) {
+        this.hoTen = hoTen;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
+        this.luong = luong;
+        this.chucVu = chucVu;
+    }
+    getHoTen(){
+        return this.hoTen;
+    }
+    getNgaySinh(){
+        return this.ngaySinh;
+    }
+    getDiaChi(){
+        return this.diaChi;
+    }
+    getLuong(){
+        return this.luong;
+    }
+    getChucVu(){
+        return this.chucVu;
+    }
+}
+let workerList = [];
+let wk1 = new Workers('Trương Tấn A', '11-11-1997', 'Quảng Nam', 2000, 'Abc');
+let wk2 = new Workers('Trương Tấn B', '11-11-1998', 'Đà Nẵng', 2000, 'Abc');
+let wk3 = new Workers('Trương Tấn C', '11-11-1999', 'Huế', 2000, 'Abc');
+let wk4 = new Workers('Hoàng KV Chương', '20-04-1988', 'Quảng Trị', 5000, 'Abc');
+workerList.push(wk1);
+workerList.push(wk2);
+workerList.push(wk3);
+workerList.push(wk4);
+//display();
+//sortWorkersByName();
+
+function display() {
+    let string = '<table border="1" style="border-collapse: collapse">';
+    string += '<caption style="font-weight: bold;">Quản lý công nhân<br><br></caption>';
+    string += '<tr>\n' +
+        '        <th width="50">STT</th>\n' +
+        '        <th width="250">Họ tên</th>\n' +
+        '        <th width="150">Ngày sinh</th>\n' +
+        '        <th width="150">Địa chỉ</th>\n' +
+        '        <th width="150">Mức lương</th>\n' +
+        '        <th width="150">Chức vụ</th>\n' +
+        '    </tr>';
+    for(let i = 0; i < workerList.length; i++) {
+        string += '<tr>';
+
+        string += '<td>' + (i+1) + '</td>';
+        string += '<td>' + workerList[i].getHoTen() + '</td>';
+        string += '<td>' + workerList[i].getNgaySinh() + '</td>';
+        string += '<td>' + workerList[i].getDiaChi() + '</td>';
+        string += '<td>' + workerList[i].getLuong() + '</td>';
+        string += '<td>' + workerList[i].getChucVu() + '</td>';
+
+        string += '</tr>';
+    }
+    string += '</table>';
+    document.getElementById('show').innerHTML = string;
+}
+
+//sort workerList by Ho va Ten
+function sortWorkersByName(){
+    let arrHoTen = [];
+    for(let i = 0; i < workerList.length; i++){
+        arrHoTen.push(workerList[i].getHoTen());
+    }
+    arrHoTen.sort();
+    let sortString = '<table border="1" style="border-collapse: collapse">';
+    sortString += '<caption style="font-weight: bold;">Quản lý công nhân<br><br></caption>';
+    sortString += '<tr>\n' +
+        '        <th width="50">STT</th>\n' +
+        '        <th width="250">Họ tên</th>\n' +
+        '        <th width="150">Ngày sinh</th>\n' +
+        '        <th width="150">Địa chỉ</th>\n' +
+        '        <th width="150">Mức lương</th>\n' +
+        '        <th width="150">Chức vụ</th>\n' +
+        '    </tr>';
+    for (let i = 0; i < arrHoTen.length; i++) {
+        for (let x of workerList){
+            if (arrHoTen[i] === x.getHoTen()) {
+                sortString += '<tr>';
+                sortString += '<td>' + (i + 1) + '</td>';
+                sortString += '<td>' + x.getHoTen() + '</td>';
+                sortString += '<td>' + x.getNgaySinh() + '</td>';
+                sortString += '<td>' + x.getDiaChi() + '</td>';
+                sortString += '<td>' + x.getLuong() + '</td>';
+                sortString += '<td>' + x.getChucVu() + '</td>';
+                sortString += '</tr>';
+            }
+        }
+    }
+    document.getElementById('show').innerHTML = sortString;
+}
+</script>
+<table>
+
+</table>
+</body>
+</html>
