@@ -8,6 +8,9 @@
     tr:nth-child(odd){
         background-color: darkgray;
     }
+    th {
+        background-color: bisque;
+    }
     td {
         text-align: center;
         cursor: text;
@@ -15,7 +18,7 @@
 </style>
 <body>
 <input type="button" onclick="display()" value="Hiển thị danh sách"><br><br>
-<input type="button" onclick="sortWorkersByName()" value="Sắp xếp trước khi hiển thị"><br><br>
+<input type="button" onclick="sortWorkersByName()" value="Sắp xếp theo họ và tên"><br><br>
 <p id="show"></p>
 <script>
 class Workers {
@@ -47,10 +50,12 @@ let wk1 = new Workers('Trương Tấn A', '11-11-1997', 'Quảng Nam', 2000, 'Ab
 let wk2 = new Workers('Trương Tấn B', '11-11-1998', 'Đà Nẵng', 2000, 'Abc');
 let wk3 = new Workers('Trương Tấn C', '11-11-1999', 'Huế', 2000, 'Abc');
 let wk4 = new Workers('Hoàng KV Chương', '20-04-1988', 'Quảng Trị', 5000, 'Abc');
+let wk5 = new Workers('Vương Lê Thắng', '12-06-1982', 'Hà Nội', 8000, 'Abc');
 workerList.push(wk1);
 workerList.push(wk2);
 workerList.push(wk3);
 workerList.push(wk4);
+workerList.push(wk5);
 //display();
 //sortWorkersByName();
 

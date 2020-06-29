@@ -26,16 +26,15 @@
             }
             string += "\n";
         }
-        alert(string);
+
     }
     function addCustomer() {
         let num = prompt("How many customer to be added?");
 
         for(let i = 0; i < num; i++) {
             let newCustomer = [];
-            for(let j = 0; j < 2; j++) {
-               newCustomer[j] = prompt("Enter new customer with property " + j);
-            }
+            newCustomer[0] = prompt("Enter name:");
+            newCustomer[1] = prompt("Enter address: ");
             customerList.push(newCustomer);
         }
         display();
