@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class ChangeMoney {
     public static void main(String[] args) {
-        final int rateUSD = 23000;
+        final int RATE_USD = 23000;
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Input quantity of dollars: ");
         int dollar = myScanner.nextInt();
-        int vnd = dollar * rateUSD;
+        int vnd = dollar * RATE_USD;
         System.out.printf("Exchanged Result: %d vnđ.", vnd);
     }
 }
