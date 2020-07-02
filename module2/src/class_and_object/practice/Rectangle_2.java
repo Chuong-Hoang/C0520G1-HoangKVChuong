@@ -25,10 +25,10 @@ public class Rectangle_2 {
         return "This rectangle: width = " + this.getWidth() + ", height = " + this.getHeight();
     }
     public int getArea(){
-        return this.width*this.height;
+        return this.getWidth()*this.getHeight();
     }
     public int getPerimeter(){
-        return (this.width + this.height)*2;
+        return (this.getWidth() + this.getHeight())*2;
     }
 
 }
