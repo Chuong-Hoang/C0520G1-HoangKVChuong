@@ -1,7 +1,7 @@
 package introduction_to_java.bai_tap;
 import java.util.Scanner;
 
-public class TransformNumbersIntoText {
+public class ChangeNumbersIntoText {
     public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Enter a number: ");
