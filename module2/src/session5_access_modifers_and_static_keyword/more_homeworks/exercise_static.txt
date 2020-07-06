@@ -1,0 +1,20 @@
+Thiết kế class StudentCodeGymClass dùng để lưu trữ danh sách của các học viên hiện đang theo học tại trung tâm. Nếu học viên đăng ký học thì sẽ thêm vào trong danh sách. Trường hợp ngược lại, nếu học viên đã tốt nghiệp thì sẽ loại bỏ khỏi danh sách.
+
+Bước 1: Tạo class StudentCodeGym, bao gồm các thuộc tính:
+- id (thì không trùng lặp)
+- name
+- dateOfBirth
+- Constructor bao gồm 3 tham số như trên.
+
+Bước 2: Tạo class StudentCodeGymClass bao gồm các thuộc tính và phương thức:
+- Mảng static chứa danh sách các học viên (StudentCodeGym[]).
+- Khối static dùng để khởi tạo danh sách các học viên và thêm sẵn một vài học viên.
+- Phương thức register, tham số là StudentCodeGym, sẽ thực hiện thêm học viên đó vào cuối danh sách.
+- Phương thức graduate, tham số là StudentCodeGym, sẽ thực hiện xóa học viên có id tương ứng ra khỏi danh sách.
+- Phương thức hiển thị danh sách học viên hiện tại.
+
+Bước 3: Thực hiện test:
+- Lần lượt tạo 6 học viên bất kì với id lần lượt là (1 -> 6) và đăng ký vào danh sách CodeGym.
+- In ra danh sách học viên hiện tại ở màn hình console (Kết quả: số học viên là 6).
+- Học viên có id = 4 đã tốt nghiệp.
+- In ra danh sách học viên hiện tại ở màn hình console (Kết quả: số học viên hiện tại là 5 bạn, đã loại bỏ đi học viên có id là 4).
