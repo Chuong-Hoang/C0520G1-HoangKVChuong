@@ -2,7 +2,8 @@ package session6_inheritance.demo;
 
 class Faculty extends Employee {
     public Faculty() {
-        System.out.println("Faculty performing its tasks...");
+        //This line refer to constructor Employee();
+        System.out.println("(4) Faculty performing its tasks...");
     }
 
     public static void main(String[] args) {
@@ -11,17 +12,19 @@ class Faculty extends Employee {
 }
 
 class Employee extends Person {
-    public Employee() {
-        this("Employee overloading its tasks!");
-        System.out.println("Employee performing its tasks!!!");
-    }
     public Employee(String s) {
         System.out.println(s);
+    }
+
+    public Employee() {
+        //This line refer to constructor Person();
+        this("(2) Employee overloading its tasks!"); //Invoke Employee(String s);
+        System.out.println("(3) Employee performing its tasks!!!");
     }
 }
 
 class Person {
-    public Person(){
-        System.out.println("Person class performing its tasks.");
+    public Person() {
+        System.out.println("(1) Person class performing its tasks.");
     }
 }
