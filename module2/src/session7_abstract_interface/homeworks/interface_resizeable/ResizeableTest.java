@@ -52,6 +52,35 @@ public class ResizeableTest {
         System.out.println("Circle perimeter = " + c1.getPerimeter());
         System.out.println("Circle area = " + c1.getArea());
         System.out.println();
+
+        Shape[] shapes = new Shape[3];
+        shapes[0] = new Circle(10);
+        shapes[1] = new Square(25);
+        shapes[2] = new Rectangle(50, 70);
+
+        System.out.println("Before resize: ");
+        for(Shape shape: shapes) {
+            if( shape instanceof Circle) {
+                System.out.println("Area Circle: " + ((Circle) shape).getArea());
+            } else if (shape instanceof Rectangle || shape instanceof Square) {
+                System.out.println("Area Rectangle/Square: " + ((Rectangle) shape).getArea());
+            }
+        }
+        System.out.println();
+
+        System.out.println("After resize: ");
+        for(Shape shape: shapes) {
+            if( shape instanceof Circle) {
+                ((Circle) shape).resize(Math.random()*100);
+                System.out.println("Area Circle: " + ((Circle) shape).getArea());
+            } else if (shape instanceof Rectangle || shape instanceof Square) {
+                ((Rectangle) shape).resize(Math.random()*100);
+                System.out.println("Area Rectangle/Square: " + ((Rectangle) shape).getArea());
+            }
+
+        }
+
+
     }
 
 }
