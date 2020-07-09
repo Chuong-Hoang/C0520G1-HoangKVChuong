@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3b31331-e204-438f-a263-7fedbdfa15de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/module1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module1/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" beforeDir="false" afterPath="$PROJECT_DIR$/module1/0.CaseStudy1/CaseStudy_FuramaResort_Module1_final.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module1/7.BienVaKieuDuLieu/BaiTap/Calculator.html" beforeDir="false" afterPath="$PROJECT_DIR$/module1/7.BienVaKieuDuLieu/BaiTap/Calculator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module2/src/session9_arrayList_and_linkedList/practice/linked_list/MyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module2/src/session9_arrayList_and_linkedList/practice/list/MyList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module2/src/session9_arrayList_and_linkedList/practice/list/MyListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/out/production/module2/session1_introduction_to_java/bai_tap/ChangeMoney.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/out/production/module2/session8_clean_code/homeworks/TennisGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/module2/out/production/module2/session8_clean_code/homeworks/TennisGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/src/session1_introduction_to_java/homeworks/ChangeMoney.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/src/session1_introduction_to_java/homeworks/ChangeMoney.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +27,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/module2" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -37,10 +41,17 @@
       <option name="presentableId" value="Default" />
       <updated>1591193070220</updated>
       <workItem from="1591193076439" duration="36000" />
+      <workItem from="1594296106891" duration="95000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="729" y="126" key="FileChooserDialogImpl" timestamp="1594296199240">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="729" y="126" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1594296199240" />
   </component>
 </project>
