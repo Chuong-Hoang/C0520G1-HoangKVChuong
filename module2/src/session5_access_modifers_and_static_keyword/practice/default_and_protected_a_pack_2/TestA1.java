@@ -1,4 +1,4 @@
-package session5_practice_default_and_protected_a_pack_2;
+package session5_access_modifers_and_static_keyword.practice.default_and_protected_a_pack_2;
 
 public class TestA1 {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
-package session5_practice_default_and_protected_a_pack_2;
-import session5_practice_default_and_protected_a_pack.*; // Have to import pakage a_pack into this class for using class B1
+package session5_access_modifers_and_static_keyword.practice.default_and_protected_a_pack_2;
+import session5_access_modifers_and_static_keyword.practice.default_and_protected_a_pack.*; // Have to import pakage a_pack into this class for using class B1
 
 public class TestB1 extends B1 {
     public static void main(String[] args) {
