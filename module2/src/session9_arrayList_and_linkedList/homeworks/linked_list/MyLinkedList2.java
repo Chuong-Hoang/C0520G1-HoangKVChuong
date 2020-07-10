@@ -72,7 +72,7 @@ public class MyLinkedList2 {
         }
 
         numNodes--;
-        return holder;
+        return holder.data;
     }
 
     public int size() {

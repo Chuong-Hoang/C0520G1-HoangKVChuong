@@ -1,5 +1,7 @@
 package session9_arrayList_and_linkedList.homeworks.linked_list;
 
+import org.w3c.dom.Node;
+
 public class MyLinkedList2Test {
     public static void main(String[] args) {
         MyLinkedList2 myList = new MyLinkedList2();
@@ -36,7 +38,8 @@ public class MyLinkedList2Test {
 
         myList.remove(0);
         myList.printList();
-        myList.remove(5);
+        System.out.println(myList.remove(5));
+        System.out.println();
         myList.printList();
     }
 }
