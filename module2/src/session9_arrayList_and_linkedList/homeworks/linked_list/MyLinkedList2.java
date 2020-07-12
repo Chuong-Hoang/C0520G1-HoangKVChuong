@@ -101,7 +101,7 @@ public class MyLinkedList2 {
     public boolean contains(Object obj) {
         Node temp = head;
         while (temp != null) {
-            if (temp.data == (new Node(obj)).data) {
+            if (temp.data.equals(obj)) {
                 return true;
             }
             temp = temp.next;
@@ -131,24 +131,6 @@ public class MyLinkedList2 {
         return temp;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void printList() {
         Node temp = head;
         String str = "";
@@ -158,6 +140,4 @@ public class MyLinkedList2 {
         }
         System.out.println(str);
     }
-
-
 }

@@ -49,4 +49,12 @@ public class Circle {
                 "radius = " + getRadius()
                 + " and color is " + getColor();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Circle c = (Circle) obj;
+        if(this.radius == c.getRadius() && this.color.equals(c.getColor())) {
+            return true;
+        } else return false;
+    }
 }

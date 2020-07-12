@@ -11,11 +11,11 @@ public class MyList2 {
     }
 
     public MyList2(int capacity) {
-        this.size = capacity;
-        elements = new Object[size];
+        //this.size = capacity;
+        elements = new Object[capacity];
     }
 
-    public void add(int index, Object element) {
+    public void addLast(int index, Object element) {
         elements = Arrays.copyOf(elements, size + 1);
         elements[size] = element;
         size++; // ask Tien why this has to be acted while newLength = size+1?

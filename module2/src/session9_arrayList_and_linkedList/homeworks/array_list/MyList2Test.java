@@ -4,9 +4,9 @@ public class MyList2Test {
     public static void main(String[] args) {
         MyList2 myList = new MyList2();
         System.out.println(myList.size());
-        myList.add(0, 10);
-        myList.add(1, 20);
-        myList.add(2, 30);
+        myList.addLast(0, 10);
+        myList.addLast(1, 20);
+        myList.addLast(2, 30);
         System.out.println(myList.size());
         System.out.println(myList.remove(2));
         System.out.println(myList.size());
