@@ -27,12 +27,8 @@ public class CheckPalindrome {
         }
 
         for (int i = 0; i < input.length(); i++) {
-            if(newStack.pop().equals(newQueue.poll())) {
-                isTheSame = true;
-            } else {
-                isTheSame = false;
-                break;
-            }
+            isTheSame = newStack.pop().equals(newQueue.poll());
+            if(!isTheSame) break;
         }
         return isTheSame;
     }
