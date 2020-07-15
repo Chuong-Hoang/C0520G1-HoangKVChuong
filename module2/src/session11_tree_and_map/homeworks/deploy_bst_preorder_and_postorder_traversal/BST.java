@@ -14,12 +14,12 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
 
     @Override
     public boolean insertNewNode(E e) {
-        if (root == null) {
-            root = createFreshNode(e);
+        if (this.root == null) {
+            this.root = createFreshNode(e);
         } else {
            TreeNode<E> parent = null;
-           TreeNode<E> temp = root;
-           while(temp != null) {
+           TreeNode<E> temp = this.root;
+           while (temp != null) {
                if(e.compareTo(temp.data) < 0) {
                    parent = temp;
                    temp = temp.left;
@@ -30,7 +30,7 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
                    return false; // cannot insert node
                }
            }
-           if(e.compareTo(parent.data) < 0) {
+           if (e.compareTo(parent.data) < 0) {
                parent.left = createFreshNode(e);
            } else {
                parent.right = createFreshNode(e);

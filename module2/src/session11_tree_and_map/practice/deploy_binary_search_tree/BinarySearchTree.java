@@ -58,7 +58,7 @@ public class BinarySearchTree<E extends Comparable<E>> extends AbstractTree<E> {
     protected void inorder(TreeNode<E> root) {
         if (root == null) return;
         inorder(root.left);
-        System.out.println(root.data + " ");
+        System.out.print(root.data + " ");
         inorder(root.right);
     }
 }
