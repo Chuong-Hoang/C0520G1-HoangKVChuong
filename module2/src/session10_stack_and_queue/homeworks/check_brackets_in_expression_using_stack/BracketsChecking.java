@@ -29,7 +29,7 @@ public class BracketsChecking {
                 }
             }
         }
-        if(!bStack.isEmpty()) {
+        if (!bStack.isEmpty()) {
             isValid = false;
         }
         return isValid;
