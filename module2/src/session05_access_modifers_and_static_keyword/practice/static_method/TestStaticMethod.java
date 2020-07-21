@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.practice.static_method;
+package session05_access_modifers_and_static_keyword.practice.static_method;
 
 public class TestStaticMethod {
     public static void main(String[] args) {

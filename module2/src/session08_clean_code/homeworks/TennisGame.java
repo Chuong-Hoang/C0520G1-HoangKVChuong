@@ -1,4 +1,4 @@
-package session8_clean_code.homeworks;
+package session08_clean_code.homeworks;
 
 public class TennisGame {
     public static String getResult(String player1Name, String player2Name, int player1Score, int player2Score) {

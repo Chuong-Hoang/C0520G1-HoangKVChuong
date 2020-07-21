@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.point_pack;
+package session06_inheritance.homeworks.point_pack;
 
 public class Point2D {
     private float x = 0.0f;

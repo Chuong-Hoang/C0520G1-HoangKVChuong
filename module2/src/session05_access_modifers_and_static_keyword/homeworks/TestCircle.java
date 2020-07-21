@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.homeworks;
+package session05_access_modifers_and_static_keyword.homeworks;
 
 public class TestCircle {
     public static void main(String[] args) {

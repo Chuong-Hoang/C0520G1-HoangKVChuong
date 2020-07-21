@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.homeworks;
+package session05_access_modifers_and_static_keyword.homeworks;
 
 public class Circle {
     private double radius = 1.0;

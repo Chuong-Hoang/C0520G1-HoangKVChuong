@@ -1,4 +1,4 @@
-package session9_arrayList_and_linkedList.homeworks.array_list;
+package session09_arrayList_and_linkedList.homeworks.array_list;
 import java.util.Arrays;
 
 public class MyList2 {

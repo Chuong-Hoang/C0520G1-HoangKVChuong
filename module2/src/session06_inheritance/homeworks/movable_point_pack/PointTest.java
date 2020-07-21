@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.movable_point_pack;
+package session06_inheritance.homeworks.movable_point_pack;
 
 public class PointTest {
     public static void main(String[] args) {

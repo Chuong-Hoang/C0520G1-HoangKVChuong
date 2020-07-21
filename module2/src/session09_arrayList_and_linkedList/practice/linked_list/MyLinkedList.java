@@ -1,4 +1,4 @@
-package session9_arrayList_and_linkedList.practice.linked_list;
+package session09_arrayList_and_linkedList.practice.linked_list;
 
 public class MyLinkedList {
     private Node head;

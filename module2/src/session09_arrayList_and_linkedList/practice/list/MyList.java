@@ -1,4 +1,4 @@
-package session9_arrayList_and_linkedList.practice.list;
+package session09_arrayList_and_linkedList.practice.list;
 
 import java.util.Arrays;
 

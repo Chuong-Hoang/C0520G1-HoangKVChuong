@@ -1,5 +1,5 @@
-package session7_abstract_interface.practice.interface_comparable;
-import session7_abstract_interface.homeworks.interface_resizeable.Circle;
+package session07_abstract_interface.practice.interface_comparable;
+import session07_abstract_interface.homeworks.interface_resizeable.Circle;
 
 public class ComparableCircle extends Circle
        implements Comparable<ComparableCircle> {

@@ -1,4 +1,4 @@
-package session4_class_and_object.practice;
+package session04_class_and_object.practice;
 
 public class Rectangle {
     double width;

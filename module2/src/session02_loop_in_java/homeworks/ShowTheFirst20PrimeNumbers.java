@@ -1,4 +1,4 @@
-package session2_loop_in_java.bai_tap;
+package session02_loop_in_java.bai_tap;
 import java.util.Scanner;
 
 public class ShowTheFirst20PrimeNumbers {

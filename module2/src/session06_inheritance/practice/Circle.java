@@ -1,4 +1,4 @@
-package session6_inheritance.practice;
+package session06_inheritance.practice;
 
 //Subclass Circle extends Superclass Shape
 public class Circle extends Shape {

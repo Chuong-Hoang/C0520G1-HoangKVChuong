@@ -1,4 +1,4 @@
-package session4_class_and_object.homeworks;
+package session04_class_and_object.homeworks;
 
 public class Fan {
     public static final int SLOW = 1;

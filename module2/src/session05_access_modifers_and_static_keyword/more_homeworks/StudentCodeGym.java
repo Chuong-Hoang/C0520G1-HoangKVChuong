@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.more_homeworks;
+package session05_access_modifers_and_static_keyword.more_homeworks;
 
 public class StudentCodeGym {
     private int id;

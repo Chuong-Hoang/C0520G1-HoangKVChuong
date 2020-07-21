@@ -1,4 +1,4 @@
-package session8_clean_code.homeworks;
+package session08_clean_code.homeworks;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

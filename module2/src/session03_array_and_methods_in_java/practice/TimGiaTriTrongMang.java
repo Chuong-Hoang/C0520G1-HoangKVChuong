@@ -1,4 +1,4 @@
-package session3_array_and_methods_in_java.thuc_hanh;
+package session03_array_and_methods_in_java.thuc_hanh;
 import java.util.Scanner;
 
 public class TimGiaTriTrongMang {

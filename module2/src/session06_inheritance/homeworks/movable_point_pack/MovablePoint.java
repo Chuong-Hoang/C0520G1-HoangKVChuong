@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.movable_point_pack;
+package session06_inheritance.homeworks.movable_point_pack;
 
 public class MovablePoint extends Point {
     private float xSpeed = 0.0f;

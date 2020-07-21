@@ -1,4 +1,4 @@
-package session2_loop_in_java.thuc_hanh;
+package session02_loop_in_java.thuc_hanh;
 import java.util.Scanner;
 
 public class CheckPrimeNumber {

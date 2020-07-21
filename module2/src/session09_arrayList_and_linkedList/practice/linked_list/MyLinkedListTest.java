@@ -1,4 +1,4 @@
-package session9_arrayList_and_linkedList.practice.linked_list;
+package session09_arrayList_and_linkedList.practice.linked_list;
 
 public class MyLinkedListTest {
     public static void main(String[] args) {

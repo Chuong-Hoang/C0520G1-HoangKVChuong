@@ -1,4 +1,4 @@
-package session7_abstract_interface.homeworks.interface_resizeable;
+package session07_abstract_interface.homeworks.interface_resizeable;
 
 public class ResizeableTest {
     public static void main(String[] args) {

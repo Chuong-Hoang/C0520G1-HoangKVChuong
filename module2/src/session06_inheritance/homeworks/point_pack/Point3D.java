@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.point_pack;
+package session06_inheritance.homeworks.point_pack;
 
 import java.util.Arrays;
 

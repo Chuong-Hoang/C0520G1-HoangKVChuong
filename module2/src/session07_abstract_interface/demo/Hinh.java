@@ -1,4 +1,4 @@
-package session7_abstract_interface.demo;
+package session07_abstract_interface.demo;
 
 public abstract class Hinh {
 

@@ -1,4 +1,4 @@
-package session4_class_and_object.practice;
+package session04_class_and_object.practice;
 import java.util.Scanner;
 
 public class TestRectangle_2 {

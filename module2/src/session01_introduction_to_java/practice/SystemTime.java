@@ -1,4 +1,4 @@
-package session1_introduction_to_java.thuc_hanh;
+package session01_introduction_to_java.thuc_hanh;
 import java.util.Date;
 public class SystemTime {
     public static void main(String[] args) {

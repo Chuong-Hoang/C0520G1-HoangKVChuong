@@ -1,4 +1,4 @@
-package session6_inheritance.demo;
+package session06_inheritance.demo;
 
 public class Animal {
     private String name = "SSS";

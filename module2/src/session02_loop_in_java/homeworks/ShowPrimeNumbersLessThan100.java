@@ -1,4 +1,4 @@
-package session2_loop_in_java.bai_tap;
+package session02_loop_in_java.bai_tap;
 
 public class ShowPrimeNumbersLessThan100 {
     public static void main(String[] args) {

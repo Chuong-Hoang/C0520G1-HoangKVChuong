@@ -1,4 +1,4 @@
-package session1_introduction_to_java.bai_tap;
+package session01_introduction_to_java.bai_tap;
 import java.util.Scanner;
 
 public class ChangeNumbersIntoText {

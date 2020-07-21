@@ -1,4 +1,4 @@
-package session6_inheritance.practice;
+package session06_inheritance.practice;
 
 public class Rectangle extends Shape {
     private double width;

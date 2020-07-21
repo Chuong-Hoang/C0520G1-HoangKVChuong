@@ -1,4 +1,4 @@
-package session3_array_and_methods_in_java.bai_tap;
+package session03_array_and_methods_in_java.bai_tap;
 import java.util.Scanner;
 
 public class TinhTongCacPhanTuOMotCotXacDinh {

@@ -1,4 +1,4 @@
-package session7_abstract_interface.homeworks.interface_resizeable;
+package session07_abstract_interface.homeworks.interface_resizeable;
 
 //Subclass Circle extends Superclass Shape
 public class Circle extends Shape implements Resizeable {

@@ -1,9 +1,4 @@
-package session9_arrayList_and_linkedList.homeworks.linked_list;
-
-import session9_arrayList_and_linkedList.practice.linked_list.MyLinkedList;
-
-import java.util.Collections;
-import java.util.List;
+package session09_arrayList_and_linkedList.homeworks.linked_list;
 
 public class MyLinkedList2 {
     private Node head;

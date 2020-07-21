@@ -1,6 +1,6 @@
-package session7_abstract_interface.practice.interface_comparator;
+package session07_abstract_interface.practice.interface_comparator;
 import java.util.Arrays;
-import session6_inheritance.homeworks.circle_pack.*;
+import session06_inheritance.homeworks.circle_pack.*;
 
 public class CircleComparatorTest {
     public static void main(String[] args) {

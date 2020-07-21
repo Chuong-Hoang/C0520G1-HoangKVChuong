@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.practice.static_demo;
+package session05_access_modifers_and_static_keyword.practice.static_demo;
 
 public class Counter2 {
     static int count = 0;

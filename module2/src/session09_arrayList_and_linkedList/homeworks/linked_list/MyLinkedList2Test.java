@@ -1,7 +1,6 @@
-package session9_arrayList_and_linkedList.homeworks.linked_list;
+package session09_arrayList_and_linkedList.homeworks.linked_list;
 
-import org.w3c.dom.Node;
-import session6_inheritance.homeworks.circle_pack.Circle;
+import session06_inheritance.homeworks.circle_pack.Circle;
 
 public class MyLinkedList2Test {
     public static void main(String[] args) {

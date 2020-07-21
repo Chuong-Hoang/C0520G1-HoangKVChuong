@@ -1,4 +1,4 @@
-package session7_abstract_interface.homeworks.interface_colorable;
+package session07_abstract_interface.homeworks.interface_colorable;
 
 public class ColorableTest {
     public static void main(String[] args) {

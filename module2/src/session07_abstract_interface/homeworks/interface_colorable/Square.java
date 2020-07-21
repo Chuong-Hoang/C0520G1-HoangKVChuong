@@ -1,6 +1,6 @@
-package session7_abstract_interface.homeworks.interface_colorable;
+package session07_abstract_interface.homeworks.interface_colorable;
 
-import session7_abstract_interface.homeworks.interface_resizeable.Resizeable;
+import session07_abstract_interface.homeworks.interface_resizeable.Resizeable;
 
 public class Square extends Rectangle implements Resizeable, Colorable {
     private double side;

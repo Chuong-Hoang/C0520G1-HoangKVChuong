@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.circle_pack;
+package session06_inheritance.homeworks.circle_pack;
 
 public class Circle {
     private double radius;

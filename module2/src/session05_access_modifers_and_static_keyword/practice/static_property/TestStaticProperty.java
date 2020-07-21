@@ -1,4 +1,4 @@
-package session5_access_modifers_and_static_keyword.practice.static_property;
+package session05_access_modifers_and_static_keyword.practice.static_property;
 
 public class TestStaticProperty {
     public static void main(String[] args) {

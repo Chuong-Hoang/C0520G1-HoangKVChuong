@@ -1,4 +1,4 @@
-package session9_arrayList_and_linkedList.practice.sort_list_by_implements_comparable;
+package session09_arrayList_and_linkedList.practice.sort_list_by_implements_comparable;
 
 public class Student implements Comparable {
     private int studentID;

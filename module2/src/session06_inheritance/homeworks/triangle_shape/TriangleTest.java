@@ -1,4 +1,4 @@
-package session6_inheritance.homeworks.triangle_shape;
+package session06_inheritance.homeworks.triangle_shape;
 import java.util.Scanner;
 
 public class TriangleTest {

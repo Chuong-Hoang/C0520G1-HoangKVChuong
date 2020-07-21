@@ -1,4 +1,4 @@
-package session1_introduction_to_java.homeworks;
+package session01_introduction_to_java.homeworks;
 import java.util.Scanner;
 
 public class ChangeMoney {

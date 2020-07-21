@@ -1,4 +1,4 @@
-package session7_abstract_interface.practice.interface_comparable;
+package session07_abstract_interface.practice.interface_comparable;
 import java.util.Arrays;
 
 public class ComparableCircleTest {

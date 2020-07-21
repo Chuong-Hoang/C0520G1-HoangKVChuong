@@ -1,4 +1,4 @@
-package session8_clean_code.practice;
+package session08_clean_code.practice;
 
 public class FizzBuzz {
     public static String fizzBuzz(int number){

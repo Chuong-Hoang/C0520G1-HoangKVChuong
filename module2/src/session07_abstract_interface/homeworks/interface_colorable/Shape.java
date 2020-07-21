@@ -1,4 +1,4 @@
-package session7_abstract_interface.homeworks.interface_colorable;
+package session07_abstract_interface.homeworks.interface_colorable;
 
 public class Shape {
     private String color = "green";

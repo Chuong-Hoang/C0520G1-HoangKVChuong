@@ -1,5 +1,5 @@
-package session7_abstract_interface.practice.interface_comparator;
-import session6_inheritance.homeworks.circle_pack.*;
+package session07_abstract_interface.practice.interface_comparator;
+import session06_inheritance.homeworks.circle_pack.*;
 
 import java.util.Comparator;
 

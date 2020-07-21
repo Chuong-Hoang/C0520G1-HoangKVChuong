@@ -1,4 +1,4 @@
-package session8_clean_code.practice;
+package session08_clean_code.practice;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

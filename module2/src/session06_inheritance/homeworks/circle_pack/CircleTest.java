@@ -1,6 +1,4 @@
-package session6_inheritance.homeworks.circle_pack;
-
-import session6_inheritance.homeworks.circle_pack.Circle;
+package session06_inheritance.homeworks.circle_pack;
 
 public class CircleTest {
     public static void main(String[] args) {
