@@ -1,0 +1,5 @@
+name='Chuong', id=111, age=32, salary=10000
+name='Quang', id=222, age=26, salary=12000
+name='Toan', id=333, age=29, salary=14000
+name='Hoang', id=444, age=23, salary=11000
+name='Nguyen', id=555, age=35, salary=20000
