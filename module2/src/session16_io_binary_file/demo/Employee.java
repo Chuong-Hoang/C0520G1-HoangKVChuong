@@ -1,8 +1,8 @@
-package session15_io_text_file.demo;
+package session16_io_binary_file.demo;
 
 import java.io.Serializable;
 
-public class Employee {
+public class Employee implements Serializable {
     private String name;
     private int id;
     private int age;

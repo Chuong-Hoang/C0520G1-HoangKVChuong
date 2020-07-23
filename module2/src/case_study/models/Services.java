@@ -8,6 +8,12 @@ public abstract class Services {
     protected int maxPeopleQuantity;
     protected String rentType;
 
+    // Extra service
+    protected String extraServiceName;
+    protected String extraServiceUnit;
+    protected double extraServicePrice;
+
+
     public Services() {};
 
     public Services (String id, String serviceName, double usedArea, double rentAmount,
@@ -20,6 +26,16 @@ public abstract class Services {
         this.rentType = rentType;
     }
 
+    //constructor for extra service
+
+
+    public Services(String extraServiceName, String extraServiceUnit, double extraServicePrice) {
+        this.extraServiceName = extraServiceName;
+        this.extraServiceUnit = extraServiceUnit;
+        this.extraServicePrice = extraServicePrice;
+    }
+
+    // getter and setter
     public String getId() {
         return id;
     }
@@ -68,51 +84,29 @@ public abstract class Services {
         this.rentType = rentType;
     }
 
-    /* May use Enumeration to create extraServices for all services */
-    static class ExtraService {
-        String typeName;
-        int unit;
-        Double price;
+    /*Extra services - getter and setter */
+    public String getExtraServiceName() {
+        return extraServiceName;
+    }
 
-        public ExtraService() {}
+    public void setExtraServiceName(String extraServiceName) {
+        this.extraServiceName = extraServiceName;
+    }
 
-        public ExtraService (String typeName, int unit, double price) {
-            this.typeName = typeName;
-            this.unit = unit;
-            this.price = price;
-        }
+    public String getExtraServiceUnit() {
+        return extraServiceUnit;
+    }
 
-        public String getTypeName() {
-            return typeName;
-        }
+    public void setExtraServiceUnit(String extraServiceUnit) {
+        this.extraServiceUnit = extraServiceUnit;
+    }
 
-        public void setTypeName(String typeName) {
-            this.typeName = typeName;
-        }
+    public double getExtraServicePrice() {
+        return extraServicePrice;
+    }
 
-        public int getUnit() {
-            return unit;
-        }
-
-        public void setUnit(int unit) {
-            this.unit = unit;
-        }
-
-        public Double getPrice() {
-            return price;
-        }
-
-        public void setPrice(Double price) {
-            this.price = price;
-        }
-
-        @Override
-        public String toString() {
-            return "<-- ExtraService -->" + "\n" +
-                    "Type Name: '" + typeName + "\n" +
-                    "Unit: " + unit + "\n" +
-                    "Price: " + price;
-        }
+    public void setExtraServicePrice(double extraServicePrice) {
+        this.extraServicePrice = extraServicePrice;
     }
 
     public abstract void showInfo();
