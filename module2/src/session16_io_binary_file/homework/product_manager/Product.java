@@ -1,4 +1,4 @@
-package session16_io_binary_file.homework;
+package session16_io_binary_file.homework.product_manager;
 
 import java.io.Serializable;
 

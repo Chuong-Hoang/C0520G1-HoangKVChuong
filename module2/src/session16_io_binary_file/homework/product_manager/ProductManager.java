@@ -1,11 +1,11 @@
-package session16_io_binary_file.homework;
+package session16_io_binary_file.homework.product_manager;
 
 import java.util.*;
 import java.io.*;
 
 public class ProductManager {
     public static List<Product> productList = new ArrayList<>();
-    public static final String FILE_NAME = "src/session16_io_binary_file/homework/products.txt";
+    public static final String FILE_NAME = "src/session16_io_binary_file/homework/product_manager/products.txt";
     public static final  File FILE = new File(FILE_NAME);
     public static void main(String[] args) {
         showMainMenu();
