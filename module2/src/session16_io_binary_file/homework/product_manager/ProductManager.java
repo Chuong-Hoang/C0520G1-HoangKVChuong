@@ -190,6 +190,9 @@ public class ProductManager {
 
                 productList = (List<Product>) ois.readObject();
 
+                SortProductPrice sortPrice = new SortProductPrice();
+                Collections.sort(productList, sortPrice);
+                //Iterator<Product> iterator = productList.iterator();
                 for (Product product : productList) {
                     System.out.println(product);
                 }

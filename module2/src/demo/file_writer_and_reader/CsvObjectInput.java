@@ -7,7 +7,7 @@ public class CsvObjectInput {
     public static void main(String[] args) {
         try {
             //B1: Create stream and link to source
-            FileInputStream fis = new FileInputStream("/WriteAndRead/CountryOjects.csv");
+            FileInputStream fis = new FileInputStream("src/demo/file_writer_and_reader/CountryObjects.csv");
             ObjectInputStream ois = new ObjectInputStream(fis);
 
             //B2: Read the data stream

@@ -8,7 +8,7 @@ public class CsvObjectOutput {
     public static void main(String[] args) {
         try {
             //B1: Create stream and link to source
-            FileOutputStream fos = new FileOutputStream("/WriteAndRead/CountryOjects.csv");
+            FileOutputStream fos = new FileOutputStream("src/demo/file_writer_and_reader/CountryObjects.csv");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             // Define an array:
