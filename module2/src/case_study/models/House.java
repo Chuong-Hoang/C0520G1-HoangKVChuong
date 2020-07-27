@@ -1,36 +1,33 @@
 package case_study.models;
 
-public class Villa extends Services {
+public class House extends Services {
     private String roomStandard;
     private String otherUtility;
-    private double swimmingPoolArea;
+    //Do not have swimming pool
     private int storyNumber;
 
-    public Villa() {}
+    public House() {}
 
     //have extra service
-    public Villa (String id, String serviceName, double usedArea,
+    public House (String id, String serviceName, double usedArea,
                   double rentFee, int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, double swimmingPoolArea, int storyNumber,
+                  String roomStandard, String otherUtility, int storyNumber,
                   ExtraService extraService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType, extraService);
         this.roomStandard = roomStandard;
         this.otherUtility = otherUtility;
-        this.swimmingPoolArea = swimmingPoolArea;
         this.storyNumber = storyNumber;
     }
 
     //Do not have extra service
-    public Villa (String id, String serviceName, double usedArea, double rentFee,
+    public House (String id, String serviceName, double usedArea, double rentFee,
                   int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, double swimmingPoolArea,
-                  int storyNumber) {
+                  String roomStandard, String otherUtility, int storyNumber) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.roomStandard = roomStandard;
         this.otherUtility = otherUtility;
-        this.swimmingPoolArea = swimmingPoolArea;
         this.storyNumber = storyNumber;
     }
 
@@ -50,14 +47,6 @@ public class Villa extends Services {
         this.otherUtility = otherUtility;
     }
 
-    public double getSwimmingPoolArea() {
-        return swimmingPoolArea;
-    }
-
-    public void setSwimmingPoolArea(double swimmingPoolArea) {
-        this.swimmingPoolArea = swimmingPoolArea;
-    }
-
     public int getStoryNumber() {
         return storyNumber;
     }
@@ -67,10 +56,10 @@ public class Villa extends Services {
     }
 
     @Override public void showInfo() {
-        //System.out.println("<-- VILLA SERVICE -->");
-        System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-15s%-21s%-11s%s\n",id,
+        //System.out.println("<-- HOUSE SERVICE -->");
+        System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-21s%-11s%s\n",id,
                 serviceName, usedArea, rentType, maxPeopleQuantity, rentFee, roomStandard,
-                otherUtility, swimmingPoolArea, storyNumber, extraService.getExtraServiceName(),
+                otherUtility, storyNumber, extraService.getExtraServiceName(),
                 extraService.getExtraServiceUnit(), extraService.getExtraServicePrice());
     }
 }

@@ -4,35 +4,28 @@ public abstract class Services {
     protected String id;
     protected String serviceName;
     protected double usedArea;
-    protected double rentAmount;
+    protected double rentFee;
     protected int maxPeopleQuantity;
     protected String rentType;
+    protected ExtraService extraService;
 
-    // Extra service
-    protected String extraServiceName;
-    protected String extraServiceUnit;
-    protected double extraServicePrice;
+    public Services() {
+    }
 
-
-    public Services() {};
-
-    public Services (String id, String serviceName, double usedArea, double rentAmount,
-                     int maxPeopleQuantity, String rentType) {
+    public Services(String id, String serviceName, double usedArea,
+                    double rentFee, int maxPeopleQuantity, String rentType) {
         this.id = id;
         this.serviceName = serviceName;
         this.usedArea = usedArea;
-        this.rentAmount = rentAmount;
+        this.rentFee = rentFee;
         this.maxPeopleQuantity = maxPeopleQuantity;
         this.rentType = rentType;
     }
 
-    //constructor for extra service
-
-
-    public Services(String extraServiceName, String extraServiceUnit, double extraServicePrice) {
-        this.extraServiceName = extraServiceName;
-        this.extraServiceUnit = extraServiceUnit;
-        this.extraServicePrice = extraServicePrice;
+    public Services(String id, String serviceName, double usedArea,
+                    double rentFee, int maxPeopleQuantity, String rentType, ExtraService extraService) {
+        this(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
+        this.extraService = extraService;
     }
 
     // getter and setter
@@ -60,12 +53,12 @@ public abstract class Services {
         this.usedArea = usedArea;
     }
 
-    public double getRentAmount() {
-        return rentAmount;
+    public double getRentFee() {
+        return rentFee;
     }
 
-    public void setRentAmount(double rentAmount) {
-        this.rentAmount = rentAmount;
+    public void setRentFee(double rentFee) {
+        this.rentFee = rentFee;
     }
 
     public int getMaxPeopleQuantity() {
@@ -84,29 +77,12 @@ public abstract class Services {
         this.rentType = rentType;
     }
 
-    /*Extra services - getter and setter */
-    public String getExtraServiceName() {
-        return extraServiceName;
+    public ExtraService getExtraService() {
+        return extraService;
     }
 
-    public void setExtraServiceName(String extraServiceName) {
-        this.extraServiceName = extraServiceName;
-    }
-
-    public String getExtraServiceUnit() {
-        return extraServiceUnit;
-    }
-
-    public void setExtraServiceUnit(String extraServiceUnit) {
-        this.extraServiceUnit = extraServiceUnit;
-    }
-
-    public double getExtraServicePrice() {
-        return extraServicePrice;
-    }
-
-    public void setExtraServicePrice(double extraServicePrice) {
-        this.extraServicePrice = extraServicePrice;
+    public void setExtraService(ExtraService extraService) {
+        this.extraService = extraService;
     }
 
     public abstract void showInfo();

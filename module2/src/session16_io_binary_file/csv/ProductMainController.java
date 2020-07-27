@@ -2,16 +2,16 @@ package session16_io_binary_file.csv;
 
 import java.util.Scanner;
 
-public class MainController {
+public class ProductMainController {
     public static Scanner sc = new Scanner(System.in);
+    static ProductManager productManager = new ProductManager();
 
     public static void main(String[] args) {
         showMainMenu();
     }
 
     public static void showMainMenu() {
-        ProductManager productManager = new ProductManager();
-
+        productManager.setProductList(ProductUtils.readProductFile());
         System.out.println("........MAIN MENU.........");
         System.out.println("1.Add new product");
         System.out.println("2.Display all products");
@@ -39,12 +39,11 @@ public class MainController {
                 double price = Double.parseDouble(sc.nextLine());
                 Product newProduct = new Product(id, name, brand, desc, price);
 
-                productManager.setProductList(ProductUtils.readProductFile());
                 productManager.addNewProduct(newProduct);
                 ProductUtils.writeProductFile(productManager.getProductList());
                 break;
             case 2: //display all products
-                productManager.setProductList(ProductUtils.readProductFile());
+                //productManager.setProductList(ProductUtils.readProductFile());
                 productManager.displayProductList();
                 break;
             case 3: //update product name
@@ -53,7 +52,7 @@ public class MainController {
                 System.out.print("Input new name: ");
                 name = sc.nextLine();
 
-                productManager.setProductList(ProductUtils.readProductFile());
+                //productManager.setProductList(ProductUtils.readProductFile());
                 productManager.updateProductName(id, name);
                 ProductUtils.writeProductFile(productManager.getProductList());
                 break;
@@ -63,7 +62,7 @@ public class MainController {
                 System.out.print("Input new product description: ");
                 desc = sc.nextLine();
 
-                productManager.setProductList(ProductUtils.readProductFile());
+               //productManager.setProductList(ProductUtils.readProductFile());
                 productManager.updateProductDescription(id, desc);
                 ProductUtils.writeProductFile(productManager.getProductList());
                 break;
@@ -73,7 +72,7 @@ public class MainController {
                 System.out.print("Input new product price: ");
                 price = Double.parseDouble(sc.nextLine());
 
-                productManager.setProductList(ProductUtils.readProductFile());
+                //productManager.setProductList(ProductUtils.readProductFile());
                 productManager.updateProductPrice(id, price);
                 ProductUtils.writeProductFile(productManager.getProductList());
                 break;
@@ -81,7 +80,7 @@ public class MainController {
                 System.out.print("Input product id to be deleted: ");
                 id = sc.nextLine();
 
-                productManager.setProductList(ProductUtils.readProductFile());
+                //productManager.setProductList(ProductUtils.readProductFile());
                 productManager.deleteProduct(id);
                 ProductUtils.writeProductFile(productManager.getProductList());
                 break;
