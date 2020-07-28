@@ -140,7 +140,7 @@ public class HouseUtils {
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 }
                 bufferedWriter.append(stringBuilder);
-                //houseObjectList.clear();
+
             } else {
                 System.out.println("The list is empty. Please add new House service.");
             }

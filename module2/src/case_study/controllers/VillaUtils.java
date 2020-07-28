@@ -148,7 +148,7 @@ public class VillaUtils {
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 }
                 bufferedWriter.append(stringBuilder);
-                //villaObjectList.clear();
+
             } else {
                 System.out.println("The list is empty. Please add new villa service.");
             }

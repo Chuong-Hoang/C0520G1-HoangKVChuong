@@ -12,6 +12,7 @@ public abstract class Services {
     public Services() {
     }
 
+    //Constructor do not have ExtraService
     public Services(String id, String serviceName, double usedArea,
                     double rentFee, int maxPeopleQuantity, String rentType) {
         this.id = id;
@@ -22,10 +23,17 @@ public abstract class Services {
         this.rentType = rentType;
     }
 
+    //Constructor has ExtraService
     public Services(String id, String serviceName, double usedArea,
                     double rentFee, int maxPeopleQuantity, String rentType, ExtraService extraService) {
         this(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.extraService = extraService;
+    }
+
+    //Constructor has 2 attribute: id and serviceName
+    public Services(String id, String serviceName){
+        this.id = id;
+        this.serviceName = serviceName;
     }
 
     // getter and setter

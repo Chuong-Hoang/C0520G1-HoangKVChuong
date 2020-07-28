@@ -53,6 +53,7 @@ public class HouseManager {
 
         System.out.println("-- ADD HOUSE SERVICE --");
         boolean isValid;
+        boolean isExisted = false;
 
         //Input serviceId
         do {
@@ -61,8 +62,13 @@ public class HouseManager {
             isValid = InputValidation.validateServiceId(newHouse, id);
             if (!isValid) {
                 System.out.println("Input failed! Service Id must be as format 'SVHO-YYYY'");
+            } else {
+                isExisted = InputValidation.existServiceId(id, houseObjectList);
+                if (isExisted) {
+                    System.out.println("Service Id " + id + " already exists. Please choose another Id.");
+                }
             }
-        } while (!isValid);
+        } while (!isValid || isExisted);
 
         //Input service name
         do {
@@ -202,9 +208,10 @@ public class HouseManager {
 
     public void deleteHouseService(String id) {
         boolean isFound = false;
-        for (House villa : houseObjectList) {
-            if (id.compareTo(villa.getId()) == 0) {
-                houseObjectList.remove(villa);
+        for (House house : houseObjectList) {
+            if (id.compareTo(house.getId()) == 0) {
+                houseObjectList.remove(house);
+                house.showInfo();
                 isFound = true;
                 break;
             }

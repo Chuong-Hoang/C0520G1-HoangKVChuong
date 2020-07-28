@@ -5,7 +5,7 @@ public class Room extends Services {
 
     public Room() {}
 
-    //have extra service
+    //Constructor has extra service
     public Room(String id, String serviceName, double usedArea,
                   double rentFee, int maxPeopleQuantity, String rentType, String freeService,
                   ExtraService extraService) {
@@ -14,12 +14,17 @@ public class Room extends Services {
         this.freeService = freeService;
     }
 
-    //Do not have extra service
+    //Constructor do not have extra service
     public Room(String id, String serviceName, double usedArea, double rentFee,
                   int maxPeopleQuantity, String rentType, String freeService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.freeService = freeService;
+    }
+
+    //Constructor has 2 attribute: id and serviceName
+    public Room(String id, String serviceName) {
+        super(id, serviceName);
     }
 
     public String getFreeService() {

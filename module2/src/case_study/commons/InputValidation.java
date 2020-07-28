@@ -3,22 +3,65 @@ import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Services;
 import case_study.models.Villa;
-
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class InputValidation {
 
     public static void main(String[] args) {
-        String birthday = "27/07/2002";
+        //Test
+        String birthday = "20/04/1988";
         System.out.println("Birthday Test: " + validateBirthday(birthday));
+    }
+
+    public static boolean validateIdCard(String idNumber){
+        boolean isValid;
+        Pattern pattern = Pattern.compile("^(([\\d]{3}\\s){2}[\\d]{3})$");
+        Matcher matcher = pattern.matcher(idNumber);
+        isValid = matcher.matches();
+        return isValid;
+    }
+    public static boolean validateGender(String gender) {
+        boolean isValid;
+        Pattern pattern = Pattern.compile("^(((m|M)(a|A)(l|L)(e|E))|((f|F)(e|E)(m|M)(a|A)(l|L)(e|E))|" +
+                "((u|U)(n|N)(k|K)(n|N)(o|O)(w|W)(n|N)))$");
+        Matcher matcher = pattern.matcher(gender);
+        isValid = matcher.matches();
+        return isValid;
+    }
+
+    public static boolean validateEmail(String email) {
+        boolean isValid;
+        Pattern pattern = Pattern.compile("^([a-z]+[a-z0-9._]*@[\\w]{2,}.[\\w]{2,})$");
+        Matcher matcher = pattern.matcher(email);
+        isValid = matcher.matches();
+        return isValid;
+    }
+
+    public static boolean validatePersonName(String personName) {
+        boolean isValid;
+        Pattern pattern = Pattern.compile("^(([A-Z][a-z]+\\s)*[A-Z][a-z]+)$");
+        Matcher matcher = pattern.matcher(personName);
+        isValid = matcher.matches();
+        return isValid;
+    }
+
+    public static boolean existServiceId(String serviceId, List<? extends Services> list){
+        boolean isAvailable = false;
+        for (Services service : list) {
+            if(serviceId.compareTo(service.getId()) == 0) {
+                isAvailable = true;
+                break;
+            }
+        }
+        return  isAvailable;
     }
 
     public static boolean validateServiceId(Services serviceType, String serviceId) {
         boolean isValid = false;
-        String serviceCode = "";
+        String serviceCode;
         if (serviceType instanceof Villa) {
             serviceCode = "VL";
         } else if (serviceType instanceof House) {
@@ -99,7 +142,7 @@ public class InputValidation {
 
     public static boolean validateBirthday(String birthday) {
         boolean isValid = false;
-        Pattern pattern = Pattern.compile("^((0[1-9]|[1-2][\\d]|(3[0-1]))/(0[1-9]|1[0-2])/[0-9]{4})$");
+        Pattern pattern = Pattern.compile("^((0[1-9]|[1-2][\\d]|(3[0-1]))/(0[1-9]|1[0-2])/((190[1-9]|19[1-9][\\d])|20[0-9]{2}))$");
         Matcher matcher = pattern.matcher(birthday);
         isValid = matcher.matches();
         if (isValid) {

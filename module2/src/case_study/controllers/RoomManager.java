@@ -48,6 +48,7 @@ public class RoomManager {
 
         System.out.println("-- ADD ROOM SERVICE --");
         boolean isValid;
+        boolean isExisted = false;
 
         //Input serviceId
         do {
@@ -56,8 +57,13 @@ public class RoomManager {
             isValid = InputValidation.validateServiceId(newRoom, id);
             if (!isValid) {
                 System.out.println("Input failed! Service Id must be as format 'SVRO-YYYY'");
+            } else {
+                isExisted = InputValidation.existServiceId(id, roomObjectList);
+                if (isExisted) {
+                    System.out.println("Service Id " + id + " already exists. Please choose another Id.");
+                }
             }
-        } while (!isValid);
+        } while (!isValid || isExisted);
 
         //Input service name
         do {
@@ -178,9 +184,10 @@ public class RoomManager {
 
     public void deleteRoomService(String id) {
         boolean isFound = false;
-        for (Room villa : roomObjectList) {
-            if (id.compareTo(villa.getId()) == 0) {
-                roomObjectList.remove(villa);
+        for (Room room : roomObjectList) {
+            if (id.compareTo(room.getId()) == 0) {
+                roomObjectList.remove(room);
+                room.showInfo();
                 isFound = true;
                 break;
             }

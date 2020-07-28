@@ -135,7 +135,7 @@ public class RoomUtils {
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 }
                 bufferedWriter.append(stringBuilder);
-                //villaObjectList.clear();
+
             } else {
                 System.out.println("The list is empty. Please add New Room Service.");
             }

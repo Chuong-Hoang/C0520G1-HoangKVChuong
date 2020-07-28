@@ -31,6 +31,11 @@ public class House extends Services {
         this.storyNumber = storyNumber;
     }
 
+    //Constructor has 2 attribute: id and serviceName
+    public House(String id, String serviceName) {
+        super(id, serviceName);
+    }
+
     public String getRoomStandard() {
         return roomStandard;
     }

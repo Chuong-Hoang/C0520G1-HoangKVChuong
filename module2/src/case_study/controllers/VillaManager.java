@@ -52,6 +52,7 @@ public class VillaManager {
 
         System.out.println("-- ADD VILLA SERVICE --");
         boolean isValid;
+        boolean isExisted = false;
 
         //Input serviceId
         do {
@@ -60,8 +61,13 @@ public class VillaManager {
             isValid = InputValidation.validateServiceId(newVilla, id);
             if (!isValid) {
                 System.out.println("Input failed! Service Id must be as format 'SVVL-YYYY'");
+            } else {
+                isExisted = InputValidation.existServiceId(id, villaObjectList);
+                if (isExisted) {
+                    System.out.println("Service Id " + id + " already exists. Please choose another Id.");
+                }
             }
-        } while (!isValid);
+        } while (!isValid || isExisted);
 
         //Input service name
         do {
@@ -211,9 +217,10 @@ public class VillaManager {
 
     public void deleteVillaService(String id) {
         boolean isFound = false;
-        for (Villa villa : villaObjectList) {
+        for (Villa villa : this.villaObjectList) {
             if (id.compareTo(villa.getId()) == 0) {
-                villaObjectList.remove(villa);
+                this.villaObjectList.remove(villa);
+                villa.showInfo();
                 isFound = true;
                 break;
             }

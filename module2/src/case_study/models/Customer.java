@@ -9,12 +9,12 @@ public class Customer {
     private String email;
     private String customerType;
     private String address;
-    private Services services;
+    private Services services = new Villa("N/A", "N/A");
 
     public Customer() {
     }
 
-    // Constructor has attribute service
+    // Constructor has attribute service <Services>
     public Customer(String name, String birthday, String gender, String idNumber, String phoneNumber,
                     String email, String customerType, String address,
                     Services services) {
@@ -109,9 +109,8 @@ public class Customer {
     }
 
     public void showInfo() {
-        System.out.println("Show customer information here...");
-        System.out.printf("%-25s%-14s%-9s%-14s%-13s%-20s%-12s%-25s%s\n",
+        System.out.printf("%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
                 name, birthday, gender, idNumber, phoneNumber, email, customerType, address,
-                services.getServiceName());
+                this.getServices().getId(), this.getServices().getServiceName());
     }
 }
