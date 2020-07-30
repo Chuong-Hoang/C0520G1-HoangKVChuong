@@ -1,4 +1,4 @@
-package case_study.libs;
+package case_study.controllers;
 
 import case_study.controllers.CustomerManager;
 import case_study.controllers.CustomerUtils;
@@ -39,7 +39,7 @@ public class CinemaCustomers {
     //Customers of Furama Cinema
     public void addCinemaCustomer() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Input buying-ticket-customer Id number: ");
+        System.out.print("Input ticket-buying-customer Id number: ");
         String customerId = sc.nextLine();
         System.out.println("New cinema customer Id:" + customerId);
         boolean isFound = false;
@@ -76,22 +76,5 @@ public class CinemaCustomers {
             customer.showInfo();
         }
         System.out.println("--------------- End Cinema_Customers_List --------------");
-    }
-
-    public static void main(String[] args) {
-        CinemaCustomers cinemaCustomers = new CinemaCustomers();
-        CustomerManager customerManager = new CustomerManager();
-        List<Customer> customerObjectList = CustomerUtils.readCustomerFile();
-
-        //Display customers list before for buying cinema-tickets
-        customerManager.setCustomerObjectList(customerObjectList);
-        customerManager.displayCustomerList();
-
-        //Add new cinema customers
-        cinemaCustomers.setCustomerObjectList(customerObjectList);
-        cinemaCustomers.addCinemaCustomer();
-
-        //Display buying-ticket-customers list
-        cinemaCustomers.displayCinemaCustomerList();
     }
 }

@@ -1,11 +1,8 @@
 package case_study.controllers;
-
 import case_study.models.*;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class MainController {
     static VillaManager villaManager = new VillaManager();
@@ -14,18 +11,27 @@ public class MainController {
     static CustomerManager customerManager = new CustomerManager();
     static BookingManager bookingManager = new BookingManager();
     static EmployeeManager employeeManager = new EmployeeManager();
+    static CinemaCustomers cinemaCustomers = new CinemaCustomers();
+    static DossierCabinet dossierCabinet = new DossierCabinet();
     static Scanner sc = new Scanner(System.in);
 
     // MAIN METHOD()
     public static void main(String[] args) {
         villaManager.setVillaObjectList(VillaUtils.readVillaFile());
+
         houseManager.setHouseObjectList(HouseUtils.readHouseFile());
+
         roomManager.setRoomObjectList(RoomUtils.readRoomFile());
-        customerManager.setCustomerObjectList(CustomerUtils.readCustomerFile());
+
+        List<Customer> customerObjectList = CustomerUtils.readCustomerFile();
+        customerManager.setCustomerObjectList(customerObjectList);
+        cinemaCustomers.setCustomerObjectList(customerObjectList);
+
         bookingManager.setBookingList(BookingUtils.readBookingFile());
+
         employeeManager.setEmployeeMapList(EmployeeUtils.readEmployeeFile());
 
-        //show main menu again
+        //show main menu
         displayMainMenu();
     }
 
@@ -40,8 +46,10 @@ public class MainController {
         System.out.println("[6] Show Information of Employees");
         System.out.println("[7] Exit");
         System.out.println("[8.Try 1] DELETE a Customer...");
+        System.out.println("[9] Cinema Manager");
+        System.out.println("[10] Employee-Dossier Cabinet");
         System.out.println("...............................");
-        System.out.print("Enter your option: ");
+        System.out.print("Select an option: ");
 
         int option = Integer.parseInt(sc.nextLine());
         switch (option) {
@@ -69,11 +77,24 @@ public class MainController {
             case 8:
                 deleteACustomer();
                 break;   // Task 5__OK
+            case 9:
+                //Cinema Customer Manager__Task 10
+                manageCinemaCustomers();
+                break;
+            case 10:
+                //Employee Dossier Cabinet__Task 11
+                manageDossierCabinet();
+                break;
             default:
                 System.out.println("No choice at all...");
         }
+        System.out.println();
+
+        //Show main menu again
         displayMainMenu();
     }
+
+    /*............................................... OPTIONS .................................................*/
 
     // Option 1: ADD NEW SERVICES --> Task 2__OK
     private static void addNewServices() {
@@ -155,7 +176,7 @@ public class MainController {
         System.out.println("<7>.Back to main menu");
         System.out.println("<8>.Exit");
         System.out.println("...................................");
-        System.out.print("Enter an option: ");
+        System.out.print("Choose an option: ");
 
         int option = Integer.parseInt(sc.nextLine());
         switch (option) {
@@ -220,35 +241,35 @@ public class MainController {
 
     // Option 5: ADD NEW BOOKING --> Task 7_OK
     private static void addNewBooking() {
-        List<Customer> bookingList;
+        Map<Integer, Customer> customersMapList;
         Map<Integer, Villa> villasMapList;
         Map<Integer, House> housesMapList;
         Map<Integer, Room> roomsMapList;
-        Map<Integer, Customer> customersMapList;
 
         System.out.println("OPTION 5 - ADD NEW BOOKING:");
         //show bookings-list BEFORE adding new booking
-        BookingManager.showBookingList();
+        bookingManager.showBookingList();
 
-        customersMapList = BookingManager.getCustomersMapList();
-        BookingManager.showCustomersMapList(customersMapList);
+        customersMapList = bookingManager.getCustomersMapList();
+        bookingManager.showCustomersMapList(customersMapList);
         System.out.print("Select customer No.: ");
         int customerNo = Integer.parseInt(sc.nextLine());
         if (customersMapList.containsKey(customerNo)) {
             Customer customer = customersMapList.get(customerNo);
 
-            System.out.println("__BOOKING SERVICE__");
+            System.out.println("__BOOKING SERVICE FOR CUSTOMER NAME '" + customer.getName().toUpperCase() + "'__");
             System.out.println("1.Booking Villa");
             System.out.println("2.Booking House");
             System.out.println("3.Booking Room");
             System.out.println("..................");
-            System.out.print("Select booking option: ");
+            System.out.print("Select a booking option: ");
             int option = Integer.parseInt(sc.nextLine());
 
             switch (option) {
                 case 1:
-                    villasMapList = BookingManager.getVillasMapList();
-                    BookingManager.showVillasMapList(villasMapList);
+                    //1.Booking Villa
+                    villasMapList = bookingManager.getVillasMapList();
+                    bookingManager.showVillasMapList(villasMapList);
                     System.out.print("Select a villa: ");
                     int villaNo = Integer.parseInt(sc.nextLine());
                     if (villasMapList.containsKey(villaNo)) {
@@ -258,9 +279,11 @@ public class MainController {
                         System.out.println("The villa No." + villaNo + " not found in the data.");
                     }
                     break;
+
                 case 2:
-                    housesMapList = BookingManager.getHousesMapList();
-                    BookingManager.showHousesMapList(housesMapList);
+                    //2.Booking House
+                    housesMapList = bookingManager.getHousesMapList();
+                    bookingManager.showHousesMapList(housesMapList);
                     System.out.print("Select a house: ");
                     int houseNo = Integer.parseInt(sc.nextLine());
                     if (housesMapList.containsKey(houseNo)) {
@@ -270,9 +293,11 @@ public class MainController {
                         System.out.println("The house No." + houseNo + " not found in the data.");
                     }
                     break;
+
                 case 3:
-                    roomsMapList = BookingManager.getRoomsMapList();
-                    BookingManager.showRoomsMapList(roomsMapList);
+                    //3.Booking Room
+                    roomsMapList = bookingManager.getRoomsMapList();
+                    bookingManager.showRoomsMapList(roomsMapList);
                     System.out.print("Select a room: ");
                     int roomNo = Integer.parseInt(sc.nextLine());
                     if (roomsMapList.containsKey(roomNo)) {
@@ -282,15 +307,17 @@ public class MainController {
                         System.out.println("The room No." + roomNo + " not found in the data.");
                     }
                     break;
+
                 default:
+                    System.out.println("No booking service selected...");
                     System.exit(0);
             }
 
-            BookingManager.addNewBooking(customer);
+            bookingManager.addNewBooking(customer);
             BookingUtils.writeBookingFile(bookingManager.getBookingList());
 
             //show bookings-list again AFTER adding new booking
-            BookingManager.showBookingList();
+            bookingManager.showBookingList();
         } else {
             System.out.println("The customer No." + customerNo + " not found in the list.");
             displayMainMenu();
@@ -301,5 +328,24 @@ public class MainController {
     private static void showEmployeesInfo() {
         System.out.println("OPTION 6 - SHOW EMPLOYEE INFORMATION:");
         employeeManager.displayEmployeeList();
+    }
+
+    // Option 9: CINEMA CUSTOMERS MANAGER
+    private static void manageCinemaCustomers() {
+        System.out.println("OPTION 9 - CINEMA CUSTOMERS MANAGER:");
+        //Display customers list before for buying cinema-tickets
+        customerManager.displayCustomerList();
+
+        //Add new cinema customers
+        cinemaCustomers.addCinemaCustomer();
+
+        //Display buying-ticket-customers list
+        cinemaCustomers.displayCinemaCustomerList();
+    }
+
+    // Option 10: EMPLOYEE DOSSIERS CABINET
+    private static void manageDossierCabinet() {
+        dossierCabinet.setEmployeeStackList(dossierCabinet.createDossierCabinet());
+        dossierCabinet.findEmployeeDossier();
     }
 }

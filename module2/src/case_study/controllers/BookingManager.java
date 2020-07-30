@@ -1,23 +1,17 @@
 package case_study.controllers;
-
 import case_study.models.*;
 import case_study.views.SortingCustomerNames;
-
 import java.util.*;
 
 public class BookingManager {
     private static List<Customer> bookingList;
-    private static Map<Integer, Villa> villasMapList = new TreeMap<>();
-    private static Map<Integer, House> housesMapList = new TreeMap<>();
-    private static Map<Integer, Room> roomsMapList = new TreeMap<>();
-    private static Map<Integer, Customer> customersMapList = new TreeMap<>();
-    private static List<Customer> customersList;
-    private static List<Villa> villasList;
-    private static List<House> housesList;
-    private static List<Room> roomsList;
+    private Map<Integer, Villa> villasMapList = new TreeMap<>();
+    private Map<Integer, House> housesMapList = new TreeMap<>();
+    private Map<Integer, Room> roomsMapList = new TreeMap<>();
+    private Map<Integer, Customer> customersMapList = new TreeMap<>();
 
     public BookingManager() {
-        this.bookingList = new ArrayList<>();
+        bookingList = new ArrayList<>();
     }
 
     public BookingManager(List<Customer> bookingList) {
@@ -32,49 +26,56 @@ public class BookingManager {
         this.bookingList = bookingList;
     }
 
-    //Manipulation maps
-    public static void addNewBooking(Customer customer) {
+    //........................................... Manipulation Maps ...............................................//
+
+    //Add new customer into bookingList
+    public void addNewBooking(Customer customer) {
         bookingList.add(customer);
     }
 
-    public static void showBookingList(){
+    //Show bookingList
+    public void showBookingList(){
         //Sorting booking-list by name and year of birth
         Collections.sort(bookingList, new SortingCustomerNames());
+
+        //Display booking List
         System.out.println("___________BOOKINGS LIST_________");
         System.out.printf("%-8s%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
-                "No.", "Full_Name", "Birthday", "Gender", "Id_Number", "Phone_Number", "Email", "Customer_Type", "Address",
-                "Service_Id", "Service_Name");
+                "No.", "Full_Name", "Birthday", "Gender", "Id_Number", "Phone_Number", "Email",
+                "Customer_Type", "Address", "Service_Id", "Service_Name");
         int i = 1;
         for (Customer customer : bookingList) {
             System.out.printf("%-8s", i +".");
             customer.showInfo();
             i++;
         }
-        System.out.println(". . . . . . . . . . . . . . . . End Bookings List . . . . . . . . . . . . . . . . . . . .");
+        System.out.println(". . . . . . . . . . . . . . . . End Bookings List . . . . . . . . . . . . . . . . . . .");
     }
 
-    public static Map<Integer, Room> getRoomsMapList() {
-        //Clear map before add new services
+    public Map<Integer, Room> getRoomsMapList() {
+        List<Room> roomsList;
+
+        //Clear Map before add new services
         roomsMapList.clear();
 
-        //get room objects list
+        //Get room objects list
         RoomManager roomManager = new RoomManager();
         roomManager.setRoomObjectList(RoomUtils.readRoomFile());
         roomsList = roomManager.getRoomObjectList();
 
-        //add room objects into map
+        //Add room objects into Map
         int i = 1;
         for (Room room : roomsList) {
             roomsMapList.put(i, room);
             i++;
         }
 
-        //Get map list
+        //Get Map List
         return roomsMapList;
     }
 
-    public static void showRoomsMapList(Map<Integer, Room> roomsMapList) {
-        //show map list
+    public void showRoomsMapList(Map<Integer, Room> roomsMapList) {
+        //Show Map list
         Set<Integer> roomKeys = roomsMapList.keySet();
         System.out.println("ROOM SERVICES LIST:");
         System.out.printf("%-5s%-12s%-15s%-12s%-14s%-14s%-12s%-15s%-21s%-11s%s\n","No.", "Service_Id",
@@ -87,28 +88,30 @@ public class BookingManager {
         System.out.println("----------------------------------End Rooms List-----------------------------------");
     }
 
-    public static Map<Integer, House> getHousesMapList() {
-        //Clear map before add new services
+    public Map<Integer, House> getHousesMapList() {
+        List<House> housesList;
+
+        //Clear Map before add new services
         housesMapList.clear();
 
-        //get house objects list
+        //Get house objects list
         HouseManager houseManager = new HouseManager();
         houseManager.setHouseObjectList(HouseUtils.readHouseFile());
         housesList = houseManager.getHouseObjectList();
 
-        //add house objects into map
+        //Add house objects into Map
         int i = 1;
         for (House house : housesList) {
             housesMapList.put(i, house);
             i++;
         }
 
-        //Get map list
+        //Get Map List
         return housesMapList;
     }
 
-    public static void showHousesMapList(Map<Integer, House> housesMapList){
-        //show map list
+    public void showHousesMapList(Map<Integer, House> housesMapList){
+        //Show Map List
         Set<Integer> houseKeys = housesMapList.keySet();
         System.out.println("HOUSE SERVICES LIST:");
         System.out.printf("%-5s%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-21s%-11s%s\n", "No.", "Service_Id",
@@ -121,30 +124,32 @@ public class BookingManager {
         System.out.println("----------------------------------End Houses List-----------------------------------");
     }
 
-    public static Map<Integer, Villa> getVillasMapList() {
-        //Clear map before add new services
+    public Map<Integer, Villa> getVillasMapList() {
+        List<Villa> villasList;
+
+        //Clear Map before add new services
         villasMapList.clear();
 
-        //get villa objects list
+        //Get villa objects list
         VillaManager villaManager = new VillaManager();
         villaManager.setVillaObjectList(VillaUtils.readVillaFile());
         villasList = villaManager.getVillaObjectList();
 
-        //add villa objects into map
+        //Add villa objects into Map
         int i = 1;
         for (Villa villa : villasList) {
             villasMapList.put(i, villa);
             i++;
         }
 
-        //Get map list
+        //Get Map List
         return villasMapList;
     }
 
-    public static void showVillasMapList(Map<Integer, Villa> villasMapList){
-        //show map list
+    public void showVillasMapList(Map<Integer, Villa> villasMapList){
+        //Show Map list
         Set<Integer> villaKeys = villasMapList.keySet();
-        System.out.println("VILLA SERVICES LIST:");
+        System.out.println("___________________________________VILLA SERVICES LIST___________________________________");
         System.out.printf("%-5s%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-15s%-21s%-11s%s\n","No.", "Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Sw.Pool_Area", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
@@ -152,19 +157,21 @@ public class BookingManager {
             System.out.print(key + ".   ");
             villasMapList.get(key).showInfo();
         }
-        System.out.println("----------------------------------End Villas List-----------------------------------");
+        System.out.println("------------------------------------ End Villas List -----------------------------------");
     }
 
-    public static Map<Integer, Customer> getCustomersMapList() {
-        //get customer objects list
+    public Map<Integer, Customer> getCustomersMapList() {
+        List<Customer> customersList;
+
+        //Get customer objects list
         CustomerManager customerManager = new CustomerManager();
         customerManager.setCustomerObjectList(CustomerUtils.readCustomerFile());
 
-        //sorting customers by names and years of birth
+        //Sorting customers by names and years of birth
         customersList = customerManager.getCustomerObjectList();
         Collections.sort(customersList, new SortingCustomerNames());
 
-        //Add each key and value as customer object into map
+        //Add each key and value as customer object into Map
         int i = 1;
         for (Customer customer : customersList) {
             customersMapList.put(i, customer);
@@ -174,18 +181,17 @@ public class BookingManager {
         //Get customersMapList
         return customersMapList;
     }
-    public static void showCustomersMapList(Map<Integer, Customer> customersMapList) {
+    public void showCustomersMapList(Map<Integer, Customer> customersMapList) {
         //Show the customersMapList
         Set<Integer> customerKeys = customersMapList.keySet();
-        System.out.println("CUSTOMERS LIST:");
+        System.out.println("___________________________________CUSTOMERS LIST________________________________________");
         System.out.printf("%-5s%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
-                "No.", "Full_Name", "Birthday", "Gender", "Id_Number", "Phone_Number", "Email", "Customer_Type", "Address",
-                "Service_Id", "Service_Name");
+                "No.", "Full_Name", "Birthday", "Gender", "Id_Number", "Phone_Number", "Email",
+                "Customer_Type", "Address", "Service_Id", "Service_Name");
         for (Integer key : customerKeys) {
             System.out.print(key + ".   ");
             customersMapList.get(key).showInfo();
         }
-        System.out.println("----------------------------------End Customers List-----------------------------------");
+        System.out.println("---------------------------------- End Customers List -----------------------------------");
     }
-
 }

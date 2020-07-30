@@ -3,7 +3,7 @@ Hoang Kim Anh,23/05/1997,Male,213 445 234,2342345,anh@hoang.com,Member,Da Nang
 David Beckham,22/08/1987,Male,213 444 444,454543434,david@kham.com,Silver,England
 James Bond,24/04/1994,Male,124 222 111,344137875.4,james@bond.vn,Silver,Quang Tri
 Gorge Bush,23/05/1947,Male,111 222 333,999999999,gorgebush@yahoo.com,Member,USA
-David Copperfield,22/06/1988,Male,233 543 234,345435455454,david@field.net,Silver,USA
+David Copperfield,22/06/1988,Male,233 543 234,3.45435E+11,david@field.net,Silver,USA
 Henry Ford,30/02/1977,Female,128 292 292,350044742.8,henry@gmail.com,Silver,USA
 Richard Gere,22/08/1987,Male,129 135 079,351521459.7,richard@gere.net,Gold,Quang Tri
 Bui Ngoc Huy,24/04/1984,Male,123 335 932,454543434,huy@bui.vn,Gold,Quang Tri
@@ -15,6 +15,6 @@ Vuong Chieu Quan,22/09/1933,Female,123 456 789,2343434,chieu@quan.net,Diamond,Da
 Cristiano Ronaldo,24/04/1984,Female,127 555 555,348568026,cristiano@ronaldo.com,Diamond,USA
 Steven Seagal,22/09/1933,Unknown,126 222 666,347091309.1,steven@seagal.us,Gold,England
 John Statham,25/05/1984,Male,125 222 123,345614592.2,john@stamtham.net,Diamond,USA
-Donard Trump,24/04/1958,Male,222 222 222,123456789,donald@trump.vn,Diamond,USA
-Donard Trump,26/06/1978,Unknown,123 222 555,123456791,donald@trump.vn,Diamond,USA
-Donard Trump,25/05/1988,Female,223 233 233,123456790,donald@trump.vn,Diamond,USA
+Donald Trump,24/04/1958,Male,222 222 222,123456789,donald@trump.vn,Diamond,USA
+Donald Trump,26/06/1978,Unknown,123 222 555,123456791,donald@trump.vn,Diamond,USA
+Donald Trump,25/05/1988,Female,223 233 233,123456790,donald@trump.vn,Diamond,USA

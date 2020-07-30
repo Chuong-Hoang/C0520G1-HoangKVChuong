@@ -1,4 +1,4 @@
-package case_study.libs;
+package case_study.controllers;
 import case_study.controllers.EmployeeUtils;
 import case_study.models.Employee;
 
@@ -116,12 +116,4 @@ public class DossierCabinet {
         System.out.println("...to BOTTOM.");
         System.out.println("[_______________________________Bottom of Dossier-Cabinet_______________________________]");
     }
-
-    //Main method()
-    public static void main(String[] args) {
-        DossierCabinet dossierCabinet = new DossierCabinet();
-        dossierCabinet.setEmployeeStackList(dossierCabinet.createDossierCabinet());
-        dossierCabinet.findEmployeeDossier();
-    }
-
 }
