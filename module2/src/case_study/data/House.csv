@@ -1,3 +1,12 @@
-SVHO-0001,House,35.6,150.0,3,Hourly,Vip,Free Buffet,3,Massage,Hour,150.0
-SVHO-0003,Newhouse,150.0,130.0,3,Hourly,Vip,Free Buffet,2,N/A,N/A,0.0
-SVHO-0002,Houseee,120.0,1200.0,3,Monthly,Normal,Free Buffet,2,N/A,N/A,0.0
+SVHO-0001,King,50,150,3,Hourly,Vip,Free Buffet,3,Massage,Hour,150
+SVHO-0003,Queen,150,130,2,Hourly,Vip,Free Buffet,2,N/A,N/A,0
+SVHO-0002,Prince,120,1200,4,Monthly,Normal,Free Buffet,4,N/A,N/A,0
+SVHO-0004,Princess,50,150,3,Daily,Business,Free Buffet,3,Drink,Set,30
+SVHO-0005,Emperor,150,130,2,Yearly,Vip,Free Buffet,2,Food,Set,30
+SVHO-0006,Gladiator,120,1200,4,Hourly,Normal,Free Buffet,4,Car,Day,100
+SVHO-0007,King,50,150,3,Monthly,Business,Free Buffet,3,Karaoke,Hour,50
+SVHO-0008,Queen,150,130,2,Daily,Vip,Free Buffet,2,N/A,N/A,0
+SVHO-0009,Prince,120,1200,4,Yearly,Normal,Free Buffet,4,Drink,Set,30
+SVHO-0010,Princess,50,150,3,Hourly,Business,Free Buffet,3,Food,Set,30
+SVHO-0011,Emperor,150,130,2,Monthly,Vip,Free Buffet,2,Car,Day,120
+SVHO-0012,Gladiator,120,1200,4,Daily,Normal,Free Buffet,4,Massage,Hour,100

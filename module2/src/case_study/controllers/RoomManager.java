@@ -2,9 +2,8 @@ package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
 import case_study.models.Room;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.util.*;
 
 public class RoomManager {
     private List<Room> roomObjectList;
@@ -197,5 +196,26 @@ public class RoomManager {
         } else {
             System.out.println("*_*_Room service id '" + id + "' not found in the list_*_*");
         }
+    }
+
+    public void displayNonDuplicateRoomNames() {
+        Set<String> roomNamesList = new TreeSet<>();
+
+        //Get room names from roomObjectList and add to TreeSet
+        String roomName = "";
+        for (Room room : this.roomObjectList) {
+            roomName = room.getServiceName();
+            roomNamesList.add(roomName);
+        }
+
+        //Display all room names in the TreeSet
+        System.out.println("--- Not Duplicate Room Names ---");
+        System.out.printf("%-6s%s\n", "No.", "Room_Name");
+        int i = 1;
+        for (String eachRoomName : roomNamesList) {
+            System.out.printf("%-6s%s\n", i+". ", eachRoomName);
+            i++;
+        }
+        System.out.println("-----------------------");
     }
 }

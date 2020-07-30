@@ -5,9 +5,7 @@ import case_study.models.ExtraService;
 import case_study.models.House;
 import case_study.models.Villa;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class HouseManager {
     private List<House> houseObjectList;
@@ -221,5 +219,26 @@ public class HouseManager {
         } else {
             System.out.println("*_*_House service id '" + id + "' not found in the list_*_*");
         }
+    }
+
+    public void displayNonDuplicateHouseNames() {
+        Set<String> houseNamesList = new TreeSet<>();
+
+        //Get house name from houseObjectList and add to TreeSet
+        String houseName = "";
+        for (House house : this.houseObjectList) {
+            houseName = house.getServiceName();
+            houseNamesList.add(houseName);
+        }
+
+        //Display house names in the TreeSet
+        System.out.println("---Not Duplicate House Names---");
+        System.out.printf("%-6s%s\n", "No.", "House_Name");
+        int i = 1;
+        for (String eachHouseName : houseNamesList) {
+            System.out.printf("%-6s%s\n", i+". ", eachHouseName);
+            i++;
+        }
+        System.out.println("-----------------------");
     }
 }

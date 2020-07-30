@@ -13,6 +13,7 @@ public class MainController {
     static RoomManager roomManager = new RoomManager();
     static CustomerManager customerManager = new CustomerManager();
     static BookingManager bookingManager = new BookingManager();
+    static EmployeeManager employeeManager = new EmployeeManager();
     static Scanner sc = new Scanner(System.in);
 
     // MAIN METHOD()
@@ -22,6 +23,9 @@ public class MainController {
         roomManager.setRoomObjectList(RoomUtils.readRoomFile());
         customerManager.setCustomerObjectList(CustomerUtils.readCustomerFile());
         bookingManager.setBookingList(BookingUtils.readBookingFile());
+        employeeManager.setEmployeeMapList(EmployeeUtils.readEmployeeFile());
+
+        //show main menu again
         displayMainMenu();
     }
 
@@ -168,16 +172,16 @@ public class MainController {
                 roomManager.displayRoomList();
                 break;
             case 4:
-                //4.Show all Villa not duplicate -->Task 8
-                System.out.println("Show all name Villa not duplicate");
+                //4.Show all Villa not duplicate -->Task 8__OK
+                villaManager.displayNonDuplicateVillaNames();
                 break;
             case 5:
-                //5.Show all House not duplicate -->Task 8
-                System.out.println("Show all name House not duplicate");
+                //5.Show all House not duplicate -->Task 8__OK
+                houseManager.displayNonDuplicateHouseNames();
                 break;
             case 6:
-                //6.Show all Room not duplicate -->Task 8
-                System.out.println("Show all name Room not duplicate");
+                //6.Show all Room not duplicate -->Task 8__OK
+                roomManager.displayNonDuplicateRoomNames();
                 break;
             case 7:
                 //7.Back to main menu
@@ -214,7 +218,7 @@ public class MainController {
         CustomerUtils.writeCustomerFile(customerManager.getCustomerObjectList());
     }
 
-    // Option 5: ADD NEW BOOKING --> Task 7
+    // Option 5: ADD NEW BOOKING --> Task 7_OK
     private static void addNewBooking() {
         List<Customer> bookingList;
         Map<Integer, Villa> villasMapList;
@@ -289,12 +293,13 @@ public class MainController {
             BookingManager.showBookingList();
         } else {
             System.out.println("The customer No." + customerNo + " not found in the list.");
-            addNewBooking();
+            displayMainMenu();
         }
     }
 
-    // Option 6: SHOW EMPLOYEE INFORMATION --> Task 9
+    // Option 6: SHOW EMPLOYEE INFORMATION --> Task 9__OK
     private static void showEmployeesInfo() {
         System.out.println("OPTION 6 - SHOW EMPLOYEE INFORMATION:");
+        employeeManager.displayEmployeeList();
     }
 }

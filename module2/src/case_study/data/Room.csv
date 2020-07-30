@@ -1,3 +1,14 @@
-SVRO-0001,Roomm,39.0,150.0,2,Daily,Phone,Food,Set,150.0
-SVRO-0002,Room,45.0,120.0,2,Hourly,Laundry,Karaoke,Hour,50.0
-SVRO-0003,Roomo,48.0,50.0,2,Daily,Steaming,Car,Day,150.0
+SVRO-0001,Lion,39,150,2,Daily,Phone,Food,Set,25
+SVRO-0002,Tiger,45,120,3,Hourly,Laundry,Karaoke,Hour,50
+SVRO-0003,Jaguar,48,150,1,Daily,Steaming,Car,Day,150
+SVRO-0004,Leopard,39,120,2,Monthly,Buffet,Massage,Hour,70
+SVRO-0005,Panther,45,50,3,Hourly,Phone,Drink,Set,15
+SVRO-0006,Python,48,150,1,Daily,Laundry,Food,Set,25
+SVRO-0007,Cobra,39,120,2,Monthly,Steaming,Karaoke,Hour,50
+SVRO-0008,Elephant,45,150,3,Yearly,Buffet,Car,Day,150
+SVRO-0009,Tiger,48,120,1,Hourly,Phone,Massage,Hour,70
+SVRO-0010,Jaguar,39,50,2,Daily,Laundry,Drink,Set,15
+SVRO-0011,Leopard,45,150,3,Monthly,Steaming,Food,Set,25
+SVRO-0012,Panther,48,120,1,Monthly,Buffet,Karaoke,Hour,50
+SVRO-0013,Ostrich,39,50,2,Hourly,Phone,Car,Day,150
+SVRO-0014,Horse,45,150,3,Daily,Laundry,Massage,Hour,70

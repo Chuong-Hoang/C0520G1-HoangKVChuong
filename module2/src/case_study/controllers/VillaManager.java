@@ -3,9 +3,7 @@ import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
 import case_study.models.Villa;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class VillaManager {
     private List<Villa> villaObjectList;
@@ -230,5 +228,26 @@ public class VillaManager {
         } else {
             System.out.println("*_*_Villa service id '" + id + "' not found in the list_*_*");
         }
+    }
+
+    public void displayNonDuplicateVillaNames() {
+        Set<String> villaNamesList = new TreeSet<>();
+        String villaName = "";
+
+        //get villaName from villaObjectList and add to TreeSet(villaNamesList)
+        for (Villa villa : this.villaObjectList) {
+            villaName = villa.getServiceName();
+            villaNamesList.add(villaName);
+        }
+
+        //display non-duplicate villa names in villaNamesList
+        System.out.println("--- Not Duplicate Villa Names ---");
+        System.out.printf("%-6s%s\n", "No.", "Villa_Name");
+        int i = 1;
+        for (String eachVillaName : villaNamesList) {
+            System.out.printf("%-6s%s\n",i + ". ", eachVillaName);
+            i++;
+        }
+        System.out.println("----------------------");
     }
 }
