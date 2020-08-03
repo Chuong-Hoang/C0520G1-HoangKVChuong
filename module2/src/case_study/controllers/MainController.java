@@ -1,10 +1,20 @@
 package case_study.controllers;
+import case_study.commons.BookingUtils;
+import case_study.commons.CustomerUtils;
+import case_study.commons.EmployeeUtils;
+import case_study.commons.ReaderAndWriter;
 import case_study.models.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class MainController {
+    //File paths
+    private static final String VILLA_FILE_PATH = "src/case_study/data/Villa.csv";
+    private static final String HOUSE_FILE_PATH = "src/case_study/data/House.csv";
+    private static final String ROOM_FILE_PATH = "src/case_study/data/Room.csv";
+
+    //Service managers
     static VillaManager villaManager = new VillaManager();
     static HouseManager houseManager = new HouseManager();
     static RoomManager roomManager = new RoomManager();
@@ -17,11 +27,16 @@ public class MainController {
 
     // MAIN METHOD()
     public static void main(String[] args) {
-        villaManager.setVillaObjectList(VillaUtils.readVillaFile());
+        //villaManager.setVillaObjectList(VillaUtils.readVillaFile());
+        List<Villa> villaList = (List<Villa>) ReaderAndWriter.readServiceFile(VILLA_FILE_PATH);
+        villaManager.setVillaObjectList(villaList);
 
-        houseManager.setHouseObjectList(HouseUtils.readHouseFile());
+        //houseManager.setHouseObjectList(HouseUtils.readHouseFile());
 
-        roomManager.setRoomObjectList(RoomUtils.readRoomFile());
+        houseManager.setHouseObjectList((List<House>)ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH));
+
+        //roomManager.setRoomObjectList(RoomUtils.readRoomFile());
+        roomManager.setRoomObjectList((List<Room>) ReaderAndWriter.readServiceFile(ROOM_FILE_PATH));
 
         List<Customer> customerObjectList = CustomerUtils.readCustomerFile();
         customerManager.setCustomerObjectList(customerObjectList);
@@ -115,19 +130,22 @@ public class MainController {
             case 1:
                 //1.Add New Villa
                 villaManager.addNewVillaService();
-                VillaUtils.writeVillaFile(villaManager.getVillaObjectList());
+                //.writeVillaFile(villaManager.getVillaObjectList());
+                ReaderAndWriter.writeServiceFile(villaManager.getVillaObjectList(), VILLA_FILE_PATH);
                 System.out.println("*** New Villa was written to 'data/Villa.csv' ***");
                 break;
             case 2:
                 //2.Add New House
                 houseManager.addNewHouseService();
-                HouseUtils.writeHouseFile(houseManager.getHouseObjectList());
+                //HouseUtils.writeHouseFile(houseManager.getHouseObjectList());
+                ReaderAndWriter.writeServiceFile(houseManager.getHouseObjectList(), HOUSE_FILE_PATH);
                 System.out.println("*** New House was written to 'data/House.csv' ***");
                 break;
             case 3:
                 //3.Add New Room
                 roomManager.addNewRoomService();
-                RoomUtils.writeRoomFile(roomManager.getRoomObjectList());
+                //RoomUtils.writeRoomFile(roomManager.getRoomObjectList());
+                ReaderAndWriter.writeServiceFile(roomManager.getRoomObjectList(), ROOM_FILE_PATH);
                 System.out.println("*** New Room was written to 'data/Room.csv' ***");
                 break;
             case 4:
@@ -142,21 +160,24 @@ public class MainController {
                 System.out.print("Input Villa Service Id to be deleted: ");
                 String idVilla = sc.nextLine();
                 villaManager.deleteVillaService(idVilla);
-                VillaUtils.writeVillaFile(villaManager.getVillaObjectList());
+                //VillaUtils.writeVillaFile(villaManager.getVillaObjectList());
+                ReaderAndWriter.writeServiceFile(villaManager.getVillaObjectList(), VILLA_FILE_PATH);
                 break;
             case 7:
                 //7.Delete a House Service
                 System.out.print("Input House Service Id to be deleted: ");
                 String idHouse = sc.nextLine();
                 houseManager.deleteHouseService(idHouse);
-                HouseUtils.writeHouseFile(houseManager.getHouseObjectList());
+                //HouseUtils.writeHouseFile(houseManager.getHouseObjectList());
+                ReaderAndWriter.writeServiceFile(houseManager.getHouseObjectList(), HOUSE_FILE_PATH);
                 break;
             case 8:
                 //8.Delete a Room-Service
                 System.out.print("Input Room Service Id to be deleted: ");
                 String idRoom = sc.nextLine();
                 roomManager.deleteRoomService(idRoom);
-                RoomUtils.writeRoomFile(roomManager.getRoomObjectList());
+                //RoomUtils.writeRoomFile(roomManager.getRoomObjectList());
+                ReaderAndWriter.writeServiceFile(roomManager.getRoomObjectList(), ROOM_FILE_PATH);
                 break;
             default:
                 System.out.println("No choice at all...");

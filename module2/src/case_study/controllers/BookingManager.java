@@ -1,4 +1,8 @@
 package case_study.controllers;
+import case_study.commons.CustomerUtils;
+import case_study.commons.HouseUtils;
+import case_study.commons.RoomUtils;
+import case_study.commons.VillaUtils;
 import case_study.models.*;
 import case_study.views.SortingCustomerNames;
 import java.util.*;

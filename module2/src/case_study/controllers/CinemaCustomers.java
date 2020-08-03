@@ -1,7 +1,5 @@
 package case_study.controllers;
 
-import case_study.controllers.CustomerManager;
-import case_study.controllers.CustomerUtils;
 import case_study.models.Customer;
 
 import java.util.*;

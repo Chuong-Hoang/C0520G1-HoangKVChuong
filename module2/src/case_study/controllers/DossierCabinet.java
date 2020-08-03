@@ -1,5 +1,5 @@
 package case_study.controllers;
-import case_study.controllers.EmployeeUtils;
+import case_study.commons.EmployeeUtils;
 import case_study.models.Employee;
 
 import java.util.Map;

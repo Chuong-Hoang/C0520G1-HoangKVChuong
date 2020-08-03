@@ -1,12 +1,14 @@
-SVVL-1234,Chuong,34.0,3.0,9,Hourly,Vip,Free Buffet,46.0,2,massage,Hour,50.0
-SVVL-4444,Chuong,36.0,350.0,4,Hourly,Business,Free Buffet,48.0,3,Karaoke,Hour,50.0
-SVVL-4321,Quang,350.0,250.0,4,Daily,Business,Free Buffet,150.0,4,Dink,Day,50.0
-SVVL-4322,Quang,664.0,150.0,4,Hourly,Normal,Free Buffet,185.3333333,5,Car,Hour,150.0
-SVVL-4323,Minh,978.0,50.0,4,Daily,Vip,Free Buffet,237.3333333,6,Food,Day,250.0
-SVVL-4324,Linh,1292.0,-50.0,4,Hourly,Business,Free Buffet,289.3333333,7,Dink,Hour,300.0
-SVVL-4325,Phuong,1606.0,-150.0,4,Daily,Normal,Free Buffet,341.3333333,8,Car,Day,370.0
-SVVL-4326,Linh,1920.0,-250.0,4,Hourly,Vip,Free Buffet,393.3333333,9,Food,Hour,440.0
-SVVL-4327,Hoang,2234.0,-350.0,4,Daily,Business,Free Buffet,445.3333333,10,Dink,Day,510.0
-SVVL-4328,Kim,2548.0,-450.0,4,Hourly,Normal,Free Buffet,497.3333333,11,Car,Hour,580.0
-SVVL-4329,Linh,2862.0,-550.0,4,Daily,Vip,Free Buffet,549.3333333,12,Food,Day,650.0
-SVVL-0111,Canary,450.0,505.0,4,Daily,Business,Free Massage,140.0,2,N/A,N/A,0.0
+Id,Service Name,Used Area,Rent Fee,Max People,Rent Type,Room Standard,Other Utility,Swimming Pool Area,Story Number,Extra Service Name,Extra Service Unit,Extra Service Price
+SVVL-1234,Chuong,34,3,9,Hourly,Vip,Free Buffet,46,2,massage,Hour,50
+SVVL-4444,Chuong,36,350,4,Hourly,Business,Free Buffet,48,3,Karaoke,Hour,50
+SVVL-4321,Quang,350,250,4,Daily,Business,Free Buffet,150,4,Dink,Day,50
+SVVL-4322,Quang,664,150,4,Hourly,Normal,Free Buffet,46,5,Car,Hour,150
+SVVL-4323,Minh,978,50,4,Daily,Vip,Free Buffet,48,6,Food,Day,250
+SVVL-4324,Linh,1292,-50,4,Hourly,Business,Free Buffet,150,7,Dink,Hour,300
+SVVL-4325,Phuong,1606,-150,4,Daily,Normal,Free Buffet,46,8,Car,Day,370
+SVVL-4326,Linh,1920,-250,4,Hourly,Vip,Free Buffet,48,9,Food,Hour,440
+SVVL-4327,Hoang,2234,-350,4,Daily,Business,Free Buffet,150,10,Dink,Day,510
+SVVL-4328,Kim,2548,-450,4,Hourly,Normal,Free Buffet,46,11,Car,Hour,580
+SVVL-4329,Linh,2862,-550,4,Daily,Vip,Free Buffet,48,12,Food,Day,650
+SVVL-0111,Canary,450,505,4,Daily,Business,Free Massage,150,2,N/A,N/A,0
+SVVL-9999,Abcd,48,1290,4,Daily,Normal,Free Beverage,120,2,Karaoke,Day,150

@@ -175,7 +175,7 @@ public class RoomManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee",
                 "Free_Service", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (Room room : this.roomObjectList) {
+        for (Room room : this.getRoomObjectList()) {
            room.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . . End ROOM List . . . . . . . . . . . . . . . . . . .");
@@ -203,7 +203,7 @@ public class RoomManager {
 
         //Get room names from roomObjectList and add to TreeSet
         String roomName = "";
-        for (Room room : this.roomObjectList) {
+        for (Room room : this.getRoomObjectList()) {
             roomName = room.getServiceName();
             roomNamesList.add(roomName);
         }

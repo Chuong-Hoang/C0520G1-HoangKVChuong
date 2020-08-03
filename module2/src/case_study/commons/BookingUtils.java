@@ -1,4 +1,4 @@
-package case_study.controllers;
+package case_study.commons;
 import case_study.models.*;
 
 import java.io.*;

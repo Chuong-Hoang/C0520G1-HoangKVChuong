@@ -1,4 +1,4 @@
-package case_study.controllers;
+package case_study.commons;
 
 import case_study.models.ExtraService;
 import case_study.models.Villa;
@@ -41,10 +41,12 @@ public class VillaUtils {
                 double rentFee;
                 int maxPeopleQuantity;
                 String rentType;
+
                 String roomStandard;
                 String otherUtility;
                 double swimmingPoolArea;
                 int storyNumber;
+
                 ExtraService extraService;
                 String extraServiceName = "N/A";
                 String extraServiceUnit = "N/A";

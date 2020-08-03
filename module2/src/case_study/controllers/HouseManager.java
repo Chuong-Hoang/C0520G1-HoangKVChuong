@@ -3,6 +3,7 @@ package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
 import case_study.models.House;
+import case_study.models.Services;
 import case_study.models.Villa;
 
 import java.util.*;
@@ -198,8 +199,8 @@ public class HouseManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (House villa : this.houseObjectList) {
-            villa.showInfo();
+        for (House house : this.getHouseObjectList()) {
+            house.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . .  End House List . . . . . . . . . . . . . . . . . . .");
     }
