@@ -9,21 +9,21 @@ import case_study.models.Villa;
 import java.util.*;
 
 public class HouseManager {
-    private List<House> houseObjectList;
+    private List<Services> houseObjectList;
 
     public HouseManager() {
         houseObjectList = new ArrayList<>();
     }
 
-    public HouseManager(List<House> villaList) {
-        this.houseObjectList = villaList;
+    public HouseManager(List<Services> houseObjectList) {
+        this.houseObjectList = houseObjectList;
     }
 
-    public List<House> getHouseObjectList() {
+    public List<Services> getHouseObjectList() {
         return houseObjectList;
     }
 
-    public void setHouseObjectList(List<House> houseObjectList) {
+    public void setHouseObjectList(List<Services> houseObjectList) {
         this.houseObjectList = houseObjectList;
     }
 
@@ -199,15 +199,17 @@ public class HouseManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (House house : this.getHouseObjectList()) {
-            house.showInfo();
+        for (Services house : this.getHouseObjectList()) {
+            //if(house instanceof House) {
+                house.showInfo();
+            //}
         }
         System.out.println(". . . . . . . . . . . . . . . . . .  End House List . . . . . . . . . . . . . . . . . . .");
     }
 
     public void deleteHouseService(String id) {
         boolean isFound = false;
-        for (House house : houseObjectList) {
+        for (Services house : houseObjectList) {
             if (id.compareTo(house.getId()) == 0) {
                 houseObjectList.remove(house);
                 house.showInfo();
@@ -227,7 +229,7 @@ public class HouseManager {
 
         //Get house name from houseObjectList and add to TreeSet
         String houseName = "";
-        for (House house : this.houseObjectList) {
+        for (Services house : this.houseObjectList) {
             houseName = house.getServiceName();
             houseNamesList.add(houseName);
         }

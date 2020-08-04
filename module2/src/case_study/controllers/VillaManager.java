@@ -7,21 +7,21 @@ import case_study.models.Villa;
 import java.util.*;
 
 public class VillaManager {
-    private List<Villa> villaObjectList;
+    private List<Services> villaObjectList;
 
     public VillaManager() {
         villaObjectList = new ArrayList<>();
     }
 
-    public VillaManager(List<Villa> villaList) {
-        this.villaObjectList = villaList;
+    public VillaManager(List<Services> villaObjectList) {
+        this.villaObjectList = villaObjectList;
     }
 
-    public List<Villa> getVillaObjectList() {
+    public List<Services> getVillaObjectList() {
         return villaObjectList;
     }
 
-    public void setVillaObjectList(List<Villa> villaObjectList) {
+    public void setVillaObjectList(List<Services> villaObjectList) {
         this.villaObjectList = villaObjectList;
     }
 
@@ -208,15 +208,17 @@ public class VillaManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Sw.Pool_Area", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (Villa villa : this.getVillaObjectList()) {
-            villa.showInfo();
+        for (Services villa : this.getVillaObjectList()) {
+            //if(villa instanceof Villa) {
+                villa.showInfo();
+            //}
         }
         System.out.println(". . . . . . . . . . . . . . . . . . End Villa List . . . . . . . . . . . . . . . . . . .");
     }
 
     public void deleteVillaService(String id) {
         boolean isFound = false;
-        for (Villa villa : this.villaObjectList) {
+        for (Services villa : this.villaObjectList) {
             if (id.compareTo(villa.getId()) == 0) {
                 this.villaObjectList.remove(villa);
                 villa.showInfo();
@@ -236,7 +238,7 @@ public class VillaManager {
         String villaName = "";
 
         //get villaName from villaObjectList and add to TreeSet(villaNamesList)
-        for (Villa villa : this.villaObjectList) {
+        for (Services villa : this.villaObjectList) {
             villaName = villa.getServiceName();
             villaNamesList.add(villaName);
         }

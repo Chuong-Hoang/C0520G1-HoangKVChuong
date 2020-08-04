@@ -27,7 +27,7 @@ public class ReaderAndWriter {
             "Extra Service Name,Extra Service Unit,Extra Service Price";
 
     //Read the file;
-    public static List<? extends Services> readServiceFile(String filePath) {
+    public static List<Services> readServiceFile(String filePath) {
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -41,7 +41,7 @@ public class ReaderAndWriter {
                 Villa outputVilla = null;
                 House outputHouse = null;
                 Room outputRoom = null;
-                Object outputObject = null;
+                Services outputObject = null;
 
                 String[] serviceStringArray;
                 String serviceString;
@@ -89,7 +89,7 @@ public class ReaderAndWriter {
                     rentType = serviceStringArray[5];
 
                     //Get private properties for each service
-                    if ("src/case_study/data/Villa.csv".equals(filePath)) {
+                    if ("src/case_study/data/Villa.csv".compareTo(filePath) == 0) {
                         privatePropertyNumber = 4; // Villa
                         roomStandard = serviceStringArray[6];
                         otherUtility = serviceStringArray[7];
@@ -97,14 +97,14 @@ public class ReaderAndWriter {
                         storyNumber = Integer.parseInt(serviceStringArray[9]);
                         outputObject = new Villa(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
                                 roomStandard, otherUtility, swimmingPoolArea, storyNumber);
-                    } else if ("src/case_study/data/House.csv".equals(filePath)) {
+                    } else if ("src/case_study/data/House.csv".compareTo(filePath) == 0) {
                         privatePropertyNumber = 3; // House
                         roomStandard = serviceStringArray[6];
                         otherUtility = serviceStringArray[7];
                         storyNumber = Integer.parseInt(serviceStringArray[8]);
                         outputObject = new House(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
                                 roomStandard, otherUtility, storyNumber);
-                    } else if ("src/case_study/data/Room.csv".equals(filePath)) {
+                    } else if ("src/case_study/data/Room.csv".compareTo(filePath) == 0) {
                         privatePropertyNumber = 1; // Room
                         freeService = serviceStringArray[6];
                         outputObject = new Room(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
@@ -150,7 +150,7 @@ public class ReaderAndWriter {
     }
 
     //Write to file
-    public static void writeServiceFile(List<? extends Services> serviceObjectList, String filePath) {
+    public static void writeServiceFile(List<Services> serviceObjectList, String filePath) {
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {

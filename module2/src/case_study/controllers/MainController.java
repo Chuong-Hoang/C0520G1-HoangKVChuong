@@ -28,15 +28,16 @@ public class MainController {
     // MAIN METHOD()
     public static void main(String[] args) {
         //villaManager.setVillaObjectList(VillaUtils.readVillaFile());
-        List<Villa> villaList = (List<Villa>) ReaderAndWriter.readServiceFile(VILLA_FILE_PATH);
+        List<Services> villaList = ReaderAndWriter.readServiceFile(VILLA_FILE_PATH);
         villaManager.setVillaObjectList(villaList);
 
         //houseManager.setHouseObjectList(HouseUtils.readHouseFile());
-
-        houseManager.setHouseObjectList((List<House>)ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH));
+        List<Services> houseList = ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH);
+        houseManager.setHouseObjectList(houseList);
 
         //roomManager.setRoomObjectList(RoomUtils.readRoomFile());
-        roomManager.setRoomObjectList((List<Room>) ReaderAndWriter.readServiceFile(ROOM_FILE_PATH));
+        List<Services> roomList = ReaderAndWriter.readServiceFile(ROOM_FILE_PATH);
+        roomManager.setRoomObjectList(roomList);
 
         List<Customer> customerObjectList = CustomerUtils.readCustomerFile();
         customerManager.setCustomerObjectList(customerObjectList);
@@ -60,7 +61,7 @@ public class MainController {
         System.out.println("[5] Add New Booking");
         System.out.println("[6] Show Information of Employees");
         System.out.println("[7] Exit");
-        System.out.println("[8.Try 1] DELETE a Customer...");
+        System.out.println("[8._Try] DELETE a Customer...");
         System.out.println("[9] Cinema Manager");
         System.out.println("[10] Employee-Dossier Cabinet");
         System.out.println("...............................");
@@ -119,7 +120,7 @@ public class MainController {
         System.out.println("<3>.Add New Room");
         System.out.println("<4>.Back to main menu");
         System.out.println("<5>.Exit");
-        System.out.println("<6>.[Try 1] Delete VILLA Service.");
+        System.out.println("<6.Try> Delete VILLA Service.");
         System.out.println("<7.Try> Delete HOUSE Service.");
         System.out.println("<8.Try> Delete ROOM Service.");
         System.out.println("..............................");
@@ -215,7 +216,7 @@ public class MainController {
                 break;
             case 4:
                 //4.Show all Villa not duplicate -->Task 8__OK
-                villaManager.displayNonDuplicateVillaNames();
+                villaManager.displayNonDuplicateVillaNames();//
                 break;
             case 5:
                 //5.Show all House not duplicate -->Task 8__OK

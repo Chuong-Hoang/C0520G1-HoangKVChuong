@@ -1,8 +1,5 @@
 package case_study.controllers;
-import case_study.commons.CustomerUtils;
-import case_study.commons.HouseUtils;
-import case_study.commons.RoomUtils;
-import case_study.commons.VillaUtils;
+import case_study.commons.*;
 import case_study.models.*;
 import case_study.views.SortingCustomerNames;
 import java.util.*;
@@ -13,6 +10,11 @@ public class BookingManager {
     private Map<Integer, House> housesMapList = new TreeMap<>();
     private Map<Integer, Room> roomsMapList = new TreeMap<>();
     private Map<Integer, Customer> customersMapList = new TreeMap<>();
+
+    //File paths
+    private static final String VILLA_FILE_PATH = "src/case_study/data/Villa.csv";
+    private static final String HOUSE_FILE_PATH = "src/case_study/data/House.csv";
+    private static final String ROOM_FILE_PATH = "src/case_study/data/Room.csv";
 
     public BookingManager() {
         bookingList = new ArrayList<>();
@@ -57,20 +59,21 @@ public class BookingManager {
     }
 
     public Map<Integer, Room> getRoomsMapList() {
-        List<Room> roomsList;
+
 
         //Clear Map before add new services
         roomsMapList.clear();
 
         //Get room objects list
         RoomManager roomManager = new RoomManager();
-        roomManager.setRoomObjectList(RoomUtils.readRoomFile());
-        roomsList = roomManager.getRoomObjectList();
+        //roomManager.setRoomObjectList(RoomUtils.readRoomFile());
+        roomManager.setRoomObjectList(ReaderAndWriter.readServiceFile(ROOM_FILE_PATH));
+        List<Services> roomsList = roomManager.getRoomObjectList();
 
         //Add room objects into Map
         int i = 1;
-        for (Room room : roomsList) {
-            roomsMapList.put(i, room);
+        for (Services room : roomsList) {
+            roomsMapList.put(i, (Room) room);
             i++;
         }
 
@@ -93,20 +96,21 @@ public class BookingManager {
     }
 
     public Map<Integer, House> getHousesMapList() {
-        List<House> housesList;
+
 
         //Clear Map before add new services
         housesMapList.clear();
 
         //Get house objects list
         HouseManager houseManager = new HouseManager();
-        houseManager.setHouseObjectList(HouseUtils.readHouseFile());
-        housesList = houseManager.getHouseObjectList();
+        //houseManager.setHouseObjectList(HouseUtils.readHouseFile());
+        houseManager.setHouseObjectList(ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH));
+        List<Services> housesList = houseManager.getHouseObjectList();
 
         //Add house objects into Map
         int i = 1;
-        for (House house : housesList) {
-            housesMapList.put(i, house);
+        for (Services house : housesList) {
+            housesMapList.put(i, (House) house);
             i++;
         }
 
@@ -129,20 +133,21 @@ public class BookingManager {
     }
 
     public Map<Integer, Villa> getVillasMapList() {
-        List<Villa> villasList;
+
 
         //Clear Map before add new services
         villasMapList.clear();
 
         //Get villa objects list
         VillaManager villaManager = new VillaManager();
-        villaManager.setVillaObjectList(VillaUtils.readVillaFile());
-        villasList = villaManager.getVillaObjectList();
+        //villaManager.setVillaObjectList(VillaUtils.readVillaFile());
+        villaManager.setVillaObjectList(ReaderAndWriter.readServiceFile(VILLA_FILE_PATH));
+        List<Services> villasList = villaManager.getVillaObjectList();
 
         //Add villa objects into Map
         int i = 1;
-        for (Villa villa : villasList) {
-            villasMapList.put(i, villa);
+        for (Services villa : villasList) {
+            villasMapList.put(i, (Villa) villa);
             i++;
         }
 

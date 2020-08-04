@@ -2,25 +2,26 @@ package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
 import case_study.models.Room;
+import case_study.models.Services;
 
 import java.util.*;
 
 public class RoomManager {
-    private List<Room> roomObjectList;
+    private List<Services> roomObjectList;
 
     public RoomManager() {
         roomObjectList = new ArrayList<>();
     }
 
-    public RoomManager(List<Room> villaList) {
-        this.roomObjectList = villaList;
+    public RoomManager(List<Services> roomObjectList) {
+        this.roomObjectList = roomObjectList;
     }
 
-    public List<Room> getRoomObjectList() {
+    public List<Services> getRoomObjectList() {
         return roomObjectList;
     }
 
-    public void setRoomObjectList(List<Room> roomObjectList) {
+    public void setRoomObjectList(List<Services> roomObjectList) {
         this.roomObjectList = roomObjectList;
     }
 
@@ -175,15 +176,17 @@ public class RoomManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee",
                 "Free_Service", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (Room room : this.getRoomObjectList()) {
-           room.showInfo();
+        for (Services room : this.getRoomObjectList()) {
+            //if (room instanceof Room) {
+                room.showInfo();
+            //}
         }
         System.out.println(". . . . . . . . . . . . . . . . . . End ROOM List . . . . . . . . . . . . . . . . . . .");
     }
 
     public void deleteRoomService(String id) {
         boolean isFound = false;
-        for (Room room : roomObjectList) {
+        for (Services room : roomObjectList) {
             if (id.compareTo(room.getId()) == 0) {
                 roomObjectList.remove(room);
                 room.showInfo();
@@ -203,7 +206,7 @@ public class RoomManager {
 
         //Get room names from roomObjectList and add to TreeSet
         String roomName = "";
-        for (Room room : this.getRoomObjectList()) {
+        for (Services room : this.getRoomObjectList()) {
             roomName = room.getServiceName();
             roomNamesList.add(roomName);
         }
