@@ -9,6 +9,8 @@ public class Controller {
 
     public static void showMainMenu() {
         Scanner sc = new Scanner(System.in);
+        EntityManager entityManager = new EntityManager();
+
         System.out.println("_________ MAIN MENU _________");
         System.out.println("1.Lookup a word");
         System.out.println("2.Define new word");
@@ -22,15 +24,15 @@ public class Controller {
         switch(option) {
             case 1:
                 //Lookup a word
-                Service.lookup();
+                entityManager.findEntity();
                 break;
             case 2:
                 //Define new word
-                Service.define();
+                entityManager.addNewEntity();
                 break;
             case 3:
                 //Drop a word
-                Service.drop();
+                entityManager.removeEntity();
                 break;
             case 4:
                 //Export data

@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 public class MainController {
     //File paths
-    private static final String VILLA_FILE_PATH = "src/case_study/data/Villa.csv";
-    private static final String HOUSE_FILE_PATH = "src/case_study/data/House.csv";
-    private static final String ROOM_FILE_PATH = "src/case_study/data/Room.csv";
+    public static final String VILLA_FILE_PATH = "src/case_study/data/Villa.csv";
+    public static final String HOUSE_FILE_PATH = "src/case_study/data/House.csv";
+    public static final String ROOM_FILE_PATH = "src/case_study/data/Room.csv";
 
     //Service managers
     static VillaManager villaManager = new VillaManager();
@@ -131,7 +131,7 @@ public class MainController {
             case 1:
                 //1.Add New Villa
                 villaManager.addNewVillaService();
-                //.writeVillaFile(villaManager.getVillaObjectList());
+                //VillaUtils.writeVillaFile(villaManager.getVillaObjectList());
                 ReaderAndWriter.writeServiceFile(villaManager.getVillaObjectList(), VILLA_FILE_PATH);
                 System.out.println("*** New Villa was written to 'data/Villa.csv' ***");
                 break;
@@ -270,9 +270,10 @@ public class MainController {
 
         System.out.println("OPTION 5 - ADD NEW BOOKING:");
         //show bookings-list BEFORE adding new booking
+        System.out.println("__BEFORE adding new booking__");
         bookingManager.showBookingList();
 
-        customersMapList = bookingManager.getCustomersMapList();
+        customersMapList = bookingManager.getCustomersMapList(customerManager.getCustomerObjectList());
         bookingManager.showCustomersMapList(customersMapList);
         System.out.print("Select customer No.: ");
         int customerNo = Integer.parseInt(sc.nextLine());
@@ -290,7 +291,7 @@ public class MainController {
             switch (option) {
                 case 1:
                     //1.Booking Villa
-                    villasMapList = bookingManager.getVillasMapList();
+                    villasMapList = bookingManager.getVillasMapList(villaManager.getVillaObjectList());
                     bookingManager.showVillasMapList(villasMapList);
                     System.out.print("Select a villa: ");
                     int villaNo = Integer.parseInt(sc.nextLine());
@@ -304,7 +305,7 @@ public class MainController {
 
                 case 2:
                     //2.Booking House
-                    housesMapList = bookingManager.getHousesMapList();
+                    housesMapList = bookingManager.getHousesMapList(houseManager.getHouseObjectList());
                     bookingManager.showHousesMapList(housesMapList);
                     System.out.print("Select a house: ");
                     int houseNo = Integer.parseInt(sc.nextLine());
@@ -318,7 +319,7 @@ public class MainController {
 
                 case 3:
                     //3.Booking Room
-                    roomsMapList = bookingManager.getRoomsMapList();
+                    roomsMapList = bookingManager.getRoomsMapList(roomManager.getRoomObjectList());
                     bookingManager.showRoomsMapList(roomsMapList);
                     System.out.print("Select a room: ");
                     int roomNo = Integer.parseInt(sc.nextLine());
@@ -339,6 +340,7 @@ public class MainController {
             BookingUtils.writeBookingFile(bookingManager.getBookingList());
 
             //show bookings-list again AFTER adding new booking
+            System.out.println("__ AFTER adding new booking __");
             bookingManager.showBookingList();
         } else {
             System.out.println("The customer No." + customerNo + " not found in the list.");

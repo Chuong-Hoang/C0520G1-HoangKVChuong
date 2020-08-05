@@ -59,19 +59,22 @@ public class CinemaCustomers {
                 addCinemaCustomer();
             }
         } else {
-            System.out.println("Customer Id " + customerId + " not found in the data.");
+            System.out.println("Customer with Id " + customerId + " not found in the data.");
         }
     }
 
     //Display cinema customers list
     public void displayCinemaCustomerList() {
         System.out.println("_______________CINEMA CUSTOMERS LIST_____________");
-        System.out.printf("%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
-                "Name", "Birthday", "Gender", "ID_Number", "Phone_Number", "Email", "Customer_Type", "Address",
+        System.out.printf("%-6s%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
+                "No.","Name", "Birthday", "Gender", "ID_Number", "Phone_Number", "Email", "Customer_Type", "Address",
                 "Service_Id", "Service_Name");
 
+        int i = 1;
         for (Customer customer : cinemaCustomerList) {
+            System.out.printf("%-6s", i + ".");
             customer.showInfo();
+            i++;
         }
         System.out.println("--------------- End Cinema_Customers_List --------------");
     }

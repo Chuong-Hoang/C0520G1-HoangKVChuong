@@ -21,7 +21,7 @@ public class Request {
 (+) request có các thuộc tính sau:
 # Action: lưu giữ thông tin action, ví dụ: lookup/define/drop
 # Params: lưu giữ tham số cần thiết khác để thực hiện action
-# Keyword: lưu giữ mục từ (nếu có).
+# Keyword: lưu giữ mục từ (nếu có).//arr--> entities
 
  --> Ví dụ hoàn chỉnh một object request:
 {
@@ -33,12 +33,13 @@ public class Request {
 (+) Tách riêng lớp nhận/hiểu request (gọi là controller) và (các) lớp chức năng (gọi là service).
 (+) Không được sử dụng dữ liệu nguyên thủy mà không bao gói trong đối tượng. Tất cả các dữ liệu như từ,
     định nghĩa, mẫu câu, … đều phải được lưu chứa thành object (gọi là entities).
+    --------------------------------------------------------------------------------------------------
 (+) Lợi dụng kiểu dữ liệu Map để thực hiện lookup.
 (+) Lợi dụng kiểu dữ liệu LinkedList để lưu giữ các entities, nhằm tiện cho việc thêm sửa xóa mục từ mà
     vẫn giữ được thứ tự bảng chữ cái.
-(+) Sử dụng mẫu thiết kế Factory hay Abstract Factory để tạo mới entities.
-(+) Sử dụng mẫu thiết kế Singleton cho service.
-(+) Phải có kiểm thử cho service, sử dụng JUnit.
+//(+) Sử dụng mẫu thiết kế Factory hay Abstract Factory để tạo mới entities.
+//(+) Sử dụng mẫu thiết kế Singleton cho service.
+//(+) Phải có kiểm thử cho service, sử dụng JUnit.
 (+) Tìm cách tái cấu trúc để controller không cần câu lệnh rẽ nhánh để hiểu action (Sử dụng cấu trúc dữ liệu Map).
 
 */

@@ -6,6 +6,7 @@ public class Service {
     //1.Lookup function
     public static void lookup() {
         System.out.println("Option 1: Look-up a word in the dictionary...");
+        //
     }
 
     //2.Define function

@@ -1,6 +1,7 @@
 package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
+import case_study.models.Room;
 import case_study.models.Services;
 import case_study.models.Villa;
 
@@ -209,9 +210,7 @@ public class VillaManager {
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Sw.Pool_Area", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
         for (Services villa : this.getVillaObjectList()) {
-            //if(villa instanceof Villa) {
-                villa.showInfo();
-            //}
+            villa.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . . End Villa List . . . . . . . . . . . . . . . . . . .");
     }

@@ -1,19 +1,16 @@
 package case_study.commons;
+import case_study.controllers.MainController;
 import case_study.models.*;
-import demo.class_and_object.Arr;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderAndWriter {
-    private static List<Services> serviceObjectList = new ArrayList<>();
-
-    // Delimiter used in CSV file
+    // Delimiter used in CSV files
     private static final String COMMA_DELIMITER = ",";
     private static final String NEW_LINE_SEPARATOR = "\n";
 
-    // File header in CSV file
+    // File header in CSV files
     private static final String VILLA_FILE_HEADER = "Id,Service Name,Used Area,Rent Fee,Max People,Rent Type," +
             "Room Standard,Other Utility,Swimming Pool Area,Story Number," +
             "Extra Service Name,Extra Service Unit,Extra Service Price";
@@ -26,8 +23,9 @@ public class ReaderAndWriter {
             "Free Service," +
             "Extra Service Name,Extra Service Unit,Extra Service Price";
 
-    //Read the file;
+    //Read the file
     public static List<Services> readServiceFile(String filePath) {
+        List<Services> serviceObjectList = new ArrayList<>();
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -37,7 +35,7 @@ public class ReaderAndWriter {
                 FileReader  fileReader = new FileReader(csvFile);
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-                //Read the stream
+                /* Read the stream begins here... */
                 Villa outputVilla = null;
                 House outputHouse = null;
                 Room outputRoom = null;
@@ -89,7 +87,7 @@ public class ReaderAndWriter {
                     rentType = serviceStringArray[5];
 
                     //Get private properties for each service
-                    if ("src/case_study/data/Villa.csv".compareTo(filePath) == 0) {
+                    if (MainController.VILLA_FILE_PATH.compareTo(filePath) == 0) {
                         privatePropertyNumber = 4; // Villa
                         roomStandard = serviceStringArray[6];
                         otherUtility = serviceStringArray[7];
@@ -97,14 +95,14 @@ public class ReaderAndWriter {
                         storyNumber = Integer.parseInt(serviceStringArray[9]);
                         outputObject = new Villa(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
                                 roomStandard, otherUtility, swimmingPoolArea, storyNumber);
-                    } else if ("src/case_study/data/House.csv".compareTo(filePath) == 0) {
+                    } else if (MainController.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
                         privatePropertyNumber = 3; // House
                         roomStandard = serviceStringArray[6];
                         otherUtility = serviceStringArray[7];
                         storyNumber = Integer.parseInt(serviceStringArray[8]);
                         outputObject = new House(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
                                 roomStandard, otherUtility, storyNumber);
-                    } else if ("src/case_study/data/Room.csv".compareTo(filePath) == 0) {
+                    } else if (MainController.ROOM_FILE_PATH.compareTo(filePath) == 0) {
                         privatePropertyNumber = 1; // Room
                         freeService = serviceStringArray[6];
                         outputObject = new Room(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
@@ -162,9 +160,9 @@ public class ReaderAndWriter {
             StringBuilder stringBuilder = new StringBuilder();
 
             //Write to stream
-            if ("src/case_study/data/Villa.csv".compareTo(filePath) == 0) {
+            if (MainController.VILLA_FILE_PATH.compareTo(filePath) == 0) {
                 stringBuilder.append(VILLA_FILE_HEADER);
-            } else if ("src/case_study/data/House.csv".compareTo(filePath) == 0) {
+            } else if (MainController.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
                 stringBuilder.append(HOUSE_FILE_HEADER);
             } else {
                 stringBuilder.append(ROOM_FILE_HEADER);

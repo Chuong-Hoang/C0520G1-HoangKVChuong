@@ -200,9 +200,7 @@ public class HouseManager {
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
         for (Services house : this.getHouseObjectList()) {
-            //if(house instanceof House) {
-                house.showInfo();
-            //}
+            house.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . .  End House List . . . . . . . . . . . . . . . . . . .");
     }

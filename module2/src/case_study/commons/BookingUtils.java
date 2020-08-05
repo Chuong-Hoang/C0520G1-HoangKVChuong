@@ -1,17 +1,13 @@
 package case_study.commons;
 import case_study.models.*;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class BookingUtils {
     private static final String BOOKING_PATH_FILE = "src/case_study/data/Booking.csv";
     private static final String COMMA_DELIMITER = ",";
     private static final String NEW_LINE_SEPARATOR = "\n";
-    private static final String SPACE_DELIMITER = " ";
     private static List<Customer> bookingList = new ArrayList<>();
 
     //Create a bookingCsvFile
@@ -20,7 +16,7 @@ public class BookingUtils {
     public static List<Customer> readBookingFile() {
         bookingList.clear();
         if(!bookingCsvFile.exists()) {
-            System.out.println("The booking list is empty...");
+            System.out.println("The file does not exist.");
         } else {
             try {
                 FileReader fileReader = new FileReader(bookingCsvFile.getAbsoluteFile());
@@ -82,9 +78,6 @@ public class BookingUtils {
 
     public static void writeBookingFile(List<Customer> bookingList) {
         try {
-            if (!bookingCsvFile.exists()) {
-                bookingCsvFile.createNewFile();
-            }
             FileWriter fileWriter = new FileWriter(bookingCsvFile.getAbsoluteFile());
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             StringBuilder stringBuilder = new StringBuilder();

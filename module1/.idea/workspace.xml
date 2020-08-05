@@ -2,11 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6073a50d-2dac-4ee0-8027-5076d62b8354" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../module2/src/introduction_to_java/thuc_hanh/HelloClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5_Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/0.CaseStudy1/Requirements/Requirement_5_Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/24.Thi/Cau_4.ChuongTrinhQuanLyCongNhan.html" beforeDir="false" afterPath="$PROJECT_DIR$/24.Thi/Cau_4.ChuongTrinhQuanLyCongNhan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module2/src/james_case_study/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module2/src/james_case_study/EntityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/commons/BookingUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/commons/BookingUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/commons/ReaderAndWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/commons/ReaderAndWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/BookingManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/BookingManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/CinemaCustomers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/CinemaCustomers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/HouseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/HouseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/VillaManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/controllers/VillaManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/data/Booking.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/data/Booking.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/case_study/data/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/case_study/data/Customer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/james_case_study/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/james_case_study/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/out/production/module2/james_case_study/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/out/production/module2/james_case_study/Service.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/commons/BookingUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/commons/BookingUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/commons/ReaderAndWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/commons/ReaderAndWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/controllers/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/controllers/BookingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/controllers/CinemaCustomers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/controllers/CinemaCustomers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/controllers/HouseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/controllers/HouseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/controllers/VillaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/controllers/VillaManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/data/Booking.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/data/Booking.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/case_study/data/Customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/case_study/data/Customer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/james_case_study/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/james_case_study/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/james_case_study/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/james_case_study/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module2/src/james_case_study/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../module2/src/james_case_study/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +177,7 @@
       <workItem from="1593136980241" duration="1745000" />
       <workItem from="1593159700226" duration="322000" />
       <workItem from="1593177956931" duration="590000" />
+      <workItem from="1596549150717" duration="204000" />
     </task>
     <servers />
   </component>
