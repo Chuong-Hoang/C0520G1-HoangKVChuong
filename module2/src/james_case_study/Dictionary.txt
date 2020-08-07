@@ -1,0 +1,5 @@
+Name,Pronounce,Meaning,Word_Class,Synonym
+house,haos,ngôi nhà,noun,residence""apartment""accommodation""sanctuary
+love,lov,tình yêu,noun,affection
+paint,paein,sơn, vẽ, màu sơn
+spirit,spirit,tâm hồn, linh hồn,noun

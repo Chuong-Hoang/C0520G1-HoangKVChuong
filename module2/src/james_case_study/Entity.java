@@ -67,10 +67,18 @@ public class Entity {
 
     @Override
     public String toString() {
-        return "@'" + name + '\'' + "\n" +
+        String info = "@'" + name + '\'' + "\n" +
                 "* Pronoun: /" + pronoun + "/" + "\n" +
                 "* Word Class: " + wordClass + "\n" +
                 "* Meaning: " + meaning + "\n" +
-                "* Synonym: " + Arrays.toString(synonym);
+                "* Synonym: " + "\n";
+                for(int i = 0; i < synonym.length; i++) {
+                    if(synonym[i] != "\"") {
+                        info += "+ " + synonym[i] + "\n";
+                    }
+                }
+
+        return info;
+
     }
 }

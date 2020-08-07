@@ -29,8 +29,8 @@ public class Demo {
             System.out.println(listIterator.previousIndex() + ". " + listIterator.previous());
         }
 
-        //ListIterator can only use for List
-        //Iterator can use for all collection framework(List, Set, Queue, Map)
+        /*______ListIterator can only use for List________*/
+        //Iterator can use for all collection framework(List, Set, Queue)
         Map<Integer, String> myMap = new TreeMap<>();
 
         myMap.put(1, "Hello");

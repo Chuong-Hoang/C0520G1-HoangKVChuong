@@ -1,59 +1,67 @@
 package james_case_study;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EntityManager {
-    private List<Entity> entityList;
+    private Map<String, Entity> entityTreeMap;
 
     public EntityManager() {
-        entityList = new ArrayList<>();
+        entityTreeMap = new TreeMap<>();
     }
 
-    public EntityManager(List<Entity> entityList) {
-        this.entityList = entityList;
+    public EntityManager(Map<String, Entity> entityTreeMap) {
+        this.entityTreeMap = entityTreeMap;
     }
 
-    public List<Entity> getEntityList() {
-        return entityList;
+    public Map<String,Entity> getEntityTreeMap() {
+        return entityTreeMap;
     }
 
-    public void setEntityList(List<Entity> entityList) {
-        this.entityList = entityList;
+    public void setEntityTreeMap(Map<String, Entity> entityTreeMap) {
+        this.entityTreeMap = entityTreeMap;
     }
 
-    /* _________ Manipulation data __________ */
+    /* ____________________________________________ Manipulation data _____________________________________________ */
+
     static Scanner sc = new Scanner(System.in);
     public void addNewEntity() {
         System.out.print("Input new keyword: ");
         String name = sc.nextLine();
+        String pronoun;
+        String meaning;
+        String wordClass;
+        if(this.isAvailableWord(name)) {
+            System.out.println("The keyword '" + name + "' is in the dictionary already.");
+        } else {
 
-        System.out.print("Input its pronounce: ");
-        String pronoun = sc.nextLine();
+            System.out.print("Input its pronounce: ");
+            pronoun = sc.nextLine();
 
-        System.out.print("Input keyword's meaning: ");
-        String meaning = sc.nextLine();
+            System.out.print("Input keyword's meaning: ");
+            meaning = sc.nextLine();
 
-        System.out.print("Input word's class (noun/verb/adverb/adjective/...): ");
-        String wordClass = sc.nextLine();
+            System.out.print("Input word's class (noun/verb/adverb/adjective/prep./...): ");
+            wordClass = sc.nextLine();
 
-        int number = -1;
-        do {
-            System.out.print("How many synonym does this word have? ");
-            number = Integer.parseInt(sc.nextLine());
-        } while (number < 0);
+            int number = -1;
+            do {
+                System.out.print("How many synonym does this word have? ");
+                number = Integer.parseInt(sc.nextLine());
+            } while (number < 0);
 
-        String[] synonym = new String[number];
-        if (number > 0) {
-            for (int i = 0; i < number; i++) {
-                System.out.print("Input synonym " + i + ": ");
-                synonym[i] = sc.nextLine();
+            String[] synonym = new String[number];
+            if (number > 0) {
+                for (int i = 0; i < number; i++) {
+                    System.out.print("Input synonym " + i + ": ");
+                    synonym[i] = sc.nextLine();
+                }
             }
+            Entity entity = new Entity(name, pronoun, meaning, wordClass, synonym);
+            entityTreeMap.put(name, entity);
+
+            //show entity added:
+            System.out.println("...........New word defined...........");
+            System.out.println(entity.toString());
         }
-        Entity entity = new Entity(name, pronoun, meaning, wordClass, synonym);
-        entityList.add(entity);
-        //show entity added:
-        System.out.println(entity.toString());
     }
 
     public void removeEntity() {
@@ -61,11 +69,12 @@ public class EntityManager {
         String dropName = sc.nextLine();
         boolean isFound = false;
         Entity dropEntity = null;
-        for (Entity entity : entityList) {
-            if(dropName.equals(entity.getName())) {
+        for (String name : entityTreeMap.keySet()) {
+            if (dropName.equals(name)) {
                 isFound = true;
-                dropEntity = entity;
+                dropEntity = entityTreeMap.get(name);
                 System.out.println("Keyword '" + dropName + "' found in the dictionary.");
+                System.out.println(dropEntity.toString());
                 break;
             }
         }
@@ -74,7 +83,7 @@ public class EntityManager {
             System.out.print("Drop the keyword '" + dropName + "' out of the dictionary? Yes(1) or No(0)? ");
             int option = Integer.parseInt(sc.nextLine());
             if (option == 1) {
-                entityList.remove(dropEntity);
+                entityTreeMap.remove(dropName);
             } else {
                 System.out.println("No keyword dropped.");
             }
@@ -87,24 +96,35 @@ public class EntityManager {
         System.out.print("Input a keyword: ");
         String findingName = sc.nextLine();
         boolean isFound = false;
-        for (Entity entity : entityList) {
-            if (findingName.equals(entity.getName())) {
+        for (String name : entityTreeMap.keySet()) {
+            if (findingName.equals(name)) {
                 isFound = true;
-                System.out.println("Searching Result:");
                 System.out.println("_________________");
-                System.out.println(entity.toString());
-                System.out.println("_________________________________________________________________________________");
+                System.out.println("Searching Result:");
+                System.out.println(entityTreeMap.get(findingName).toString());
+                System.out.println(". . . . . . . . . . . . . . . . . . . .");
                 break;
             }
         }
 
         if (!isFound) {
-            System.out.println("Keyword " + findingName + " not found in the dictionary. " + "\n" +
+            System.out.print("Keyword " + findingName + " not found in the dictionary. " + "\n" +
                     "Define new word? Yes(1) or No(0)? ");
             int option = Integer.parseInt(sc.nextLine());
             if (option == 1) {
                 addNewEntity();
             }
         }
+    }
+
+    public boolean isAvailableWord(String name) {
+        boolean isFound = false;
+        for (String eachName : entityTreeMap.keySet()) {
+            if (name.compareTo(eachName) == 0) {
+                isFound = true;
+                break;
+            }
+        }
+        return isFound;
     }
 }
