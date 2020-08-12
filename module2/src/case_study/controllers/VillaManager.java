@@ -1,28 +1,27 @@
 package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
-import case_study.models.Room;
-import case_study.models.Services;
+import case_study.models.Service;
 import case_study.models.Villa;
 
 import java.util.*;
 
 public class VillaManager {
-    private List<Services> villaObjectList;
+    private List<Service> villaObjectList;
 
     public VillaManager() {
         villaObjectList = new ArrayList<>();
     }
 
-    public VillaManager(List<Services> villaObjectList) {
+    public VillaManager(List<Service> villaObjectList) {
         this.villaObjectList = villaObjectList;
     }
 
-    public List<Services> getVillaObjectList() {
+    public List<Service> getVillaObjectList() {
         return villaObjectList;
     }
 
-    public void setVillaObjectList(List<Services> villaObjectList) {
+    public void setVillaObjectList(List<Service> villaObjectList) {
         this.villaObjectList = villaObjectList;
     }
 
@@ -209,7 +208,7 @@ public class VillaManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Sw.Pool_Area", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (Services villa : this.getVillaObjectList()) {
+        for (Service villa : this.getVillaObjectList()) {
             villa.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . . End Villa List . . . . . . . . . . . . . . . . . . .");
@@ -217,7 +216,7 @@ public class VillaManager {
 
     public void deleteVillaService(String id) {
         boolean isFound = false;
-        for (Services villa : this.villaObjectList) {
+        for (Service villa : this.villaObjectList) {
             if (id.compareTo(villa.getId()) == 0) {
                 this.villaObjectList.remove(villa);
                 villa.showInfo();
@@ -237,7 +236,7 @@ public class VillaManager {
         String villaName = "";
 
         //get villaName from villaObjectList and add to TreeSet(villaNamesList)
-        for (Services villa : this.villaObjectList) {
+        for (Service villa : this.villaObjectList) {
             villaName = villa.getServiceName();
             villaNamesList.add(villaName);
         }

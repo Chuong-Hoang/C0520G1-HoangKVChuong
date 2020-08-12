@@ -3,27 +3,26 @@ package case_study.controllers;
 import case_study.commons.InputValidation;
 import case_study.models.ExtraService;
 import case_study.models.House;
-import case_study.models.Services;
-import case_study.models.Villa;
+import case_study.models.Service;
 
 import java.util.*;
 
 public class HouseManager {
-    private List<Services> houseObjectList;
+    private List<Service> houseObjectList;
 
     public HouseManager() {
         houseObjectList = new ArrayList<>();
     }
 
-    public HouseManager(List<Services> houseObjectList) {
+    public HouseManager(List<Service> houseObjectList) {
         this.houseObjectList = houseObjectList;
     }
 
-    public List<Services> getHouseObjectList() {
+    public List<Service> getHouseObjectList() {
         return houseObjectList;
     }
 
-    public void setHouseObjectList(List<Services> houseObjectList) {
+    public void setHouseObjectList(List<Service> houseObjectList) {
         this.houseObjectList = houseObjectList;
     }
 
@@ -199,7 +198,7 @@ public class HouseManager {
         System.out.printf("%-12s%-15s%-12s%-14s%-14s%-12s%-12s%-15s%-15s%-21s%-11s%s\n","Service_Id",
                 "Service_Name", "Used_Area", "Rent_Type", "Max_People", "Rent_Fee", "Room_Std.",
                 "Other_Utils", "Story_Number", "Extra_Service_Name", "E.S_Unit", "E.S_Price");
-        for (Services house : this.getHouseObjectList()) {
+        for (Service house : this.getHouseObjectList()) {
             house.showInfo();
         }
         System.out.println(". . . . . . . . . . . . . . . . . .  End House List . . . . . . . . . . . . . . . . . . .");
@@ -207,7 +206,7 @@ public class HouseManager {
 
     public void deleteHouseService(String id) {
         boolean isFound = false;
-        for (Services house : houseObjectList) {
+        for (Service house : houseObjectList) {
             if (id.compareTo(house.getId()) == 0) {
                 houseObjectList.remove(house);
                 house.showInfo();
@@ -227,7 +226,7 @@ public class HouseManager {
 
         //Get house name from houseObjectList and add to TreeSet
         String houseName = "";
-        for (Services house : this.houseObjectList) {
+        for (Service house : this.houseObjectList) {
             houseName = house.getServiceName();
             houseNamesList.add(houseName);
         }

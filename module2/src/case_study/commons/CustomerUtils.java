@@ -1,6 +1,6 @@
 package case_study.commons;
 import case_study.models.Customer;
-import case_study.models.Services;
+import case_study.models.Service;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class CustomerUtils {
                 String email;
                 String customerType;
                 String address;
-                Services services;
+                Service service;
                 Customer outputCustomer = null;
 
                 //Clear customerObjectList before adding new Customer objects

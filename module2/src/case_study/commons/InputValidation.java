@@ -1,7 +1,6 @@
 package case_study.commons;
 import case_study.models.House;
-import case_study.models.Room;
-import case_study.models.Services;
+import case_study.models.Service;
 import case_study.models.Villa;
 import java.util.Calendar;
 import java.util.List;
@@ -10,12 +9,14 @@ import java.util.regex.Matcher;
 
 public class InputValidation {
 
+    //Main Method() for testing
     public static void main(String[] args) {
         //Test
         String birthday = "20/04/1988";
         System.out.println("Birthday Test: " + validateBirthday(birthday));
     }
 
+    //1.Validate Id number
     public static boolean validateIdCard(String idNumber){
         boolean isValid;
         Pattern pattern = Pattern.compile("^(([\\d]{3}\\s){2}[\\d]{3})$");
@@ -23,6 +24,8 @@ public class InputValidation {
         isValid = matcher.matches();
         return isValid;
     }
+
+    //2.Validate Gender
     public static boolean validateGender(String gender) {
         boolean isValid;
         Pattern pattern = Pattern.compile("^(((m|M)(a|A)(l|L)(e|E))|((f|F)(e|E)(m|M)(a|A)(l|L)(e|E))|" +
@@ -32,6 +35,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //3.Validate Email
     public static boolean validateEmail(String email) {
         boolean isValid;
         Pattern pattern = Pattern.compile("^([a-z]+[a-z0-9._]*@[\\w]{2,}.[\\w]{2,})$");
@@ -40,6 +44,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //4.Validate Person Name
     public static boolean validatePersonName(String personName) {
         boolean isValid;
         Pattern pattern = Pattern.compile("^(([A-Z][a-z]+\\s)*[A-Z][a-z]+)$");
@@ -48,9 +53,10 @@ public class InputValidation {
         return isValid;
     }
 
-    public static boolean existServiceId(String serviceId, List<? extends Services> list){
+    //5.Check existing Service Id
+    public static boolean existServiceId(String serviceId, List<? extends Service> list){
         boolean isAvailable = false;
-        for (Services service : list) {
+        for (Service service : list) {
             if(serviceId.compareTo(service.getId()) == 0) {
                 isAvailable = true;
                 break;
@@ -59,7 +65,9 @@ public class InputValidation {
         return  isAvailable;
     }
 
-    public static boolean validateServiceId(Services serviceType, String serviceId) {
+
+    //6.Validate Service Id
+    public static boolean validateServiceId(Service serviceType, String serviceId) {
         boolean isValid = false;
         String serviceCode;
         if (serviceType instanceof Villa) {
@@ -76,6 +84,8 @@ public class InputValidation {
         return isValid;
     }
 
+
+    //7.Validate Service Name
     public static boolean validateServiceName(String serviceName) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^([A-Z][a-z]+)$");
@@ -84,6 +94,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //8.Validate Area ( double >30 m2)
     public static boolean validateArea(String area) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^(30.[\\d]*[1-9]|(3[1-9]|[4-9][\\d]|[1-9][\\d]{2,}).[\\d]+)$");
@@ -92,6 +103,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //9.Validate Rent Fee (double > 0)
     public static boolean validateRentFee(String rentFee) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^(0.[\\d]*[1-9]|[1-9][\\d]*(.[\\d]+)*)$");
@@ -100,6 +112,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //10.Validate Max People Q'ty (< 20 people)
     public static boolean validateMaxPeopleQty(String maxPeopleQty) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^([0]?[1-9]|1[\\d])$");
@@ -108,6 +121,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //11.Validate Extra-Service Name
     public static boolean validateExtraServiceName(String extraServiceName) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^(Massage|Karaoke|Food|Drink|Car)$");
@@ -116,6 +130,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //12.Validate story number
     public static boolean validateStoryNumber(String storyNumber) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^([0]?[1-9]|[1-9][\\d]*)$");
@@ -124,6 +139,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //13.Validate Rent Type
     public static boolean validateRentType(String rentType) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^(Hourly|Daily|Monthly|Yearly)$");
@@ -132,6 +148,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //14.Validate Room Standard
     public static boolean validateRoomStandard(String roomStandard) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^(Vip|Business|Normal)$");
@@ -140,6 +157,7 @@ public class InputValidation {
         return isValid;
     }
 
+    //15.Validate birthday (year > 1900 and > 18 year olds)
     public static boolean validateBirthday(String birthday) {
         boolean isValid = false;
         Pattern pattern = Pattern.compile("^((0[1-9]|[1-2][\\d]|(3[0-1]))/(0[1-9]|1[0-2])/((190[1-9]|19[1-9][\\d])|20[0-9]{2}))$");

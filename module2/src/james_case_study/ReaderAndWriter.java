@@ -1,7 +1,5 @@
 package james_case_study;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -38,7 +36,7 @@ public class ReaderAndWriter {
                     String pronoun = arrayString[1];
                     String meaning = arrayString[2];
                     String wordClass = arrayString[3];
-                    String[] synonym = arrayString[4].split(",");
+                    String[] synonym = arrayString[4].split("\"\"");
                     newEntity = new Entity(name, pronoun, meaning, wordClass, synonym);
                     entityTreeMap.put(name, newEntity);
                 }

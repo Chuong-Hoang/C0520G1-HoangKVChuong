@@ -1,6 +1,6 @@
 package case_study.models;
 
-public class Villa extends Services {
+public class Villa extends Service {
     private String roomStandard;
     private String otherUtility;
     private double swimmingPoolArea;

@@ -38,7 +38,7 @@ public class CustomerManager {
         String email = "";
         String customerType = "";
         String address = "";
-        Services services;
+        Service service;
         Customer customer = null;
 
         Scanner sc = new Scanner(System.in);
@@ -101,7 +101,7 @@ public class CustomerManager {
                 idNumber = sc.nextLine();
                 if (!InputValidation.validateIdCard(idNumber)) {
                     isValid = false;
-                    throw new IdCardException("Id number must have 9 digits and format as XXX XXX XXX.");
+                    throw new IdCardException("Id number must have 9 digits and format as 'XXX XXX XXX'.");
                 }
             } catch (IdCardException ex) {
                 System.out.println(ex);

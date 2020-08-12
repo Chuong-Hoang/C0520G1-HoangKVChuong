@@ -1,4 +1,5 @@
 package james_case_study;
+
 import java.util.*;
 
 public class EntityManager {
@@ -12,7 +13,7 @@ public class EntityManager {
         this.entityTreeMap = entityTreeMap;
     }
 
-    public Map<String,Entity> getEntityTreeMap() {
+    public Map<String, Entity> getEntityTreeMap() {
         return entityTreeMap;
     }
 
@@ -23,45 +24,43 @@ public class EntityManager {
     /* ____________________________________________ Manipulation data _____________________________________________ */
 
     static Scanner sc = new Scanner(System.in);
+
     public void addNewEntity() {
         System.out.print("Input new keyword: ");
         String name = sc.nextLine();
         String pronoun;
         String meaning;
         String wordClass;
-        if(this.isAvailableWord(name)) {
-            System.out.println("The keyword '" + name + "' is in the dictionary already.");
-        } else {
 
-            System.out.print("Input its pronounce: ");
-            pronoun = sc.nextLine();
 
-            System.out.print("Input keyword's meaning: ");
-            meaning = sc.nextLine();
+        System.out.print("Input its pronoun: ");
+        pronoun = sc.nextLine();
 
-            System.out.print("Input word's class (noun/verb/adverb/adjective/prep./...): ");
-            wordClass = sc.nextLine();
+        System.out.print("Input keyword's meaning: ");
+        meaning = sc.nextLine();
 
-            int number = -1;
-            do {
-                System.out.print("How many synonym does this word have? ");
-                number = Integer.parseInt(sc.nextLine());
-            } while (number < 0);
+        System.out.print("Input word's class (noun/verb/adverb/adjective/prep./...): ");
+        wordClass = sc.nextLine();
 
-            String[] synonym = new String[number];
-            if (number > 0) {
-                for (int i = 0; i < number; i++) {
-                    System.out.print("Input synonym " + i + ": ");
-                    synonym[i] = sc.nextLine();
-                }
-            }
-            Entity entity = new Entity(name, pronoun, meaning, wordClass, synonym);
-            entityTreeMap.put(name, entity);
+        int number = -1;
+        do {
+            System.out.print("How many synonym does this word have? ");
+            number = Integer.parseInt(sc.nextLine());
+        } while (number < 0);
 
-            //show entity added:
-            System.out.println("...........New word defined...........");
-            System.out.println(entity.toString());
+        String[] synonym = new String[number];
+
+        for (int i = 0; i < number; i++) {
+            System.out.print("Input synonym " + i + ": ");
+            synonym[i] = sc.nextLine();
         }
+
+        Entity entity = new Entity(name, pronoun, meaning, wordClass, synonym);
+        entityTreeMap.put(name, entity);
+
+        //show entity added:
+        System.out.println("...........New word defined...........");
+        System.out.println(entity.toString());
     }
 
     public void removeEntity() {
@@ -115,16 +114,5 @@ public class EntityManager {
                 addNewEntity();
             }
         }
-    }
-
-    public boolean isAvailableWord(String name) {
-        boolean isFound = false;
-        for (String eachName : entityTreeMap.keySet()) {
-            if (name.compareTo(eachName) == 0) {
-                isFound = true;
-                break;
-            }
-        }
-        return isFound;
     }
 }

@@ -1,5 +1,4 @@
 package case_study.controllers;
-import case_study.commons.*;
 import case_study.models.*;
 import case_study.views.SortingCustomerNames;
 import java.util.*;
@@ -53,14 +52,14 @@ public class BookingManager {
         System.out.println(". . . . . . . . . . . . . . . . End Bookings List . . . . . . . . . . . . . . . . . . .");
     }
 
-    public Map<Integer, Room> getRoomsMapList(List<Services> roomsList) {
+    public Map<Integer, Room> getRoomsMapList(List<Service> roomsList) {
 
         //Clear Map before add new services
         roomsMapList.clear();
 
         //Add room objects into Map
         int i = 1;
-        for (Services room : roomsList) {
+        for (Service room : roomsList) {
             roomsMapList.put(i, (Room) room);
             i++;
         }
@@ -83,13 +82,13 @@ public class BookingManager {
         System.out.println("----------------------------------End Rooms List-----------------------------------");
     }
 
-    public Map<Integer, House> getHousesMapList(List<Services> housesList) {
+    public Map<Integer, House> getHousesMapList(List<Service> housesList) {
         //Clear Map before add new services
         housesMapList.clear();
 
         //Add house objects into Map
         int i = 1;
-        for (Services house : housesList) {
+        for (Service house : housesList) {
             housesMapList.put(i, (House) house);
             i++;
         }
@@ -112,13 +111,13 @@ public class BookingManager {
         System.out.println("----------------------------------End Houses List-----------------------------------");
     }
 
-    public Map<Integer, Villa> getVillasMapList(List<Services> villasList) {
+    public Map<Integer, Villa> getVillasMapList(List<Service> villasList) {
         //Clear Map before add new services
         villasMapList.clear();
 
         //Add villa objects into Map
         int i = 1;
-        for (Services villa : villasList) {
+        for (Service villa : villasList) {
             villasMapList.put(i, (Villa) villa);
             i++;
         }

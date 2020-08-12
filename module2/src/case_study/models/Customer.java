@@ -9,7 +9,7 @@ public class Customer {
     private String email;
     private String customerType;
     private String address;
-    private Services services = new Villa("N/A", "N/A");
+    private Service service = new Villa("N/A", "N/A");
 
     public Customer() {
     }
@@ -17,10 +17,10 @@ public class Customer {
     // Constructor has attribute service <Services>
     public Customer(String name, String birthday, String gender, String idNumber, String phoneNumber,
                     String email, String customerType, String address,
-                    Services services) {
+                    Service service) {
         this(name, birthday, gender, idNumber, phoneNumber,
                 email, customerType, address);
-        this.services = services;
+        this.service = service;
     }
 
     // Constructor DON'T have attribute service
@@ -100,17 +100,17 @@ public class Customer {
         this.address = address;
     }
 
-    public Services getServices() {
-        return services;
+    public Service getService() {
+        return service;
     }
 
-    public void setServices(Services services) {
-        this.services = services;
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public void showInfo() {
         System.out.printf("%-25s%-16s%-12s%-14s%-18s%-20s%-18s%-20s%-15s%s\n",
                 name, birthday, gender, idNumber, phoneNumber, email, customerType, address,
-                this.getServices().getId(), this.getServices().getServiceName());
+                this.getService().getId(), this.getService().getServiceName());
     }
 }

@@ -24,8 +24,8 @@ public class ReaderAndWriter {
             "Extra Service Name,Extra Service Unit,Extra Service Price";
 
     //Read the file
-    public static List<Services> readServiceFile(String filePath) {
-        List<Services> serviceObjectList = new ArrayList<>();
+    public static List<Service> readServiceFile(String filePath) {
+        List<Service> serviceObjectList = new ArrayList<>();
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -39,7 +39,7 @@ public class ReaderAndWriter {
                 Villa outputVilla = null;
                 House outputHouse = null;
                 Room outputRoom = null;
-                Services outputObject = null;
+                Service outputObject = null;
 
                 String[] serviceStringArray;
                 String serviceString;
@@ -148,7 +148,7 @@ public class ReaderAndWriter {
     }
 
     //Write to file
-    public static void writeServiceFile(List<Services> serviceObjectList, String filePath) {
+    public static void writeServiceFile(List<Service> serviceObjectList, String filePath) {
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -172,7 +172,7 @@ public class ReaderAndWriter {
             if (serviceObjectList.isEmpty()) {
                 System.out.println("The list is empty.");
             } else {
-                for (Services service : serviceObjectList) {
+                for (Service service : serviceObjectList) {
                     stringBuilder.append(service.getId());
                     stringBuilder.append(COMMA_DELIMITER);
                     stringBuilder.append(service.getServiceName());

@@ -1,6 +1,6 @@
 package case_study.models;
 
-public class House extends Services {
+public class House extends Service {
     private String roomStandard;
     private String otherUtility;
     //Do not have swimming pool

@@ -72,8 +72,8 @@ public class Entity {
                 "* Word Class: " + wordClass + "\n" +
                 "* Meaning: " + meaning + "\n" +
                 "* Synonym: " + "\n";
-                for(int i = 0; i < synonym.length; i++) {
-                    if(synonym[i] != "\"") {
+                for (int i = 0; i < synonym.length; i++) {
+                    if (synonym[i].compareTo("\"\"") != 0) {
                         info += "+ " + synonym[i] + "\n";
                     }
                 }

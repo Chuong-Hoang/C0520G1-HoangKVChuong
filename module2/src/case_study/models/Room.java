@@ -1,6 +1,6 @@
 package case_study.models;
 
-public class Room extends Services {
+public class Room extends Service {
     private String freeService;
 
     public Room() {}

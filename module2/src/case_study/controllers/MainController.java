@@ -28,15 +28,15 @@ public class MainController {
     // MAIN METHOD()
     public static void main(String[] args) {
         //villaManager.setVillaObjectList(VillaUtils.readVillaFile());
-        List<Services> villaList = ReaderAndWriter.readServiceFile(VILLA_FILE_PATH);
+        List<Service> villaList = ReaderAndWriter.readServiceFile(VILLA_FILE_PATH);
         villaManager.setVillaObjectList(villaList);
 
         //houseManager.setHouseObjectList(HouseUtils.readHouseFile());
-        List<Services> houseList = ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH);
+        List<Service> houseList = ReaderAndWriter.readServiceFile(HOUSE_FILE_PATH);
         houseManager.setHouseObjectList(houseList);
 
         //roomManager.setRoomObjectList(RoomUtils.readRoomFile());
-        List<Services> roomList = ReaderAndWriter.readServiceFile(ROOM_FILE_PATH);
+        List<Service> roomList = ReaderAndWriter.readServiceFile(ROOM_FILE_PATH);
         roomManager.setRoomObjectList(roomList);
 
         List<Customer> customerObjectList = CustomerUtils.readCustomerFile();
@@ -297,7 +297,7 @@ public class MainController {
                     int villaNo = Integer.parseInt(sc.nextLine());
                     if (villasMapList.containsKey(villaNo)) {
                         Villa villa = villasMapList.get(villaNo);
-                        customer.setServices(new Villa(villa.getId(), villa.getServiceName()));
+                        customer.setService(new Villa(villa.getId(), villa.getServiceName()));
                     } else {
                         System.out.println("The villa No." + villaNo + " not found in the data.");
                     }
@@ -311,7 +311,7 @@ public class MainController {
                     int houseNo = Integer.parseInt(sc.nextLine());
                     if (housesMapList.containsKey(houseNo)) {
                         House house = housesMapList.get(houseNo);
-                        customer.setServices(new House(house.getId(), house.getServiceName()));
+                        customer.setService(new House(house.getId(), house.getServiceName()));
                     } else {
                         System.out.println("The house No." + houseNo + " not found in the data.");
                     }
@@ -325,7 +325,7 @@ public class MainController {
                     int roomNo = Integer.parseInt(sc.nextLine());
                     if (roomsMapList.containsKey(roomNo)) {
                         Room room = roomsMapList.get(roomNo);
-                        customer.setServices(new Room(room.getId(), room.getServiceName()));
+                        customer.setService(new Room(room.getId(), room.getServiceName()));
                     } else {
                         System.out.println("The room No." + roomNo + " not found in the data.");
                     }

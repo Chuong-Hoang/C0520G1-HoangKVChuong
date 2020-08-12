@@ -18,17 +18,19 @@ public class HashSetDemo {
         employeeSet.add(e3);
         employeeSet.add(e4);
         employeeSet.add(e5);
+        employeeSet.add(null);
 
         //Show employee set with sorting
         List<Employee> employeeList = new ArrayList<>(employeeSet);
 
-        employeeList.sort(new SortEmployeeId());
+        //employeeList.sort(new SortEmployeeId());
         // this is equivalent to: Collections.sort(employeeList, new SortEmployeeId());
 
         Iterator<Employee> iterator = employeeList.iterator();
         int i = 1;
-        while(iterator.hasNext()) {
-            System.out.println(i + ". " + iterator.next().toString());
+        Employee e;
+        while(iterator.hasNext() && (e = iterator.next()) != null) {
+            System.out.println(i + ". " + e.toString());
             i++;
         }
     }

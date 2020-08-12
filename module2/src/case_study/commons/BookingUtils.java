@@ -60,7 +60,7 @@ public class BookingUtils {
                         serviceObject = new Room(serviceId, serviceName);
                     }
                     outputCustomer = new Customer(name, birthday, gender, idNumber, phoneNumber,
-                            email, customerType, address, (Services) serviceObject);
+                            email, customerType, address, (Service) serviceObject);
 
                     bookingList.add(outputCustomer);
                 }
@@ -100,9 +100,9 @@ public class BookingUtils {
                 stringBuilder.append(COMMA_DELIMITER);
                 stringBuilder.append(customer.getAddress());
                 stringBuilder.append(COMMA_DELIMITER);
-                stringBuilder.append(customer.getServices().getId());
+                stringBuilder.append(customer.getService().getId());
                 stringBuilder.append(COMMA_DELIMITER);
-                stringBuilder.append(customer.getServices().getServiceName());
+                stringBuilder.append(customer.getService().getServiceName());
                 stringBuilder.append(NEW_LINE_SEPARATOR);
             }
             bufferedWriter.append(stringBuilder);
