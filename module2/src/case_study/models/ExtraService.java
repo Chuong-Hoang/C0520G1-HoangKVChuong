@@ -3,15 +3,15 @@ package case_study.models;
 public class ExtraService {
     protected String extraServiceName;
     protected String extraServiceUnit;
-    protected double extraServicePrice;
+    protected String extraServicePrice;
 
     public ExtraService() {
         this.extraServiceName = "N/A";
         this.extraServiceUnit = "N/A";
-        this.extraServicePrice = 0.0;
+        this.extraServicePrice = "N/A";
     }
 
-    public ExtraService(String extraServiceName, String extraServiceUnit, double extraServicePrice) {
+    public ExtraService(String extraServiceName, String extraServiceUnit, String extraServicePrice) {
         this.extraServiceName = extraServiceName;
         this.extraServiceUnit = extraServiceUnit;
         this.extraServicePrice = extraServicePrice;
@@ -33,11 +33,11 @@ public class ExtraService {
         this.extraServiceUnit = extraServiceUnit;
     }
 
-    public double getExtraServicePrice() {
+    public String getExtraServicePrice() {
         return extraServicePrice;
     }
 
-    public void setExtraServicePrice(double extraServicePrice) {
+    public void setExtraServicePrice(String extraServicePrice) {
         this.extraServicePrice = extraServicePrice;
     }
 

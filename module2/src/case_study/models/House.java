@@ -4,14 +4,14 @@ public class House extends Service {
     private String roomStandard;
     private String otherUtility;
     //Do not have swimming pool
-    private int storyNumber;
+    private String storyNumber;
 
     public House() {}
 
     //have extra service
-    public House (String id, String serviceName, double usedArea,
-                  double rentFee, int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, int storyNumber,
+    public House (String id, String serviceName, String usedArea,
+                  String rentFee, String maxPeopleQuantity, String rentType,
+                  String roomStandard, String otherUtility, String storyNumber,
                   ExtraService extraService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType, extraService);
@@ -21,9 +21,9 @@ public class House extends Service {
     }
 
     //Do not have extra service
-    public House (String id, String serviceName, double usedArea, double rentFee,
-                  int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, int storyNumber) {
+    public House (String id, String serviceName, String usedArea, String rentFee,
+                  String maxPeopleQuantity, String rentType,
+                  String roomStandard, String otherUtility, String storyNumber) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.roomStandard = roomStandard;
@@ -52,11 +52,11 @@ public class House extends Service {
         this.otherUtility = otherUtility;
     }
 
-    public int getStoryNumber() {
+    public String getStoryNumber() {
         return storyNumber;
     }
 
-    public void setStoryNumber(int storyNumber) {
+    public void setStoryNumber(String storyNumber) {
         this.storyNumber = storyNumber;
     }
 

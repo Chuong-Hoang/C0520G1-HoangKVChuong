@@ -3,15 +3,15 @@ package case_study.models;
 public class Villa extends Service {
     private String roomStandard;
     private String otherUtility;
-    private double swimmingPoolArea;
-    private int storyNumber;
+    private String swimmingPoolArea;
+    private String storyNumber;
 
     public Villa() {}
 
     //have extra service
-    public Villa (String id, String serviceName, double usedArea,
-                  double rentFee, int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, double swimmingPoolArea, int storyNumber,
+    public Villa (String id, String serviceName, String usedArea,
+                  String rentFee, String maxPeopleQuantity, String rentType,
+                  String roomStandard, String otherUtility, String swimmingPoolArea, String storyNumber,
                   ExtraService extraService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType, extraService);
@@ -22,10 +22,10 @@ public class Villa extends Service {
     }
 
     //Do not have extra service
-    public Villa (String id, String serviceName, double usedArea, double rentFee,
-                  int maxPeopleQuantity, String rentType,
-                  String roomStandard, String otherUtility, double swimmingPoolArea,
-                  int storyNumber) {
+    public Villa (String id, String serviceName, String usedArea, String rentFee,
+                  String maxPeopleQuantity, String rentType,
+                  String roomStandard, String otherUtility, String swimmingPoolArea,
+                  String storyNumber) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.roomStandard = roomStandard;
@@ -55,19 +55,19 @@ public class Villa extends Service {
         this.otherUtility = otherUtility;
     }
 
-    public double getSwimmingPoolArea() {
+    public String getSwimmingPoolArea() {
         return swimmingPoolArea;
     }
 
-    public void setSwimmingPoolArea(double swimmingPoolArea) {
+    public void setSwimmingPoolArea(String swimmingPoolArea) {
         this.swimmingPoolArea = swimmingPoolArea;
     }
 
-    public int getStoryNumber() {
+    public String getStoryNumber() {
         return storyNumber;
     }
 
-    public void setStoryNumber(int storyNumber) {
+    public void setStoryNumber(String storyNumber) {
         this.storyNumber = storyNumber;
     }
 

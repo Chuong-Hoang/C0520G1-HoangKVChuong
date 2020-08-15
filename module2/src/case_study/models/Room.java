@@ -6,8 +6,8 @@ public class Room extends Service {
     public Room() {}
 
     //Constructor has extra service
-    public Room(String id, String serviceName, double usedArea,
-                  double rentFee, int maxPeopleQuantity, String rentType, String freeService,
+    public Room(String id, String serviceName, String usedArea,
+                String rentFee, String maxPeopleQuantity, String rentType, String freeService,
                   ExtraService extraService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType, extraService);
@@ -15,8 +15,8 @@ public class Room extends Service {
     }
 
     //Constructor do not have extra service
-    public Room(String id, String serviceName, double usedArea, double rentFee,
-                  int maxPeopleQuantity, String rentType, String freeService) {
+    public Room(String id, String serviceName, String usedArea, String rentFee,
+                String maxPeopleQuantity, String rentType, String freeService) {
 
         super(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType);
         this.freeService = freeService;

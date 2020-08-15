@@ -50,7 +50,7 @@ public class CustomerManager {
             System.out.print("Input name: ");
             try {
                 name = sc.nextLine();
-                if (!InputValidation.validatePersonName(name)) {
+                if (!Regex.validatePersonName(name)) {
                     isValid = false;
                     throw new NameException("Only the first characters in each word must be uppercase.");
                 }
@@ -65,7 +65,7 @@ public class CustomerManager {
             System.out.print("Input birthday: ");
             try {
                 birthday = sc.nextLine();
-                if (!InputValidation.validateBirthday(birthday)) {
+                if (!Regex.validateBirthday(birthday)) {
                     isValid = false;
                     throw new BirthdayException("Birthday must format as dd/mm/yyyy and yyyy > 1900 and customer year-old" +
                             "must be greater than 18.");
@@ -81,7 +81,7 @@ public class CustomerManager {
             System.out.print("Input gender: ");
             try {
                 gender = sc.nextLine();
-                if (!InputValidation.validateGender(gender)) {
+                if (!Regex.validateGender(gender)) {
                     isValid = false;
                     throw new GenderException("Gender must be 'Male/Female/Unknown.");
                 }
@@ -99,7 +99,7 @@ public class CustomerManager {
             System.out.print("Input idNumber: ");
             try {
                 idNumber = sc.nextLine();
-                if (!InputValidation.validateIdCard(idNumber)) {
+                if (!Regex.validateIdCard(idNumber)) {
                     isValid = false;
                     throw new IdCardException("Id number must have 9 digits and format as 'XXX XXX XXX'.");
                 }
@@ -117,7 +117,7 @@ public class CustomerManager {
             System.out.print("Input email: ");
             try {
                 email = sc.nextLine();
-                if (!InputValidation.validateEmail(email)) {
+                if (!Regex.validateEmail(email)) {
                     isValid = false;
                     throw new EmailException("Email format must be abc@abc.abc");
                 }

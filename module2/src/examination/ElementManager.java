@@ -55,38 +55,38 @@ public class ElementManager {
 
 
         System.out.println(stringA + input);
-        a = Validation.checkName(stringA);
+        a = Regex.checkName(stringA);
 
         System.out.println(stringB + input);
-        b = Validation.checkName(stringB);
+        b = Regex.checkName(stringB);
 
         System.out.println(stringC + input);
-        c = Validation.checkDouble(stringC);
+        c = Regex.checkDouble(stringC);
 
         System.out.println(stringD + input);
-        d = Validation.checkInteger(stringD);
+        d = Regex.checkInteger(stringD);
 
         System.out.println(stringE + input);
-        e = Validation.checkName(stringE);
+        e = Regex.checkName(stringE);
 
         if (option == 1) {
             System.out.println(stringI1 + input);
-            i1 = Validation.checkDouble(stringI1);
+            i1 = Regex.checkDouble(stringI1);
 
             System.out.println(stringI2 + input);
-            i2 = Validation.checkName(stringI2);
+            i2 = Regex.checkName(stringI2);
 
             System.out.println(stringI3 + input);
-            i3 = Validation.checkDouble(stringI3);
+            i3 = Regex.checkDouble(stringI3);
 
             newElement = new ImportProduct(a,b,c,d,e,  i1,i2,i3);
 
         } else {
             System.out.println(stringE1 + input);
-            e1 = Validation.checkDouble(stringE1);
+            e1 = Regex.checkDouble(stringE1);
 
             System.out.println(stringE2 + input);
-            e2 = Validation.checkName(stringE2);
+            e2 = Regex.checkName(stringE2);
 
             newElement = new ExportProduct(a,b,c,d,e,  e1,e2);
         }

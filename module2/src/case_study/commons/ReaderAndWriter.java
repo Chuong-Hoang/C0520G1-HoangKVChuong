@@ -11,21 +11,21 @@ public class ReaderAndWriter {
     private static final String NEW_LINE_SEPARATOR = "\n";
 
     // File header in CSV files
-    private static final String VILLA_FILE_HEADER = "Id,Service Name,Used Area,Rent Fee,Max People,Rent Type," +
-            "Room Standard,Other Utility,Swimming Pool Area,Story Number," +
-            "Extra Service Name,Extra Service Unit,Extra Service Price";
+    private static final String VILLA_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
+            "Room_Standard,Other_Utility,Swimming_Pool_Area,Story_Number," +
+            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
 
-    private static final String HOUSE_FILE_HEADER = "Id,Service Name,Used Area,Rent Fee,Max People,Rent Type," +
-            "Room Standard,Other Utility,Story Number," +
-            "Extra Service Name,Extra Service Unit,Extra Service Price";
+    private static final String HOUSE_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
+            "Room_Standard,Other_Utility,Story_Number," +
+            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
 
-    private static final String ROOM_FILE_HEADER = "Id,Service Name,Used Area,Rent Fee,Max People,Rent Type," +
-            "Free Service," +
-            "Extra Service Name,Extra Service Unit,Extra Service Price";
+    private static final String ROOM_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
+            "Free_Service," +
+            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
 
     //Read the file
-    public static List<Service> readServiceFile(String filePath) {
-        List<Service> serviceObjectList = new ArrayList<>();
+    public static List<Service> readFile(String filePath) {
+        List<Service> elementList = new ArrayList<>();
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -36,106 +36,97 @@ public class ReaderAndWriter {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
 
                 /* Read the stream begins here... */
-                Villa outputVilla = null;
-                House outputHouse = null;
-                Room outputRoom = null;
-                Service outputObject = null;
+                Villa villa = null;
+                House house = null;
+                Room room = null;
+                Service outputElement = null;
 
-                String[] serviceStringArray;
-                String serviceString;
+                String[] elementStringArray = null;
+                String elementString = null;
 
                 //Common properties
-                String id;
-                String serviceName;
-                double usedArea;
-                double rentFee;
-                int maxPeopleQuantity;
-                String rentType;
+                String a, b, c, d, e, f;
 
                 //Properties for villa and house only
-                String roomStandard;
-                String otherUtility;
-                double swimmingPoolArea; // villa only!!!
-                int storyNumber;
+                String vh1, vh2, v3, vh4;
 
                 //Property for room only
-                String freeService;
+                String r1;
 
                 //Properties for Extra Service (Each Service HAS-A)
                 ExtraService extraService;
-                String extraServiceName = "N/A";
-                String extraServiceUnit = "N/A";
-                double extraServicePrice = 0.0;
+                String e1, e2, e3;
 
                 //Number of private properties
                 int privatePropertyNumber = 0;
 
-                //Clear the serviceObjectList before adding new objects
-                serviceObjectList.clear();
+                //Clear the elementList before adding new objects
+                elementList.clear();
 
-                while((serviceString = bufferedReader.readLine()) != null) {
-                    serviceStringArray = serviceString.split(",");
-                    if ("Id".compareTo(serviceStringArray[0]) == 0) {
+                while((elementString = bufferedReader.readLine()) != null) {
+                    elementStringArray = elementString.split(",");
+                    if ("Id".compareTo(elementStringArray[0]) == 0) {
                         continue;
                     }
                     //Get common properties
-                    id = serviceStringArray[0];
-                    serviceName = serviceStringArray[1];
-                    usedArea = Double.parseDouble(serviceStringArray[2]);
-                    rentFee = Double.parseDouble(serviceStringArray[3]);
-                    maxPeopleQuantity = Integer.parseInt(serviceStringArray[4]);
-                    rentType = serviceStringArray[5];
+                    a = elementStringArray[0];
+                    b = elementStringArray[1];
+                    c = elementStringArray[2];
+                    d = elementStringArray[3];
+                    e = elementStringArray[4];
+                    f = elementStringArray[5];
 
                     //Get private properties for each service
                     if (MainController.VILLA_FILE_PATH.compareTo(filePath) == 0) {
+                        //VILLA ONLY
                         privatePropertyNumber = 4; // Villa
-                        roomStandard = serviceStringArray[6];
-                        otherUtility = serviceStringArray[7];
-                        swimmingPoolArea = Double.parseDouble(serviceStringArray[8]); // villa only!!!
-                        storyNumber = Integer.parseInt(serviceStringArray[9]);
-                        outputObject = new Villa(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
-                                roomStandard, otherUtility, swimmingPoolArea, storyNumber);
+                        vh1 = elementStringArray[6];
+                        vh2 = elementStringArray[7];
+                        v3 = elementStringArray[8]; // villa only!!!
+                        vh4 = elementStringArray[9];
+                        outputElement = new Villa(a,b,c,d,e,f,  vh1,vh2,v3,vh4);
+
                     } else if (MainController.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
+                        //HOUSE ONLY
                         privatePropertyNumber = 3; // House
-                        roomStandard = serviceStringArray[6];
-                        otherUtility = serviceStringArray[7];
-                        storyNumber = Integer.parseInt(serviceStringArray[8]);
-                        outputObject = new House(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
-                                roomStandard, otherUtility, storyNumber);
+                        vh1 = elementStringArray[6];
+                        vh2 = elementStringArray[7];
+                        vh4 = elementStringArray[8];
+                        outputElement = new House(a,b,c,d,e,f,  vh1,vh2,vh4);
+
                     } else if (MainController.ROOM_FILE_PATH.compareTo(filePath) == 0) {
+                        //ROOM ONLY
                         privatePropertyNumber = 1; // Room
-                        freeService = serviceStringArray[6];
-                        outputObject = new Room(id, serviceName, usedArea, rentFee, maxPeopleQuantity, rentType,
-                                freeService);
+                        r1 = elementStringArray[6];
+                        outputElement = new Room(a,b,c,d,e,f,  r1);
                     }
 
                     //Get extra service properties
-                    extraServiceName = serviceStringArray[5 + privatePropertyNumber + 1];
-                    extraServiceUnit = serviceStringArray[5 + privatePropertyNumber + 2];
-                    extraServicePrice = Double.parseDouble(serviceStringArray[5 + privatePropertyNumber + 3]);
-                    extraService = new ExtraService(extraServiceName, extraServiceUnit, extraServicePrice);
+                    e1 = elementStringArray[5 + privatePropertyNumber + 1];
+                    e2 = elementStringArray[5 + privatePropertyNumber + 2];
+                    e3 = elementStringArray[5 + privatePropertyNumber + 3];
+                    extraService = new ExtraService(e1,e2,e3);
 
                     switch (privatePropertyNumber) {
                         case 4:
-                            outputVilla = (Villa) outputObject;
-                            outputVilla.setExtraService(extraService);
-                            serviceObjectList.add(outputVilla);
+                            villa = (Villa) outputElement;
+                            villa.setExtraService(extraService);
+                            elementList.add(villa);
                             break;
                         case 3:
-                            outputHouse = (House) outputObject;
-                            outputHouse.setExtraService(extraService);
-                            serviceObjectList.add(outputHouse);
+                            house = (House) outputElement;
+                            house.setExtraService(extraService);
+                            elementList.add(house);
                             break;
                         case 1:
-                            outputRoom = (Room) outputObject;
-                            outputRoom.setExtraService(extraService);
-                            serviceObjectList.add(outputRoom);
+                            room = (Room) outputElement;
+                            room.setExtraService(extraService);
+                            elementList.add(room);
                             break;
                         default:
                             System.out.println("Error...");
                     }
                 }
-
                 //Close the stream
                 fileReader.close();
                 bufferedReader.close();
@@ -144,11 +135,11 @@ public class ReaderAndWriter {
             System.out.println(e);
         }
 
-        return serviceObjectList;
+        return elementList;
     }
 
     //Write to file
-    public static void writeServiceFile(List<Service> serviceObjectList, String filePath) {
+    public static void writeFile(List<Service> elementList, String filePath) {
         File csvFile = new File(filePath);
         try {
             if (!csvFile.exists()) {
@@ -169,49 +160,49 @@ public class ReaderAndWriter {
             }
             stringBuilder.append(NEW_LINE_SEPARATOR);
 
-            if (serviceObjectList.isEmpty()) {
+            if (elementList.isEmpty()) {
                 System.out.println("The list is empty.");
             } else {
-                for (Service service : serviceObjectList) {
-                    stringBuilder.append(service.getId());
+                for (Service element : elementList) {
+                    stringBuilder.append(element.getId());//a
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getServiceName());
+                    stringBuilder.append(element.getServiceName());//b
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getUsedArea());
+                    stringBuilder.append(element.getUsedArea());//c
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getRentFee());
+                    stringBuilder.append(element.getRentFee());//d
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getMaxPeopleQuantity());
+                    stringBuilder.append(element.getMaxPeopleQuantity());//e
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getRentType());
+                    stringBuilder.append(element.getRentType());//f
                     stringBuilder.append(COMMA_DELIMITER);
 
-                    if (service instanceof Villa) {
-                        stringBuilder.append(((Villa) service).getRoomStandard());
+                    if (element instanceof Villa) {
+                        stringBuilder.append(((Villa) element).getRoomStandard());//vh1
                         stringBuilder.append(COMMA_DELIMITER);
-                        stringBuilder.append(((Villa) service).getOtherUtility());
+                        stringBuilder.append(((Villa) element).getOtherUtility());//vh2
                         stringBuilder.append(COMMA_DELIMITER);
-                        stringBuilder.append(((Villa) service).getSwimmingPoolArea());
+                        stringBuilder.append(((Villa) element).getSwimmingPoolArea());//v3
                         stringBuilder.append(COMMA_DELIMITER);
-                        stringBuilder.append(((Villa) service).getStoryNumber());
+                        stringBuilder.append(((Villa) element).getStoryNumber());//vh4
 
-                    } else if (service instanceof House) {
-                        stringBuilder.append(((House) service).getRoomStandard());
+                    } else if (element instanceof House) {
+                        stringBuilder.append(((House) element).getRoomStandard());//vh1
                         stringBuilder.append(COMMA_DELIMITER);
-                        stringBuilder.append(((House) service).getOtherUtility());
+                        stringBuilder.append(((House) element).getOtherUtility());//vh2
                         stringBuilder.append(COMMA_DELIMITER);
-                        stringBuilder.append(((House) service).getStoryNumber());
+                        stringBuilder.append(((House) element).getStoryNumber());//vh4
 
                     } else {
-                        stringBuilder.append(((Room) service).getFreeService());
+                        stringBuilder.append(((Room) element).getFreeService());//r1
                     }
 
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getExtraService().getExtraServiceName());
+                    stringBuilder.append(element.getExtraService().getExtraServiceName());//e1
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getExtraService().getExtraServiceUnit());
+                    stringBuilder.append(element.getExtraService().getExtraServiceUnit());//e2
                     stringBuilder.append(COMMA_DELIMITER);
-                    stringBuilder.append(service.getExtraService().getExtraServicePrice());
+                    stringBuilder.append(element.getExtraService().getExtraServicePrice());//e3
                     stringBuilder.append(NEW_LINE_SEPARATOR);
                 }
             }
