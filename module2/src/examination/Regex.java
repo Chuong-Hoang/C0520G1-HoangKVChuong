@@ -33,7 +33,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("_________ABC is not valid!");
+            System.out.println("-->" + string + " not valid!");
             return checkABC(string); //recursive
         }
     }
@@ -47,7 +47,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Input not valid!");
+            System.out.println("-->" + string + " not valid!");
             return checkName(string);
         }
     }
@@ -61,7 +61,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Integer number is not valid!");
+            System.out.println("-->" + string + " not valid!");
             //..................
             return checkInteger(string);
         }
@@ -76,7 +76,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Double number is not valid!");
+            System.out.println("-->" + string + " not valid!");
             //..................
             return checkDouble(string);
         }
@@ -91,7 +91,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Phone number is not valid!");
+            System.out.println("-->Phone number is not valid!");
             //................
             return checkPhoneNumber();
         }
@@ -106,7 +106,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Email is not valid!");
+            System.out.println("-->Email is not valid!");
             //................
             return checkEmail();
         }
@@ -121,7 +121,7 @@ public class Regex {
         if(matcher.matches()) {
             return input;
         } else {
-            System.out.println("Id number is not valid!");
+            System.out.println("-->Id number is not valid!");
             //................
             return checkIdCard();
         }
@@ -170,8 +170,8 @@ public class Regex {
         if (isValid) {
             return birthday;
         } else {
-            System.out.println("Birthday is not valid. " +
-                    "Age must not be less than 18 and birth of year must be greater than 1900");
+            System.out.println("-->Birthday is not valid. " +
+                    "Age must not be less than 18 and birth of year must be greater than 1900.");
             return checkBirthday();
         }
     }

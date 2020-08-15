@@ -39,54 +39,39 @@ public class ElementManager {
         String a,b,c,d,e,   i1,i2,i3,    e1,e2;
         Product newElement = null;
 
-        //Input for Variables here***********************
-        String stringA = "Code";
-        String stringB = "Name";
-        String stringC = "Price";
-        String stringD = "Quantity";
-        String stringE = "Provider";
-        String stringI1 = "Import_Price";
-        String stringI2 = "Import_Province";
-        String stringI3 = "Import_Tax";
-        String stringE1 = "Export_Price";
-        String stringE2 = "Buying_Country";
-        String input = ": Input below -->";
-        //End here*************************
+        System.out.println(Constant.STR_A + Constant.INPUT);
+        a = Regex.checkName(Constant.STR_A);
 
+        System.out.println(Constant.STR_B + Constant.INPUT);
+        b = Regex.checkName(Constant.STR_B);
 
-        System.out.println(stringA + input);
-        a = Regex.checkName(stringA);
+        System.out.println(Constant.STR_C + Constant.INPUT);
+        c = Regex.checkDouble(Constant.STR_C);
 
-        System.out.println(stringB + input);
-        b = Regex.checkName(stringB);
+        System.out.println(Constant.STR_D + Constant.INPUT);
+        d = Regex.checkInteger(Constant.STR_D);
 
-        System.out.println(stringC + input);
-        c = Regex.checkDouble(stringC);
-
-        System.out.println(stringD + input);
-        d = Regex.checkInteger(stringD);
-
-        System.out.println(stringE + input);
-        e = Regex.checkName(stringE);
+        System.out.println(Constant.STR_E + Constant.INPUT);
+        e = Regex.checkName(Constant.STR_E);
 
         if (option == 1) {
-            System.out.println(stringI1 + input);
-            i1 = Regex.checkDouble(stringI1);
+            System.out.println(Constant.STR_I1 + Constant.INPUT);
+            i1 = Regex.checkDouble(Constant.STR_I1);
 
-            System.out.println(stringI2 + input);
-            i2 = Regex.checkName(stringI2);
+            System.out.println(Constant.STR_I2 + Constant.INPUT);
+            i2 = Regex.checkName(Constant.STR_I2);
 
-            System.out.println(stringI3 + input);
-            i3 = Regex.checkDouble(stringI3);
+            System.out.println(Constant.STR_I3 + Constant.INPUT);
+            i3 = Regex.checkDouble(Constant.STR_I3);
 
             newElement = new ImportProduct(a,b,c,d,e,  i1,i2,i3);
 
         } else {
-            System.out.println(stringE1 + input);
-            e1 = Regex.checkDouble(stringE1);
+            System.out.println(Constant.STR_E1 + Constant.INPUT);
+            e1 = Regex.checkDouble(Constant.STR_E1);
 
-            System.out.println(stringE2 + input);
-            e2 = Regex.checkName(stringE2);
+            System.out.println(Constant.STR_E2 + Constant.INPUT);
+            e2 = Regex.checkName(Constant.STR_E2);
 
             newElement = new ExportProduct(a,b,c,d,e,  e1,e2);
         }
@@ -101,7 +86,7 @@ public class ElementManager {
         //show new element added
         System.out.println(newElement.toString());
         elementList.add(newElement);
-        System.out.println("Element name '" + b + "' has been added.");
+        System.out.println(Constant.NEW_ELEMENT_ADDED);
     }
 
     //delete
@@ -111,10 +96,12 @@ public class ElementManager {
         boolean isFound = false;
         Product removedElement = null;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot delete any element. The list is empty.");
+            System.out.println(Constant.CANNOT_DELETE_ELEMENT);
         } else {
             for (Product element : this.getElementList()) {
                 if (id == element.getId()) {
+                    System.out.println(Constant.RESULT);
+                    System.out.println(removedElement.toString());
                     removedElement = element;
                     isFound = true;
                     break;
@@ -122,10 +109,10 @@ public class ElementManager {
             }
 
             if (!isFound) {
-                System.out.println("Element with Id '" + id + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             } else {
-                System.out.print("Delete element name '" + removedElement.getName() + "'? Yes(1) or No(0)? ");
-                if (Integer.parseInt(sc.nextLine()) == 1) {
+                System.out.print(Constant.DELETE_OR_NOT);
+                if (Constant.YES.compareTo(sc.nextLine().toLowerCase()) == 0) {
                     elementList.remove(removedElement);
 
                     //*******************************Reset all ID
@@ -134,9 +121,8 @@ public class ElementManager {
                         element.setId(i);
                         i++;
                     }
-
                 } else {
-                    System.out.println("No element deleted.");
+                    System.out.println(Constant.NO_ELEMENT_DELETED);
                 }
             }
         }
@@ -148,31 +134,30 @@ public class ElementManager {
         String code = sc.nextLine();
         boolean isFound = false;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot find any element. The list is empty.");
+            System.out.println(Constant.CANNOT_FIND_ELEMENT);
         } else {
             for (Product element : this.getElementList()) {
                 if (code.compareTo(element.getCode()) == 0) {
-                    System.out.println("Element found:");
+                    System.out.println(Constant.RESULT);
                     System.out.println(element.toString());
                     isFound = true;
                     break;
                 }
             }
-
             if (!isFound) {
-                System.out.println("Element code '" + code + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             }
         }
     }
 
     //display list
     public void displayAllList() {
-        System.out.println("________________________ Elements list __________________________");
+        System.out.println(Constant.LIST_BEGUN);
 
         for (Product element : this.getElementList()) {
             System.out.println(element.toString());
         }
-        System.out.println("........................... End list ..............................");
+        System.out.println(Constant.LIST_ENDED);
     }
 
     public void findRelativeElement() {
@@ -180,9 +165,9 @@ public class ElementManager {
         String name = sc.nextLine().toLowerCase();
         boolean isFound = false;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot find any element. The list is empty.");
+            System.out.println(Constant.CANNOT_FIND_ELEMENT);
         } else {
-            System.out.println("Result:");
+            System.out.println(Constant.RESULT);
             for (Product element : this.getElementList()) {
                 if (element.getName().toLowerCase().contains(name)) {
                     System.out.println(element.toString());
@@ -191,7 +176,7 @@ public class ElementManager {
             }
 
             if (!isFound) {
-                System.out.println("Element name with character '" + name + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             }
         }
     }

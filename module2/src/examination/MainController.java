@@ -9,6 +9,10 @@ public class MainController {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        //read file in the main method()
+        elementManager.setElementList(FileUtility.readFile());
+
+        //show main menu
         showMainMenu();
     }
 
@@ -25,9 +29,6 @@ public class MainController {
         System.out.println("____________________________");
         System.out.print("Select an option: ");
         int option = Integer.parseInt(sc.nextLine());
-
-        //read file here
-        elementManager.setElementList(FileUtility.readFile());
 
         switch(option) {
             case 1:

@@ -34,44 +34,29 @@ public class ElementManager {
         String a, b, c, d, e, e1, e2;
         Contact newElement = null;
 
-        //Input for Variables here***********************
-        String stringA = "Phone_Number";
-        String stringB = "Group";
-        String stringC = "Full_Name";
-        String stringD = "Gender";
-        String stringE = "Address";
-
-        String stringE1 = "Birthday";
-        String stringE2 = "Email";
-
-        String input = ": Input as below -->";
-        //End here*************************
-
-
-        System.out.println(stringA + input);
+        System.out.println(Constant.STR_E2 + Constant.INPUT);
         a = Validation.checkPhoneNumber();
-
         if (checkExistingNumber(a)) {
-            System.out.println("This number is already in the list. Please input another number.");
+            System.out.println(Constant.ELEMENT_ALREADY_EXISTS);
             addNewElement();
         } else {
 
-            System.out.println(stringB + input);
-            b = Validation.checkName(stringB);
+            System.out.println(Constant.STR_B + Constant.INPUT);
+            b = Validation.checkName(Constant.STR_B);
 
-            System.out.println(stringC + input);
-            c = Validation.checkName(stringC);
+            System.out.println(Constant.STR_C + Constant.INPUT);
+            c = Validation.checkName(Constant.STR_C);
 
-            System.out.println(stringD + input);
-            d = Validation.checkName(stringD);
+            System.out.println(Constant.STR_D + Constant.INPUT);
+            d = Validation.checkName(Constant.STR_D);
 
-            System.out.println(stringE + input);
-            e = Validation.checkName(stringE);
+            System.out.println(Constant.STR_E + Constant.INPUT);
+            e = Validation.checkName(Constant.STR_E);
 
-            System.out.println(stringE1 + input);
+            System.out.println(Constant.STR_E1 + Constant.INPUT);
             e1 = Validation.checkBirthday();
 
-            System.out.println(stringE2 + input);
+            System.out.println(Constant.STR_E2 + Constant.INPUT);
             e2 = Validation.checkEmail();
 
             newElement = new Contact(a, b, c, d, e, e1, e2);
@@ -79,7 +64,7 @@ public class ElementManager {
             //show new element added
             System.out.println(newElement.toString());
             elementList.add(newElement);
-            System.out.println("Element number '" + a + "' has been added.");
+            System.out.println(Constant.NEW_ELEMENT_ADDED);
         }
     }
 
@@ -90,7 +75,7 @@ public class ElementManager {
         boolean isFound = false;
         Contact updatedElement = null;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot find any element. The list is empty.");
+            System.out.println(Constant.CANNOT_FIND_ELEMENT);
         } else {
             for (Contact element : this.getElementList()) {
                 if (number.compareTo(element.getPhoneNumber()) == 0) {
@@ -102,32 +87,19 @@ public class ElementManager {
             }
 
             if (!isFound) {
-                System.out.println("Element with number '" + number + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             } else {
                 String a, b, c, d, e, e1, e2;
                 //Input for Variables here***********************
-                String stringA = "Phone_Number";
-                String stringB = "Group";
-                String stringC = "Full_Name";
-                String stringD = "Gender";
-                String stringE = "Address";
-
-                String stringE1 = "Birthday";
-                String stringE2 = "Email";
-
-                String input = ": Input New Information -->";
-                //End here***************************************
-
-                String update = ".Update ";
 
                 System.out.println("_____Update Information_____");
-                System.out.println(1 + update + stringA);
-                System.out.println(2 + update + stringB);
-                System.out.println(3 + update + stringC);
-                System.out.println(4 + update + stringD);
-                System.out.println(5 + update + stringE);
-                System.out.println(6 + update + stringE1);
-                System.out.println(7 + update + stringE2);
+                System.out.println(1 + Constant.UPDATE + Constant.STR_A);
+                System.out.println(2 + Constant.UPDATE + Constant.STR_B);
+                System.out.println(3 + Constant.UPDATE + Constant.STR_C);
+                System.out.println(4 + Constant.UPDATE + Constant.STR_D);
+                System.out.println(5 + Constant.UPDATE + Constant.STR_E);
+                System.out.println(6 + Constant.UPDATE + Constant.STR_E1);
+                System.out.println(7 + Constant.UPDATE + Constant.STR_E2);
                 System.out.println("0.Back to main menu");
                 System.out.println("............................");
                 System.out.print("=>Select an option: ");
@@ -136,11 +108,10 @@ public class ElementManager {
                 switch (option) {
                     case 1:
                         //Update a
-                        System.out.println(stringA + input);
+                        System.out.println(Constant.STR_A + Constant.RE_INPUT);
                         a = Validation.checkPhoneNumber();
-
                         if (checkExistingNumber(a)) {
-                            System.out.println("This number is already in the list...");
+                            System.out.println(Constant.ELEMENT_ALREADY_EXISTS);
                             updateAnElement();
                         } else {
                             updatedElement.setPhoneNumber(a);
@@ -148,38 +119,38 @@ public class ElementManager {
                         break;
                     case 2:
                         //Update b
-                        System.out.println(stringB + input);
-                        b = Validation.checkName(stringB);
+                        System.out.println(Constant.STR_B + Constant.RE_INPUT);
+                        b = Validation.checkName(Constant.STR_B);
                         updatedElement.setGroup(b);
                         break;
                     case 3:
                         //Update c
-                        System.out.println(stringC + input);
-                        c = Validation.checkName(stringC);
+                        System.out.println(Constant.STR_C + Constant.RE_INPUT);
+                        c = Validation.checkName(Constant.STR_C);
                         updatedElement.setFullName(c);
                         //c
                         break;
                     case 4:
                         //Update d
-                        System.out.println(stringD + input);
-                        d = Validation.checkName(stringD);
+                        System.out.println(Constant.STR_D + Constant.RE_INPUT);
+                        d = Validation.checkName(Constant.STR_D);
                         updatedElement.setGender(d);
                         break;
                     case 5:
                         //Update e
-                        System.out.println(stringE + input);
-                        e = Validation.checkName(stringE);
+                        System.out.println(Constant.STR_E + Constant.RE_INPUT);
+                        e = Validation.checkName(Constant.STR_E);
                         updatedElement.setAddress(e);
                         break;
                     case 6:
                         //Update e1
-                        System.out.println(stringE1 + input);
+                        System.out.println(Constant.STR_E1 + Constant.RE_INPUT);
                         e1 = Validation.checkBirthday();
                         updatedElement.setBirthday(e1);
                         break;
                     case 7:
                         //Update e2
-                        System.out.println(stringE2 + input);
+                        System.out.println(Constant.STR_E2 + Constant.RE_INPUT);
                         e2 = Validation.checkEmail();
                         updatedElement.setEmail(e2);
                         break;
@@ -189,7 +160,7 @@ public class ElementManager {
                         break;
                 }
                 //Show after update
-                System.out.println("New update:");
+                System.out.println(Constant.RESULT_UPDATE);
                 System.out.println(updatedElement.toString());
             }
         }
@@ -202,24 +173,25 @@ public class ElementManager {
         boolean isFound = false;
         Contact removedElement = null;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot delete any element. The list is empty.");
+            System.out.println(Constant.CANNOT_DELETE_ELEMENT);
         } else {
             for (Contact element : this.getElementList()) {
                 if (number.compareTo(element.getPhoneNumber()) == 0) {
                     removedElement = element;
+                    System.out.println(removedElement.toString());
                     isFound = true;
                     break;
                 }
             }
 
             if (!isFound) {
-                System.out.println("Element with number '" + number + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             } else {
-                System.out.print("Delete element number '" + number + "'? Yes(y) or No(n)? ");
-                if ("Y".toLowerCase().compareTo(sc.nextLine()) == 0) {
+                System.out.print(Constant.DELETE_OR_NOT);
+                if (Constant.YES.compareTo(sc.nextLine().toLowerCase()) == 0) {
                     elementList.remove(removedElement);
                 } else {
-                    System.out.println("No element deleted.");
+                    System.out.println(Constant.NO_ELEMENT_DELETED);
                 }
             }
         }
@@ -231,9 +203,9 @@ public class ElementManager {
         String name = sc.nextLine().toLowerCase();
         boolean isFound = false;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot find any element. The list is empty.");
+            System.out.println(Constant.CANNOT_FIND_ELEMENT);
         } else {
-            System.out.println("Result:");
+            System.out.println(Constant.RESULT);
             for (Contact element : this.getElementList()) {
                 if (element.getFullName().toLowerCase().contains(name)) {
                     System.out.println(element.toString());
@@ -241,16 +213,15 @@ public class ElementManager {
                     //break;
                 }
             }
-
             if (!isFound) {
-                System.out.println("Element name '" + name + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             }
         }
     }
 
     //display list
     public void displayAllList() {
-        System.out.println("________________________ Elements list __________________________");
+        System.out.println(Constant.LIST_BEGUN);
 
         int i = 1;
         for (Contact element : this.getElementList()) {
@@ -258,7 +229,7 @@ public class ElementManager {
             System.out.println(element.toString());
             i++;
         }
-        System.out.println("........................... End list ..............................");
+        System.out.println(Constant.LIST_ENDED);
     }
 
     public void findRelativeElement() {
@@ -266,9 +237,9 @@ public class ElementManager {
         String number = sc.nextLine();
         boolean isFound = false;
         if (elementList.isEmpty()) {
-            System.out.println("Cannot find any element. The list is empty.");
+            System.out.println(Constant.CANNOT_FIND_ELEMENT);
         } else {
-            System.out.println("Result:");
+            System.out.println(Constant.RESULT);
             for (Contact element : this.getElementList()) {
                 if (element.getPhoneNumber().contains(number)) {
                     System.out.println(element.toString());
@@ -277,7 +248,7 @@ public class ElementManager {
             }
 
             if (!isFound) {
-                System.out.println("Element number '" + number + "' NOT found in the list.");
+                System.out.println(Constant.ELEMENT_NOT_FOUND);
             }
         }
     }

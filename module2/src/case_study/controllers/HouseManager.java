@@ -1,6 +1,7 @@
 package case_study.controllers;
 
 import case_study.commons.Regex;
+import case_study.models.Constant;
 import case_study.models.ExtraService;
 import case_study.models.House;
 import case_study.models.Service;
@@ -45,11 +46,11 @@ public class HouseManager {
 
         //Input serviceId
         do {
-            System.out.print(Service.input + Service.strA);
+            System.out.print(Constant.INPUT + Constant.STR_A);
             a = sc.nextLine();
             isValid = Regex.validateServiceId(newElement, a);
             if (!isValid) {
-                System.out.println(Service.idHouseNotValid);
+                System.out.println(Constant.ID_HOUSE_INVALID);
             } else {
                 isExisted = Regex.existServiceId(a, elementList);
                 if (isExisted) {
@@ -60,66 +61,66 @@ public class HouseManager {
 
         //Input service name
         do {
-            System.out.print(Service.input + Service.strB);
+            System.out.print(Constant.INPUT + Constant.STR_B);
             b = sc.nextLine();
             isValid = Regex.validateServiceName(b);
             if (!isValid) {
-                System.out.println(Service.nameNotValid);
+                System.out.println(Constant.NAME_INVALID);
             }
         } while (!isValid);
 
         //Input used area
         do {
-            System.out.print(Service.input + Service.strC);
+            System.out.print(Constant.INPUT + Constant.STR_C);
             c = sc.nextLine();
             isValid = Regex.validateArea(c);
             if (!isValid) {
-                System.out.println(Service.areaNotValid);
+                System.out.println(Constant.AREA_INVALID);
             }
         } while(!isValid);
 
         //Input rent type
         do {
-            System.out.print(Service.input + Service.strD);
+            System.out.print(Constant.INPUT + Constant.STR_D);
             d = sc.nextLine();
             isValid = Regex.validateRentType(d);
             if (!isValid) {
-                System.out.println(Service.rentTypeNotValid);
+                System.out.println(Constant.RENT_TYPE_INVALID);
             }
         } while(!isValid);
 
         //Input max people quantity
         do {
-            System.out.print(Service.input + Service.strE);
+            System.out.print(Constant.INPUT + Constant.STR_E);
             e = sc.nextLine();
             isValid = Regex.validateMaxPeopleQty(e);
             if (!isValid) {
-                System.out.println(Service.maxQtyNotValid);
+                System.out.println(Constant.MAX_QTY_INVALID);
             }
         } while(!isValid);
 
         //Input rent fee
         do {
-            System.out.print(Service.input + Service.strF);
+            System.out.print(Constant.INPUT + Constant.STR_F);
             f = sc.nextLine();
             isValid = Regex.validateRentFee(f);
             if (!isValid) {
-                System.out.println(Service.rentFeeNotValid);
+                System.out.println(Constant.RENT_FEE_INVALID);
             }
         } while(!isValid);
 
         //Add private information for HOUSE only
         //Input room standard
         do {
-            System.out.print(Service.input + Service.strVH1);
+            System.out.print(Constant.INPUT + Constant.STR_VH1);
             vh1 = sc.nextLine();
             isValid = Regex.validateRoomStandard(vh1);
             if (!isValid) {
-                System.out.println(Service.roomStandardNotValid);
+                System.out.println(Constant.ROOM_STANDARD_INVALID);
             }
         } while(!isValid);
 
-        System.out.print(Service.input + Service.strVH2);
+        System.out.print(Constant.INPUT + Constant.STR_VH2);
         option = Integer.parseInt(sc.nextLine());
         switch (option) {
             case 1: vh2 = "Free Laundry"; break;
@@ -131,11 +132,11 @@ public class HouseManager {
 
         //Input story number
         do {
-            System.out.print(Service.input + Service.strVH4);
+            System.out.print(Constant.INPUT + Constant.STR_VH4);
             vh4 = sc.nextLine();
             isValid = Regex.validateStoryNumber(vh4);
             if (!isValid) {
-                System.out.println(Service.storyNumberNotValid);
+                System.out.println(Constant.STORY_NUMBER_INVALID);
             }
         } while(!isValid);
 
@@ -145,15 +146,15 @@ public class HouseManager {
             System.out.println("__Input extra service information__");
 
             do {
-                System.out.print(Service.input + Service.strE1);
+                System.out.print(Constant.INPUT + Constant.STR_E1);
                 e1 = sc.nextLine();
                 isValid = Regex.validateExtraServiceName(e1);
                 if (!isValid) {
-                    System.out.println(Service.nameNotValid);
+                    System.out.println(Constant.NAME_INVALID);
                 }
             } while(!isValid);
 
-            System.out.print(Service.input + Service.strE2);
+            System.out.print(Constant.INPUT + Constant.STR_E2);
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1: e2 = "Hour"; break;
@@ -163,7 +164,7 @@ public class HouseManager {
                 default: e2 = "N/A";
             }
 
-            System.out.print(Service.input + Service.strE3);
+            System.out.print(Constant.INPUT + Constant.STR_E3);
             option = Integer.parseInt(sc.nextLine());
             switch (option) {
                 case 1: e3 = "50.0"; break;

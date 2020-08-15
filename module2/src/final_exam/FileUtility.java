@@ -5,12 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtility {
-    private static final String FILE_PATH = "src/final_exam/Contact.csv";
-    private static final String COMMA_DELIMITER = ",";
-    private static final String NEW_LINE_SEPARATOR = "\n";
 
     //Create file
-    static File csvFile = new File(FILE_PATH);
+    static File csvFile = new File(Constant.FILE_PATH);
 
     //Read the file
     public static List<Contact> readFile() {
@@ -18,7 +15,7 @@ public class FileUtility {
 
         try {
             if (!csvFile.exists()) {
-                throw new FileNotFoundException("File does not exist.");
+                throw new FileNotFoundException(Constant.FILE_NOT_FOUND);
             } else {
                 //Create a stream and link to source
                 FileReader fileReader = new FileReader(csvFile);
@@ -33,7 +30,7 @@ public class FileUtility {
                 Contact outputElement = null;
 
                 while ((outputString = bufferedReader.readLine()) != null) {
-                    outputStringArray = outputString.split(",");
+                    outputStringArray = outputString.split(Constant.COMMA);
 
                     if (outputStringArray.length > 1) {
                         a = outputStringArray[0];
@@ -69,39 +66,25 @@ public class FileUtility {
             StringBuilder stringBuilder = new StringBuilder();
 
             if (elementList.isEmpty()) {
-                System.out.println("The list is empty. Please add new object...");
+                System.out.println(Constant.LIST_IS_EMPTY);
             } else {
 
                 //write to the stream
                 for (Contact element : elementList) {
-
                     stringBuilder.append(element.getPhoneNumber());//a
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getGroup()); //b
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getFullName()); //c
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getGender());//d
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getAddress());//e
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getBirthday());//e1
-
-                    stringBuilder.append(COMMA_DELIMITER);
-
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getEmail());//e2
-
-                    stringBuilder.append(NEW_LINE_SEPARATOR);
+                    stringBuilder.append(Constant.NEW_LINE);
                 }
 
                 bufferedWriter.append(stringBuilder);

@@ -1,27 +1,11 @@
 package case_study.commons;
-import case_study.controllers.MainController;
 import case_study.models.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderAndWriter {
-    // Delimiter used in CSV files
-    private static final String COMMA_DELIMITER = ",";
-    private static final String NEW_LINE_SEPARATOR = "\n";
 
-    // File header in CSV files
-    private static final String VILLA_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
-            "Room_Standard,Other_Utility,Swimming_Pool_Area,Story_Number," +
-            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
-
-    private static final String HOUSE_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
-            "Room_Standard,Other_Utility,Story_Number," +
-            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
-
-    private static final String ROOM_FILE_HEADER = "Id,Service_Name,Used_Area,Rent_Fee,Max_People,Rent_Type," +
-            "Free_Service," +
-            "Extra_Service_Name,Extra_Service_Unit,Extra_Service_Price";
 
     //Read the file
     public static List<Service> readFile(String filePath) {
@@ -77,7 +61,7 @@ public class ReaderAndWriter {
                     f = elementStringArray[5];
 
                     //Get private properties for each service
-                    if (MainController.VILLA_FILE_PATH.compareTo(filePath) == 0) {
+                    if (Constant.VILLA_FILE_PATH.compareTo(filePath) == 0) {
                         //VILLA ONLY
                         privatePropertyNumber = 4; // Villa
                         vh1 = elementStringArray[6];
@@ -86,7 +70,7 @@ public class ReaderAndWriter {
                         vh4 = elementStringArray[9];
                         outputElement = new Villa(a,b,c,d,e,f,  vh1,vh2,v3,vh4);
 
-                    } else if (MainController.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
+                    } else if (Constant.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
                         //HOUSE ONLY
                         privatePropertyNumber = 3; // House
                         vh1 = elementStringArray[6];
@@ -94,7 +78,7 @@ public class ReaderAndWriter {
                         vh4 = elementStringArray[8];
                         outputElement = new House(a,b,c,d,e,f,  vh1,vh2,vh4);
 
-                    } else if (MainController.ROOM_FILE_PATH.compareTo(filePath) == 0) {
+                    } else if (Constant.ROOM_FILE_PATH.compareTo(filePath) == 0) {
                         //ROOM ONLY
                         privatePropertyNumber = 1; // Room
                         r1 = elementStringArray[6];
@@ -151,59 +135,59 @@ public class ReaderAndWriter {
             StringBuilder stringBuilder = new StringBuilder();
 
             //Write to stream
-            if (MainController.VILLA_FILE_PATH.compareTo(filePath) == 0) {
-                stringBuilder.append(VILLA_FILE_HEADER);
-            } else if (MainController.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
-                stringBuilder.append(HOUSE_FILE_HEADER);
+            if (Constant.VILLA_FILE_PATH.compareTo(filePath) == 0) {
+                stringBuilder.append(Constant.VILLA_FILE_HEADER);
+            } else if (Constant.HOUSE_FILE_PATH.compareTo(filePath) == 0) {
+                stringBuilder.append(Constant.HOUSE_FILE_HEADER);
             } else {
-                stringBuilder.append(ROOM_FILE_HEADER);
+                stringBuilder.append(Constant.ROOM_FILE_HEADER);
             }
-            stringBuilder.append(NEW_LINE_SEPARATOR);
+            stringBuilder.append(Constant.NEW_LINE);
 
             if (elementList.isEmpty()) {
                 System.out.println("The list is empty.");
             } else {
                 for (Service element : elementList) {
                     stringBuilder.append(element.getId());//a
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getServiceName());//b
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getUsedArea());//c
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getRentFee());//d
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getMaxPeopleQuantity());//e
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getRentType());//f
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
 
                     if (element instanceof Villa) {
                         stringBuilder.append(((Villa) element).getRoomStandard());//vh1
-                        stringBuilder.append(COMMA_DELIMITER);
+                        stringBuilder.append(Constant.COMMA);
                         stringBuilder.append(((Villa) element).getOtherUtility());//vh2
-                        stringBuilder.append(COMMA_DELIMITER);
+                        stringBuilder.append(Constant.COMMA);
                         stringBuilder.append(((Villa) element).getSwimmingPoolArea());//v3
-                        stringBuilder.append(COMMA_DELIMITER);
+                        stringBuilder.append(Constant.COMMA);
                         stringBuilder.append(((Villa) element).getStoryNumber());//vh4
 
                     } else if (element instanceof House) {
                         stringBuilder.append(((House) element).getRoomStandard());//vh1
-                        stringBuilder.append(COMMA_DELIMITER);
+                        stringBuilder.append(Constant.COMMA);
                         stringBuilder.append(((House) element).getOtherUtility());//vh2
-                        stringBuilder.append(COMMA_DELIMITER);
+                        stringBuilder.append(Constant.COMMA);
                         stringBuilder.append(((House) element).getStoryNumber());//vh4
 
                     } else {
                         stringBuilder.append(((Room) element).getFreeService());//r1
                     }
 
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getExtraService().getExtraServiceName());//e1
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getExtraService().getExtraServiceUnit());//e2
-                    stringBuilder.append(COMMA_DELIMITER);
+                    stringBuilder.append(Constant.COMMA);
                     stringBuilder.append(element.getExtraService().getExtraServicePrice());//e3
-                    stringBuilder.append(NEW_LINE_SEPARATOR);
+                    stringBuilder.append(Constant.NEW_LINE);
                 }
             }
 

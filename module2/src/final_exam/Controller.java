@@ -9,8 +9,9 @@ public class Controller {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //read file in the MAIN method
+        //read file in the MAIN method()
         elementManager.setElementList(FileUtility.readFile());
+
         //show main menu
         showMainMenu();
     }

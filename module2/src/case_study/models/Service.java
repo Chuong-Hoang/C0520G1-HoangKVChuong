@@ -9,35 +9,6 @@ public abstract class Service {
     protected String rentType;
     protected ExtraService extraService;
 
-    //public static final variables
-    //*************************************************************************************************/
-    public static final String strA = "Service_Id: ";
-    public static final String strB = "Service_Name: ";
-    public static final String strC = "Used_Area: ";
-    public static final String strD = "Rent_Type (Hourly/Daily/Monthly/Yearly): ";
-    public static final String strE = "Max_People_Q'ty: ";
-    public static final String strF = "Rent_Fee: ";
-    public static final String strVH1 = "Room_Standard (Vip/Business/Normal): ";
-    public static final String strVH2 = "Other_Utility (1.Free Laundry/2.Free Buffet/3.Free Massage/4.Free Beverage): ";
-    public static final String strV3 = "Swimming_Pool_Area";
-    public static final String strVH4 = "Story_Number: ";
-    public static final String strR1 = "Free_Service: ";
-    public static final String strE1 = "Extra_Service_Name (Karaoke/Massage/Food/Drink/Car): ";
-    public static final String strE2 = "Extra_Service_Unit (1.Hour/2.Day/3.Set/4.Combo): ";
-    public static final String strE3 = "Extra_Service_Price (1.$50/2.$150/3.$500/4.$750/5.$1000): ";
-    public static final String input = "Input ";
-    public static final String idVillaNotValid = "-->Input failed! Service Id must be as format 'SVVL-YYYY'";
-    public static final String idHouseNotValid = "-->Input failed! Service Id must be as format 'SVHO-YYYY'";
-    public static final String idRoomNotValid = "-->Input failed! Service Id must be as format 'SVRO-YYYY'";
-    public static final String nameNotValid = "-->Input failed! Service Name must follow Camelcase";
-    public static final String areaNotValid = "-->Input failed! Used area must be float number that greater than 30m2.";
-    public static final String rentTypeNotValid = "-->Input failed! Rent Type must follow Camelcase";
-    public static final String maxQtyNotValid = "-->Input failed! Max people number must be positive and less than 20.";
-    public static final String rentFeeNotValid = "-->Input failed! Rent fee must be a positive number.";
-    public static final String roomStandardNotValid = "-->Input failed! Room standard must follow Camelcase.";
-    public static final String storyNumberNotValid = "-->Input failed! Story number must be a positive integer.";
-    //**************************************************************************************************/
-
     public Service() {
     }
 
