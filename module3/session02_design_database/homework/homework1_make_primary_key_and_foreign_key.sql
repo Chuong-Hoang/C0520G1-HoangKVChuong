@@ -1,8 +1,9 @@
+drop database if exists bank;
 create database bank;
 use bank;
 create table customers(
 customer_number int,
-fullname varchar(30) not null,
+full_name varchar(30) not null,
 address varchar(50),
 email varchar(30),
 phone varchar(12),
@@ -34,7 +35,7 @@ constraint FK_account_number foreign key (account_number) references accounts(ac
 );
 
 select * from customers;
-insert into customers(customer_number, fullname, address, email, phone) values
+insert into customers(customer_number, full_name, address, email, phone) values
 (111, 'Chuong Hoang', 'Quang Tri', 'chuong@hoang', '0934432445'),
 (222, 'Le Toan', 'Da Nang', 'le@toan.vn', '0349245345'),
 (333, 'Quang Nguyen', 'Da Nang', 'quang@nguyen', '23433432532'),
