@@ -19,18 +19,25 @@ insert into student_fees(id, first_name, age, course, amount) values
 	(5, 'Huong', 20, 'TCNH', 200000)
 ;    
 
-select * from student_fees;
+-- 0. display all information in table 'student_fees'
+select *
+from student_fees;
 
--- display all records having name 'Huong'
+-- 1. display all records having name 'Huong'
 select *
 from student_fees
 where first_name = 'Huong';
 
--- display total_amount of 'Huong'
+-- 2. display total_amount of 'Huong'
 select sum(amount) as amount, first_name
 from student_fees
 where first_name = 'Huong';
 
--- display all distinct first_name
+-- 3. display all distinct first_name
 select distinct first_name, id
 from student_fees;
+
+-- 4. display all distinct name (method 2)
+select first_name
+from student_fees
+group by first_name;

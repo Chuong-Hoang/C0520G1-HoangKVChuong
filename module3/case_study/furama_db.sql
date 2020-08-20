@@ -311,6 +311,20 @@ insert into contracts(contract_id, employee_id, customer_id, service_id) values
 	(10, 10, 10, 10)
 ;
 
+-- insert more records
+insert into contracts(contract_id, employee_id, customer_id, service_id) values
+	(11, 1, 1, 11),
+	(12, 2, 2, 12),
+	(13, 3, 3, 10),
+	(14, 4, 1, 11),
+	(15, 5, 2, 5),
+	(16, 6, 4, 6),
+	(17, 7, 1, 7),
+	(18, 8, 4, 8),
+	(19, 9, 9, 9),
+	(20, 10, 10, 10)
+;
+
 select *
 from contracts
 order by contract_id;
@@ -339,19 +353,22 @@ insert into detailed_contracts(detailed_contract_id, contract_id, extra_service_
 
 select *
 from detailed_contracts
-order by detailed_contract_id;	
+order by detailed_contract_id;
+
 
 -- --------------------------------------- TASKS OF CASE STUDY ---------------------------------------
 -- 1.Thêm mới thông tin cho tất cả các bảng có trong CSDL để có thể thõa mãn các yêu cầu bên dưới.
 -- ok
 
 -- 2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.
+
 select *
 from employees
 where employee_name like 'h%' or employee_name like 't%' or employee_name like 'k%'
 having length(employee_name) < 16;
 
 -- 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
+
 select *
 from customers
 where address in ('Da Nang', 'Quang Tri')
@@ -359,40 +376,78 @@ having year(now()) - year(birthday) between 15 and 50;
 
 -- 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo
 --      số lần đặt phòng của khách hàng. Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
-select customers.customer_id, customers.class_id, customer_name, contracts.contract_id, detailed_contracts.quantity
+
+select customers.customer_id, customers.customer_name, count(customers.customer_id) as booking_quantity, customer_classes.class_name as customer_type
 from customers
-left join contracts on customers.customer_id = contracts.customer_id
-left join detailed_contracts on detailed_contracts.contract_id = contracts.contract_id
-where class_id = 25;
+inner join contracts on customers.customer_id = contracts.customer_id
+left join customer_classes on customers.class_id = customer_classes.class_id
+where customers.class_id = 25
+group by customers.customer_name;
 
 -- 5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien 
 --      (Với TongTien được tính theo công thức như sau: ChiPhiThue + SoLuong*Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
 --      cho tất cả các Khách hàng đã từng đặt phỏng. (Những Khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
+
+
+
+-- left join services on customers.service_id = services.service_id
+
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng
 --      thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
+
+
 -- 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ
 --      đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
+
+
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
--- 		Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
--- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+-- 		Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+
+
+-- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019
+--      thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+
+
 -- 10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm. Kết quả hiển thị bao gồm 
 --      IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
+
+
 -- 11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
 --      TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.
+
+
 -- 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
 --      (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng
 --      đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
+
+
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 --      (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+
+
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 --      Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
+
+
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi
 --      mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+
+
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+
+
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 --      chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+
+
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
+
+
 -- 19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+
+
 -- 20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, 
 --      thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+
+
 -- __________________________________________________________ THE END _______________________________________________________
