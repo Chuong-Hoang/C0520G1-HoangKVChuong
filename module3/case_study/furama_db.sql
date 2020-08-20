@@ -350,6 +350,23 @@ insert into detailed_contracts(detailed_contract_id, contract_id, extra_service_
 	(5, 1, 5),
 	(6, 2, 2)
 ;    
+-- insert more
+insert into detailed_contracts(detailed_contract_id, contract_id, extra_service_id) values
+	(7, 8, 2),
+	(8, 9, 1),
+	(9, 10, 4),
+	(10, 11, 5),
+	(11, 12, 1),
+	(12, 13, 1),
+	(13, 14, 2),
+	(14, 15, 4),
+	(15, 16, 3),
+	(16, 17, 5),
+	(17, 18, 5),
+	(18, 19, 3),
+	(19, 20, 3),
+	(20, 7, 2)
+;   
 
 select *
 from detailed_contracts
@@ -379,8 +396,8 @@ having year(now()) - year(birthday) between 15 and 50;
 
 select customers.customer_id, customers.customer_name, count(customers.customer_id) as booking_quantity, customer_classes.class_name as customer_type
 from customers
-inner join contracts on customers.customer_id = contracts.customer_id
-left join customer_classes on customers.class_id = customer_classes.class_id
+	inner join contracts on customers.customer_id = contracts.customer_id
+	left join customer_classes on customers.class_id = customer_classes.class_id
 where customers.class_id = 25
 group by customers.customer_name;
 
@@ -388,25 +405,55 @@ group by customers.customer_name;
 --      (Với TongTien được tính theo công thức như sau: ChiPhiThue + SoLuong*Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
 --      cho tất cả các Khách hàng đã từng đặt phỏng. (Những Khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
 
-
-
--- left join services on customers.service_id = services.service_id
+select customers.customer_id, customer_name, customer_classes.class_name, contracts.contract_id, services.service_name, contracts.contract_date, contracts.finished_date, (contracts.total_amount + (detailed_contracts.quantity *extra_services.price)) as total_bill
+from customers
+	left join customer_classes on customers.class_id = customer_classes.class_id
+	left join contracts on customers.customer_id = contracts.customer_id
+	left join services on services.service_id = contracts.service_id
+    left join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
+    left join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id;
 
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng
 --      thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
 
+select services.service_id, service_name, area, rent_fee, service_types.service_type_name, contract_date
+from services
+	left join service_types on services.service_type_id = service_types.service_type_id
+    left join contracts on services.service_id = contracts.service_id
+where (contract_date not like '____-01-%') and 
+	  (contract_date not like '____-02-%') and
+      (contract_date not like '____-03-%') or 
+      contract_date is null
+group by services.service_id;
 
 -- 7.	Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ
---      đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
+--      đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng trong năm 2019.
 
+select services.service_id, service_name, area, rent_fee, max_people, service_types.service_type_name, contract_date
+from services
+	left join service_types on services.service_type_id = service_types.service_type_id
+    left join contracts on services.service_id = contracts.service_id
+where (contract_date like '2018-%') and (contract_date not like '2019-%');
 
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 -- 		Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+select distinct customer_name
+from customers;
 
+-- another way
+select customer_name
+from customers
+group by customer_name;
 
 -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019
 --      thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
+select contract_date, contracts.customer_id, sum(total_amount)
+from contracts
+	inner join customers on contracts.customer_id = customers.customer_id
+where contracts.contract_date  like '2019-%'
+group by substr(contract_date, 6, 2);
 
+-- select * from contracts where contract_date like '2019-08-%';
 
 -- 10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm. Kết quả hiển thị bao gồm 
 --      IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
