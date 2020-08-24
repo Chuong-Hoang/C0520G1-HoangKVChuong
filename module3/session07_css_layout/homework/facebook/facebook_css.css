@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 0.9em;
+}
+
+header, footer {
+    background-color: mediumblue;
+    width: 100%;
+    color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    height: 100px;
+}
+
+#cover {
+    background-color: #ccddcc;
+    overflow-y: scroll;
+}
+
+#left, #right {
+    background-color: lightgrey;
+    min-height: 1000px;
+    float: left;
+    width: 20%;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    position: relative;
+    top: 100px;
+}
+
+#main {
+    background-color: #F6DAD7;
+    min-height: 1000px;
+    float: left;
+    width: 59%;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: relative;
+    top: 100px;
+}
+
+footer {
+    clear: both;
+    height: 50px;
+}
+
+#right {
+   float: right;
+}

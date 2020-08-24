@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0
+}
+
+#header {
+    background-color: antiquewhite;
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    /*position: fixed;*/
+    /*top: 0;*/
+}
+
+#main {
+    background-color: #999999;
+    height: 1300px;
+    width:70%;
+    float: left;
+    padding: 20px;
+}
+
+#sidebar {
+    background-color: #84c754;
+    height: 1300px;
+    width: 30%;
+    float: left;
+    padding: 20px;
+}
+
+#footer {
+    background-color: lightpink;
+    height: 50px;
+    width: 100%;
+    padding: 20px;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+}

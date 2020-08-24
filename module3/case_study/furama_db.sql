@@ -420,9 +420,9 @@ select services.service_id, service_name, area, rent_fee, service_types.service_
 from services
 	left join service_types on services.service_type_id = service_types.service_type_id
     left join contracts on services.service_id = contracts.service_id
-where (contract_date not like '____-01-%') and 
-	  (contract_date not like '____-02-%') and
-      (contract_date not like '____-03-%') or 
+where (contract_date not like '2019-01-%') and 
+	  (contract_date not like '2019-02-%') and
+      (contract_date not like '2019-03-%') or 
       contract_date is null
 group by services.service_id;
 
@@ -447,41 +447,92 @@ group by customer_name;
 
 -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019
 --      thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
-select contract_date, contracts.customer_id, sum(total_amount)
+select substr(contract_date, 6, 2) as `month`, count(contracts.customer_id) as customer_quantity, sum(total_amount) as revenue
 from contracts
 	inner join customers on contracts.customer_id = customers.customer_id
 where contracts.contract_date  like '2019-%'
-group by substr(contract_date, 6, 2);
+group by substr(contract_date, 6, 2)
+order by substr(contract_date, 6, 2);
 
--- select * from contracts where contract_date like '2019-08-%';
+-- select * from contracts where contracts.contract_date  like '2019-%';
 
 -- 10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm. Kết quả hiển thị bao gồm 
 --      IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem (được tính dựa trên việc count các IDHopDongChiTiet).
 
+select contracts.contract_id, contract_date, finished_date, prepaid_amount, count(detailed_contracts.quantity) as extra_service_quantity
+from contracts
+	left join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
+group by contracts.contract_id;
 
 -- 11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
 --      TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.
 
+select customer_name, customers.address, customer_classes.class_name, contracts.contract_id, detailed_contracts.extra_service_id, extra_service_name, price
+from customers
+	inner join customer_classes on customers.class_id = customer_classes.class_id
+    inner join contracts on customers.customer_id = contracts.customer_id
+    inner join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
+    inner join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id
+where class_name = 'Diamond' and customers.address in ('Quang Ngai', 'Vinh');    
 
 -- 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
 --      (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng
 --      đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
 
+select contracts.contract_id, employees.employee_name, customers.customer_name, services.service_name, count(detailed_contracts.quantity) as extra_service_quantity, prepaid_amount, contract_date
+from contracts
+	inner join employees on contracts.employee_id = employees.employee_id
+    inner join customers on contracts.customer_id = customers.customer_id
+    inner join services on contracts.service_id = services.service_id
+    inner join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
+group by contracts.contract_id
+having substr(contract_date, 6, 2) in (10, 11, 12) and substr(contract_date, 6, 2) not in (1,2,3,4,5,6) and contract_date like '2019%' 
+order by customer_name;
 
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 --      (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 
+select extra_service_name, price, sum(quantity) as booked_quantity
+from detailed_contracts
+	inner join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id
+group by extra_service_name
+order by booked_quantity desc;
 
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 --      Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
 
+select extra_service_name, price, sum(quantity) as booked_quantity
+from detailed_contracts
+	inner join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id
+group by extra_service_name
+having booked_quantity = 4; -- => Change number 4 to 1.
 
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi
 --      mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
 
+select contracts.employee_id, employee_name, phone, address, level_name, division_name, count(contract_id)
+from contracts
+	inner join employees on contracts.employee_id = employees.employee_id
+    inner join levels on employees.level_id = levels.level_id
+    inner join divisions on employees.division_id = divisions.division_id
+where (contract_date like '2018%') or (contract_date like '2019%')    
+group by employees.employee_id
+having count(contract_id) <= 3; 
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+delete employees, contracts
+from employees
+	left join contracts on employees.employee_id = contracts.employee_id
+where (contract_date not like '2017%') and
+      (contract_date not like '2018%') and
+      (contract_date not like '2019%') or
+      contract_date is null
+;
 
+-- test again
+select *
+from employees 
+	left join contracts on employees.employee_id = contracts.employee_id;
 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 --      chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
@@ -496,5 +547,10 @@ group by substr(contract_date, 6, 2);
 -- 20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, 
 --      thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
 
+select  employee_id as id, employee_name as `name`, email, phone, birthday, address
+from employees
+union
+select customer_id as id, customer_name as `name`, email, phone, birthday, address
+from customers;
 
 -- __________________________________________________________ THE END _______________________________________________________
