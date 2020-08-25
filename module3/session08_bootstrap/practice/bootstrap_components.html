@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Components</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- jQuery library  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .form-control-feedback {
+            color: red;
+            background-color: #f1f1f1;
+        }
+
+        body {
+            margin: 10px
+        }
+    </style>
+</head>
+<body>
+<div class="form-group">
+    <label for="amt">Amount</label>
+    <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <input class="form-control" id="amt">
+        <div class="input-group-addon">.00</div>
+    </div>
+</div>
+<form>
+    <div class="form-group has-feedback">
+        <label for="email">Email Address</label>
+        <input class="form-control" id="email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <label for="num">Phone Number</label>
+        <input class="form-control" id="num">
+        <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback">
+        <label for="web">Website</label>
+        <input class="form-control" id="web">
+        <span class="glyphicon glyphicon-home form-control-feedback"></span>
+    </div>
+    <button class="btn btn-default">Default</button>
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-warning">Warning</button>
+    <button class="btn btn-success">Success</button>
+    <button class="btn btn-info">Info</button>
+    <button class="btn btn-danger">Danger</button>
+    <button class="btn btn-link">Link</button>
+    <br>
+    <hr>
+
+    <!-- Button Group -->
+    <p><span class="glyphicon glyphicon-ok" style="color: green"></span> Button Group</p>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default">Actions</button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Detail</a></li>
+            <li><a href="#">Delete</a></li>
+            <li><a href="#">Modify</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Cancel</a></li>
+        </ul>
+    </div>
+    <hr>
+
+    <!-- Button Vertical -->
+    <div class="btn-group-vertical" role="group">
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">2</button>
+        <div class="btn-group" role="group">
+            <button type="button"
+                    class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                3<span class="caret"></span> </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Dropdown link 1</a> </li>
+                <li><a href="#">Dropdown link 2</a> </li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <!-- Button Horizontal -->
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default">1</button>
+        <button type="button" class="btn btn-default">2</button>
+        <div class="btn-group" role="group">
+            <button type="button"
+                    class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    3 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Dropdown link 1</a></li>
+                <li><a href="#">Dropdown link 2</a></li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    <p><span class="glyphicon glyphicon-ok" style="color:green"></span> Navbar</p>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li><a class="navbar-brand" href="#">Link 1</a> </li>
+                <li><a class="navbar-brand" href="#">Link 2</a> </li>
+            </ul>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button"
+                    class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Dropdown <span class="caret"> </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Dropdown link 1</a> </li>
+                <li><a href="#">Dropdown link 2</a> </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <hr>
+
+    <!-- Panel -->
+    <p><span class="glyphicon glyphicon-ok" style="color:green"></span> Panel</p>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            Basic panel example
+        </div>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Panel Heading without Title
+        </div>
+        <div class="panel-body">
+            Panel Content here...
+        </div>
+    </div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Panel Title</h3>
+        </div>
+        <div class="panel-body">
+            Panel content here...
+        </div>
+    </div>
+</form>
+</body>
+</html>
