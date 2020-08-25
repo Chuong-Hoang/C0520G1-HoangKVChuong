@@ -399,7 +399,8 @@ from customers
 	inner join contracts on customers.customer_id = contracts.customer_id
 	left join customer_classes on customers.class_id = customer_classes.class_id
 where customers.class_id = 25
-group by customers.customer_name;
+group by customers.customer_name
+order by booking_quantity asc;
 
 -- 5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien 
 --      (Với TongTien được tính theo công thức như sau: ChiPhiThue + SoLuong*Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
@@ -433,8 +434,10 @@ select services.service_id, service_name, area, rent_fee, max_people, service_ty
 from services
 	left join service_types on services.service_type_id = service_types.service_type_id
     left join contracts on services.service_id = contracts.service_id
-where (contract_date like '2018-%') and (contract_date not like '2019-%');
-
+where (contract_date like '2018-%') and contracts.service_id not in (select contracts.service_id
+																	from contracts
+																	where contract_date like '2019-%');
+                                                                    
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 -- 		Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
 select distinct customer_name
