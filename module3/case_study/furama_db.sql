@@ -383,7 +383,15 @@ select * from employees;
 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 --      chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
-
+update customers
+set class_id = 25
+where class_id = 15 and customer_id in (
+	select customer_id
+	from contracts
+	where year(contract_date) = 2019
+	group by customer_id
+	having sum(total_amount) >= 2000 -- => just for testing, change 2000 to 10.000.000 if needed.
+);
 
 select * from customers;
 
