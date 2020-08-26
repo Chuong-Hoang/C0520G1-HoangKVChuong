@@ -93,7 +93,27 @@ create table if not exists customers(
 );    
 
 -- insert into customers
-INSERT INTO `customers` VALUES (1,15,'David Beckham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(2,25,'Leonardo Decaprio','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(3,15,'John Statham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),(4,35,'Steven Seagal','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(5,25,'Jean Claude','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(6,45,'Richard Gere','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(7,55,'Keanu Reaves','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(8,15,'Jennife Laurence','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(9,25,'Juliet Robert','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(10,25,'Donald Trump','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(11,35,'Richard Branson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),(12,45,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(13,55,'Tom Cruise','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(14,55,'Sylvester Stallone','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(15,15,'James Bond','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(16,15,'Emma Waston','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(17,45,'Owen Wilson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(18,35,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(19,25,'Nicolas Cage','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(20,25,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai');
+INSERT INTO `customers` VALUES 
+	(1,15,'David Beckham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(2,25,'Leonardo Decaprio','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),
+	(3,15,'John Statham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),
+	(4,35,'Steven Seagal','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),
+	(5,25,'Jean Claude','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(6,45,'Richard Gere','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),
+	(7,55,'Keanu Reaves','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),
+	(8,15,'Jennife Laurence','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),
+	(9,25,'Juliet Robert','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),
+	(10,25,'Donald Trump','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),
+	(11,35,'Richard Branson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),
+	(12,45,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(13,55,'Tom Cruise','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),
+	(14,55,'Sylvester Stallone','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(15,15,'James Bond','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),
+	(16,15,'Emma Waston','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),
+	(17,45,'Owen Wilson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(18,35,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),
+	(19,25,'Nicolas Cage','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),
+	(20,25,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai');
 
 
 -- ---------------------- SERVICES ------------------------
@@ -179,7 +199,27 @@ create table if not exists contracts(
 );   
 
 -- insert into contracts
-INSERT INTO `contracts` VALUES (1,1,1,11,'2019-08-20','2020-09-20',700,1250),(2,2,2,12,'2018-08-20','2020-09-20',700,1200),(3,3,3,10,'2019-08-20','2020-09-20',700,1650),(4,4,4,11,'2018-01-20','2020-09-20',700,1300),(5,5,5,5,'2018-08-20','2020-09-20',700,1450),(6,6,6,6,'2019-10-20','2020-09-20',700,1650),(7,7,7,7,'2019-08-20','2020-09-20',700,1600),(8,8,8,8,'2018-02-20','2020-09-20',700,1100),(9,9,9,9,'2019-12-20','2020-09-20',700,1200),(10,10,10,10,'2018-11-20','2020-09-20',700,1350),(11,1,1,11,'2018-05-20','2020-09-20',700,1150),(12,2,2,12,'2017-08-20','2020-09-20',700,1650),(13,3,3,10,'2018-03-20','2020-09-20',700,1500),(14,4,1,11,'2019-01-20','2020-09-20',700,1350),(15,5,2,5,'2019-04-20','2020-09-20',700,1400),(16,6,4,6,'2018-10-20','2020-09-20',700,1200),(17,7,1,7,'2019-03-20','2020-09-20',700,1700),(18,8,4,8,'2016-02-20','2020-09-20',700,1350),(19,9,9,9,'2019-09-20','2020-09-20',700,1500),(20,10,10,10,'2018-07-20','2020-09-20',700,1500);
+INSERT INTO `contracts` VALUES 
+	(1,1,1,11,'2019-08-20','2020-09-20',700,1250),
+	(2,2,2,12,'2018-08-20','2020-09-20',700,1200),
+	(3,3,3,10,'2019-08-20','2020-09-20',700,1650),
+	(4,4,4,11,'2018-01-20','2020-09-20',700,1300),
+	(5,5,5,5,'2018-08-20','2020-09-20',700,1450),
+	(6,6,6,6,'2019-10-20','2020-09-20',700,1650),
+	(7,7,7,7,'2019-08-20','2020-09-20',700,1600),
+	(8,8,8,8,'2018-02-20','2020-09-20',700,1100),
+	(9,9,9,9,'2019-12-20','2020-09-20',700,1200),
+	(10,10,10,10,'2018-11-20','2020-09-20',700,1350),
+	(11,1,1,11,'2018-05-20','2020-09-20',700,1150),
+	(12,2,2,12,'2017-08-20','2020-09-20',700,1650),
+	(13,3,3,10,'2018-03-20','2020-09-20',700,1500),
+	(14,4,1,11,'2019-01-20','2020-09-20',700,1350),
+	(15,5,2,5,'2019-04-20','2020-09-20',700,1400),
+	(16,6,4,6,'2018-10-20','2020-09-20',700,1200),
+	(17,7,1,7,'2019-03-20','2020-09-20',700,1700),
+	(18,8,4,8,'2016-02-20','2020-09-20',700,1350),
+	(19,9,9,9,'2019-09-20','2020-09-20',700,1500),
+	(20,10,10,10,'2018-07-20','2020-09-20',700,1500);
 
 
 -- create table 'detailed_contracts'
@@ -322,8 +362,14 @@ from contracts
     inner join services on contracts.service_id = services.service_id
     inner join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
 group by contracts.contract_id
-having substr(contract_date, 6, 2) in (10, 11, 12) and substr(contract_date, 6, 2) not in (1,2,3,4,5,6) and contract_date like '2019%' 
-order by customer_name;
+having year(contract_date) = 2019 and month(contract_date) in (10, 11, 12) and  contracts.contract_id not in (
+		select contracts.contract_id
+		from contracts
+			inner join detailed_contracts on contracts.contract_id = detailed_contracts.contract_id
+		where year(contract_date) = 2019 and month(contract_date) in (1,2,3,4,5,6)
+);
+
+select * from contracts;
 
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 --      (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
@@ -390,17 +436,34 @@ where class_id = 15 and customer_id in (
 	from contracts
 	where year(contract_date) = 2019
 	group by customer_id
-	having sum(total_amount) >= 2000 -- => just for testing, change 2000 to 10.000.000 if needed.
+	having sum(total_amount) >= 2000 -- => just for testing, change 2000 to 10.000.000 as required.
 );
 
 select * from customers;
 
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
+delete from customers
+where customer_id not in (
+		select customer_id
+		from contracts
+		where year(contract_date) >= 2016
+);
 
+select * from customers;
 
 -- 19.	Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+update extra_services
+set price = price * 2
+where extra_service_id in (
+		select extra_service_id
+		from detailed_contracts
+			left join contracts on detailed_contracts.contract_id = contracts.contract_id
+		where year(contract_date) = 2019
+		group by extra_service_id
+		having sum(quantity) >= 2 -- => Just for testing, change 2 to 10 as required.
+);
 
-
+select * from extra_services;
 -- 20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, 
 --      thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
 
