@@ -372,6 +372,10 @@ select *
 from detailed_contracts
 order by detailed_contract_id;
 
+-- alter table 
+alter table contracts
+add foreign key(employee_id) references employees(employee_id) ON DELETE CASCADE;
+
 
 -- --------------------------------------- TASKS OF CASE STUDY ---------------------------------------
 -- 1.Thêm mới thông tin cho tất cả các bảng có trong CSDL để có thể thõa mãn các yêu cầu bên dưới.
@@ -440,13 +444,22 @@ where (contract_date like '2018-%') and contracts.service_id not in (select cont
                                                                     
 -- 8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 -- 		Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
+
+-- // first way
 select distinct customer_name
 from customers;
 
--- another way
+-- // second way
 select customer_name
 from customers
 group by customer_name;
+
+-- // third way
+select customer_name
+from customers
+union
+select customer_name
+from customers;
 
 -- 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019
 --      thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
@@ -494,12 +507,16 @@ order by customer_name;
 
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. 
 --      (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
-
+create view booking_quantity
+as
 select extra_service_name, price, sum(quantity) as booked_quantity
 from detailed_contracts
 	inner join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id
 group by extra_service_name
 order by booked_quantity desc;
+
+select * from booking_quantity
+having booked_quantity = max(booked_quantity);
 
 -- 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 --      Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
@@ -508,7 +525,7 @@ select extra_service_name, price, sum(quantity) as booked_quantity
 from detailed_contracts
 	inner join extra_services on detailed_contracts.extra_service_id = extra_services.extra_service_id
 group by extra_service_name
-having booked_quantity = 4; -- => Change number 4 to 1.
+having booked_quantity = 4; -- (4 just for Testing) --> Change number 4 to 1.
 
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi
 --      mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
@@ -523,19 +540,10 @@ group by employees.employee_id
 having count(contract_id) <= 3; 
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
-delete employees, contracts
-from employees
-	left join contracts on employees.employee_id = contracts.employee_id
-where (contract_date not like '2017%') and
-      (contract_date not like '2018%') and
-      (contract_date not like '2019%') or
-      contract_date is null
-;
+
 
 -- test again
-select *
-from employees 
-	left join contracts on employees.employee_id = contracts.employee_id;
+select * from contracts;
 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 --      chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
