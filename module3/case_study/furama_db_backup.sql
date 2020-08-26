@@ -12,8 +12,18 @@ create table if not exists positions(
 );
 
 -- insert into positions
-INSERT INTO `positions` VALUES (666,'Director'),(555,'Manager'),(111,'Receptionist'),(333,'Staff'),(444,'Supervisor'),(222,'Waiter');
+insert into positions(position_id, position_name) values
+	(111, 'Receptionist'),
+	(222, 'Waiter'),
+	(333, 'Staff'),
+	(444, 'Supervisor'),
+	(555, 'Manager'),
+	(666, 'Director')
+;
 
+select *
+from positions
+order by position_id;    
 
 -- create table 'levels'
 drop table if exists levels;
@@ -24,8 +34,16 @@ create table if not exists levels(
 );
 
 -- insert into levels
-INSERT INTO `levels` VALUES (44,'After-university'),(22,'College'),(11,'Pre-college'),(33,'University');
+insert into levels(level_id, level_name) values
+	(11, 'Pre-college'),
+	(22, 'College'),
+	(33, 'University'),
+	(44, 'After-university')
+; 
    
+select *
+from levels
+order by level_id;
 
 -- create table 'depts'
 drop table if exists divisions;
@@ -36,8 +54,16 @@ create table if not exists divisions(
 ); 
 
 -- insert into divisions
- INSERT INTO `divisions` VALUES (202,'Administration'),(404,'Management'),(101,'Sale-Marketing'),(303,'Service'); 
+insert into divisions(division_id, division_name) values
+	(101, 'Sale-Marketing'),
+	(202, 'Administration'),
+	(303, 'Service'),
+	(404, 'Management')
+;    
 
+select *
+from divisions
+order by division_id;
 
 -- create table 'Employees'
 drop table if exists employees;
@@ -60,8 +86,28 @@ create table if not exists employees(
 );	
 
 -- insert into employees
-INSERT INTO `employees` VALUES (1,'Chau Kiet Luan',111,11,303,'1990-07-25','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(2,'Ngo Ngan To',222,22,101,'1988-03-22','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(3,'Tu Nhuoc Tuyen',333,33,202,'1994-09-17','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(4,'Kim Thanh Vu',555,44,404,'1997-11-23','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(5,'Ly Lien Kiet',444,33,101,'1988-12-28','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(6,'Luu Duc Hoa',222,22,202,'1982-10-26','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(7,'Quach Phu Thanh',222,33,202,'1993-07-22','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(8,'Le Minh',333,33,202,'1994-11-25','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(9,'Truong Hoc Huu',333,22,202,'1980-10-19','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(10,'Nham Dat Hoa',444,11,404,'1979-04-16','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(11,'Hong Kim Bao',555,33,404,'1973-07-19','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(12,'Truong Ve Kien',666,44,404,'1992-11-29','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(13,'Ly Gia Han',222,22,101,'1985-05-27','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(14,'Co Thien Lac',333,22,202,'1990-12-12','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi'),(15,'Truong Man Ngoc',333,33,202,'1978-03-18','111 222 333 444','20000000','0905 555 999','employee@gmail.com','Ha Noi');
+insert into employees(employee_id, employee_name, position_id, level_id, division_id, birthday) values
+	(1, 'Chau Kiet Luan', 111, 11, 303, '1990-07-25'),
+	(2, 'Ngo Ngan To', 222, 22, 101, '1988-03-22'),
+	(3, 'Tu Nhuoc Tuyen', 333, 33, 202, '1994-09-17'),
+	(4, 'Kim Thanh Vu', 555, 44, 404, '1997-11-23'),
+	(5, 'Ly Lien Kiet', 444, 33, 101, '1988-12-28'),
+	(6, 'Luu Duc Hoa', 222, 22, 202, '1982-10-26'),
+	(7, 'Quach Phu Thanh', 222, 33, 202, '1993-07-22'),
+	(8, 'Le Minh', 333, 33, 202, '1994-11-25'),
+	(9, 'Truong Hoc Huu', 333, 22, 202, '1980-10-19'),
+	(10, 'Nham Dat Hoa', 444, 11, 404, '1979-04-16'),
+	(11, 'Hong Kim Bao', 555, 33, 404, '1973-07-19'),
+	(12, 'Truong Ve Kien', 666, 44, 404, '1992-11-29'),
+	(13, 'Ly Gia Han', 222, 22, 101, '1985-05-27'),
+	(14, 'Co Thien Lac', 333, 22, 202, '1990-12-12'),
+	(15, 'Truong Man Ngoc', 333, 33, 202, '1978-03-18'),
+	(16, 'Chuong Tu Di', 111, 11, 303, '1983-10-31')
+;
 
+select *
+from employees
+order by employee_id;
 
 -- ------------------------ CUSTOMERS -----------------------
 
@@ -74,8 +120,17 @@ create table if not exists customer_classes(
 );
 
 -- insert into customer_classes
-INSERT INTO `customer_classes` VALUES (25,'Diamond'),(35,'Gold'),(55,'Member'),(15,'Platinum'),(45,'Silver');  
+insert into customer_classes(class_id, class_name) values
+	(15, 'Platinum'),
+	(25, 'Diamond'),
+	(35, 'Gold'),
+	(45, 'Silver'),
+	(55, 'Member')
+;    
 
+select *
+from customer_classes
+order by class_id;
 
 -- create table 'customers'
 drop table if exists customers;
@@ -93,8 +148,32 @@ create table if not exists customers(
 );    
 
 -- insert into customers
-INSERT INTO `customers` VALUES (1,15,'David Beckham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(2,25,'Leonardo Decaprio','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(3,15,'John Statham','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),(4,35,'Steven Seagal','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(5,25,'Jean Claude','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(6,45,'Richard Gere','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(7,55,'Keanu Reaves','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(8,15,'Jennife Laurence','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(9,25,'Juliet Robert','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai'),(10,25,'Donald Trump','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(11,35,'Richard Branson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Tri'),(12,45,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(13,55,'Tom Cruise','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(14,55,'Sylvester Stallone','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(15,15,'James Bond','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(16,15,'Emma Waston','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Hue'),(17,45,'Owen Wilson','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(18,35,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Da Nang'),(19,25,'Nicolas Cage','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Vinh'),(20,25,'Will Smith','1987-10-19','197 182 504','084 2345 777','customer@gmail.com','Quang Ngai');
+insert into customers(customer_id, class_id, customer_name, birthday) values
+	(1, 15, 'David Beckham', '1987-10-19'),
+	(2, 25, 'Leonardo Decaprio', '1987-10-19'),
+	(3, 15, 'John Statham', '1987-10-19'),
+	(4, 35, 'Steven Seagal', '1987-10-19'),
+	(5, 25, 'Jean Claude', '1987-10-19'),
+	(6, 45, 'Richard Gere', '1987-10-19'),
+	(7, 55, 'Keanu Reaves', '1987-10-19'),
+	(8, 15, 'Jennife Laurence', '1987-10-19'),
+	(9, 25, 'Juliet Robert', '1987-10-19'),
+	(10, 25, 'Donald Trump', '1987-10-19'),
+	(11, 35, 'Richard Branson', '1987-10-19'),
+	(12, 45, 'Robin Hood', '1987-10-19'),
+	(13, 55, 'Tom Cruise', '1987-10-19'),
+	(14, 55, 'Sylvester Stallone', '1987-10-19'),
+	(15, 15, 'James Bond', '1987-10-19'),
+	(16, 15, 'Emma Waston', '1987-10-19'),
+	(17, 45, 'Owen Wilson', '1987-10-19'),
+	(18, 35, 'Will Smith', '1987-10-19'),
+	(19, 25, 'Nicolas Cage', '1987-10-19'),
+	(20, 25, 'Morgan Freeman', '1987-10-19')
+;
 
+select *
+from customers
+order by customer_id;
 
 -- ---------------------- SERVICES ------------------------
  
@@ -108,8 +187,17 @@ create table if not exists rent_types(
 );
 
 -- insert into rent_types
-INSERT INTO `rent_types` VALUES (171,'Hourly',1500),(272,'Daily',1500),(373,'Monthly',1500),(474,'Yearly',1500);  
+truncate table rent_types;
+insert into rent_types(rent_type_id, rent_type_name) values
+	(171, 'Hourly'),
+	(272, 'Daily'),
+	(373, 'Monthly'),
+	(474, 'Yearly')
+;    
 
+select *
+from rent_types
+order by rent_type_id;
 
 -- create table 'service_types'
 drop table if exists service_types;
@@ -120,9 +208,16 @@ create table if not exists service_types(
 );
 
 -- insert into service_types
-INSERT INTO `service_types` VALUES (200,'House'),(300,'Room'),(100,'Villa');
+insert into service_types(service_type_id, service_type_name) values
+	(100, 'Villa'),
+	(200, 'House'),
+	(300, 'Room')
+;  
 
-
+select *
+from service_types
+order by service_type_id;
+  
 -- create table 'services'
 drop table if exists services;
 create table if not exists services(
@@ -141,9 +236,24 @@ create table if not exists services(
 );
 
 -- insert into services
-INSERT INTO `services` VALUES (1,'King',50,2,'4','10000',272,100,'available'),(2,'Queen',50,2,'4','10000',272,100,'available'),(3,'Prince',50,2,'4','10000',373,100,'available'),(4,'Princess',50,2,'4','10000',474,100,'available'),(5,'Panther',50,2,'4','10000',373,200,'available'),(6,'Lion',50,2,'4','10000',373,200,'available'),(7,'Leopard',50,2,'4','10000',474,200,'available'),(8,'Tiger',50,2,'4','10000',272,200,'available'),(9,'Ant',50,2,'4','10000',171,300,'available'),(10,'Mosquito',50,2,'4','10000',171,300,'available'),(11,'Firefly',50,2,'4','10000',171,300,'available'),(12,'Mantis',50,2,'4','10000',171,300,'available');
+insert into services(service_id, service_name, rent_type_id, service_type_id) values
+	(1, 'King', 272, 100),
+	(2, 'Queen', 272, 100),
+	(3, 'Prince', 373, 100),
+	(4, 'Princess', 474, 100),
+	(5, 'Panther', 373, 200),
+	(6, 'Lion', 373, 200),
+	(7, 'Leopard', 474, 200),
+	(8, 'Tiger', 272, 200),
+	(9, 'Ant', 171, 300),
+	(10, 'Mosquito', 171, 300),
+	(11, 'Firefly', 171, 300),
+	(12, 'Mantis', 171, 300)
+;    
 
-
+select *
+from services
+order by service_id;
 -- ---------------------------- CONTRACTS --------------------------------
 
 -- create table 'extra_services'
@@ -158,8 +268,17 @@ create table if not exists extra_services(
 ); 
 
 -- insert into extra_services
-INSERT INTO `extra_services` VALUES (1,'Karaoke',150,1,'available'),(2,'Massage',150,1,'available'),(3,'Food',150,1,'available'),(4,'Drink',150,1,'available'),(5,'Car',150,1,'available');
+insert into extra_services(extra_service_id, extra_service_name) values
+	(1, 'Karaoke'),
+	(2, 'Massage'),
+	(3, 'Food'),
+	(4, 'Drink'),
+	(5, 'Car')
+;   
 
+select *
+from extra_services
+order by extra_service_id; 
 
 -- create table 'contracts'
 drop table if exists contracts;   
@@ -173,14 +292,42 @@ create table if not exists contracts(
     prepaid_amount int not null default 700,
     total_amount int not null default 1500,
     primary key(contract_id),
-    foreign key(employee_id) references employees(employee_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    foreign key(customer_id) references customers(customer_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    foreign key(service_id) references services(service_id) ON DELETE CASCADE ON UPDATE CASCADE
+    foreign key(employee_id) references employees(employee_id),
+    foreign key(customer_id) references customers(customer_id),
+    foreign key(service_id) references services(service_id)
 );   
 
 -- insert into contracts
-INSERT INTO `contracts` VALUES (1,1,1,11,'2019-08-20','2020-09-20',700,1250),(2,2,2,12,'2018-08-20','2020-09-20',700,1200),(3,3,3,10,'2019-08-20','2020-09-20',700,1650),(4,4,4,11,'2018-01-20','2020-09-20',700,1300),(5,5,5,5,'2018-08-20','2020-09-20',700,1450),(6,6,6,6,'2019-10-20','2020-09-20',700,1650),(7,7,7,7,'2019-08-20','2020-09-20',700,1600),(8,8,8,8,'2018-02-20','2020-09-20',700,1100),(9,9,9,9,'2019-12-20','2020-09-20',700,1200),(10,10,10,10,'2018-11-20','2020-09-20',700,1350),(11,1,1,11,'2018-05-20','2020-09-20',700,1150),(12,2,2,12,'2017-08-20','2020-09-20',700,1650),(13,3,3,10,'2018-03-20','2020-09-20',700,1500),(14,4,1,11,'2019-01-20','2020-09-20',700,1350),(15,5,2,5,'2019-04-20','2020-09-20',700,1400),(16,6,4,6,'2018-10-20','2020-09-20',700,1200),(17,7,1,7,'2019-03-20','2020-09-20',700,1700),(18,8,4,8,'2016-02-20','2020-09-20',700,1350),(19,9,9,9,'2019-09-20','2020-09-20',700,1500),(20,10,10,10,'2018-07-20','2020-09-20',700,1500);
+insert into contracts(contract_id, employee_id, customer_id, service_id) values
+	(1, 1, 1, 11),
+	(2, 2, 2, 12),
+	(3, 3, 3, 10),
+	(4, 4, 4, 11),
+	(5, 5, 5, 5),
+	(6, 6, 6, 6),
+	(7, 7, 7, 7),
+	(8, 8, 8, 8),
+	(9, 9, 9, 9),
+	(10, 10, 10, 10)
+;
 
+-- insert more records
+insert into contracts(contract_id, employee_id, customer_id, service_id) values
+	(11, 1, 1, 11),
+	(12, 2, 2, 12),
+	(13, 3, 3, 10),
+	(14, 4, 1, 11),
+	(15, 5, 2, 5),
+	(16, 6, 4, 6),
+	(17, 7, 1, 7),
+	(18, 8, 4, 8),
+	(19, 9, 9, 9),
+	(20, 10, 10, 10)
+;
+
+select *
+from contracts
+order by contract_id;
 
 -- create table 'detailed_contracts'
 drop table if exists detailed_contracts;	
@@ -190,12 +337,54 @@ create table if not exists detailed_contracts(
     extra_service_id int,
     quantity int not null default 1,
     primary key(detailed_contract_id),
-    foreign key(extra_service_id) references extra_services(extra_service_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    foreign key(contract_id) references contracts(contract_id) ON DELETE CASCADE ON UPDATE CASCADE
+    foreign key(extra_service_id) references extra_services(extra_service_id),
+    foreign key(contract_id) references contracts(contract_id)
 );
 
 -- insert into detailed_contracts
-INSERT INTO `detailed_contracts` VALUES (1,5,1,1),(2,4,2,1),(3,6,3,1),(4,3,4,1),(5,1,5,1),(6,2,2,1),(7,8,2,1),(8,9,1,1),(9,10,4,1),(10,11,5,1),(11,12,1,1),(12,13,1,1),(13,14,2,1),(14,15,4,1),(15,16,3,1),(16,17,5,1),(17,18,5,1),(18,19,3,1),(19,20,3,1),(20,7,2,1);
+insert into detailed_contracts(detailed_contract_id, contract_id, extra_service_id) values
+	(1, 5, 1),
+	(2, 4, 2),
+	(3, 6, 3),
+	(4, 3, 4),
+	(5, 1, 5),
+	(6, 2, 2)
+;    
+-- insert more
+insert into detailed_contracts(detailed_contract_id, contract_id, extra_service_id) values
+	(7, 8, 2),
+	(8, 9, 1),
+	(9, 10, 4),
+	(10, 11, 5),
+	(11, 12, 1),
+	(12, 13, 1),
+	(13, 14, 2),
+	(14, 15, 4),
+	(15, 16, 3),
+	(16, 17, 5),
+	(17, 18, 5),
+	(18, 19, 3),
+	(19, 20, 3),
+	(20, 7, 2)
+;   
+
+select *
+from detailed_contracts
+order by detailed_contract_id;
+
+-- alter table 'contracts'
+alter table contracts
+add foreign key(employee_id) references employees(employee_id) ON DELETE CASCADE,
+add foreign key(customer_id) references customers(customer_id) ON DELETE CASCADE;
+
+-- alter table 'detailed_contracts'
+alter table detailed_contracts
+drop contract_id;
+alter table detailed_contracts
+add foreign key(contract_id) references contracts(contract_id) ON DELETE CASCADE;
+
+-- Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails (`case_study`.`contracts`, CONSTRAINT `contracts_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`))
+
 
 -- --------------------------------------- TASKS OF CASE STUDY ---------------------------------------
 -- 1.Thêm mới thông tin cho tất cả các bảng có trong CSDL để có thể thõa mãn các yêu cầu bên dưới.
@@ -360,32 +549,31 @@ group by employees.employee_id
 having count(contract_id) <= 3; 
 
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
--- has already use 'ON DELETE CASCADE' when creating table
-delete from employees
-where employee_id not in (
-	select employee_id 
-    from contracts 
-    where year(contract_date) in (2017, 2018, 2019)
-);
+create or replace view employees_contracts_1
+as
+select employees.employee_id
+from employees
+	left join contracts on employees.employee_id = contracts.employee_id
+where year(contract_date) not in (2017,2018,2019) or contract_date is null;
 
--- another way of DELETE
-SET FOREIGN_KEY_CHECKS = 0;
-delete from employees
-where employee_id not in (
-	select employee_id 
-    from contracts 
-    where year(contract_date) in (2017, 2018, 2019)
-);
-SET FOREIGN_KEY_CHECKS = 1;
--- finished --
+create or replace view employees_contracts_2
+as
+select employees.employee_id
+from employees
+	left join contracts on employees.employee_id = contracts.employee_id
+where year(contract_date) in (2017,2018,2019);
 
+-- test again
+select * from employees_contracts_1;
+select * from employees_contracts_2;
+
+delete from employees
+where employee_id = 1;
 select * from employees;
 
 -- 17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 --      chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
 
-
-select * from customers;
 
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
 
