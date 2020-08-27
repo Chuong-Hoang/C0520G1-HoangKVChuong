@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing Page</title>
+
+    <!-- Import Bootstrap css, js, font awesome here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="image/logo.jpg" height="50"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Connect</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- carousel = Convey -->
+<div id="slides" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+       <li data-target="#slides" data-slide-to="0" class="active"></li>
+       <li data-target="#slides" data-slide-to="1"></li>
+       <li data-target="#slides" data-slide-to="2"></li>
+       <li data-target="#slides" data-slide-to="3"></li>
+    </ul>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="image/observer.png"/>
+            <div class="carousel-caption">
+                <h1 class="display-2">Example</h1>
+                <h3>Autolayout with Bootstrap</h3>
+                <button type="button" class="btn btn-outline-light btn-lg">
+                    VIEW IMAGE
+                </button>
+                <button type="button" class="btn btn-primary btn-lg">Get Started</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="image/Krishnamurti.Emptiness.jpg">
+        </div>
+        <div class="carousel-item">
+            <img src="image/Krisnamurti 1.2.jpg">
+        </div>
+        <div class="carousel-item">
+            <img src="image/Krisnamurti 4.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- jumbotron -->
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+            <p>This is an example of using Bootstrap to make a responsive website.</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+            <a href="#">
+                <button type="button" class="btn btn-outline-secondary">See more...</button>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Build your application</h1>
+        </div>
+        <hr>
+        <div class="col-12">
+            <p>Welcome to my homepage. Please enjoy your time on internet with this page. Hope this will help you much.</p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fab fa-react"></i>
+            <h3>REACT</h3>
+            <p>Build the latest version of React</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fab fa-angular"></i>
+            <h3>ANGULAR</h3>
+            <p>Build your website and Front-end Application</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fab fa-css3"></i>
+            <h3>CSS3, HTML5</h3>
+            <p>Customize your web UI with HTML5 and CSS3</p>
+        </div>
+    </div>
+    <hr class="my-4">
+</div>
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-md-12 col-lg-6">
+            <h2>If you build it...</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent tincidunt ante sodales velit faucibus, ac tempus est varius.
+                In pharetra purus quam, vel volutpat nunc faucibus ac. Morbi eu sem sapien. Quisque hendrerit
+                vestibulum felis, ut lobortis eros mattis ut. Nunc egestas, sem a finibus luctus,
+                leo ligula rutrum purus, sit amet ultricies quam ligula id tellus. Suspendisse eu justo metus.
+                In ac viverra mauris.</p>
+            <br>
+        </div>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="image/laptop.jpg"></div>
+    </div>
+</div>
+<hr class="my-2">
+<button class="fun" data-toggle="collapse" data-target="#emoji">
+    Click for fun
+</button>
+<div id="emoji" class="collapse">
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-sm-6 col-md-3">
+                <img class="gif" src="gif/ezgifcomcrop_1.gif" width="100" height="100"/>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <img class="gif" src="gif/moonhack.gif" width="100" height="100"/>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <img class="gif" src="gif/hiphop.gif" width="100" height="100"/>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <img class="gif" src="gif/dff.gif" width="100" height="100"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4">Meet our team members</h1>
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="image/tung.jpg"/>
+                    <h4 class="card-title">Tu Si Tung</h4>
+                    <p class="card-text">He is a fullstack developer with many years of experience</p>
+                    <a href="#" class="btn btn-outline-secondary">See profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="image/quang.jpg"/>
+                    <h4 class="card-title">Nguyen Huu Quang</h4>
+                    <p class="card-text">He is a fullstack developer with many years of experience</p>
+                    <a href="#" class="btn btn-outline-secondary">See profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src="image/nhat.jpg"/>
+                    <h4 class="card-title">Le Nhat</h4>
+                    <p class="card-text">He is a fullstack developer with many years of experience</p>
+                    <a href="#" class="btn btn-outline-secondary">See profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid padding">
+    <div class="row padding">
+        <div class="col-md-12 col-lg-6">
+            <h2>Our vision</h2>
+            <p>Suspendisse sed quam eget diam suscipit laoreet non faucibus lectus. Integer vel ultrices nisi.
+                Sed malesuada libero in turpis mollis facilisis. In in leo sit amet odio vehicula scelerisque
+                non eget erat. Donec pulvinar augue in eros efficitur vestibulum.
+                Suspendisse iaculis arcu quis viverra commodo.</p>
+            <br>
+            <p>Suspendisse sed quam eget diam suscipit laoreet non faucibus lectus. Integer vel ultrices nisi.
+                Sed malesuada libero in turpis mollis facilisis. In in leo sit amet odio vehicula scelerisque
+                non eget erat. Donec pulvinar augue in eros efficitur vestibulum.
+                Suspendisse iaculis arcu quis viverra commodo.</p>
+        </div>
+        <div class="col-md-6">
+            <img class="img-fluid" src="image/vision.jpg">
+        </div>
+    </div>
+    <hr class="my-4">
+</div>
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-12">
+            <h2>Contact us</h2>
+        </div>
+        <div class="col-12 social padding">
+            <a href="#"><i class="fab fa-facebook"></i> </a>
+            <a href="#"><i class="fab fa-twitter"></i> </a>
+            <a href="#"><i class="fab fa-google-plus-g"></i> </a>
+            <a href="#"><i class="fab fa-instagram"></i> </a>
+            <a href="#"><i class="fab fa-youtube"></i> </a>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <p>Phone: 555-555-555</p>
+                <p>Email: chuong@hoang.com.vn</p>
+                <p>Address: 255 Nguyen Huu Tho, Da Nang city</p>
+            </div>
+            <div class="col-md-6">
+                <p>Layout with Bootstrap</p>
+                <p>&copy;2020 - Hoang Kim Van Chuong</p>
+                <p>All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
