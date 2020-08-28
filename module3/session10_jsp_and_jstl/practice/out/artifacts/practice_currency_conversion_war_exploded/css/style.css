@@ -1,0 +1,19 @@
+h3, h1 {
+    color: red;
+    text-shadow: 5px 5px 15px black;
+}
+label {
+    font-width: bold;
+    color: blue;
+    font-size: 1.5em;
+}
+
+input {
+    background: lightgray;
+    color: mediumvioletred;
+}
+
+#submit {
+    background: green;
+    color: white;
+}
