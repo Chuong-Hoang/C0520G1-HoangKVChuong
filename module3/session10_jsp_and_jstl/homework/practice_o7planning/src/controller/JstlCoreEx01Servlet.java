@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "JstlCoreEx01Servlet", urlPatterns = "/123")
+@WebServlet(name = "JstlCoreEx01Servlet", urlPatterns = "/departments_and_employees")
 public class JstlCoreEx01Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
