@@ -98,6 +98,11 @@ footer {
     background-color: #3f3f3f;
     color: #d5d5d5;
 }
+
+.glyphicon-chevron-right {
+    color: red;
+    background-color: black;
+}
 /* Media query */
 @media screen and (max-width: 992px) {
     .carousel-caption {
