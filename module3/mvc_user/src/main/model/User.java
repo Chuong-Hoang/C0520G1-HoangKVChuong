@@ -2,9 +2,9 @@ package main.model;
 
 public class User {
     private int id;
-    private String name; //a
-    private String email; //b
-    private String country; //c
+    private String name; //name
+    private String email; //email
+    private String country; //country
 
     public User() {
     }

@@ -25,16 +25,16 @@ public class ProductServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createElement(request, response);
+                createProduct(request, response);
                 break;
             case "edit":
-                updateElement(request, response);
+                updateProduct(request, response);
                 break;
             case "delete":
-                deleteElement(request, response);
+                deleteProduct(request, response);
                 break;
             case "search":
-                findElement(request, response);
+                findProduct(request, response);
                 break;
             default:
                 break;
@@ -58,15 +58,15 @@ public class ProductServlet extends HttpServlet {
                 showDeleteForm(request,response);
                 break;
             case "view":
-                viewElement(request, response);
+                viewProduct(request, response);
                 break;
             default:
-                listElements(request, response);
+                listProducts(request, response);
                 break;
         }
     }
 
-    private void viewElement(HttpServletRequest request, HttpServletResponse response) {
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productBO.findById(id);
         request.setAttribute("product", product);
@@ -98,7 +98,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void deleteElement(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productBO.findById(id);
 
@@ -130,7 +130,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void updateElement(HttpServletRequest request, HttpServletResponse response) {
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
         //Get attributes of the Element class
         String a = request.getParameter("a");
         String b = request.getParameter("b");
@@ -172,7 +172,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void createElement(HttpServletRequest request, HttpServletResponse response) {
+    private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         //Get attributes of the Element class
         String a = request.getParameter("a");
         String b = request.getParameter("b");
@@ -195,7 +195,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void listElements(HttpServletRequest request, HttpServletResponse response){
+    private void listProducts(HttpServletRequest request, HttpServletResponse response){
         List<Product> products = this.productBO.findAll();
         request.setAttribute("products", products);
 
@@ -207,7 +207,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void findElement(HttpServletRequest request, HttpServletResponse response) {
+    private void findProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         List<Product> products = this.productBO.findByName(name);
         request.setAttribute("products", products);
