@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="909e1dca-b955-47a6-a6ad-a3ff23a9e147" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../mvc_contact/out/artifacts/mvc_contact_war_exploded/element/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc_contact/out/artifacts/mvc_contact_war_exploded/element/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_contact/web/element/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc_contact/web/element/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/artifacts/mvc_demo_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/mvc_student.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/bo/ElementBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/bo/ElementBOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/controller/ElementServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/dao/ElementDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/dao/ElementDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/model/Element.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/lib/jstl-1.2.jar.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/delete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/view.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/bo/ElementBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/bo/ElementBOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/controller/ElementServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/dao/ElementDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/dao/ElementDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/model/Element.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/bo/ElementBO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/bo/ElementBOImplement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/controller/ElementServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/dao/ElementDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/dao/ElementDAOImplement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/model/Element.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/delete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/view.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/artifacts/mvc_contact_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/mvc_contact.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/META-INF/mvc_contact.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/bo/UserBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/bo/UserBOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/dao/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.21.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/delete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/view.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/META-INF/mvc_contact.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/bo/UserBO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/bo/UserBOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/controller/UserServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/dao/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/dao/UserDAOImplement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/bo/UserBO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/bo/UserBOImplement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/controller/UserServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/dao/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/dao/UserDAOImplement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/delete.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/view.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/controller/UserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/dao/UserDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/dao/UserDAOImplement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/dao/UserDAOImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/dao/UserDAOImplement.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\C0520G1-HoangKVChuong\module3\case_study_2\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gwujjXSif9qvFxkTkuLt4l3sCx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/furama" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="case_study_2:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/case_study_2_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings />
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="case_study_2:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="909e1dca-b955-47a6-a6ad-a3ff23a9e147" name="Default Changelist" comment="" />
+      <created>1599038112851</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599038112851</updated>
+      <workItem from="1599038119794" duration="186000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="571" y="146" key="FileChooserDialogImpl" timestamp="1599038305564">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="571" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1599038305564" />
+  </component>
+</project>

@@ -148,6 +148,8 @@ public class UserServlet extends HttpServlet {
         request.setAttribute("users", users);
         forwardJSP(request, response, listJSP);
     }
+    /* ---------------------- end ------------------------ */
+
 
     // Delete ......................................................................
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {

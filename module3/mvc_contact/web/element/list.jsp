@@ -22,12 +22,11 @@
         }
         a {
             text-decoration: none;
-            color: green;
-            font-weight: bold;
+            color: mediumvioletred;
         }
 
         button {
-            background: lightgrey;
+            background: dodgerblue;
             padding: 5px;
             border: 1px solid lightgrey;
             border-radius: 3px;
@@ -39,6 +38,7 @@
 
 <p>
 <button><a href="/elements?action=create">Create New Element</a></button>
+<button><a href="/elements?action=abcd">Action: abcd</a></button>
 </p>
 <p><span>${msg}</span></p>
 <table>

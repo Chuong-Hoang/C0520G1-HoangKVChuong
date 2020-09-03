@@ -13,7 +13,7 @@ public class UserDAOImplement implements UserDAO {
     private static final String SELECT_ALL = "select * from users";
     private static final String INSERT_INTO = "insert into users(name, email, country) values (?,?,?);";
     private static final String SELECT_BY_ID = "select * from users where id = ?;";
-    private static final String UPDATE_SQL = "update users set name = ?, email = ?, country = ? where id = ?;";
+    private static final String UPDATE_SET = "update users set name = ?, email = ?, country = ? where id = ?;";
     private static final String DELETE_FROM = "delete from users where id = ?;";
     private static final String SELECT_COUNTRY_OR_NAME = "select * from users where (country = ?) or (name like ?)";
 
@@ -120,7 +120,7 @@ public class UserDAOImplement implements UserDAO {
         boolean rowUpdated = false;
         try {
             if (connection != null) {
-                statement = connection.prepareStatement(UPDATE_SQL);
+                statement = connection.prepareStatement(UPDATE_SET);
                 statement.setString(1, user.getName());
                 statement.setString(2, user.getEmail());
                 statement.setString(3, user.getCountry());
@@ -146,7 +146,7 @@ public class UserDAOImplement implements UserDAO {
             try {
                 statement = connection.prepareStatement(SELECT_COUNTRY_OR_NAME);
                 statement.setString(1, str);
-                statement.setString(2, "'$%%" + str + "$%%'");
+                statement.setString(2, "%" + str + "%");
                 resultSet = statement.executeQuery();
                 User user = null;
 
