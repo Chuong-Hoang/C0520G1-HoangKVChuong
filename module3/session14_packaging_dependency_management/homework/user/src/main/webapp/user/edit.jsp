@@ -14,20 +14,22 @@
 <body>
 <h2>${edit_element}</h2>
 <p><span>${msg}</span></p>
-<form method="post">
+<form method="post" action="/users">
+    <input type="hidden" name="action" value="edit">
+    <input type="hidden" name="id" value="${user.id}">
     <fieldset>EDIT ${element_name.toUpperCase()} INFORMATION:
         <table>
             <tr>
                 <td>${title_a}</td>
-                <td><input type="text" name="a" id="a" value="${user.getName()}"></td>
+                <td><input type="text" name="a" id="a" value="${user.name}"></td>
             </tr>
             <tr>
                 <td>${title_b}</td>
-                <td><input type="text" name="b" id="b" value="${user.getEmail()}"></td>
+                <td><input type="text" name="b" id="b" value="${user.email}"></td>
             </tr>
             <tr>
                 <td>${title_c}</td>
-                <td><input type="text" name="c" id="c" value="${user.getCountry()}"></td>
+                <td><input type="text" name="c" id="c" value="${user.country}"></td>
             </tr>
             <tr>
                 <td><input type="submit" value="Update ${element_name}"></td>

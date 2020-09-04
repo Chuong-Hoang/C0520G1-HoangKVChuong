@@ -11,19 +11,19 @@ import java.util.Map;
 public class UserDAOImplement implements UserDAO {
 
     // sql variables
-    private String jdbcURL = "jdbc:mysql://localhost:3306/demo?useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/demo";
     private String jdbcUsername = "root";
     private String jdbcPassword = "12345";
 
     private static final String INSERT_SQL = "INSERT INTO users" + " (name,email,country) VALUES" + " (?,?,?);";
 
-    private static final String SELECT_BY_ID = "select id,name,country from users where id = ?;";
+    private static final String SELECT_BY_ID = "select name, email, country from users where id = ?;";
 
     private static final String SELECT_ALL = "select * from users;";
 
     private static final String DELETE_SQL = "delete from users where id = ?;";
 
-    private static final String UPDATE_SQL = "update users set name = ?, email = ?, country = ?;";
+    private static final String UPDATE_SQL = "update users set name = ?, email = ?, country = ? where id = ?;";
 
     private static final String SELECT_BY_NAME = "select id,name,country from users where name = ?;";
 
@@ -33,7 +33,7 @@ public class UserDAOImplement implements UserDAO {
     protected Connection getConnection() {
         Connection connection = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -68,7 +68,7 @@ public class UserDAOImplement implements UserDAO {
             ResultSet rs = preparedStatement.executeQuery();
 
             // Step 4: Process the ResultSet object.
-            while (rs.next()) {
+            if (rs.next()) {
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String country = rs.getString("country");
@@ -122,6 +122,7 @@ public class UserDAOImplement implements UserDAO {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
+            statement.setInt(4, user.getId());
             //statement.setInt(4, user.getId());
 
             rowUpdated = statement.executeUpdate() > 0;

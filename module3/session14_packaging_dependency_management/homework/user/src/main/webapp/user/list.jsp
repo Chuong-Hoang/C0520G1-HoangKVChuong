@@ -26,8 +26,7 @@
         }
         a {
             text-decoration: none;
-            color: green;
-            font-weight: bold;
+            color: dodgerblue;
         }
 
         button {
@@ -52,7 +51,7 @@
         <th>${title_b}</th>
         <th>${title_c}</th>
         <th>Edit</th>
-        <th>View Detailed</th>
+        <th>View</th>
         <th>Delete</th>
     </tr>
     <c:forEach items="${users}" var="user">
@@ -68,7 +67,8 @@
     </c:forEach>
 </table>
 <p>&nbsp</p>
-<form method="post" action="/users?action=search">
+<form method="post" action="/users">
+    <input type="hidden" name="action" value="search">
     <input type="text" name="name" placeholder="Enter some information">
     <input type="submit" value="Search">
     <button><a href="/users?">Back to ${element_name} list</a></button>
