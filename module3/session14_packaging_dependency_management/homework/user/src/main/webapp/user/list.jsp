@@ -38,12 +38,14 @@
     </style>
 </head>
 <body>
+<center>
 <h2>${name_list.toUpperCase()}</h2>
 
 <p>
 <button><a href="/users?action=create">Create new ${element_name}</a></button>
 </p>
 <p><span>${msg}</span></p>
+
 <table>
     <tr>
         <th>ID</th>
@@ -66,12 +68,15 @@
         </tr>
     </c:forEach>
 </table>
+
 <p>&nbsp</p>
 <form method="post" action="/users">
     <input type="hidden" name="action" value="search">
-    <input type="text" name="name" placeholder="Enter some information">
+    <input type="text" name="keywords" placeholder="Enter some keywords">
     <input type="submit" value="Search">
     <button><a href="/users?">Back to ${element_name} list</a></button>
 </form>
+</center>
+
 </body>
 </html>

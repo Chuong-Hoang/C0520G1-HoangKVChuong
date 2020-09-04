@@ -18,5 +18,5 @@ public interface UserDAO {
 
     public boolean updateUser(User user) throws SQLException;
 
-    List<User> findByName(String nameString);
+    List<User> findByName(String str);
 }

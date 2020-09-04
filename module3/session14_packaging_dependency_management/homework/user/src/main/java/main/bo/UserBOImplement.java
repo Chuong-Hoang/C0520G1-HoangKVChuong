@@ -38,8 +38,8 @@ public class UserBOImplement implements UserBO {
     }
 
     @Override
-    public List<User> findByName(String nameString) {
-        return userDAO.findByName(nameString);
+    public List<User> findByName(String str) {
+        return userDAO.findByName(str);
     }
 
 }

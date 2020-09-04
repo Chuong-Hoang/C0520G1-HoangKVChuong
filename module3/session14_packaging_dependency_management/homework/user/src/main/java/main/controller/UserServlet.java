@@ -41,7 +41,7 @@ public class UserServlet extends HttpServlet {
     String editJSP = element_name + "/edit.jsp";
     String deleteJSP = element_name + "/delete.jsp";
     String viewJSP = element_name + "/view.jsp";
-    String linkToHome = "/users";
+    String linkToHome = "/" + element_name + "s";
 
     //Forward to JSP
     protected void forwardJSP(HttpServletRequest request, HttpServletResponse response, String linkJSP) {
@@ -147,7 +147,7 @@ public class UserServlet extends HttpServlet {
     private void showViewForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = this.userBO.selectUser(id);
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
 
         forwardJSP(request, response, viewJSP);
     }
@@ -156,7 +156,7 @@ public class UserServlet extends HttpServlet {
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = this.userBO.selectUser(id);
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
 
         forwardJSP(request, response, deleteJSP);
     }
@@ -170,7 +170,7 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
 
         redirectTo(response, linkToHome); //******************
     }
@@ -180,7 +180,7 @@ public class UserServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = this.userBO.selectUser(id);
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
 
         forwardJSP(request, response, editJSP);
     }
@@ -201,7 +201,7 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
         request.setAttribute("msg", "User has been updated."); //User
 
         forwardJSP(request, response, editJSP);
@@ -226,7 +226,7 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        request.setAttribute("user", user);
+        request.setAttribute(element_name, user);
         request.setAttribute("msg", "New element has been successfully created.");
 
         forwardJSP(request, response, createJSP);
@@ -236,23 +236,17 @@ public class UserServlet extends HttpServlet {
     private void showUserList(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> users = this.userBO.selectAllUsers();
-        request.setAttribute("users", users);
+        request.setAttribute(element_name.concat("s"), users);
 
         forwardJSP(request, response, listJSP);
     }
 
-    //find by name .......................................................................
+    // Find by name .......................................................................
     private void searchUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException{
-        String name = request.getParameter("name");
+        String name = request.getParameter("keywords");
         List<User> users = this.userBO.findByName(name);
-        request.setAttribute("users", users);
-        if(users.size() > 0) {
-            request.setAttribute("msg", "Result found as below");
-        } else {
-            request.setAttribute("msg", "No user found"); //user
-        }
-
+        request.setAttribute(element_name.concat("s"), users);
         forwardJSP(request, response, listJSP);
     }
 }

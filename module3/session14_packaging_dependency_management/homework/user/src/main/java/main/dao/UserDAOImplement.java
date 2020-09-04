@@ -15,17 +15,17 @@ public class UserDAOImplement implements UserDAO {
     private String jdbcUsername = "root";
     private String jdbcPassword = "12345";
 
-    private static final String INSERT_SQL = "INSERT INTO users" + " (name,email,country) VALUES" + " (?,?,?);";
+    private static final String INSERT_SQL = "INSERT INTO users" + " (name,email,country) VALUES" + " (?,?,?)";
 
-    private static final String SELECT_BY_ID = "select name, email, country from users where id = ?;";
+    private static final String SELECT_BY_ID = "select name, email, country from users where id = ?";
 
-    private static final String SELECT_ALL = "select * from users;";
+    private static final String SELECT_ALL = "select * from users";
 
-    private static final String DELETE_SQL = "delete from users where id = ?;";
+    private static final String DELETE_SQL = "delete from users where id = ?";
 
-    private static final String UPDATE_SQL = "update users set name = ?, email = ?, country = ? where id = ?;";
+    private static final String UPDATE_SQL = "update users set name = ?, email = ?, country = ? where id = ?";
 
-    private static final String SELECT_BY_NAME = "select id,name,country from users where name = ?;";
+    private static final String SELECT_BY_NAME = "select * from users where `name` like ?";
 
     public UserDAOImplement() {
     }
@@ -69,10 +69,10 @@ public class UserDAOImplement implements UserDAO {
 
             // Step 4: Process the ResultSet object.
             if (rs.next()) {
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                user = new User(id, name, email, country);
+                String a = rs.getString("name");
+                String b = rs.getString("email");
+                String c = rs.getString("country");
+                user = new User(id,   a, b, c);
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -94,10 +94,10 @@ public class UserDAOImplement implements UserDAO {
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                users.add(new User(id, name, email, country));
+                String a = rs.getString("name");
+                String b = rs.getString("email");
+                String c = rs.getString("country");
+                users.add(new User(id,  a, b, c));
             }
         } catch (SQLException e) {
             printSQLException(e);
@@ -149,27 +149,33 @@ public class UserDAOImplement implements UserDAO {
     }
 
     @Override
-    public List<User> findByName(String nameString) {
+    public List<User> findByName(String str) {
         // using try-with-resources to avoid closing resources (boiler plate code)
         List<User> usersFound = new ArrayList<>();
         // Step 1: Establishing a Connection
         try (Connection connection = getConnection();
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BY_NAME);) {
-            preparedStatement.setString(1, nameString);
+            preparedStatement.setString(1, "%" + str + "%");
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
 
             // Step 4: Process the ResultSet object.
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                String country = rs.getString("country");
-                usersFound.add(new User(id, name, email, country));
+                String a = rs.getString("name");
+                String b = rs.getString("email");
+                String c = rs.getString("country");
+                usersFound.add(new User(id, a, b, c));
             }
         } catch (SQLException e) {
             printSQLException(e);
+        } finally {
+            try {
+                getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return usersFound;
     }
