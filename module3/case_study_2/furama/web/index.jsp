@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 02/09/2020
-  Time: 4:15 CH
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -40,16 +33,19 @@
                     <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Employee</a>
+                    <a class="nav-link" href="/employees">Employee</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/customers">Customer</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Service</a>
+                    <a class="nav-link" href="/services">Service</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contract</a>
+                    <a class="nav-link" href="/contracts">Contract</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contract-details">Contract Detail</a>
                 </li>
             </ul>
         </div>
