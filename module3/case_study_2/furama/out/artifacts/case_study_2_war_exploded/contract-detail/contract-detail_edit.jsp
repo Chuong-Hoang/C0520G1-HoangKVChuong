@@ -2,49 +2,58 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../style/css_style.css">
-
+    <%@ include file="/common/head_link.jsp" %>
     <title>${edit_element}</title>
 </head>
 <body>
+<!-- Header -->
+<%@ include file="/common/header.jsp"%>
+<!-- end -->
+
+<!-- Navigation -->
+<%@ include file="/common/navigation.jsp"%>
+<!-- end -->
+
+<!-- Body page -->
 <center>
     <h2>${edit_element}</h2>
-    <p><span>${msg_edit}</span></p>
+    <p><span class="msg-info">${msg_edit}</span></p>
     <form method="post" action="${originalLink}">
         <input type="hidden" name="action" value="edit">
         <input type="hidden" name="id" value="${el.contractDetailId}">
 
         <fieldset>${element_name.toUpperCase()} INFORMATION
-            <table>
+            <table class="table table-striped table-hover" style="width: 25%">
                 <tr>
-                    <td>${title_id}</td>
-                    <td><input type="text" name="idNew" id="idNew" value="${el.contractDetailId}"></td>
+                    <td scope="col">${title_id}</td>
+                    <td scope="col"><input type="text" name="idNew" id="idNew" value="${el.contractDetailId}"></td>
                 </tr>
                 <tr>
-                    <td>${title_a}</td>
-                    <td><input type="text" name="a" id="a" value="${el.contractId}"></td>
+                    <td scope="col">${title_a}</td>
+                    <td scope="col"><input type="text" name="a" id="a" value="${el.contractId}"></td>
                 </tr>
                 <tr>
-                    <td>${title_b}</td>
-                    <td><input type="text" name="b" id="b" value="${el.attachServiceId}"></td>
+                    <td scope="col">${title_b}</td>
+                    <td scope="col"><input type="text" name="b" id="b" value="${el.attachServiceId}"></td>
                 </tr>
                 <tr>
-                    <td>${title_c}</td>
-                    <td><input type="text" name="c" id="c" value="${el.quantity}"></td>
+                    <td scope="col">${title_c}</td>
+                    <td scope="col"><input type="text" name="c" id="c" value="${el.quantity}"></td>
                 </tr>
 
                 <tr>
-                    <td><input type="submit" value="Update ${element_name}"></td>
-                    <td><button type="button"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
+                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Update ${element_name}</td>
+                    <td scope="col"><button type="button" class="btn btn-outline-info btn-sm"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
                 </tr>
             </table>
         </fieldset>
     </form>
 </center>
+<!-- End body -->
 
-<script src="http://code.jquery.com/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+<!-- Footer -->
+<%@ include file="/common/foot_script.jsp"%>
+<%@ include file="/common/footer.jsp"%>
+<!-- end -->
 </body>
 </html>

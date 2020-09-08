@@ -254,7 +254,9 @@ public class ServiceServlet extends HttpServlet {
     // 1.1. SHOW LIST ___________________________________________________________________
     private void showServiceList(HttpServletRequest request, HttpServletResponse response) {
         List<Service> eList = this.serviceBO.findAll();
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -263,7 +265,9 @@ public class ServiceServlet extends HttpServlet {
     private void sortServiceByName(HttpServletRequest request, HttpServletResponse response) {
         List<Service> eList = this.serviceBO.findAll();
         eList.sort(new ServiceSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -273,7 +277,9 @@ public class ServiceServlet extends HttpServlet {
         String str = request.getParameter("keywords");
         List<Service> eList = this.serviceBO.findByName(str);
         eList.sort(new ServiceSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */

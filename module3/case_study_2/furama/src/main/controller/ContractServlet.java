@@ -210,7 +210,9 @@ public class ContractServlet extends HttpServlet {
     // 1.1. SHOW LIST ____________________________________________________________________
     private void showContractList(HttpServletRequest request, HttpServletResponse response) {
         List<Contract> eList = this.contractBO.findAll();
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -219,7 +221,9 @@ public class ContractServlet extends HttpServlet {
     private void sortContractByDate(HttpServletRequest request, HttpServletResponse response) {
         List<Contract> eList = this.contractBO.findAll();
         eList.sort(new SortContractByDateBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -229,7 +233,9 @@ public class ContractServlet extends HttpServlet {
         String str = request.getParameter("keywords");
         List<Contract> eList = this.contractBO.findByDate(str);
         eList.sort(new SortContractByDateBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */

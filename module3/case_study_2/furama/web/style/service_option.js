@@ -1,7 +1,7 @@
 
 function getOption() {
     let option = document.getElementById("option").value;
-    alert("option value: " + option);
+    // alert("option value: " + option);
     if (option === "House") {
         document.getElementById("i").setAttribute("type", "hidden");
 

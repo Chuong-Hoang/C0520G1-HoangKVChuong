@@ -193,7 +193,9 @@ public class ContractDetailServlet extends HttpServlet {
     // 1.1. SHOW LIST ____________________________________________________________________
     private void showContractDetailList(HttpServletRequest request, HttpServletResponse response) {
         List<ContractDetail> eList = this.contractDetailBO.findAll();
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -202,7 +204,9 @@ public class ContractDetailServlet extends HttpServlet {
     private void sortContractDetailByContractId(HttpServletRequest request, HttpServletResponse response) {
         List<ContractDetail> eList = this.contractDetailBO.findAll();
         eList.sort(new SortContractDetailByContractIdBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -211,7 +215,9 @@ public class ContractDetailServlet extends HttpServlet {
     private void searchContractDetail(HttpServletRequest request, HttpServletResponse response) {
         String str = request.getParameter("keywords");
         List<ContractDetail> eList = this.contractDetailBO.findByContractId(str);
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */

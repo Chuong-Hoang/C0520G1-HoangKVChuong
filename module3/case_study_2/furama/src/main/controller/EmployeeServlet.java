@@ -223,7 +223,9 @@ public class EmployeeServlet extends HttpServlet {
     // 1.1. SHOW LIST ___________________________________________________________________
     private void showEmployeeList(HttpServletRequest request, HttpServletResponse response) {
         List<Employee> eList = this.employeeBO.findAll();
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -232,7 +234,9 @@ public class EmployeeServlet extends HttpServlet {
     private void sortEmployeeByName(HttpServletRequest request, HttpServletResponse response) {
         List<Employee> eList = this.employeeBO.findAll();
         eList.sort(new EmployeeSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -242,7 +246,9 @@ public class EmployeeServlet extends HttpServlet {
         String str = request.getParameter("keywords");
         List<Employee> eList = this.employeeBO.findByName(str);
         eList.sort(new EmployeeSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */

@@ -40,5 +40,9 @@
         <jarDirectory url="file://$MODULE_DIR$/../../jdbc-connector" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jquery.twbsPagination" level="application" />
+    <orderEntry type="library" name="popper" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.5.1.slim" level="application" />
   </component>
 </module>

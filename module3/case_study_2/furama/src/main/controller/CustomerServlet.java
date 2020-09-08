@@ -212,7 +212,9 @@ public class CustomerServlet extends HttpServlet {
     // 1.1. SHOW LIST ____________________________________________________________________
     private void showCustomerList(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> eList = this.customerBO.findAll();
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -221,7 +223,9 @@ public class CustomerServlet extends HttpServlet {
     private void sortCustomerByName(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> eList = this.customerBO.findAll();
         eList.sort(new CustomerSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -231,7 +235,9 @@ public class CustomerServlet extends HttpServlet {
         String str = request.getParameter("keywords");
         List<Customer> eList = this.customerBO.findByName(str);
         eList.sort(new CustomerSortByNameBO());
+        int count = eList.size();
         request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
