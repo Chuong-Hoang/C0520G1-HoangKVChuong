@@ -3,6 +3,8 @@ package main.controller;
 import main.bo.employee_bo.EmployeeBO;
 import main.bo.employee_bo.EmployeeBOImplement;
 import main.bo.employee_bo.EmployeeSortByNameBO;
+import main.common.Validation;
+import main.model.customer_model.Customer;
 import main.model.employee_model.Employee;
 
 import javax.servlet.RequestDispatcher;
@@ -147,19 +149,59 @@ public class EmployeeServlet extends HttpServlet {
         String i = request.getParameter("i");
         String j = request.getParameter("j");
 
-        Employee el = new Employee(id,  a,b,c,d,e,f,g,h,i,j);
+        // Validate input
+        boolean isValidALL = false;
 
-        this.employeeBO.create(el);
-        //request.setAttribute("el", el);
-        request.setAttribute("msg_create", msg_create);
+        boolean isValid_a = Validation.checkName(a);
+        boolean isValid_b = Validation.checkBirthday(b);
+        boolean isValid_c = Validation.checkIdCard(c);
+        boolean isValid_d = Validation.checkDouble(d);
+        boolean isValid_e = Validation.checkPhoneNumber(e);
+        boolean isValid_f = Validation.checkEmail(f);
+
+        if (!isValid_a) {
+            String msgInvalid_a = "The name not valid";
+            request.setAttribute("msg_invalid_a", msgInvalid_a);
+        }
+        if (!isValid_b) {
+            String msgInvalid_b = "The birthday must made the age not less than 18";
+            request.setAttribute("msg_invalid_b", msgInvalid_b);
+        }
+        if (!isValid_c) {
+            String msgInvalid_c = "The ID card number is not valid";
+            request.setAttribute("msg_invalid_c", msgInvalid_c);
+        }
+        if (!isValid_d) {
+            String msgInvalid_d = "The salary is not valid";
+            request.setAttribute("msg_invalid_d", msgInvalid_d);
+        }
+        if (!isValid_e) {
+            String msgInvalid_e = "The phone number must have 9 or 10 digits";
+            request.setAttribute("msg_invalid_e", msgInvalid_e);
+        }
+        if (!isValid_f) {
+            String msgInvalid_f = "The email is not valid";
+            request.setAttribute("msg_invalid_f", msgInvalid_f);
+        }
+
+        isValidALL = isValid_a && isValid_b && isValid_c && isValid_d && isValid_e && isValid_f;
+        if (isValidALL) {
+            Employee el = new Employee(id,  a,b,c,d,e,f,g,h,i,j);
+            this.employeeBO.create(el);
+            //request.setAttribute("el", el);
+            request.setAttribute("msg_create", msg_create);
+        } else {
+            request.setAttribute("msg_create", "Input not valid!");
+        }
         forwardJSP(request, response, createJSP);
     }
     /* ---------------------- end ------------------------ */
 
     // 4. edit
     private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        String idNew = request.getParameter("idNew");
         String id = request.getParameter("id");
+
+        String idNew = request.getParameter("idNew");
         String a = request.getParameter("a");
         String b = request.getParameter("b");
         String c = request.getParameter("c");
@@ -171,11 +213,50 @@ public class EmployeeServlet extends HttpServlet {
         String i = request.getParameter("i");
         String j = request.getParameter("j");
 
-        Employee el = new Employee(idNew,  a,b,c,d,e,f,g,h,i,j);
+        // Validate input
+        boolean isValidALL = false;
 
-        this.employeeBO.update(id, el);
-        request.setAttribute("el", el);
-        request.setAttribute("msg_edit", msg_edit);
+        boolean isValid_a = Validation.checkName(a);
+        boolean isValid_b = Validation.checkBirthday(b);
+        boolean isValid_c= Validation.checkIdCard(c);
+        boolean isValid_d= Validation.checkDouble(d);
+        boolean isValid_e = Validation.checkPhoneNumber(e);
+        boolean isValid_f = Validation.checkEmail(f);
+
+        if (!isValid_a) {
+            String msgInvalid_a = "The name not valid";
+            request.setAttribute("msg_invalid_a", msgInvalid_a);
+        }
+        if (!isValid_b) {
+            String msgInvalid_b = "The birthday must made the age not less than 18";
+            request.setAttribute("msg_invalid_b", msgInvalid_b);
+        }
+        if (!isValid_c) {
+            String msgInvalid_c = "The ID card number is not valid";
+            request.setAttribute("msg_invalid_c", msgInvalid_c);
+        }
+        if (!isValid_d) {
+            String msgInvalid_d = "The salary is not valid";
+            request.setAttribute("msg_invalid_d", msgInvalid_d);
+        }
+        if (!isValid_e) {
+            String msgInvalid_e = "The phone number must have 10 or 11 digits";
+            request.setAttribute("msg_invalid_e", msgInvalid_e);
+        }
+        if (!isValid_f) {
+            String msgInvalid_f = "The email is not valid";
+            request.setAttribute("msg_invalid_f", msgInvalid_f);
+        }
+
+        isValidALL = isValid_a && isValid_b && isValid_c && isValid_d && isValid_e && isValid_f;
+        if (isValidALL) {
+            Employee el = new Employee(id,  a,b,c,d,e,f,g,h,i,j);
+            this.employeeBO.update(id, el);
+            request.setAttribute("el", el);
+            request.setAttribute("msg_edit", msg_edit);
+        } else {
+            request.setAttribute("msg_edit", "Input not valid!");
+        }
         forwardJSP(request, response, editJSP);
     }
     /* ---------------------- end ------------------------ */

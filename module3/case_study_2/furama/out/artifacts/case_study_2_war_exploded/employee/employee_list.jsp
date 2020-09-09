@@ -2,16 +2,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@ include file="/common/head_link.jsp" %>
+    <%@ include file="../common/head_link.jsp" %>
     <title>${element_name}</title>
 </head>
 <body>
 <!-- Header -->
-<%@ include file="/common/header.jsp"%>
+<%@ include file="../common/header.jsp"%>
 <!-- end -->
 
 <!-- Navigation -->
-<%@ include file="/common/navigation.jsp"%>
+<%@ include file="../common/navigation.jsp"%>
 <!-- end -->
 
 <!-- Body page -->
@@ -50,12 +50,14 @@
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         <th scope="col">View</th>
+        <!-- Task 3.10 - CLEAR ON SCREEN -->
+        <th scope="col">Clear</th>
     </tr>
     </thead>
 
     <tbody>
     <c:forEach items="${eList}" var="el">
-        <tr>
+        <tr id="${el.employeeId}">
             <td scope="col">${el.employeeId}</td>
             <td scope="col">${el.employeeName}</td>
             <td scope="col">${el.employeeBirthday}</td>
@@ -109,6 +111,11 @@
             <td scope="col"><a href="${originalLink}?action=view&id=${el.employeeId}">
                 <button type="button" class="btn btn-outline-info btn-sm">View</button></a>
             </td>
+
+            <!-- Task 3.10 - CLEAR ON SCREEN -->
+            <td scope="col">
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="displayHiddenElement('${el.employeeId}')">CLEAR</button>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
@@ -117,8 +124,9 @@
 <!-- End body -->
 
 <!-- Footer -->
-<%@ include file="/common/foot_script.jsp"%>
-<%@ include file="/common/footer.jsp"%>
+<%@ include file="../common/foot_script.jsp"%>
+
+<%@ include file="../common/footer.jsp"%>
 <!-- end -->
 </body>
 </html>

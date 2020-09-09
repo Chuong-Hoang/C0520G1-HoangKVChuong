@@ -50,12 +50,14 @@
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         <th scope="col">View</th>
+        <!-- Task 3.10 - CLEAR ON SCREEN -->
+        <th scope="col">Clear</th>
     </tr>
     </thead>
 
     <tbody>
     <c:forEach items="${eList}" var="el">
-        <tr>
+        <tr id="${el.serviceId}">
             <td scope="col">${el.serviceId}</td>
             <td scope="col">${el.serviceName}</td>
             <td scope="col">${el.serviceArea}</td>
@@ -124,6 +126,11 @@
 
             <td scope="col"><a href="${originalLink}?action=view&id=${el.serviceId}">
                 <button type="button" class="btn btn-outline-info btn-sm">View</button></a>
+            </td>
+
+            <!-- Task 3.10 - CLEAR ON SCREEN -->
+            <td scope="col">
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="displayHiddenElement('${el.serviceId}')">CLEAR</button>
             </td>
         </tr>
     </c:forEach>

@@ -1,14 +1,14 @@
 package main.model.service_model;
 
 public abstract class Service {
-    protected String serviceId;
-    protected String serviceName;
-    protected String serviceArea;
-    protected String serviceCost;
-    protected String serviceMaxPeople;
-    protected String rentTypeId;
+    protected String serviceId; //id
+    protected String serviceName; //a
+    protected String serviceArea; //b
+    protected String serviceCost; //c
+    protected String serviceMaxPeople; //d
+    protected String rentTypeId; //e
 
-    protected String serviceTypeId;
+    protected String serviceTypeId; //f
 
     protected AttachService attachService;
 

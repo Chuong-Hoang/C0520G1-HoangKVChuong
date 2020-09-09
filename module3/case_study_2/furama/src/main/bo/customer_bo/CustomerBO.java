@@ -21,4 +21,7 @@ public interface CustomerBO {
     public boolean update(String id, Customer el) throws SQLException;
 
     List<Customer> findByName(String str);
+
+    // 3.10 Task 10
+    public List<Customer> deleteOnScreen(String id);
 }

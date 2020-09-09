@@ -81,7 +81,7 @@
 <!-- End body -->
 
 <!-- Footer -->
-<script src="../style/service_option.js"></script>
+<script src="../all/style/service_option.js"></script>
 <%@ include file="/common/foot_script.jsp"%>
 <%@ include file="/common/footer.jsp"%>
 <!-- end -->

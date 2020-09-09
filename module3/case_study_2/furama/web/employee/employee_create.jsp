@@ -22,34 +22,40 @@
         <input type="hidden" name="action" value="create">
 
         <fieldset>${element_name.toUpperCase()} INFORMATION
-            <table class="table table-striped table-hover" style="width: 25%">
+            <table class="table table-striped table-hover" style="width: 35%">
                 <tr>
                     <td scope="col">${title_id}</td>
                     <td scope="col"><input type="text" name="id" id="id"></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_a}</td>
-                    <td scope="col"><input type="text" name="a" id="a"></td>
+                    <td scope="col"><input type="text" name="a" id="a"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_a}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_b}</td>
-                    <td scope="col"><input type="text" name="b" id="b"></td>
+                    <td scope="col"><input type="date" name="b" id="b"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_b}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_c}</td>
-                    <td scope="col"><input type="text" name="c" id="c"></td>
+                    <td scope="col"><input type="text" name="c" id="c"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_c}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_d}</td>
-                    <td scope="col"><input type="text" name="d" id="d"></td>
+                    <td scope="col"><input type="text" name="d" id="d"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_d}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_e}</td>
-                    <td scope="col"><input type="text" name="e" id="e"></td>
+                    <td scope="col"><input type="text" name="e" id="e"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_e}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_f}</td>
-                    <td scope="col"><input type="text" name="f" id="f"></td>
+                    <td scope="col"><input type="text" name="f" id="f"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_f}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_g}</td>
@@ -68,7 +74,7 @@
                     <td scope="col"><input type="text" name="j" id="j"></td>
                 </tr>
                 <tr>
-                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Create ${element_name}</td>
+                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Create ${element_name}</button></td>
                     <td scope="col"><button type="button" class="btn btn-outline-info btn-sm"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
                 </tr>
             </table>

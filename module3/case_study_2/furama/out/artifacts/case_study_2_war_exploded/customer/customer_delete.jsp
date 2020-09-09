@@ -61,7 +61,7 @@
                     <td scope="col">${el.customerTypeId}</td>
                 </tr>
                 <tr>
-                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Delete ${element_name}</td>
+                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Delete ${element_name}</button></td>
                     <td scope="col"><button type="button" class="btn btn-outline-info btn-sm"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
                 </tr>
             </table>

@@ -1,14 +1,14 @@
 package main.model.contract_model;
 
 public class Contract {
-    private String contractId;
-    private String contractStartDate;
-    private String contractEndDate;
-    private String contractDeposit;
-    private String contractTotalMoney;
-    private String contractEmployeeId;
-    private String contractCustomerId;
-    private String contractServiceId;
+    private String contractId;//id
+    private String contractStartDate; //a
+    private String contractEndDate; //b
+    private String contractDeposit; //c
+    private String contractTotalMoney;  //d
+    private String contractEmployeeId; //e
+    private String contractCustomerId; //f
+    private String contractServiceId; //g
 
     public Contract() {
     }

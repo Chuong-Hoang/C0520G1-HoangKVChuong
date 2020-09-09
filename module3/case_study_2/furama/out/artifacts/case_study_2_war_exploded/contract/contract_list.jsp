@@ -47,12 +47,14 @@
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         <th scope="col">View</th>
+        <!-- Task 3.10 - CLEAR ON SCREEN -->
+        <th scope="col">Clear</th>
     </tr>
     </thead>
 
     <tbody>
     <c:forEach items="${eList}" var="el">
-        <tr>
+        <tr id="${el.contractId}">
             <td scope="col">${el.contractId}</td>
             <td scope="col">${el.contractStartDate}</td>
             <td scope="col">${el.contractEndDate}</td>
@@ -102,6 +104,11 @@
 
             <td scope="col"><a href="${originalLink}?action=view&id=${el.contractId}">
                 <button type="button" class="btn btn-outline-info btn-sm">View</button></a>
+            </td>
+
+            <!-- Task 3.10 - CLEAR ON SCREEN -->
+            <td scope="col">
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="displayHiddenElement('${el.contractId}')">CLEAR</button>
             </td>
         </tr>
     </c:forEach>

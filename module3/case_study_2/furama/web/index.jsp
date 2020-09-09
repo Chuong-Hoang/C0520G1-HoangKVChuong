@@ -17,7 +17,7 @@
 <!-- Body page -->
 <div class="row container-fluid padding">
     <div class="col-12 col-sm-3 col-md-3 col-lg-3" style="background-color: white">
-        <br>
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <button type="button" class="btn btn-outline-info btn-sm btn-block">
@@ -51,6 +51,7 @@
         </ul>
     </div>
     <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+
         <!-- Carousel -->
         <div id="slides" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
@@ -61,7 +62,7 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="img-fluid" src="./image/view_1.jpg"/>
+                    <img class="img-fluid" src="./all/image/view_1.jpg"/>
                     <div class="carousel-caption">
                         <h2 class="display-2">Furama Resort</h2>
                         <h4>Make your life more beautiful</h4>
@@ -71,7 +72,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="img-fluid" src="./image/view_2.jpg">
+                    <img class="img-fluid" src="./all/image/view_2.jpg">
                     <div class="carousel-caption">
                         <button type="button" class="btn btn-outline-info btn-lg" style="color:red">
                             <a class="nav-link" href="/services">Book now</a>
@@ -79,7 +80,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="img-fluid" src="./image/view_3.jpg">
+                    <img class="img-fluid" src="./all/image/view_3.jpg">
                     <div class="carousel-caption">
                         <button type="button" class="btn btn-outline-info btn-lg" style="color:red">
                             <a class="nav-link" href="/services">Book now</a>
@@ -87,7 +88,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="img-fluid" src="./image/view_4.jpg">
+                    <img class="img-fluid" src="./all/image/view_4.jpg">
                     <div class="carousel-caption">
                         <button type="button" class="btn btn-outline-info btn-lg" style="color:red">
                             <a class="nav-link" href="/services">Book now</a>

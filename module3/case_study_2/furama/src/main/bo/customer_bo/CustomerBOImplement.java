@@ -40,4 +40,18 @@ public class CustomerBOImplement implements CustomerBO {
         return this.customerDAO.findByName(str);
     }
 
+    // Task 3.10
+    @Override
+    public List<Customer> deleteOnScreen(String id) {
+        List<Customer> eList = customerDAO.findAll();
+        for(Customer el : eList) {
+            if(el.getCustomerId().compareTo(id) == 0) {
+                eList.remove(el);
+                System.out.println("DELETE record name '" + el.getCustomerName() + "' ON SCREEN successfully.");
+                break;
+            }
+        }
+        return eList;
+    }
+
 }

@@ -76,7 +76,7 @@
                     </c:when>
                 </c:choose>
                 <tr>
-                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Delete ${element_name}</td>
+                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Delete ${element_name}</button></td>
                     <td scope="col"><button type="button" class="btn btn-outline-info btn-sm"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
                 </tr>
             </table>
@@ -86,7 +86,7 @@
 <!-- End body -->
 
 <!-- Footer -->
-<script src="../style/service_option.js"></script>
+<script src="../all/style/service_option.js"></script>
 <%@ include file="/common/foot_script.jsp"%>
 <%@ include file="/common/footer.jsp"%>
 <!-- end -->

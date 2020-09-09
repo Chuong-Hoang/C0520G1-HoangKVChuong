@@ -3,6 +3,7 @@ package main.controller;
 import main.bo.service_bo.ServiceBO;
 import main.bo.service_bo.ServiceBOImplement;
 import main.bo.service_bo.ServiceSortByNameBO;
+import main.common.Validation;
 import main.model.service_model.House;
 import main.model.service_model.Room;
 import main.model.service_model.Service;
@@ -147,6 +148,38 @@ public class ServiceServlet extends HttpServlet {
         String e = request.getParameter("e");
         String f = request.getParameter("f");
 
+        // Validate input
+        boolean isValidALL = false;
+
+        boolean isValid_id = Validation.checkCode(id);
+        boolean isValid_a = Validation.checkName(a);
+        boolean isValid_b = Validation.checkDouble(b);
+        boolean isValid_c = Validation.checkDouble(c);
+        boolean isValid_d = Validation.checkInteger(d);
+
+        if (!isValid_id) {
+            String msgInvalid_id = "The ID must as format 'DV-xxxx' ";
+            request.setAttribute("msg_invalid_id", msgInvalid_id);
+        }
+        if (!isValid_a) {
+            String msgInvalid_a = "The name not valid";
+            request.setAttribute("msg_invalid_a", msgInvalid_a);
+        }
+        if (!isValid_b) {
+            String msgInvalid_b = "The number is not valid";
+            request.setAttribute("msg_invalid_b", msgInvalid_b);
+        }
+        if (!isValid_c) {
+            String msgInvalid_c = "The number is not valid";
+            request.setAttribute("msg_invalid_c", msgInvalid_c);
+        }
+        if (!isValid_d) {
+            String msgInvalid_d = "The number is not valid";
+            request.setAttribute("msg_invalid_d", msgInvalid_d);
+        }
+
+        isValidALL = isValid_id && isValid_a && isValid_c && isValid_d;
+
         String option = request.getParameter("option");
         Service el = null;
 
@@ -156,20 +189,60 @@ public class ServiceServlet extends HttpServlet {
             String i = request.getParameter("i");
             String j = request.getParameter("j");
 
-            el = new Villa(id,  a, b, c, d, e, f, g, h, i, j);
+            boolean isValid_i = Validation.checkDouble(i);
+            boolean isValid_j = Validation.checkInteger(j);
+
+            if (!isValid_i) {
+                String msgInvalid_i = "The number is not valid";
+                request.setAttribute("msg_invalid_i", msgInvalid_i);
+            }
+            if (!isValid_j) {
+                String msgInvalid_j = "The number is not valid";
+                request.setAttribute("msg_invalid_j", msgInvalid_j);
+            }
+
+            isValidALL = isValidALL && isValid_i && isValid_j;
+            if (isValidALL) {
+                el = new Villa(id, a, b, c, d, e, f, g, h, i, j);
+                this.serviceBO.create(el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_create", msg_create);
+            } else {
+                request.setAttribute("msg_create", "Input not valid!");
+            }
+
         } else if (option.compareTo("House") == 0) {
             String g = request.getParameter("g");
             String h = request.getParameter("h");
             String j = request.getParameter("j");
 
-            el = new House(id,  a, b, c, d, e, f, g, h, j);
+
+            boolean isValid_j = Validation.checkInteger(j);
+            if (!isValid_j) {
+                String msgInvalid_j = "The number is not valid";
+                request.setAttribute("msg_invalid_j", msgInvalid_j);
+            }
+
+            isValidALL = isValidALL && isValid_j;
+            if (isValidALL) {
+                el = new House (id, a, b, c, d, e, f, g, h, j);
+                this.serviceBO.create(el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_create", msg_create);
+            } else {
+                request.setAttribute("msg_create", "Input not valid!");
+            }
         } else {
-            el = new Room(id,  a, b, c, d, e, f);
+            if(isValidALL) {
+                el = new Room(id, a, b, c, d, e, f);
+                this.serviceBO.create(el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_create", msg_create);
+            } else {
+                request.setAttribute("msg_create", "Input not valid!");
+            }
         }
 
-        this.serviceBO.create(el);
-        request.setAttribute("el", el);
-        request.setAttribute("msg_create", msg_create);
         forwardJSP(request, response, createJSP);
     }
     /* ---------------------- end ------------------------ */
@@ -177,6 +250,7 @@ public class ServiceServlet extends HttpServlet {
     // 4. edit
     private void editService(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String id = request.getParameter("id");
+
         String idNew = request.getParameter("idNew");
         String a = request.getParameter("a");
         String b = request.getParameter("b");
@@ -185,29 +259,104 @@ public class ServiceServlet extends HttpServlet {
         String e = request.getParameter("e");
         String f = request.getParameter("f");
 
+        // this line must have to check ...instanceof...
         Service el = this.serviceBO.findById(id);
 
+        // Validate input
+        boolean isValidALL = false;
+
+        boolean isValid_id = Validation.checkCode(id);
+        boolean isValid_a = Validation.checkName(a);
+        boolean isValid_b = Validation.checkDouble(b);
+        boolean isValid_c = Validation.checkDouble(c);
+        boolean isValid_d = Validation.checkInteger(d);
+
+        if (!isValid_id) {
+            String msgInvalid_id = "The ID must as format 'DV-xxxx' ";
+            request.setAttribute("msg_invalid_id", msgInvalid_id);
+        }
+        if (!isValid_a) {
+            String msgInvalid_a = "The name not valid";
+            request.setAttribute("msg_invalid_a", msgInvalid_a);
+        }
+        if (!isValid_b) {
+            String msgInvalid_b = "The number is not valid";
+            request.setAttribute("msg_invalid_b", msgInvalid_b);
+        }
+        if (!isValid_c) {
+            String msgInvalid_c = "The number is not valid";
+            request.setAttribute("msg_invalid_c", msgInvalid_c);
+        }
+        if (!isValid_d) {
+            String msgInvalid_d = "The number is not valid";
+            request.setAttribute("msg_invalid_d", msgInvalid_d);
+        }
+
+        isValidALL = isValid_id && isValid_a && isValid_c && isValid_d;
+
+        // not the same as method createService
         if (el instanceof Villa) {
             String g = request.getParameter("g");
             String h = request.getParameter("h");
             String i = request.getParameter("i");
             String j = request.getParameter("j");
 
-            el = new Villa(idNew,  a, b, c, d, e, f, g, h, i, j);
+            boolean isValid_i = Validation.checkDouble(i);
+            boolean isValid_j = Validation.checkInteger(j);
+
+            if (!isValid_i) {
+                String msgInvalid_i = "The number is not valid";
+                request.setAttribute("msg_invalid_i", msgInvalid_i);
+            }
+            if (!isValid_j) {
+                String msgInvalid_j = "The number is not valid";
+                request.setAttribute("msg_invalid_j", msgInvalid_j);
+            }
+
+            isValidALL = isValidALL && isValid_i && isValid_j;
+            if (isValidALL) {
+                el = new Villa(id, a, b, c, d, e, f, g, h, i, j);
+                this.serviceBO.update(id, el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_edit", msg_edit);
+            } else {
+                request.setAttribute("msg_edit", "Input not valid!");
+            }
+
         } else if (el instanceof House) {
             String g = request.getParameter("g");
             String h = request.getParameter("h");
             String j = request.getParameter("j");
 
-            el = new House(idNew,  a, b, c, d, e, f, g, h, j);
+
+            boolean isValid_j = Validation.checkInteger(j);
+            if (!isValid_j) {
+                String msgInvalid_j = "The number is not valid";
+                request.setAttribute("msg_invalid_j", msgInvalid_j);
+            }
+
+            isValidALL = isValidALL && isValid_j;
+            if (isValidALL) {
+                el = new House (id, a, b, c, d, e, f, g, h, j);
+                this.serviceBO.update(id, el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_edit", msg_edit);
+            } else {
+                request.setAttribute("msg_edit", "Input not valid!");
+            }
         } else {
-            el = new Room(idNew,  a, b, c, d, e, f);
+            if(isValidALL) {
+                el = new Room(id, a, b, c, d, e, f);
+                this.serviceBO.update(id, el);
+                request.setAttribute("el", el);
+                request.setAttribute("msg_edit", msg_edit);
+            } else {
+                request.setAttribute("msg_edit", "Input not valid!");
+            }
         }
 
-        this.serviceBO.update(id, el);
-        request.setAttribute("el", el);
-        request.setAttribute("msg_edit", msg_edit);
         forwardJSP(request, response, editJSP);
+
     }
     /* ---------------------- end ------------------------ */
 

@@ -49,6 +49,8 @@
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         <th scope="col">View</th>
+        <!-- Task 3.10 - CLEAR ON SCREEN -->
+        <th scope="col">Clear</th>
     </tr>
     </thead>
 <%--    private String customerId;--%>
@@ -62,7 +64,7 @@
 <%--    private int customerTypeId;//h--%>
     <tbody>
     <c:forEach items="${eList}" var="el">
-        <tr>
+        <tr id="${el.customerId}">
             <td scope="col">${el.customerId}</td>
             <td scope="col">${el.customerName}</td>
             <td scope="col">${el.customerBirthday}</td>
@@ -113,6 +115,11 @@
 
             <td scope="col"><a href="${originalLink}?action=view&id=${el.customerId}">
                 <button type="button" class="btn btn-outline-info btn-sm">View</button></a>
+            </td>
+
+            <!-- Task 3.10 - CLEAR ON SCREEN -->
+            <td scope="col">
+                <button type="button" class="btn btn-outline-success btn-sm" onclick="displayHiddenElement('${el.customerId}')">CLEAR</button>
             </td>
         </tr>
     </c:forEach>

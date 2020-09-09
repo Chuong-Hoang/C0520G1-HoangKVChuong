@@ -26,23 +26,28 @@
             <table class="table table-striped table-hover" style="width: 25%">
                 <tr>
                     <td scope="col">${title_id}</td>
-                    <td scope="col"><input type="text" name="idNew" id="idNew" value="${el.serviceId}"></td>
+                    <td scope="col"><input type="text" name="idNew" id="idNew" value="${el.serviceId}"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_id}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_a}</td>
-                    <td scope="col"><input type="text" name="a" id="a" value="${el.serviceName}"></td>
+                    <td scope="col"><input type="text" name="a" id="a" value="${el.serviceName}"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_a}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_b}</td>
-                    <td scope="col"><input type="text" name="b" id="b" value="${el.serviceArea}"></td>
+                    <td scope="col"><input type="text" name="b" id="b" value="${el.serviceArea}"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_b}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_c}</td>
-                    <td scope="col"><input type="text" name="c" id="c" value="${el.serviceCost}"></td>
+                    <td scope="col"><input type="text" name="c" id="c" value="${el.serviceCost}"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_c}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_d}</td>
-                    <td scope="col"><input type="text" name="d" id="d" value="${el.serviceMaxPeople}"></td>
+                    <td scope="col"><input type="text" name="d" id="d" value="${el.serviceMaxPeople}"><span class="msg-invalid">(*)</span><br>
+                        <span class="msg-invalid">${msg_invalid_d}</span></td>
                 </tr>
                 <tr>
                     <td scope="col">${title_e}</td>
@@ -65,18 +70,20 @@
                         </tr>
                         <tr>
                             <td scope="col">${title_j}</td>
-                            <td scope="col"><input type="text" name="j" id="j" value="${el.numberOfFloors}"></td>
+                            <td scope="col"><input type="text" name="j" id="j" value="${el.numberOfFloors}"><span class="msg-invalid">(*)</span><br>
+                                <span class="msg-invalid">${msg_invalid_j}</span></td>
                         </tr>
                         <c:if test="${el.getClass().getSimpleName().compareTo('Villa') == 0}">
                             <tr>
                                 <td scope="col">${title_i}</td>
-                                <td scope="col"><input type="text" name="i" id="i" value="${el.poolArea}"></td>
+                                <td scope="col"><input type="text" name="i" id="i" value="${el.poolArea}"><span class="msg-invalid">(*)</span><br>
+                                    <span class="msg-invalid">${msg_invalid_i}</span></td>
                             </tr>
                         </c:if>
                     </c:when>
                 </c:choose>
                 <tr>
-                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Update ${element_name}</td>
+                    <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">Update ${element_name}</button></td>
                     <td scope="col"><button type="button" class="btn btn-outline-info btn-sm"><a href=${originalLink}>Back to ${element_name} list</a></button></td>
                 </tr>
             </table>
@@ -86,7 +93,7 @@
 <!-- End body -->
 
 <!-- Footer -->
-<script src="../style/service_option.js"></script>
+<script src="../all/style/service_option.js"></script>
 <%@ include file="/common/foot_script.jsp"%>
 <%@ include file="/common/footer.jsp"%>
 <!-- end -->

@@ -1,10 +1,10 @@
 package main.model.service_model;
 
 public class Villa extends Service {
-    private String standardRoom;
-    private String descriptionOtherConvenience;
-    private String poolArea;
-    private String numberOfFloors;
+    private String standardRoom; //g
+    private String descriptionOtherConvenience; //h
+    private String poolArea; //i
+    private String numberOfFloors; //j
 
     public Villa() {
     }
