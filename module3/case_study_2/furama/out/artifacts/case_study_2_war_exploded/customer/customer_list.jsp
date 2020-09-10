@@ -22,7 +22,7 @@
     <form method="post" action="${originalLink}">
         <button class="btn btn-outline-info btn-sm"><a href="${originalLink}?action=create">${create_element}</a> </button>
         <span>&nbsp;</span>
-        <button class="btn btn-outline-info btn-sm"><a href="/index.jsp">Back to home</a></button>
+        <button class="btn btn-outline-info btn-sm"><a href="/home.jsp">Back to home</a></button>
         <span>&nbsp;</span>
         <button class="btn btn-outline-info btn-sm"><a href="${originalLink}">Back to ${element_name} list</a></button>
         <span>&nbsp;</span>

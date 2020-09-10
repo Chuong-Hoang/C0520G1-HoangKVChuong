@@ -40,7 +40,7 @@
         </button>
         <span>&nbsp;</span>
         <button class="btn btn-outline-info btn-sm">
-            <a href="/index.jsp">Back to home</a>
+            <a href="/home.jsp">Back to home</a>
         </button>
 
         <input type="hidden" name="action" value="search">
@@ -61,9 +61,15 @@
             <th scope="col">${title_f}</th>
             <th scope="col">${title_g}</th>
             <th scope="col">${title_h}</th>
+            <th scope="col">${title_i}</th>
+            <th scope="col">${title_j}</th>
+            <th scope="col">${title_k}</th>
+
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
             <th scope="col">View</th>
+            <!-- Task 3.10 - CLEAR ON SCREEN -->
+            <th scope="col">Clear</th>
         </tr>
         </thead>
 <%--        //        this.customerId = customerId;--%>
@@ -74,9 +80,14 @@
 <%--        //        this.serviceName = serviceName;--%>
 <%--        //        this.attachServiceId = attachServiceId;--%>
 <%--        //        this.attachServiceName = attachServiceName;--%>
+<%--        //        this.contractTotalMoney = contractTotalMoney;--%>
+<%--        //        this.attachServiceCost = attachServiceCost;--%>
+<%--        //        this.quantity = quantity;--%>
+
         <tbody>
         <c:forEach items="${eList}" var="el">
-            <tr>
+
+            <tr id="${el.contractDetailId}">
 
                 <td scope="col">${el.customerId}</td>
                 <td scope="col">${el.customerName}</td>
@@ -86,6 +97,11 @@
                 <td scope="col">${el.serviceName}</td>
                 <td scope="col">${el.attachServiceId}</td>
                 <td scope="col">${el.attachServiceName}</td>
+
+                <td scope="col">${el.contractTotalMoney}</td>
+                <td scope="col">${el.attachServiceCost}</td>
+                <td scope="col">${el.quantity}</td>
+
                 <td scope="col"><a href="services?action=edit&id=${el.serviceId}">
                     <button type="button" class="btn btn-outline-warning btn-sm">Edit</button></a>
                 </td>
@@ -125,8 +141,13 @@
                     <!-- Modal -->
                 </td>
 
-                <td scope="col"><a href="/services?action=view&id=${el.customerId}">
+                <td scope="col"><a href="/services?action=view&id=${el.serviceId}">
                     <button type="button" class="btn btn-outline-info btn-sm">View</button></a>
+                </td>
+
+                <!-- Task 3.10 - CLEAR ON SCREEN -->
+                <td scope="col">
+                    <button type="button" class="btn btn-outline-success btn-sm" onclick="displayHiddenElement('${el.contractDetailId}')">CLEAR</button>
                 </td>
             </tr>
         </c:forEach>

@@ -22,16 +22,20 @@ public class CustomerUsingServiceDAOImplement implements CustomerUsingServiceDAO
     private static final String COL_NAME_6 = "service_name";
     private static final String COL_NAME_7 = "attach_service_id";
     private static final String COL_NAME_8 = "attach_service_name";
+    private static final String COL_NAME_9 = "contract_total_money";
+    private static final String COL_NAME_10 = "attach_service_cost";
+    private static final String COL_NAME_11 = "quantity";
 
     private static final String cm = ",";
     private static final String eq = " = ?";
     /* .......................... Table end .........................*/
 
     private static final String SELECT_CUSTOMER_USING_SERVICE = "select customer.customer_id, customer.customer_name, " +
-            "contract.contract_id, contract_detail.contract_detail_id,\n" +
-            "\tcontract.service_id, service.service_name, attach_service.attach_service_id, " +
-            "attach_service.attach_service_name\n" +
-            "from `customer`\n" +
+            "contract.contract_id, contract_detail.contract_detail_id, contract.service_id, service.service_name, " +
+            "attach_service.attach_service_id, " +
+            "attach_service.attach_service_name, contract.contract_total_money, " +
+            "attach_service.attach_service_cost, contract_detail.quantity\n " +
+            "from `customer`\n " +
             "inner join `contract` on contract.customer_id = customer.customer_id\n" +
             "left join `service` on contract.service_id = service.service_id\n" +
             "left join `contract_detail` on contract.contract_id = contract_detail.contract_id\n" +
@@ -44,6 +48,9 @@ public class CustomerUsingServiceDAOImplement implements CustomerUsingServiceDAO
 //<%--        //        this.serviceName = serviceName;--%>
 //<%--        //        this.attachServiceId = attachServiceId;--%>
 //<%--        //        this.attachServiceName = attachServiceName;--%>
+//-- contract.contract_total_money
+//-- attach_service.attach_service_cost
+//-- contract_detail.quantity
 
     @Override
     public List<CustomerUsingService> findAll() {
@@ -68,6 +75,9 @@ public class CustomerUsingServiceDAOImplement implements CustomerUsingServiceDAO
                     el.setServiceName(resultSet.getString(COL_NAME_6));
                     el.setAttachServiceId(String.valueOf(resultSet.getString(COL_NAME_7)));
                     el.setAttachServiceName(resultSet.getString(COL_NAME_8));
+                    el.setContractTotalMoney(String.valueOf(resultSet.getDouble(COL_NAME_9)));
+                    el.setAttachServiceCost(String.valueOf(resultSet.getDouble(COL_NAME_10)));
+                    el.setQuantity(String.valueOf(resultSet.getInt(COL_NAME_11)));
 
                     eList.add(el);
                 }

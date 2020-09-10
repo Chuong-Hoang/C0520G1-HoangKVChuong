@@ -20,6 +20,16 @@ import java.util.List;
 public class CustomerServlet extends HttpServlet {
     CustomerBO customerBO = new CustomerBOImplement();
 
+    // Set invalid message
+    private static final String ID_INVALID = "The ID must be as format 'KH-XXXX'";
+    private static final String NAME_INVALID = "The name not valid";
+    private static final String BIRTHDAY_INVALID = "The birthday must made the age not less than 18";
+    private static final String CARD_ID_INVALID = "The ID card number is not valid";
+    private static final String EMAIL_INVALID = "The email is not valid";
+    private static final String PHONE_INVALID = "The phone number must have 10 or 11 digits";
+    private static final String INTEGER_INVALID = "The number is not valid";
+    private static final String DOUBLE_INVALID = "The number is not valid";
+
     // Attributes
     String element_name = "customer";
 
@@ -138,7 +148,7 @@ public class CustomerServlet extends HttpServlet {
         String e = request.getParameter("e");
         String f = request.getParameter("f");
         String g = request.getParameter("g");
-        int h = Integer.parseInt(request.getParameter("h"));
+        String h = request.getParameter("h");
 
         //IF NOT VALIDATE
         /*
@@ -158,31 +168,26 @@ public class CustomerServlet extends HttpServlet {
         boolean isValid_e = Validation.checkPhoneNumber(e);
         boolean isValid_f = Validation.checkEmail(f);
 
-
+        // *******************************************************
         if (!isValid_id) {
-            String msgInvalid_id = "The ID must be as format 'KH-XXXX'";
-            request.setAttribute("msg_invalid_id", msgInvalid_id);
+            request.setAttribute("msg_invalid_id", ID_INVALID);
         }
         if (!isValid_a) {
-            String msgInvalid_a = "The name not valid";
-            request.setAttribute("msg_invalid_a", msgInvalid_a);
+            request.setAttribute("msg_invalid_a", NAME_INVALID);
         }
         if (!isValid_b) {
-            String msgInvalid_b = "The birthday must made the age not less than 18";
-            request.setAttribute("msg_invalid_b", msgInvalid_b);
+            request.setAttribute("msg_invalid_b", BIRTHDAY_INVALID);
         }
         if (!isValid_d) {
-            String msgInvalid_d = "The ID card number is not valid";
-            request.setAttribute("msg_invalid_d", msgInvalid_d);
+            request.setAttribute("msg_invalid_d", CARD_ID_INVALID);
         }
         if (!isValid_e) {
-            String msgInvalid_e = "The phone number must have 9 or 10 digits";
-            request.setAttribute("msg_invalid_e", msgInvalid_e);
+            request.setAttribute("msg_invalid_e", PHONE_INVALID);
         }
         if (!isValid_f) {
-            String msgInvalid_f = "The email is not valid";
-            request.setAttribute("msg_invalid_f", msgInvalid_f);
+            request.setAttribute("msg_invalid_f", EMAIL_INVALID);
         }
+        // *********************************************************
 
         isValidALL = isValid_id && isValid_a && isValid_b && isValid_d && isValid_e && isValid_f;
         if (isValidALL) {
@@ -192,6 +197,15 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("msg_create", msg_create);
         } else {
             request.setAttribute("msg_create", "Input not valid!");
+            request.setAttribute("id", id);
+            request.setAttribute("a", a);
+            request.setAttribute("b", b);
+            request.setAttribute("c", c);
+            request.setAttribute("d", d);
+            request.setAttribute("e", e);
+            request.setAttribute("f", f);
+            request.setAttribute("g", g);
+            request.setAttribute("h", h);
         }
         forwardJSP(request, response, createJSP);
         // validate ends here...........
@@ -210,7 +224,7 @@ public class CustomerServlet extends HttpServlet {
         String e = request.getParameter("e");
         String f = request.getParameter("f");
         String g = request.getParameter("g");
-        int h = Integer.parseInt(request.getParameter("h"));
+        String h = request.getParameter("h");
 
         //IF NOT VALIDATE
         /*
@@ -230,31 +244,27 @@ public class CustomerServlet extends HttpServlet {
         boolean isValid_e = Validation.checkPhoneNumber(e);
         boolean isValid_f = Validation.checkEmail(f);
 
-
+        //*******************************************************
         if (!isValid_id) {
-            String msgInvalid_id = "The ID must be as format 'KH-XXXX'";
-            request.setAttribute("msg_invalid_id", msgInvalid_id);
+            request.setAttribute("msg_invalid_id", ID_INVALID);
         }
         if (!isValid_a) {
-            String msgInvalid_a = "The name not valid";
-            request.setAttribute("msg_invalid_a", msgInvalid_a);
+            request.setAttribute("msg_invalid_a", NAME_INVALID);
         }
         if (!isValid_b) {
-            String msgInvalid_b = "The birthday must made the age not less than 18";
-            request.setAttribute("msg_invalid_b", msgInvalid_b);
+            request.setAttribute("msg_invalid_b", BIRTHDAY_INVALID);
         }
         if (!isValid_d) {
-            String msgInvalid_d = "The ID card number is not valid";
-            request.setAttribute("msg_invalid_d", msgInvalid_d);
+            request.setAttribute("msg_invalid_d", CARD_ID_INVALID);
         }
         if (!isValid_e) {
-            String msgInvalid_e = "The phone number must have 9 or 10 digits";
-            request.setAttribute("msg_invalid_e", msgInvalid_e);
+            request.setAttribute("msg_invalid_e", PHONE_INVALID);
         }
         if (!isValid_f) {
-            String msgInvalid_f = "The email is not valid";
-            request.setAttribute("msg_invalid_f", msgInvalid_f);
+            request.setAttribute("msg_invalid_f", EMAIL_INVALID);
         }
+        //*********************************************************
+
         isValidALL = isValid_id && isValid_a && isValid_b && isValid_d && isValid_e && isValid_f;
         if (isValidALL) {
             Customer el = new Customer(idNew,  a,b,c,d,e,f,g,h);
@@ -262,7 +272,10 @@ public class CustomerServlet extends HttpServlet {
             request.setAttribute("el", el);
             request.setAttribute("msg_edit", msg_edit);
         } else {
+            Customer el = customerBO.findById(id);
+            request.setAttribute("el", el);
             request.setAttribute("msg_edit", "Input not valid!");
+            request.setAttribute("idNew", idNew);
         }
 
         forwardJSP(request, response, editJSP);

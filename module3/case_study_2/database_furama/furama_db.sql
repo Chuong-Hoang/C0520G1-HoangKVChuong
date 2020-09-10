@@ -351,22 +351,36 @@ INSERT INTO `contract_detail` VALUES
 select * from `contract_detail`;
 
 -- +++++++++++++++++++++++++++++++++++++      END ALL     ++++++++++++++++++++++++++++++++++++++++++
--- 8.	Tạo màn hình liệt kê danh sách các khách hàng đang sử dụng dịch vụ tại resort 
+-- 2.8.	Tạo màn hình liệt kê danh sách các khách hàng đang sử dụng dịch vụ tại resort 
 -- (Dạng bảng, có phân trang, nhảy trang, tìm kiếm, liên kết đến các chức năng xóa và chỉnh sửa thông tin 
 -- của Dịch vụ). Nếu hợp đồng có sử dụng dịch vụ đính kèm thì hãy liệt kê các dịch vụ đính kèm đó ra.
 -- (sử dụng bảng customer, contract, contract_detail, attach_service).
 
 select customer.customer_id, customer.customer_name, contract.contract_id, contract_detail.contract_detail_id,
-	contract.service_id, service.service_name, attach_service.attach_service_id, attach_service.attach_service_name
+	contract.service_id, service.service_name, attach_service.attach_service_id, attach_service.attach_service_name,
+    contract.contract_total_money, attach_service.attach_service_cost, contract_detail.quantity
 from `customer`
-inner join `contract` on contract.customer_id = customer.customer_id
-left join `service` on contract.service_id = service.service_id
-left join `contract_detail` on contract.contract_id = contract_detail.contract_id
-left join `attach_service` on contract_detail.attach_service_id = attach_service.attach_service_id;   
+	inner join `contract` on contract.customer_id = customer.customer_id
+	left join `service` on contract.service_id = service.service_id
+	left join `contract_detail` on contract.contract_id = contract_detail.contract_id
+	left join `attach_service` on contract_detail.attach_service_id = attach_service.attach_service_id;   
 
 
 
+-- task 3.9
+select customer.customer_id, customer.customer_name, contract.contract_id,
+	contract.service_id, service.service_name, 
+    contract.contract_total_money, sum(attach_service.attach_service_cost * contract_detail.quantity) as `attach_service_total_money`
+from `customer`
+	inner join `contract` on contract.customer_id = customer.customer_id
+	left join `service` on contract.service_id = service.service_id
+	left join `contract_detail` on contract.contract_id = contract_detail.contract_id
+	left join `attach_service` on contract_detail.attach_service_id = attach_service.attach_service_id
+group by customer.customer_id; 
 
+-- contract.contract_total_money
+-- attach_service.attach_service_cost
+-- contract_detail.quantity
 
 
 

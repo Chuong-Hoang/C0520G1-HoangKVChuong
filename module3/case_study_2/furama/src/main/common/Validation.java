@@ -73,38 +73,43 @@ public class Validation {
         boolean isValid = false;
         System.out.println("birthday is: ____" + inputDate.toString());
 
-//        if (isValid) {
-        Calendar c = Calendar.getInstance();
-        int currentYear = c.get(Calendar.YEAR);
+        if (inputDate.length() != 10) {
+            return false;
+        } else {
+            Calendar c = Calendar.getInstance();
+            int currentYear = c.get(Calendar.YEAR);
 
-        //get 'year of birth' from birthday
-        int birthYear = Integer.parseInt(inputDate.substring(0, 4));
+            //get 'year of birth' from birthday
+            int birthYear = Integer.parseInt(inputDate.substring(0, 4));
 
-        //check if 'year of birth' is satisfied
-        isValid = birthYear <= currentYear - 18;
+            //check if 'year of birth' is satisfied
+            isValid = birthYear <= currentYear - 18;
 
-        if (isValid) {
-            // if 'year of birth' is satisfied, check 'month of birth'
-            if (birthYear == (currentYear - 18)) {
-                int birthMonth = Integer.parseInt(inputDate.substring(5, 7));
-                int currentMonth = c.get(Calendar.MONTH) + 1;
+            if (isValid) {
+                // if 'year of birth' is satisfied, check 'month of birth'
+                if (birthYear == (currentYear - 18)) {
+                    int birthMonth = Integer.parseInt(inputDate.substring(5, 7));
+                    int currentMonth = c.get(Calendar.MONTH) + 1;
 
-                //check 'month of birth'
-                isValid = birthMonth <= currentMonth;
-                if (isValid) {
-                    // if 'month of birth' is satisfied, check 'day of birth'
-                    if (birthMonth == currentMonth) {
-                        int dayOfBirth = Integer.parseInt(inputDate.substring(8));
-                        int currentDay = c.get(Calendar.DAY_OF_MONTH);
+                    //check 'month of birth'
+                    isValid = birthMonth <= currentMonth;
+                    if (isValid) {
+                        // if 'month of birth' is satisfied, check 'day of birth'
+                        if (birthMonth == currentMonth) {
+                            int dayOfBirth = Integer.parseInt(inputDate.substring(8));
+                            int currentDay = c.get(Calendar.DAY_OF_MONTH);
 
-                        //check if 'day of birth' is satisfied
-                        isValid = dayOfBirth <= currentDay;
+                            //check if 'day of birth' is satisfied
+                            isValid = dayOfBirth <= currentDay;
+                        }
                     }
                 }
             }
         }
-//        }
         System.out.println("result Birthday check ____________" + isValid);
         return isValid;
     }
+
+
+
 }

@@ -9,13 +9,18 @@ public class CustomerUsingService {
     private String serviceName;
     private String attachServiceId;
     private String attachServiceName;
+    private String contractTotalMoney;
+    private String attachServiceCost;
+    private String quantity;
+
 
     public CustomerUsingService() {
     }
 
     public CustomerUsingService(String customerId, String customerName, String contractId,
                                 String contractDetailId, String serviceId, String serviceName,
-                                String attachServiceId, String attachServiceName) {
+                                String attachServiceId, String attachServiceName,
+                                String contractTotalMoney, String attachServiceCost, String quantity) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.contractId = contractId;
@@ -24,6 +29,10 @@ public class CustomerUsingService {
         this.serviceName = serviceName;
         this.attachServiceId = attachServiceId;
         this.attachServiceName = attachServiceName;
+
+        this.contractTotalMoney = contractTotalMoney;
+        this.attachServiceCost = attachServiceCost;
+        this.quantity = quantity;
     }
 
     public String getCustomerId() {
@@ -89,6 +98,30 @@ public class CustomerUsingService {
     public void setAttachServiceName(String attachServiceName) {
         this.attachServiceName = attachServiceName;
     }
+
+    public String getContractTotalMoney() {
+        return contractTotalMoney;
+    }
+
+    public void setContractTotalMoney(String contractTotalMoney) {
+        this.contractTotalMoney = contractTotalMoney;
+    }
+
+    public String getAttachServiceCost() {
+        return attachServiceCost;
+    }
+
+    public void setAttachServiceCost(String attachServiceCost) {
+        this.attachServiceCost = attachServiceCost;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 }
 
 
@@ -100,3 +133,6 @@ public class CustomerUsingService {
 //	service.service_name,
 //	attach_service.attach_service_id,
 //	attach_service.attach_service_name
+//-- contract.contract_total_money
+//-- attach_service.attach_service_cost
+//-- contract_detail.quantity

@@ -29,6 +29,9 @@ public class CustomerUsingServiceServlet extends HttpServlet {
     String title_f = "Service Name";//f
     String title_g = "Attach Service ID";//g
     String title_h = "Attach Service Name";//h
+    String title_i = "Contract Total Money";//i
+    String title_j = "Attach Service Cost";//j
+    String title_k = "Quantity";//k
     /* ......... Extra ......... */
 
 //        this.customerId = customerId;
@@ -39,6 +42,10 @@ public class CustomerUsingServiceServlet extends HttpServlet {
 //        this.serviceName = serviceName;
 //        this.attachServiceId = attachServiceId;
 //        this.attachServiceName = attachServiceName;
+
+//-- contract.contract_total_money
+//-- attach_service.attach_service_cost
+//-- contract_detail.quantity
 
     // Titles
     String list_element = element_name + " List";
@@ -69,6 +76,9 @@ public class CustomerUsingServiceServlet extends HttpServlet {
         request.setAttribute("title_f", title_f);
         request.setAttribute("title_g", title_g);
         request.setAttribute("title_h", title_h);
+        request.setAttribute("title_i", title_i);
+        request.setAttribute("title_j", title_j);
+        request.setAttribute("title_k", title_k);
         //extra....
 
         request.setAttribute("element_name", element_name);
@@ -110,9 +120,7 @@ public class CustomerUsingServiceServlet extends HttpServlet {
         // 1.1. SHOW LIST :showCustomerUsingServiceList __________________________________
 
         List<CustomerUsingService> eList = this.customerUsingServiceBO.findAll();
-        int count = eList.size();
         request.setAttribute("eList", eList);
-        request.setAttribute("count", count);
         forwardJSP(request, response, listJSP);
 
         /* ---------------------- end ------------------------ */
