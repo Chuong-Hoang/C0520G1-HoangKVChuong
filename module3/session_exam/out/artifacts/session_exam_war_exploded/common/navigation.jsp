@@ -8,25 +8,17 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="/home.jsp">Home
+                    <a class="nav-link" href="/index.jsp">Home
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/products">Product
                         <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/customers">Customer
-                        <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/services">Service
-                        <span class="sr-only">(current)</span></a>
-                </li>
 
             </ul>
         </div>
-        <p style="color: blue"><%=session.getAttribute("account_name")%></p>
+        <p style="color: blue">Hoang Kim Van Chuong</p>
         <form class="form-inline my-2 my-lg-0">
 <%--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"--%>
 <%--                   style="width: 300px">--%>

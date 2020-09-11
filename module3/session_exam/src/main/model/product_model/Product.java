@@ -1,49 +1,50 @@
 package main.model.product_model;
 
-public abstract class Product {
-    protected String id;
-    protected String productCode;
-    protected String productName;
-    protected String productPrice;
-    protected String productQuantity;
-    protected String productProducer;
+public class Product {
+    private String productId;  //id
+
+    private String  productName;   //a
+
+    private String productPrice;  //b
+
+    private String productQuantity; //c
+
+    private String  productColor; //d
+
+    private String  productDescription; //e
+
+    private String productCategory;	 //f
 
     public Product() {
     }
 
-    public Product(String id, String productCode, String productName, String productPrice,
-                   String productQuantity, String productProducer) {
-        this.id = id;
-        this.productCode = productCode;
+    public Product(String productName, String productPrice, String productQuantity,
+                   String productColor, String productDescription, String productCategory) {
         this.productName = productName;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
-        this.productProducer = productProducer;
+        this.productColor = productColor;
+        this.productDescription = productDescription;
+        this.productCategory = productCategory;
     }
 
-    public Product(String productCode, String productName, String productPrice,
-                   String productQuantity, String productProducer) {
-        this.productCode = productCode;
+    public Product(String productId, String productName, String productPrice, String productQuantity,
+                   String productColor, String productDescription, String productCategory) {
+        this.productId = productId;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productQuantity = productQuantity;
-        this.productProducer = productProducer;
+        this.productColor = productColor;
+        this.productDescription = productDescription;
+        this.productCategory = productCategory;
     }
 
-    public String getId() {
-        return id;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -70,11 +71,27 @@ public abstract class Product {
         this.productQuantity = productQuantity;
     }
 
-    public String getProductProducer() {
-        return productProducer;
+    public String getProductColor() {
+        return productColor;
     }
 
-    public void setProductProducer(String productProducer) {
-        this.productProducer = productProducer;
+    public void setProductColor(String productColor) {
+        this.productColor = productColor;
+    }
+
+    public String getProductDescription() {
+        return productDescription;
+    }
+
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 }

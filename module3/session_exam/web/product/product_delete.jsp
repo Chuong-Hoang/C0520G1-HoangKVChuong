@@ -20,67 +20,42 @@
     <p><span class="msg-info">${msg_delete}</span></p>
     <form method="post" action="${originalLink}">
         <input type="hidden" name="action" value="delete">
-<%--        ********************************************************************--%>
-        <input type="hidden" name="id" value="${el.id}">
+<%--  !!!!!  ***********************************************************************************--%>
+        <input type="hidden" name="id" value="${el.productId}">  <!-- !!!!!!!!!!!!  $$$$$$$$$ -->
 
         <fieldset>${element_name.toUpperCase()} INFORMATION
             <table class="table table-striped table-hover" style="width: 25%">
                 <tr>
                     <td scope="col">${title_id}</td>
-                    <td scope="col">${el.id}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productId}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
                 <tr>
                     <td scope="col">${title_a}</td>
-                    <td scope="col">${el.productCode}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productName}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
                 <tr>
                     <td scope="col">${title_b}</td>
-                    <td scope="col">${el.productName}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productPrice}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
                 <tr>
                     <td scope="col">${title_c}</td>
-                    <td scope="col">${el.productPrice}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productQuantity}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
                 <tr>
                     <td scope="col">${title_d}</td>
-                    <td scope="col">${el.productQuantity}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productColor}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
                 <tr>
                     <td scope="col">${title_e}</td>
-                    <td scope="col">${el.productProducer}</td> <!-- $$$$$$$$$$$$ -->
+                    <td scope="col">${el.productDescription}</td><!-- $$$$$$$$$$$$ -->
+                </tr>
+                <tr>
+                    <td scope="col">${title_f}</td>
+                    <td scope="col">${el.productCategory}</td><!-- $$$$$$$$$$$$ -->
                 </tr>
 
-                <c:choose>
-                    <c:when test="${el.getClass().getSimpleName().compareTo('ImProduct') == 0}"> <!-- $$$$$$$$$$$$ -->
-                        <tr>
-                            <td scope="col">${title_f}</td>
-                            <td scope="col">${el.importedPrice}</td> <!-- $$$$$$$$$$$$ -->
-                        </tr>
-                        <tr>
-                            <td scope="col">${title_g}</td>
-                            <td scope="col">${el.importProvince}</td> <!-- $$$$$$$$$$$$ -->
-                        </tr>
-                        <tr>
-                            <td scope="col">${title_h}</td>
-                            <td scope="col">${el.importTax}</td> <!-- $$$$$$$$$$$$ -->
-                        </tr>
-                    </c:when>
 
-                    <c:when test="${el.getClass().getSimpleName().compareTo('ExProduct') == 0}"> <!-- $$$$$$$$$$$$ -->
-                        <tr>
-                            <td scope="col">${title_i}</td>
-                            <td scope="col">${el.exportedPrice}</td> <!-- $$$$$$$$$$$$ -->
-                        </tr>
-                        <tr>
-                            <td scope="col">${title_j}</td>
-                            <td scope="col">${el.buyingCountry}</td> <!-- $$$$$$$$$$$$ -->
-                        </tr>
-                    </c:when>
-                    <c:otherwise>
-
-                    </c:otherwise>
-                </c:choose>
-<%--                ********************************************************************--%>
+            <%--     ****************************************************************************************--%>
                 <tr>
                     <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">
                         Delete ${element_name}</button>
@@ -96,7 +71,6 @@
 <!-- End body -->
 
 <!-- Footer -->
-<script src="../all/style/service_option.js"></script>
 <%@ include file="/common/foot_script.jsp"%>
 <%@ include file="/common/footer.jsp"%>
 <!-- end -->

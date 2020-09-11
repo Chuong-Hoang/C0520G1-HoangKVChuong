@@ -74,11 +74,11 @@
             </td>
 
             <td scope="col">
-                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#e${el.employeeId}">
                     Delete
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="e${el.employeeId}" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">

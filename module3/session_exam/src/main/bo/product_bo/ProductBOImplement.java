@@ -1,14 +1,14 @@
 package main.bo.product_bo;
 
-import main.dao.product_dao.ProductDAO;
 import main.dao.product_dao.ProductDAOImplement;
+import main.model.category_model.Category;
 import main.model.product_model.Product;
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class ProductBOImplement implements ProductBO {
-    ProductDAO productDAO = new ProductDAOImplement();
+    ProductDAOImplement productDAO = new ProductDAOImplement();
 
     @Override
     public void create(Product el) throws SQLException {
@@ -40,4 +40,8 @@ public class ProductBOImplement implements ProductBO {
         return this.productDAO.findByName(str);
     }
 
+    @Override
+    public List<Category> findAllCateGory() {
+        return this.productDAO.findAllCateGory();
+    }
 }

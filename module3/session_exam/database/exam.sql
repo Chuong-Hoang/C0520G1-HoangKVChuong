@@ -55,3 +55,25 @@ insert into `product`
 	(10, 'IP-010', 'Iphone Xs', 12000, 20, 'Samsung', 15000, 'Russia'); 
 
 select * from `product`;
+
+
+-- _________________________ CONTACT _________________________________
+drop table if exists `contact`;
+create table `contact`(
+	contact_id varchar(45) primary key,
+	contact_name varchar(45),
+	contact_phone varchar(45),
+	contact_gender varchar(45),
+	contact_birthday varchar(45),
+	contact_email varchar(45),
+	contact_address varchar(45),
+	contact_group varchar(45)
+);
+
+insert into `contact` values
+	('1', 'Chuong Hoang', '123456789', 'male', '1988-04-20', 'chuong@hoang.com.vn', 'Quang Tri', 'Friend'),
+	('2', 'Le Toan', '123456789', 'female', '1988-04-20', 'chuong@hoang.com.vn', 'Quang Tri', 'Friend'),
+	('3', 'Si Tung', '123456789', 'male', '1988-04-20', 'chuong@hoang.com.vn', 'Quang Tri', 'Company'),
+	('4', 'Quang Nguyen', '123456789', 'female', '1988-04-20', 'chuong@hoang.com.vn', 'Quang Tri', 'Family');
+
+select * from `contact`;

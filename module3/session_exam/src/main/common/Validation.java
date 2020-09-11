@@ -8,9 +8,11 @@ import java.util.regex.Pattern;
 public class Validation {
     //Regex Strings
     static final String CODE_REGEX = "^(KH|DV)-[\\d]{4}$";
-    static final String NAME_REGEX = "^[A-Z][\\w]+([\\s][A-Za-z][\\w]+)*$";
+    static final String GENDER_REGEX = "^(male|Male|Female|female|unknown|Unknown)$";
+    static final String ADDRESS_REGEX = "^[A-Za-z0-9\\/\\s]+$";
+    static final String NAME_REGEX = "^[A-Za-z][\\w]+([\\s][A-Za-z][\\w]+)*$";
     static final String INTEGER_REGEX = "^[1-9][\\d]*$";
-    static final String EMAIL_REGEX = "^([a-z]+[a-z0-9._]*@[\\w]{2,}.[\\w]{2,})$";
+    static final String EMAIL_REGEX = "^([a-z]+[a-z0-9._]*@[\\w]{2,}.[\\w]{2,}(.[\\w]{2,})?)$";
     static final String PHONE_NUMBER_REGEX = "^(\\(84\\)\\+|0)[9][0|1][\\d]{7}$";
     static final String DOUBLE_REGEX = "^[\\d]+[.]?[\\d]*$";
     static final String ID_REGEX = "^[\\d]{9}([\\d]{3})?$";
@@ -35,6 +37,15 @@ public class Validation {
             System.out.println("Check pattern - " + pattern_String + " with string " + inputString + " ________ is: FALSE");
             return false;
         }
+    }
+    //_______________________________________________________________
+
+    public static boolean checkGender(String string) {
+        return checkPattern(string, GENDER_REGEX);
+    }
+
+    public static boolean checkNotEmpty(String string) {
+        return checkPattern(string, ADDRESS_REGEX);
     }
 
     public static boolean checkCode(String string) {
