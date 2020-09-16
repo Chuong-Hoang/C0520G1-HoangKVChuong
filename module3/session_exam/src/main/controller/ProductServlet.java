@@ -153,10 +153,9 @@ public class ProductServlet extends HttpServlet {
         Product el = new Product(id, a, b, c, d, e, f);
         this.productBO.create(el);
         //request.setAttribute("el", el);
-        //request.setAttribute("msg_create", msg_create);
+        request.setAttribute("msg_create", msg_create);
         List<Product> eList = this.productBO.findAll();
         request.setAttribute("eList", eList);
-
         forwardJSP(request, response, listJSP);
 
 //        // VALIDATE input _____________________________________________________________________________________________
@@ -256,17 +255,20 @@ public class ProductServlet extends HttpServlet {
         String d = request.getParameter("d");
         String e = request.getParameter("e");
         String f = request.getParameter("f");
-        String g = request.getParameter("g");
 
         // IF NOT VALIDATE
         Product el = new Product(idNew,  a,b,c,d,e,f); //<!-- $$$$$$$$$$$$ -->
         this.productBO.update(id, el);
         request.setAttribute("el", el);
         request.setAttribute("msg_edit", msg_edit);
-        forwardJSP(request, response, editJSP);
+        List<Product> eList = this.productBO.findAll();
+        request.setAttribute("eList", eList);
+        forwardJSP(request, response, listJSP);
 
-//        // VALIDATE input ___________________________________________________________________________________________
+//        // VALIDATE input _______________________________________________________________________________________
+
 //        boolean isValidALL = false;
+
 //        boolean isValid_id = Validation.checkInteger(id); //<!-- $$$$$$$$$$$$ -->
 //
 //        boolean isValid_a = Validation.checkName(a); //<!-- $$$$$$$$$$$$ -->
@@ -423,10 +425,12 @@ public class ProductServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         Product el = this.productBO.findById(id);
-        List<Category> eList2= this.productBO.findAllCateGory();
+        List<Product> eList = this.productBO.findAll();
+        List<Category> eList2 = this.productBO.findAllCateGory();
+        request.setAttribute("eList", eList);
         request.setAttribute("eList2", eList2);
         request.setAttribute("el", el);
-        forwardJSP(request, response, editJSP);
+        forwardJSP(request, response, listJSP);
     }
     /* ---------------------- end ------------------------ */
 

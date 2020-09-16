@@ -20,7 +20,7 @@
     <p><span class="msg-info">${msg_edit}</span></p>
     <form method="post" action="${originalLink}">
         <input type="hidden" name="action" value="edit">
-<%--        *********************************************************************--%>
+<%--    *********************************************************************--%>
         <input type="hidden" name="id" value="${el.productId}"> <!-- $$$$$$$$$$$$ -->
 
         <fieldset>${element_name.toUpperCase()} INFORMATION
@@ -81,12 +81,14 @@
                     </td>
                 </tr>
 
-<%--                **********************************************************************--%>
+<%--    **********************************************************************--%>
                 <tr>
                     <td scope="col"><button type="submit"  class="btn btn-outline-danger btn-sm">
-                        Update ${element_name}</button></td>
+                        Update ${element_name}</button>
+                    </td>
                     <td scope="col"><button type="button" class="btn btn-outline-info btn-sm">
-                        <a href=${originalLink}>Back to ${element_name} list</a></button></td>
+                        <a href=${originalLink}>Back to ${element_name} list</a></button>
+                    </td>
                 </tr>
             </table>
         </fieldset>

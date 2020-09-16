@@ -33,7 +33,7 @@
         <button class="btn btn-primary" type="submit">Search</button>
     </form>
 </p>
-
+<p class="msg-info">${msg_create}</p>
 <table id="pagination" class="table table-striped table-hover">
     <thead class="thead">
     <tr class="table-info">
@@ -46,6 +46,7 @@
         <th scope="col">${title_f}</th>
 
         <th scope="col">Edit</th>
+        <th scope="col">&nbsp;</th>
         <th scope="col">Delete</th>
         <th scope="col">View</th>
         <!-- Task 3.10 - CLEAR ON SCREEN -->
@@ -55,43 +56,60 @@
 
     <tbody>
     <c:forEach items="${eList}" var="el">
+<%--        ROW FOR DISPLAY --%>
         <tr id="${el.productId}"><!-- $$$$$$$$$$$$ -->
-            <td scope="col">${el.productId}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="id" id="id1" >${el.productId}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="id" id="id" value="${el.productId}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productName}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="a" id="a1" >${el.productName}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="a" id="a" value="${el.productName}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productPrice}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="b" id="b1" >${el.productPrice}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="b" id="b" value="${el.productPrice}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productQuantity}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="c" id="c1" >${el.productQuantity}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="c" id="c" value="${el.productQuantity}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productColor}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="d" id="d1" >${el.productColor}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="d" id="d" value="${el.productColor}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productDescription}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col" name="e" id="e1" >${el.productDescription}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><input type="hidden" name="e" id="e" value="${el.productDescription}"></td><!--/// $$$$$$$$$$$$ -->
 
-            <td scope="col">${el.productCategory}</td><!-- $$$$$$$$$$$$ -->
-
-
-            <td scope="col"><a href="${originalLink}?action=edit&id=${el.productId}"><!-- $$$$$$$$$$$$ -->
-                <button type="button" class="btn btn-outline-warning btn-sm">Edit</button></a>
+            <td scope="col" name="f" id="f1" >${el.productCategory}</td><!-- $$$$$$$$$$$$ -->
+            <td scope="col"><select type="hidden" name="f" id="f" value="${el.productCategory}">
+                                <c:forEach items="${eList2}" var="ca">
+                                    <option>${ca.categoryName}</option><!--/// $$$$$$$$$$$$ -->
+                                </c:forEach>
+                            </select>
             </td>
+
+            <td scope="col" id="edit"><a href="${originalLink}?action=edit&id=${el.productId}"><!-- $$$$$$$$$$$$ -->
+                <button type="button" class="btn btn-outline-warning btn-sm" onclick="setEdit();">Edit</button></a>
+            </td>
+
+            <form method="post" action="${originalLink}">
+                <input type="hidden" name="action" value="edit">
+                <input type="hidden" name="id" value="${el.productId}"> <!-- $$$$$$$$$$$$ -->
+                <button type="submit" class="btn btn-outline-warning btn-sm" onclick="setList();" value="Save">Save</button>
+            </form>
 
             <td scope="col">
                 <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#e${el.productId}">
                     Delete
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" id="e${el.productId}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="e${el.productId}" tabindex="-1" aria-labelledby="exampleModalLabel1"
                      aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Do you want to delete?</h5>
+                                <h5 class="modal-title" id="exampleModalLabel1">Do you want to delete?</h5>
                                 <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
                                 <!-- <span aria-hidden="true">&times</span>-->
                                 <!--</button>-->
                             </div>
                             <div class="modal-body">
-
                                 <h5>${element_name} name: ${el.productName}</h5><!-- $$$$$$$$$$$$ -->
                             </div>
                             <div class="modal-footer">
@@ -127,6 +145,48 @@
 <!-- End body -->
 
 <!-- Footer -->
+<script>
+    function setEdit() {
+        document.getElementById("id").setAttribute("type", "text");
+        document.getElementById("a").setAttribute("type", "text");
+        document.getElementById("b").setAttribute("type", "text");
+        document.getElementById("c").setAttribute("type", "text");
+        document.getElementById("d").setAttribute("type", "text");
+        document.getElementById("e").setAttribute("type", "text");
+        document.getElementById("f").setAttribute("type", "text");
+
+        document.getElementById("id1").style.display = "none";
+        document.getElementById("a1").style.display = "none";
+        document.getElementById("b1").style.display = "none";
+        document.getElementById("c1").style.display = "none";
+        document.getElementById("d1").style.display = "none";
+        document.getElementById("e1").style.display = "none";
+        document.getElementById("f1").style.display = "none";
+
+        document.getElementById("edit").style.display = "none";
+        document.getElementById("list").style.display = "table-row";
+    }
+    function setList() {
+        document.getElementById("id").setAttribute("type", "hidden");
+        document.getElementById("a").setAttribute("type", "hidden");
+        document.getElementById("b").setAttribute("type", "hidden");
+        document.getElementById("c").setAttribute("type", "hidden");
+        document.getElementById("d").setAttribute("type", "hidden");
+        document.getElementById("e").setAttribute("type", "hidden");
+        document.getElementById("f").setAttribute("type", "hidden");
+
+        document.getElementById("id1").style.display = "table-row";
+        document.getElementById("a1").style.display = "table-row";
+        document.getElementById("b1").style.display = "table-row";
+        document.getElementById("c1").style.display = "table-row";
+        document.getElementById("d1").style.display = "table-row";
+        document.getElementById("e1").style.display = "table-row";
+        document.getElementById("f1").style.display = "table-row";
+
+        document.getElementById("edit").style.display = "table-row";
+        document.getElementById("list").style.display = "none";
+    }
+</script>
 <%@ include file="/common/foot_script.jsp"%>
 <%@ include file="/common/footer.jsp"%>
 <!-- end -->

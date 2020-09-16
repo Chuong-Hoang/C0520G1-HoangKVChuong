@@ -168,6 +168,8 @@ public class ProductDAOImplement implements ProductDAO {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                DBConnection.close();
             }
         }
         return eList;
@@ -200,6 +202,8 @@ public class ProductDAOImplement implements ProductDAO {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                DBConnection.close();
             }
         }
         return el;
@@ -263,6 +267,8 @@ public class ProductDAOImplement implements ProductDAO {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                DBConnection.close();
             }
         }
         return eList2;

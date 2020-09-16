@@ -67,7 +67,7 @@
                         <h2 class="display-2">Final Exam</h2>
                         <h4>Hoang Kim Van Chuong - C0520G1</h4>
                         <button type="button" class="btn btn-outline-info btn-lg" style="color:red">
-                            <a class="nav-link" href="/customers">See more...</a>
+                            <a class="nav-link" href="/products">See more...</a>
                         </button>
                     </div>
                 </div>
