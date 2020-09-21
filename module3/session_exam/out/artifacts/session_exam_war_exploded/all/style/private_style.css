@@ -41,7 +41,7 @@ button .btn {
 }
 
 .msg-info {
-    color: blue;
+    color: red !important;
     font-weight: lighter;
     font-size: 1em;
 }

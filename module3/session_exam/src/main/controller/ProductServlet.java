@@ -116,16 +116,16 @@ public class ProductServlet extends HttpServlet {
         try {
             switch (action) {
                 case "create":
-                    createProduct(request, response); //$$$$$$$$$$$
+                    createProduct(request, response); //$$$
                     break;
                 case "edit":
-                    editProduct(request, response); //$$$$$$$$$$$
+                    editProduct(request, response); //$$$
                     break;
                 case "delete":
-                    deleteProduct(request, response); //$$$$$$$$$$$
+                    deleteProduct(request, response); //$$$
                     break;
                 case "search":
-                    searchProduct(request, response); //$$$$$$$$$$$
+                    searchProduct(request, response); //$$$
                     break;
                 default:
                     break;
@@ -135,9 +135,9 @@ public class ProductServlet extends HttpServlet {
         }
 
     }
-    //.................................. POST end ........................................
+    //.................................. POST ends here ........................................
 
-    // 3. create
+    // 3. create (post)
     private void createProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String id = request.getParameter("id");
         String a = request.getParameter("a");
@@ -147,8 +147,6 @@ public class ProductServlet extends HttpServlet {
         String e = request.getParameter("e");
         String f = request.getParameter("f");
 
-
-
         // IF NOT VALIDATE
         Product el = new Product(id, a, b, c, d, e, f);
         this.productBO.create(el);
@@ -157,25 +155,172 @@ public class ProductServlet extends HttpServlet {
         List<Product> eList = this.productBO.findAll();
         request.setAttribute("eList", eList);
         forwardJSP(request, response, listJSP);
+    }
+    /* ---------------------- end ------------------------ */
 
-//        // VALIDATE input _____________________________________________________________________________________________
+    // 4. edit (post)
+    private void editProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String id = request.getParameter("id");
+
+        String idNew = request.getParameter("idNew");
+        String a = request.getParameter("a");
+        String b = request.getParameter("b");
+        String c = request.getParameter("c");
+        String d = request.getParameter("d");
+        String e = request.getParameter("e");
+        String f = request.getParameter("f");
+
+        // IF NOT VALIDATE
+        Product el = new Product(idNew,  a,b,c,d,e,f); //<!-- $$$ -->
+        this.productBO.update(id, el);
+        request.setAttribute("el", el);
+        request.setAttribute("msg_edit", msg_edit);
+        List<Product> eList = this.productBO.findAll();
+        request.setAttribute("eList", eList);
+        forwardJSP(request, response, listJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 5. delete (post)
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String id = request.getParameter("id");
+        this.productBO.delete(id);
+        redirectTo(response, originalLink);
+    }
+    /* ---------------------- end ------------------------ */
+
+
+    // GET (B) ----------------------------------------------
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        initSetAttribute(request);
+
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                showCreateForm(request, response);
+                break;
+            case "edit":
+                showEditForm(request, response);
+                break;
+            case "delete":
+                showDeleteForm(request, response);
+                break;
+            case "view":
+                showViewForm(request, response);
+                break;
+            default:
+                showProductList(request, response); //$$$
+                break;
+        }
+    }
+    // ..................................... GET ends here .................................
+
+
+    // 1. SHOW LIST ____________________________________________________________________
+    private void showProductList(HttpServletRequest request, HttpServletResponse response) {
+        List<Product> eList = this.productBO.findAll();
+        int count = eList.size();
+        request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
+        forwardJSP(request, response, listJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 2. SEARCH NAME __________________________________________________________________
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
+        String str = request.getParameter("keywords");
+        List<Product> eList = this.productBO.findByName(str);
+        //eList.sort(new ContactSortByNameBO());
+        int count = eList.size();
+        request.setAttribute("eList", eList);
+        request.setAttribute("count", count);
+        forwardJSP(request, response, listJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 3. CREATE NEW (REGISTER) ________________________________________________________
+    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
+        List<Category> eList2= this.productBO.findAllCateGory();
+        request.setAttribute("eList2", eList2);
+        forwardJSP(request, response, createJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 4. EDIT _______________________________________________________________________
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Product el = this.productBO.findById(id);
+        List<Product> eList = this.productBO.findAll();
+        List<Category> eList2 = this.productBO.findAllCateGory();
+        request.setAttribute("eList", eList);
+        request.setAttribute("eList2", eList2);
+        request.setAttribute("el", el);
+        request.setAttribute("id", id);
+        request.setAttribute("edit", 1);
+        forwardJSP(request, response, listJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 5. DELETE _______________________________________________________________________
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Product el = this.productBO.findById(id);
+        request.setAttribute("el", el);
+        request.setAttribute("msg_delete", msg_delete);
+        forwardJSP(request, response, deleteJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+    // 6. VIEW _______________________________________________________________________
+    private void showViewForm(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Product el = this.productBO.findById(id);
+        request.setAttribute("el", el);
+        forwardJSP(request, response, viewJSP);
+    }
+    /* ---------------------- end ------------------------ */
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        // CREATE --> VALIDATE input  ______________________________________________________________________________
 //        boolean isValidALL = false;
 
-//        boolean isValid_id = Validation.checkInteger(id); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_id = Validation.checkInteger(id); //<!-- $$$ -->
 //
-//        boolean isValid_a = Validation.checkName(a); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_a = Validation.checkName(a); //<!-- $$$ -->
 //
-//        boolean isValid_b = Validation.checkPhoneNumber(b); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_b = Validation.checkPhoneNumber(b); //<!-- $$$ -->
 //
-//        boolean isValid_c = Validation.checkGender(c); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_c = Validation.checkGender(c); //<!-- $$$ -->
 //
-//        boolean isValid_d = Validation.checkBirthday(d); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_d = Validation.checkBirthday(d); //<!-- $$$ -->
 //
-//        boolean isValid_e = Validation.checkEmail(e); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_e = Validation.checkEmail(e); //<!-- $$$ -->
 //
-//        boolean isValid_f = Validation.checkNotEmpty(f); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_f = Validation.checkNotEmpty(f); //<!-- $$$ -->
 //
-//        boolean isValid_g = Validation.checkNotEmpty(g); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_g = Validation.checkNotEmpty(g); //<!-- $$$ -->
 //
 //        // *******************************************************
 //        if (!isValid_id) {
@@ -234,56 +379,33 @@ public class ProductServlet extends HttpServlet {
 //            request.setAttribute("d", d);
 //            request.setAttribute("e", e);
 //            request.setAttribute("f", f);
-//            request.setAttribute("g", g);
-//
+//            request.setAttribute("g", g);//
 //        }
 
 //        forwardJSP(request, response, createJSP);
-//        // validate ends here...........________________________________________________________________________
+//        // CREATE --> validate ends here....... _________________________________________________________________
 
-    }
-    /* ---------------------- end ------------------------ */
+//.................................................................................................................
 
-    // 4. edit
-    private void editProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        String id = request.getParameter("id");
-
-        String idNew = request.getParameter("idNew");
-        String a = request.getParameter("a");
-        String b = request.getParameter("b");
-        String c = request.getParameter("c");
-        String d = request.getParameter("d");
-        String e = request.getParameter("e");
-        String f = request.getParameter("f");
-
-        // IF NOT VALIDATE
-        Product el = new Product(idNew,  a,b,c,d,e,f); //<!-- $$$$$$$$$$$$ -->
-        this.productBO.update(id, el);
-        request.setAttribute("el", el);
-        request.setAttribute("msg_edit", msg_edit);
-        List<Product> eList = this.productBO.findAll();
-        request.setAttribute("eList", eList);
-        forwardJSP(request, response, listJSP);
-
-//        // VALIDATE input _______________________________________________________________________________________
+//        // EDIT --> VALIDATE input ______________________________________________________________________________
 
 //        boolean isValidALL = false;
 
-//        boolean isValid_id = Validation.checkInteger(id); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_id = Validation.checkInteger(id); //<!-- $$$ -->
 //
-//        boolean isValid_a = Validation.checkName(a); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_a = Validation.checkName(a); //<!-- $$$ -->
 //
-//        boolean isValid_b = Validation.checkPhoneNumber(b); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_b = Validation.checkPhoneNumber(b); //<!-- $$$ -->
 //
-//        boolean isValid_c = Validation.checkGender(c); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_c = Validation.checkGender(c); //<!-- $$$ -->
 //
-//        boolean isValid_d = Validation.checkBirthday(d); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_d = Validation.checkBirthday(d); //<!-- $$$ -->
 //
-//        boolean isValid_e = Validation.checkEmail(e); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_e = Validation.checkEmail(e); //<!-- $$$ -->
 //
-//        boolean isValid_f = Validation.checkNotEmpty(f); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_f = Validation.checkNotEmpty(f); //<!-- $$$ -->
 //
-//        boolean isValid_g = Validation.checkNotEmpty(g); //<!-- $$$$$$$$$$$$ -->
+//        boolean isValid_g = Validation.checkNotEmpty(g); //<!-- $$$ -->
 //
 //        //*******************************************************
 //        if (!isValid_id) {
@@ -321,7 +443,7 @@ public class ProductServlet extends HttpServlet {
 //                && isValid_f
 //                && isValid_g;
 //        if (isValidALL) {
-//            Contact el = new Contact(idNew,  a,b,c,d,e,f,g); //<!-- $$$$$$$$$$$$ -->
+//            Contact el = new Contact(idNew,  a,b,c,d,e,f,g); //<!-- $$$ -->
 //            this.contactBO.update(id, el);
 //            request.setAttribute("el", el);
 //            request.setAttribute("msg_edit", msg_edit);
@@ -333,125 +455,4 @@ public class ProductServlet extends HttpServlet {
 //        }
 //
 //        forwardJSP(request, response, editJSP);
-//        // VALIDATE ends here.....______________________________________________________________________________
-
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 5. delete
-    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        String id = request.getParameter("id");
-        this.productBO.delete(id);
-        redirectTo(response, originalLink);
-    }
-    /* ---------------------- end ------------------------ */
-
-
-    // GET (B) ----------------------------------------------
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        initSetAttribute(request);
-
-        String action = request.getParameter("action");
-        if (action == null) {
-            action = "";
-        }
-        switch (action) {
-            case "create":
-                showCreateForm(request, response);
-                break;
-            case "edit":
-                showEditForm(request, response);
-                break;
-            case "delete":
-                showDeleteForm(request, response);
-                break;
-            case "view":
-                showViewForm(request, response);
-                break;
-//            case "sort-by-name":
-//                sortContactByName(request, response); //$$$$$$$$$$$
-//                break;
-
-            default:
-                showProductList(request, response); //$$$$$$$$$$$
-                break;
-        }
-    }
-    // ..................................... GET end .................................
-
-
-    // 1.1. SHOW LIST ____________________________________________________________________
-    private void showProductList(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> eList = this.productBO.findAll();
-        int count = eList.size();
-        request.setAttribute("eList", eList);
-        request.setAttribute("count", count);
-        forwardJSP(request, response, listJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 1.2. SORT BY NAME ___________________________________________________________________
-    private void sortProductByName(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> eList = this.productBO.findAll();
-        //eList.sort(new ContactSortByNameBO());
-        int count = eList.size();
-        request.setAttribute("eList", eList);
-        request.setAttribute("count", count);
-        forwardJSP(request, response, listJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 2. SEARCH NAME __________________________________________________________________
-    private void searchProduct(HttpServletRequest request, HttpServletResponse response) {
-        String str = request.getParameter("keywords");
-        List<Product> eList = this.productBO.findByName(str);
-        //eList.sort(new ContactSortByNameBO());
-        int count = eList.size();
-        request.setAttribute("eList", eList);
-        request.setAttribute("count", count);
-        forwardJSP(request, response, listJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 3. CREATE NEW (REGISTER) ________________________________________________________
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
-        List<Category> eList2= this.productBO.findAllCateGory();
-        request.setAttribute("eList2", eList2);
-        forwardJSP(request, response, createJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 4. EDIT _______________________________________________________________________
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
-        Product el = this.productBO.findById(id);
-        List<Product> eList = this.productBO.findAll();
-        List<Category> eList2 = this.productBO.findAllCateGory();
-        request.setAttribute("eList", eList);
-        request.setAttribute("eList2", eList2);
-        request.setAttribute("el", el);
-        forwardJSP(request, response, listJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 5. DELETE _______________________________________________________________________
-    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
-        Product el = this.productBO.findById(id);
-        request.setAttribute("el", el);
-        request.setAttribute("msg_delete", msg_delete);
-        forwardJSP(request, response, deleteJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-    // 6. VIEW _______________________________________________________________________
-    private void showViewForm(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
-        Product el = this.productBO.findById(id);
-        request.setAttribute("el", el);
-        forwardJSP(request, response, viewJSP);
-    }
-    /* ---------------------- end ------------------------ */
-
-
-}
+//        // EDIT --> VALIDATE ends here.....________________________________________________________________________

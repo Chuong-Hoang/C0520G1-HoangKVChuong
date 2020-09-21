@@ -30,7 +30,7 @@ public class DictionaryController {
         String english = request.getParameter("english");
         String vietnamese = null;
         String msg = null;
-        if(dict.containsKey(english)) {
+        if (dict.containsKey(english)) {
             vietnamese = dict.get(english);
             modelAndView.addObject("vietnamese", vietnamese);
         } else {

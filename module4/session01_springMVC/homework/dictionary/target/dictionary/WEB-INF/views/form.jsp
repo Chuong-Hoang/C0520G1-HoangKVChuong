@@ -9,7 +9,7 @@
     <input type="text" name="english" placeholder="input english..." value="${english}"><br>
     <br>
     <label>Vietnamese: </label>
-    <input type="text" name="vietnamese" value="${vietnamese}"><br>
+    <input type="text" name="vietnamese" value="${vietnamese}" readonly><br>
     <br>
     <input type="submit" value="Translate">
     <p style="color: red">${msg}</p>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="handsomeKnight1" class="model.HandsomeKnight">
+        <constructor-arg ref="task1"/>
+    </bean>
+    <bean id="task1" class="service.BuyingStuffTask">
+    </bean>
+
+    <bean id="handsomeKnight2" class="model.HandsomeKnight">
+        <property name="task" ref="task2"/>
+    </bean>
+    <bean id="task2" class="service.KillingDragonTask">
+    </bean>
+
+    <bean id="handsomeKnight3" class="model.HandsomeKnight">
+        <property name="task" ref="task2"/>
+    </bean>
+
+    <!-- bean DI for DarkKnight 1   -->
+    <bean id="darkKnight1" class="model.DarkKnight">
+    <!-- injection by constructor -->
+        <constructor-arg ref="task"/>
+    </bean>
+
+    <bean id="task" class="service.ProtectingPeopleByNight">
+    </bean>
+
+    <!-- bean DI for DarkKnight 2   -->
+    <bean id="darkKnight2" class="model.DarkKnight">
+        <!-- injection by field -->
+        <property name="task" ref="task2"/>
+    <!--  reference to task2: service.KillingDragonTask -->
+    </bean>
+
+    <!-- bean DI for DarkKnight 3   -->
+    <bean id="darkKnight3" class="model.DarkKnight">
+        <!-- injection by field (property) -->
+        <property name="task" ref="taskX"/>
+    </bean>
+    <bean id="taskX" class="service.BuyingStuffTask">
+    </bean>
+
+</beans>

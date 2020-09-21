@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e97279c-9d24-4d13-952a-d6e65bb30943" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/dao/product_dao/ProductDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/dao/product_dao/ProductDAOImplement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/all/style/private_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/all/style/private_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/product/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/artifacts/session_exam_war_exploded/product/product_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/production/session_exam/main/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/production/session_exam/main/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/out/production/session_exam/main/dao/product_dao/ProductDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/out/production/session_exam/main/dao/product_dao/ProductDAOImplement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/src/main/controller/ProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/src/main/controller/ProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/web/all/style/private_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/web/all/style/private_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/session_exam/web/product/product_list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/session_exam/web/product/product_list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/java/controllers/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/java/controllers/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/webapp/WEB-INF/frontController-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/webapp/WEB-INF/frontController-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/webapp/WEB-INF/views/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/src/main/webapp/WEB-INF/views/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary/WEB-INF/frontController-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary/WEB-INF/frontController-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary/WEB-INF/views/form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/homework/dictionary/target/dictionary/WEB-INF/views/form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session01_springMVC/practice/demo/Demo/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session01_springMVC/practice/demo/Demo/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\C0520G1-HoangKVChuong\module4\session02_spring_controller\practice\dependency_injection\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hiDT9LFuEmBrI02R1A0JhxnJTA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C0520G1-HoangKVChuong\module4\session02_spring_controller\practice\dependency_injection\resource" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C0520G1-HoangKVChuong\module4\session02_spring_controller\practice\dependency_injection\src\java\model" />
+      <recent name="D:\C0520G1-HoangKVChuong\module4\session02_spring_controller\practice\dependency_injection\src\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DarkKnight" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="no_dependency_injection.DarkKnight" />
+      <module name="dependency_injection" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no_dependency_injection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DarkKnight (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e97279c-9d24-4d13-952a-d6e65bb30943" name="Default Changelist" comment="" />
+      <created>1600485023563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600485023563</updated>
+      <workItem from="1600485029838" duration="4945000" />
+      <workItem from="1600565607615" duration="1372000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="274" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600566538093">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="274" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1600566538093" />
+    <state x="488" y="91" key="#com.intellij.ide.util.MemberChooser" timestamp="1600565812680">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="488" y="91" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1600565812680" />
+    <state x="605" y="141" key="FileChooserDialogImpl" timestamp="1600566987944">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="605" y="141" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1600566987944" />
+    <state width="1007" height="190" key="GridCell.Tab.0.bottom" timestamp="1600567000541">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1007" height="190" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1600567000541" />
+    <state width="1007" height="190" key="GridCell.Tab.0.center" timestamp="1600567000541">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1007" height="190" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1600567000541" />
+    <state width="1007" height="190" key="GridCell.Tab.0.left" timestamp="1600567000541">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1007" height="190" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1600567000541" />
+    <state width="1007" height="190" key="GridCell.Tab.0.right" timestamp="1600567000541">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1007" height="190" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1600567000541" />
+    <state x="131" y="0" key="new project wizard" timestamp="1600566998491">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="131" y="0" key="new project wizard/0.0.1366.768@0.0.1366.768" timestamp="1600566998491" />
+  </component>
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="autocadDrawing" class="model.AutocadDrawing">
+    </bean>
+
+    <bean id="shape" class="service.Triangle">
+    </bean>
+
+    <bean id="pdfDrawing" class="model.PdfDrawing">
+    </bean>
+
+    <bean id="pdfDrawing1" class="model.PdfDrawing">
+        <constructor-arg ref="shape1"/>
+    </bean>
+
+    <bean id="shape1" class="service.Rectangle"/>
+
+    <bean id="pdfDrawing2" class="model.PdfDrawing">
+        <property name="shape" ref="shape2"/>
+    </bean>
+
+    <bean id="shape2" class="service.Circle"/>
+
+</beans>
