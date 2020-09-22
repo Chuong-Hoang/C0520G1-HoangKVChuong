@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head"></head>
+<body>
+<h3>Product List</h3>
+<button type="button"><a th:href="@{/product/create}">Add new</a></button>
+<br>
+<form id="search" action = "#" th:action="@{/product/search}" method="post">
+    <input type="text" th:name="search" width="70%">
+    <input type="submit" th:value="Search" width="25%">
+</form>
+<p style="color: red;" th:text="${success}"/>
+<form id="form-create" action="#" th:action="@{/product/save}" method="post" th:object="${el}">
+    <table id="products">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Color</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${edit_option != 1}" th:each="e,elStat : ${eList}">
+            <td th:text="${e.productId}"></td>
+            <td th:text="${e.productName}"></td>
+            <td th:text="${e.productPrice}"></td>
+            <td th:text="${e.productQuantity}"></td>
+            <td th:text="${e.productColor}"></td>
+            <td th:text="${e.productDescription}"></td>
+            <td th:text="${e.productCategory}"></td>
+            <td><a th:href="@{/product/edit/{id}(id=${e.getProductId()})}">Edit</a></td>
+            <td><a th:href="@{/product/delete/{id}(id=${e.getProductId()})}">Delete</a></td>
+            <td><a th:href="@{/product/view/{id}(id=${e.getProductId()})}">View</a></td>
+        </tr>
+
+        <!--CREATE ON LIST_PAGE only-->
+        <tr th:if="${create_option == 1}">
+            <td><input type="text" th:field="*{productId}" th:value="${el.productId}"/></td>
+            <td><input type="text" th:field="*{productName}"/></td>
+            <td><input type="text" th:field="*{productPrice}"/></td>
+            <td><input type="text" th:field="*{productQuantity}"/></td>
+            <td><input type="text" th:field="*{productColor}"/></td>
+            <td><input type="text" th:field="*{productDescription}"/></td>
+            <td>
+                <select type="text" th:field="*{productCategory}">
+                    <option th:each="cate,cateStat : ${category}" th:value="${cate}" th:text="${cate}"></option>
+                </select>
+            </td>
+
+            <td><a th:href="@{#}" onclick="document.getElementById('form-create').submit()">Save</a></td>
+            <td><a th:href="@{/}">Cancel</a></td>
+            <td><a th:href="@{/product/create}">Reset</a></td>
+        </tr>
+
+        <!--EDIT ON LIST_PAGE only-->
+        <tr th:if="${edit_option == 1}">
+            <td><input type="text" th:field="*{productId}"/></td>
+            <td><input type="text" th:field="*{productName}"/></td>
+            <td><input type="text" th:field="*{productPrice}"/></td>
+            <td><input type="text" th:field="*{productQuantity}"/></td>
+            <td><input type="text" th:field="*{productColor}"/></td>
+            <td><input type="text" th:field="*{productDescription}"/></td>
+            <td>
+                <select type="text" th:field="*{productCategory}">
+                    <option th:each="cate,cateStat : ${category}" th:value="${cate}" th:text="${cate}"></option>
+                </select>
+            </td>
+
+            <td><a th:href="@{#}" onclick="updateAndSave()">Update</a></td>
+            <td><a th:href="@{/}">Cancel</a></td>
+            <td><a th:href="@{/product/edit/{id}(id=${el.productId})}">Reset</a></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<script>
+    function updateAndSave() {
+        document.getElementById("form-create").action = "/product/update";
+        document.getElementById("form-create").submit();
+    }
+</script>
+<footer th:replace="/layout::footer"></footer>
+</body>
+</html>
