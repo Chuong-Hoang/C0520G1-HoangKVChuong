@@ -28,7 +28,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${edit_option != 1}" th:each="e,elStat : ${eList}">
+        <tr th:each="e,elStat : ${eList}">
+<!--        <tr th:if="${edit_option != 1}" th:each="e,elStat : ${eList}">-->
             <td th:text="${e.productId}"></td>
             <td th:text="${e.productName}"></td>
             <td th:text="${e.productPrice}"></td>
@@ -60,7 +61,7 @@
             <td><a th:href="@{/product/create}">Reset</a></td>
         </tr>
 
-        <!--EDIT ON LIST_PAGE only-->
+        <!-- EDIT ON LIST_PAGE only-->
         <tr th:if="${edit_option == 1}">
             <td><input type="text" th:field="*{productId}"/></td>
             <td><input type="text" th:field="*{productName}"/></td>

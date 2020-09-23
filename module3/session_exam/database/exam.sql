@@ -77,3 +77,52 @@ insert into `contact` values
 	('4', 'Quang Nguyen', '123456789', 'female', '1988-04-20', 'chuong@hoang.com.vn', 'Quang Tri', 'Family');
 
 select * from `contact`;
+
+-- +	Tên sản phẩm.
+-- +	Giá.
+-- +	Số lượng.
+-- +	Màu sắc.
+-- +	Mô tả.
+-- +	Danh mục
+
+-- bai thi
+drop table if exists `product`;
+create table `product`(
+	product_id int auto_increment primary key,
+	product_name varchar(45),
+	product_price varchar(45),
+	product_quantity varchar(45),
+	product_color varchar(45),
+	product_description varchar(45),
+	product_category varchar(45)
+);
+
+insert into `product`(
+	product_name, 
+    product_price,
+	product_quantity,
+	product_color,
+	product_description,
+	product_category)
+    values
+    ('Iphone Xs', '12000', '20', 'green', 'made in china', 'phone'),
+    ('Samsung Galaxy', '12000', '30', 'blue', 'made in china', 'phone'),
+    ('Huwei', '12000', '40', 'green', 'made in china', 'phone'),
+    ('Nokia', '12000', '50', 'green', 'made in china', 'phone'),
+    ('Blackberry', '12000', '60', 'red', 'made in china', 'phone');
+	
+    
+    select * from `product`;
+    drop table if exists `category`;
+create table `category`(
+	category_id varchar(45) primary key,
+	category_name varchar(45)
+);
+
+insert into `category` values
+	('1', 'phone'),
+    ('2', 'television'),
+    ('3', 'car'),
+    ('4', 'toy');
+    
+select * from `category`;
