@@ -5,20 +5,28 @@ import org.hibernate.annotations.Generated;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
+    @Column(name = "product_id")
     private String productId;  //id
 
+    @Column(name = "product_name")
     private String  productName;   //a
 
+    @Column(name = "product_price")
     private String productPrice;  //b
 
+    @Column(name = "product_quantity")
     private String productQuantity; //c
 
+    @Column(name = "product_color")
     private String  productColor; //d
 
+    @Column(name = "product_description")
      private String  productDescription; //e
 
+    @Column(name = "product_category")
     private String productCategory;	 //f
 
     public Product() {

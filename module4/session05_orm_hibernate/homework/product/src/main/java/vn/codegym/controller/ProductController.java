@@ -22,6 +22,16 @@ public class ProductController {
     @GetMapping
     public String getListPage(Model model) {
         model.addAttribute("eList", productService.findAll());
+        model.addAttribute("el", new Product());
+
+        List<String> category = new ArrayList<>();
+        category.add("phone");
+        category.add("tv");
+        category.add("car");
+        model.addAttribute("category", category);
+//        model.addAttribute("create_option", 1);
+//        model.addAttribute("edit_option", 1);
+
         return "/list";
     }
 

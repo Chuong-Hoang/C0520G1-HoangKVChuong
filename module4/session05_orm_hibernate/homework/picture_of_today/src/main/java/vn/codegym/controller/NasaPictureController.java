@@ -17,6 +17,7 @@ public class NasaPictureController {
     @GetMapping("/picture")
     public String getListPage(Model model){
         model.addAttribute("eList", nasaPictureService.findAll());
+        model.addAttribute("el", new NasaPicture());
         return "/list";
     }
 

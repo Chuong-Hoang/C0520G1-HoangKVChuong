@@ -1,19 +1,36 @@
 package vn.codegym.repository;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 import vn.codegym.model.NasaPicture;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 @Repository
 public class NasaPictureRepositoryImpl implements NasaPictureRepository {
+    public static SessionFactory sessionFactory;
+    public static EntityManager entityManager;
+
+    static {
+        try {
+            sessionFactory = new Configuration()
+                    .configure("hibernate.conf.xml")
+                    .buildSessionFactory();
+            entityManager = sessionFactory.createEntityManager();
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public List<NasaPicture> findAll() {
         Session session = null;
         List<NasaPicture> nasaPictureList = null;
         try {
-            session = ConnectionUtil.sessionFactory.openSession();
+            session = sessionFactory.openSession();
             nasaPictureList = session.createQuery("FROM NasaPicture").getResultList();
 
         } finally {
@@ -29,7 +46,7 @@ public class NasaPictureRepositoryImpl implements NasaPictureRepository {
         Session session = null;
         Transaction transaction = null;
         try {
-            session = ConnectionUtil.sessionFactory.openSession();
+            session = sessionFactory.openSession();
             transaction = session.beginTransaction();
 
             session.save(p);
@@ -52,7 +69,7 @@ public class NasaPictureRepositoryImpl implements NasaPictureRepository {
         Session session = null;
         NasaPicture p = null;
         try {
-            session = ConnectionUtil.sessionFactory.openSession();
+            session = sessionFactory.openSession();
 
             p = session.get(NasaPicture.class, id);
 
@@ -69,7 +86,7 @@ public class NasaPictureRepositoryImpl implements NasaPictureRepository {
         Session session = null;
         Transaction transaction = null;
         try {
-            session = ConnectionUtil.sessionFactory.openSession();
+            session = sessionFactory.openSession();
             transaction = session.beginTransaction();
 
             session.update(p);

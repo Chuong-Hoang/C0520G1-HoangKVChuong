@@ -91,11 +91,19 @@ public class ProductRepositoryImplement implements ProductRepository {
     @Override
     public void remove(String id) {
         Session session = null;
+        Transaction transaction = null;
         try {
             session = ConnectionUtil.sessionFactory.openSession();
-            session.remove(id);
+            transaction = session.beginTransaction();
+//            session.delete(findById(id));
+            session.remove(findById(id));
+
+            transaction.commit();
         } catch (Exception e){
             e.printStackTrace();
+            if(transaction != null) {
+                transaction.rollback();
+            }
         } finally {
             if(session != null){
                 session.close();

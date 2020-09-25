@@ -7,20 +7,18 @@
 <body>
 <img id="img-of-the-day">
 
-<form th:action="@{/picure/create}" method="post" th:object="${el}">
-    <input type="number" min="1" max="5" th:field="*{mark}">
+<form th:action="@{/picture/create}" method="post" th:object="${el}">
+    <input type="number" min="1" max="5" th:field="*{mark}"><br><br>
 
     <label>Author</label><br>
-    <input type="text" th:field="*{author}">
+    <input type="text" th:field="*{author}"><br><br>
 
     <label>Feedback</label><br>
-    <input type="text" th:field="*{feedback}">
-    <br>
+    <input type="text" th:field="*{feedback}"><br><br>
     <input type="submit" th:value="Comment" />
 </form>
 
 <div th:each="pic,picStat : ${eList}">
-    <hr/>
     <p th:text="${pic.author}"></p>
     <hr/>
     <p th:text="${pic.mark}"></p>
