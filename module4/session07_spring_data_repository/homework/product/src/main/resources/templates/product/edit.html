@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<h1>Edit Product</h1>
+<p>
+    <a href="/product">Back to list</a>
+</p>
+
+<form th:action="@{/product/edit}" method="post" th:object="${el}">
+    <input type="hidden" name="id" th:field="*{id}" />
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td><input type="text" th:field="*{quantity}"/></td>
+        </tr>
+        <tr>
+            <td>Color:</td>
+            <td><input type="text" th:field="*{color}"/></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td>
+                <select type="text" name="cate">
+                    <option th:each="cate : ${cateList}" th:value="${cate.categoryId}"
+                            th:text="${cate.categoryName}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

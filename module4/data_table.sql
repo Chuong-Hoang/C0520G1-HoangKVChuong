@@ -12,6 +12,21 @@ create table `Customer`(
 select * from customer;
 
 
+drop table if exists `blog`;
+create table `blog`(
+	id int auto_increment primary key,
+	title varchar(200),
+	content varchar(5000)
+);
+
+insert into `blog` (title, content) values
+	("My First Blog", "Today is a beautiful day when I meet you for the first time. But I am really sure that you are the right one in my life."),
+	("The Second Blog", "I have been her friend for a long time ago, and I have been fallen in love with her. That is the beauty of friendship and love.");
+select * from `blog`;
+
+
+
+
 
 
 drop table if exists `product`;
