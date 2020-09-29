@@ -1,3 +1,21 @@
+
+drop database if exists `jpa`;
+create database `jpa`;
+use `jpa`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 drop database if exists `c05_orm`;
 create database `c05_orm`;
 use `c05_orm`;
