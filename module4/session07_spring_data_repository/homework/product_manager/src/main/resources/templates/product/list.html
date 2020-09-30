@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="product/layout::head"></head>
+<body>
+<a href="/">Home</a><br><br>
+<a href="/product/create">Create New</a><br><br>
+<a href="/product/create-on-list">Create On List</a><br><br>
+<form id="search-form" action="/product/search" method="get">
+    <input type="text" name="keyText" th:value="${keyText}" placeholder="Search name here">
+</form>
+<hr>
+
+<p>
+<h1>Product List</h1>
+<span style="color: blue" th:text="${COUNT_MSG}"></span>
+</p>
+
+
+<div th:if="${msg}">
+    <span style="color: red" th:text="${msg}"></span>
+    <br><br>
+</div>
+
+<!-- This form is only for delete many -->
+<form id="list-form" th:object="${eList}">
+    <table id="products">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Color</th>
+            <th>Description</th>
+
+            <th>
+                <select id="select-option" type="text" name="cate" onchange="findByCategoryId()" th:object="${cateSelected}">
+                    <option value="0">All</option>
+                    <option th:if="${cateSelected != null}" th:value="${cateSelected.categoryId}" th:text="${cateSelected.categoryName}" selected></option>
+                    <option th:each="cate : ${cateList}" th:value="${cate.categoryId}" th:text="${cate.categoryName}"></option>
+                </select>
+            </th>
+            <!--<th>Category</th>-->
+
+            <th>Detail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Quick Edit</th>
+            <th><input id="select" type="button" th:value="select" onclick="deleteMany('product')"/></th>
+        </tr>
+        <th:block th:each="el : ${eList}">
+            <tr name="table-row" th:unless="${edit_option == 1 && id == el.id}">
+                <td th:text="${el.name}"></td>
+
+                <td th:text="${el.price}"></td>
+
+                <td th:text="${el.quantity}"></td>
+
+                <td th:text="${el.color}"></td>
+
+                <td th:text="${el.description}"></td>
+
+                <td name="cate-option" th:if="${el.category != null}" th:id="${el.category.categoryId}">
+                    <p th:text="${el.category.categoryName}" th:value="${el.category.categoryId}"></p>
+                </td>
+
+                <td name="cate-option" th:if="${el.category == null}">
+                    <p th:text="${'N/A'}" th:value="${null}"></p>
+                </td>
+
+                <td><a th:href="@{/product/view/{id} (id=${el.id})}"><i class="far fa-eye"></i></a></td>
+
+                <td><a th:href="@{/product/edit/{id} (id=${el.id})}"><i class="fas fa-edit"></i></a></td>
+
+                <td><a th:href="@{/product/delete/{id} (id=${el.id})}"><i class="far fa-trash-alt"></i></a></td>
+
+                <td><a th:href="@{/product/edit-on-list/{id} (id=${el.id})}"><i class="fas fa-user-edit"></i></a></td>
+
+                <td><input id="checkbox" type="checkbox" name="ids" th:value="${el.id}" onclick="changeButton()"></td>
+            </tr>
+        </th:block>
+
+        <!-- EDIT ON LIST_PAGE only -->
+        <tr th:if="${edit_option == 1 && id == elEdit.id}" th:object="${elEdit}">
+
+            <td><input type="text" th:field="*{name}"/></td>
+
+            <td><input type="text" th:field="*{price}"/></td>
+
+            <td><input type="text" th:field="*{quantity}"/></td>
+
+            <td><input type="text" th:field="*{color}"/></td>
+
+            <td><input type="text" th:field="*{description}"/></td>
+
+            <td>
+                <select th:name="cateEdit" th:field="*{category}">
+                    <option th:each="cate : ${cateList}" th:value="${cate.categoryId}"
+                            th:text="${cate.categoryName}">
+                    </option>
+                </select>
+            </td>
+
+            <td><input id="update" type="button" value="Update" onclick="editOnList('product')"/></td>
+
+            <td><a th:href="@{/product}">Cancel</a></td>
+
+            <td><a th:href="@{/product/edit-on-list/{id} (id = ${id})}">Reset</a></td>
+
+            <td></td>
+
+            <td><input type="hidden" name="id" th:field="*{id}"/></td>
+        </tr>
+
+        <!-- CREATE ON LIST_PAGE only -->
+        <tr th:if="${create_option == 1}" th:object="${elNew}">
+
+            <td><input type="text" th:field="*{name}"/></td>
+
+            <td><input type="text" th:field="*{price}"/></td>
+
+            <td><input type="text" th:field="*{quantity}"/></td>
+
+            <td><input type="text" th:field="*{color}"/></td>
+
+            <td><input type="text" th:field="*{description}"/></td>
+
+            <td>
+                <select th:name="cateCreate" th:field="*{category}">
+                    <option th:each="cate : ${cateList}" th:value="${cate.categoryId}"
+                            th:text="${cate.categoryName}">
+                    </option>
+                </select>
+            </td>
+
+            <td><input id="save" type="button" value="Save" onclick="createOnList('product')"/></td>
+
+            <td><a th:href="@{/product}">Cancel</a></td>
+
+            <td><a th:href="@{/product/create-on-list}">Reset</a></td>
+
+            <td></td>
+
+            <td></td>
+        </tr>
+    </table>
+
+    <!--  Paging and Sorting -->
+    <div th:unless="${keyText}">
+        <br>
+        <a th:href="@{'/product'(page=${eList.number - 1})}" th:if="${eList.hasPrevious()}"><i class="fas fa-arrow-circle-left"></i></a>
+        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
+        <a th:href="@{'/product'(page=${eList.number + 1})}" th:if="${eList.hasNext()}"><i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+    <div th:if="${keyText}">
+        <br>
+        <a th:href="@{'/product/search'(page=${eList.number - 1}, keyText=${keyText})}" th:if="${eList.hasPrevious()}"><i class="fas fa-arrow-circle-left"></i></a>
+        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
+        <a th:href="@{'/product/search'(page=${eList.number + 1}, keyText=${keyText})}" th:if="${eList.hasNext()}"><i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</form>
+
+
+<script>
+    // This function is used for delete many
+    function changeButton() {
+        let size = document.getElementsByName('ids').length;
+        let check = false;
+        for (let i = 0; i < size; i++) {
+            let checkBox = document.getElementsByName('ids')[i];
+            if (checkBox.checked) {
+                document.getElementById('select').value = 'remove';
+                check = true;
+                break;
+            }
+        }
+
+        if (!check) {
+            document.getElementById('select').value = 'select';
+        }
+    }
+
+    // Delete many function
+    function deleteMany(elName) {
+        let selectButton = document.getElementById('select');
+        if (selectButton.value === 'remove') {
+            let list_form = document.getElementById('list-form');
+            list_form.action = "/" + elName + "/delete-many";
+            list_form.method = "post";
+            list_form.submit();
+        }
+    }
+
+    // Edit on list
+    function editOnList(elName) {
+        let list_form = document.getElementById('list-form');
+        list_form.action = "/" + elName + "/edit-on-list";
+        list_form.method = "post";
+        list_form.submit();
+    }
+
+    // Create on list
+    function createOnList(elName) {
+        let list_form = document.getElementById('list-form');
+        list_form.action = "/" + elName + "/create-on-list";
+        list_form.method = "post";
+        list_form.submit();
+    }
+
+    // Sort by category on list page
+    function sortByCategory() {
+        let selectOption = document.getElementById('select-option');
+        let cateOption = document.getElementsByName('cate-option');
+        let rowElement = document.getElementsByName('table-row');
+
+        for (let i = 0; i < cateOption.length; i++) {
+            if (selectOption.value === "0") {
+                rowElement[i].style.display = "table-row";
+            } else if (selectOption.value === cateOption[i].id) {
+                rowElement[i].style.display = "table-row";
+            } else if (selectOption.value !== cateOption[i].id) {
+                rowElement[i].style.display = "none";
+            }
+        }
+    }
+
+    // Find by category Id (show Name) on list page
+    function findByCategoryId(){
+        let selectElement = document.getElementById('select-option');
+        if(selectElement.value !== "0"){
+            window.location = "/product/find-by-category/" + selectElement.value;
+        } else if (selectElement.value === "0") {
+            window.location = "/product";
+        }
+
+    }
+</script>
+<footer th:replace="product/layout::footer"></footer>
+</body>
+</html>
