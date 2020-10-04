@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>nasa_picture</title>
+</head>
+<body>
+<img width="100%" id="img-of-the-day">
+<hr/>
+<form th:action="@{/picture/create}" method="post" th:object="${nasaPicture}">
+    <input type="number" min="1" max="5" th:value="5" th:field="*{mark}"><br>
+
+    <label><b>Author</b></label><br>
+    <input width="20%" type="text" th:field="*{author}"><br><br>
+
+    <label><b>Feedback</b></label><br>
+    <textarea width="100%" type="text" th:field="*{feedback}"></textarea><br><br>
+    <input type="submit" th:value="Comment"/>
+    <hr/>
+</form>
+
+<div th:each="nasaPicture : ${objList}">
+    <span th:text="${nasaPicture.author}"></span>&nbsp;&nbsp;
+    <p th:switch="${nasaPicture.mark}">
+        <span th:case ="1" th:text="${'+' + nasaPicture.mark.concat(' OK')}"></span>
+        <span th:case ="2" th:text="${'+' + nasaPicture.mark.concat(' Nice')}"></span>
+        <span th:case ="3" th:text="${'+' + nasaPicture.mark.concat(' Good')}"></span>
+        <span th:case ="4" th:text="${'+' + nasaPicture.mark.concat(' So Awesome')}"></span>
+        <span th:case ="5" th:text="${'+' + nasaPicture.mark.concat(' Great')}"></span>
+    </p>
+    <span th:text="${nasaPicture.feedback}"></span>
+    <hr/>
+</div>
+
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=nAE6Iebb8zbLBhsqCr8VMKWupfVKiDFiJOoWlKDN';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function () {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+        }
+    };
+    request.send();
+</script>
+</body>
+</html>

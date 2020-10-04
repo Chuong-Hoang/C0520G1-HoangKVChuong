@@ -3,6 +3,7 @@
 <head th:replace="product/layout::head"></head>
 <body>
 <a href="/">Home</a><br><br>
+<a href="/cart">My Cart</a><br><br>
 <a href="/product/create">Create New</a><br><br>
 <a href="/product/create-on-list">Create On List</a><br><br>
 <form id="search-form" action="/product" method="get">
@@ -66,7 +67,10 @@
                     <p th:text="${'N/A'}" th:value="${null}"></p>
                 </td>
 
-                <td><a th:href="@{/product/view/{id} (id=${el.id})}"><i class="far fa-eye"></i></a></td>
+                <td>
+                    <a th:href="@{/product/view/{id} (id=${el.id})}"><i class="far fa-eye"></i></a>
+                    <a th:href="@{/cart/add/{id} (id=${el.id})}"><i class="fas fa-shopping-cart"></i></a>
+                </td>
 
                 <td><a th:href="@{/product/edit/{id} (id=${el.id})}"><i class="fas fa-edit"></i></a></td>
 

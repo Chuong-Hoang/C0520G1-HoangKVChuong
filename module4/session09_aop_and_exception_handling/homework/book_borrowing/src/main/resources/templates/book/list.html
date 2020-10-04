@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<a href="/">Home</a><br><br>
+<a href="/book/create">Create New</a><br><br>
+<a href="/book/return">Return Book</a><br><br>
+<hr>
+
+<p>
+<h1>Book List</h1>
+<span style="color: blue" th:text="${COUNT_MSG}"></span>
+</p>
+
+<div th:if="${msg}">
+    <span style="color: red" th:text="${msg}"></span>
+    <br><br>
+</div>
+
+<form id="list-form" th:object="${eList}">
+    <table border="1" style="border-collapse: collapse">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Quantity</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="book : ${eList}">
+            <tr>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.quantity}"></td>
+                <td><a th:href="@{/book/view/{id} (id=${book.id})}">View</a></td>
+                <td><a th:href="@{/book/edit/{id} (id=${book.id})}">Edit</a></td>
+                <td><a th:href="@{/book/delete/{id} (id=${book.id})}">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+</form>
+
+</body>
+</html>

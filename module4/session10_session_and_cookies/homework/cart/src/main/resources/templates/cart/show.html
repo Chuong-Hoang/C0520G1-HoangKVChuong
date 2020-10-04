@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>my cart</title>
+</head>
+<body>
+<h3>My Cart</h3>
+<a href="/product">Back to product list</a>
+<!--<form>-->
+<table>
+    <p>Total Item: <span th:text="${session.myCartNumber}"></span></p>
+    <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Quantity</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="entry : ${session.myCartItems}">
+<!--        <form name="update-form" th:action="@{/cart/update/{productId}(productId = ${entry.key})}"-->
+        <form name="update-form" th:action="@{/cart/update}"
+              th:object="${editItem}">
+            <input type="hidden" name="ids" th:value="${entry.key}">
+            <td th:text="${entry.value.product.name}"></td>
+            <td th:text="${entry.value.product.price}"></td>
+            <!--            <td><input type="text" th:name="quantity" th:value="${editItem.quantity != 0} ? ${editItem.quantity} : ${entry.value.quantity}" /></td>-->
+            <td><input type="text" th:name="quantity" th:value="${entry.value.quantity}"/></td>
+            <td>
+                <button type="submit">Update</button>
+            </td>
+            <td>
+                <button type="button"><a th:href="@{/cart/delete/{productId}(productId = ${entry.key})}">Delete</a>
+                </button>
+            </td>
+        </form>
+    </tr>
+    <tr>
+        <th>Total Amount:</th>
+        <th th:text="${session.myCartTotalAmount}"></th>
+    </tr>
+</table>
+<button type="submit" value="Update cart" />
+</form>
+
+<script>
+    function editMass() {
+        let update_form = document.getElementsByName('update-form');
+        for (let i = 0; i < update_form.length; i++) {
+            update_form[i].submit();
+        }
+    }
+</script>
+</body>
+</html>
