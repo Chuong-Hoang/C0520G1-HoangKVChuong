@@ -3,7 +3,9 @@ drop database if exists `jpa`;
 create database `jpa`;
 use `jpa`;
 
-
+drop database if exists `validation_user`;
+create database `validation_user`;
+use `validation_user`;
 
 
 
