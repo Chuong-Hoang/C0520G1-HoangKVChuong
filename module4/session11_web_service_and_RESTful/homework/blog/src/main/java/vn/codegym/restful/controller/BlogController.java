@@ -46,5 +46,4 @@ public class BlogController {
         String content = blog.getContent();
         return new ResponseEntity<>(content, HttpStatus.OK);
     }
-
 }

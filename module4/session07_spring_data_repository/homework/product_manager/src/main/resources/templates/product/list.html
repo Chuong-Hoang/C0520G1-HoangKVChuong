@@ -150,12 +150,7 @@
         <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
         <a th:href="@{'/product'(page=${eList.number + 1}, keyText=${keyText})}" th:if="${eList.hasNext()}"><i class="fas fa-arrow-circle-right"></i></a>
     </div>
-<!--    <div th:if="${keyText}">-->
-<!--        <br>-->
-<!--        <a th:href="@{'/product/search'(page=${eList.number - 1}, keyText=${keyText})}" th:if="${eList.hasPrevious()}"><i class="fas fa-arrow-circle-left"></i></a>-->
-<!--        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>-->
-<!--        <a th:href="@{'/product/search'(page=${eList.number + 1}, keyText=${keyText})}" th:if="${eList.hasNext()}"><i class="fas fa-arrow-circle-right"></i></a>-->
-<!--    </div>-->
+
 </form>
 
 <script>
