@@ -36,7 +36,7 @@
 
 <body>
 <div id="container">
-    <h1>Create new Smartphone</h1>
+    <h1 th:text="#{create.title}"></h1>
     <div>
         <p>Here you can create new Smartphone:</p>
         <div id="sPhoneFromResponse"></div>
@@ -45,7 +45,7 @@
         <table>
             <tbody>
             <tr>
-                <td>Producer:</td>
+                <td th:text="#{prop1.title}"></td>
                 <td>
                     <select id="producer">
                         <option value="NOKIA">Nokia</option>
@@ -56,11 +56,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Model:</td>
+                <td th:text="#{prop2.title}"></td>
                 <td><input id="model" th:field="*{model}" /></td>
             </tr>
             <tr>
-                <td>Price:</td>
+                <td th:text="#{prop3.title}"></td>
                 <td><input id="price" th:field="*{price}" /></td>
             </tr>
             <tr>

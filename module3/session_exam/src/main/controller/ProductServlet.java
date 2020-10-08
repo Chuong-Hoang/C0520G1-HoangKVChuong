@@ -253,6 +253,7 @@ public class ProductServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         Product el = this.productBO.findById(id);
+
         List<Product> eList = this.productBO.findAll();
         List<Category> eList2 = this.productBO.findAllCateGory();
         request.setAttribute("eList", eList);
