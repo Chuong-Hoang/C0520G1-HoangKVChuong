@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import vn.codegym.blog.model.Blog;
@@ -18,6 +19,7 @@ public class BlogController {
     // Constants
     private final String EL_NAME = "blog";
     private final String LIST_PAGE = EL_NAME + "/list";
+    private final String LIST_PAGE_2 = EL_NAME + "/list_2";
     private final String CREATE_PAGE = EL_NAME + "/create";
     private final String EDIT_PAGE = EL_NAME + "/edit";
     private final String DELETE_PAGE = EL_NAME + "/delete";
@@ -30,27 +32,31 @@ public class BlogController {
     private final String DELETE_MSG = "Delete the " + EL_NAME + " successfully.";
     private final String DELETE_MANY_MSG = "Delete the selected " + EL_NAME + "(s) successfully.";
 
+    @ModelAttribute
+    public void getCommonAttributes(Model model){
+
+    }
+
     @Autowired
     BlogService blogService;
 
     @Autowired
     CategoryService categoryService;
 
-
-    // show all blogs
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public Page<Blog> findAllBlogs(@RequestParam("search") String search, @PageableDefault(value = 5) Pageable pageable) {
-        if ("".equals(search)) {
-            return blogService.findAll(pageable);
-        } else {
-            return blogService.findByTitle(pageable, search);
-        }
-    }
+//    show all blog
+//    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+//    @ResponseBody
+//    public Page<Blog> findAllBlog(@RequestParam("search") String search, @PageableDefault(value = 5) Pageable pageable) {
+//        if ("".equals(search)) {
+//            return blogService.findAll(pageable);
+//        } else {
+//            return blogService.findByTitle(pageable, search);
+//        }
+//    }
 
     @GetMapping
     public ModelAndView getListPage(@RequestParam(value = "search", defaultValue = "") String search, @PageableDefault(value = 5) Pageable pageable) {
-        ModelAndView modelAndView = new ModelAndView("blog/list_2");
+        ModelAndView modelAndView = new ModelAndView(LIST_PAGE_2);
         if ("".equals(search)) {
             modelAndView.addObject("eList", blogService.findAll(pageable));
         } else {
@@ -65,16 +71,16 @@ public class BlogController {
     @GetMapping("/create")
     public ModelAndView getCreatePage() {
         ModelAndView modelAndView = new ModelAndView(CREATE_PAGE);
-        modelAndView.addObject("el", new Blog());
+        modelAndView.addObject("blog", new Blog());
         modelAndView.addObject("cateList", categoryService.findAll());
         return modelAndView;
     }
 
     @PostMapping("/create")
-    public ModelAndView getCreated(@ModelAttribute Blog el) {
+    public ModelAndView getCreated(@ModelAttribute Blog el, Pageable pageable) {
         blogService.save(el);
-        ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        modelAndView.addObject("eList", blogService.findAll());
+        ModelAndView modelAndView = new ModelAndView(LIST_PAGE_2);
+        modelAndView.addObject("eList", blogService.findAll(pageable));
         modelAndView.addObject("msg", CREATE_MSG);
         return modelAndView;
     }
@@ -82,16 +88,16 @@ public class BlogController {
     @GetMapping("/edit/{id}")
     public ModelAndView getEditPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView(EDIT_PAGE);
-        modelAndView.addObject("el", blogService.findById(id));
+        modelAndView.addObject("blog", blogService.findById(id));
         modelAndView.addObject("cateList", categoryService.findAll());
         return modelAndView;
     }
 
     @PostMapping("/edit")
-    public ModelAndView getEdited(@ModelAttribute Blog el) {
+    public ModelAndView getEdited(@ModelAttribute Blog el, Pageable pageable) {
         blogService.save(el);
-        ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        modelAndView.addObject("eList", blogService.findAll());
+        ModelAndView modelAndView = new ModelAndView(LIST_PAGE_2);
+        modelAndView.addObject("eList", blogService.findAll(pageable));
         modelAndView.addObject("msg", EDIT_MSG);
         return modelAndView;
     }
@@ -99,22 +105,22 @@ public class BlogController {
     @GetMapping("/view/{id}")
     public ModelAndView getViewPage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView(VIEW_PAGE);
-        modelAndView.addObject("el", blogService.findById(id));
+        modelAndView.addObject("blog", blogService.findById(id));
         return modelAndView;
     }
 
     @GetMapping("/delete/{id}")
     public ModelAndView getDeletePage(@PathVariable int id) {
         ModelAndView modelAndView = new ModelAndView(DELETE_PAGE);
-        modelAndView.addObject("el", blogService.findById(id));
+        modelAndView.addObject("blog", blogService.findById(id));
         return modelAndView;
     }
 
     @PostMapping("/delete")
-    public ModelAndView getDeleted(@ModelAttribute Blog el) {
+    public ModelAndView getDeleted(@ModelAttribute Blog el, Pageable pageable) {
         blogService.remove(el.getId());
-        ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        modelAndView.addObject("eList", blogService.findAll());
+        ModelAndView modelAndView = new ModelAndView(LIST_PAGE_2);
+        modelAndView.addObject("eList", blogService.findAll(pageable));
         modelAndView.addObject("msg", DELETE_MSG);
         return modelAndView;
     }

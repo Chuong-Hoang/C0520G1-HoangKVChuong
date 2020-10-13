@@ -17,7 +17,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/cart")
 public class CartController {
-
     @Autowired
     private ProductService productService;
 
@@ -25,7 +24,7 @@ public class CartController {
     public ModelAndView showCartPage(HttpSession session){
         ModelAndView modelAndView = new ModelAndView("cart/show");
         HashMap<Integer, Cart> cartItems = (HashMap<Integer, Cart>) session.getAttribute("myCartItems");
-        if(cartItems != null) {
+        if (cartItems != null) {
             session.setAttribute("myCartItems", cartItems);
             session.setAttribute("myCartTotalAmount", totalAmount(cartItems));
             session.setAttribute("myCartNumber", cartItems.size());
@@ -38,7 +37,7 @@ public class CartController {
     public ModelAndView addProductToCartPage(@PathVariable("productId") int productId, HttpSession session){
         ModelAndView modelAndView = new ModelAndView("redirect:/product");
         HashMap<Integer, Cart> cartItems = (HashMap<Integer, Cart>) session.getAttribute("myCartItems");
-        if(cartItems == null) {
+        if (cartItems == null) {
             cartItems = new HashMap<>();
         }
 
@@ -61,13 +60,12 @@ public class CartController {
         session.setAttribute("myCartTotalAmount", totalAmount(cartItems));
         session.setAttribute("myCartNumber", cartItems.size());
 
-
         return modelAndView;
     }
 
-    // update cart
+    // update cart by each Id (item by item)
     @GetMapping("/update/{productId}")
-    public ModelAndView updateCart(@PathVariable("productId") int productId, @ModelAttribute("editItem") Cart editItem, HttpSession session){
+    public ModelAndView updateCartEachItem(@PathVariable("productId") int productId, @ModelAttribute("editItem") Cart editItem, HttpSession session){
         ModelAndView modelAndView = new ModelAndView("redirect:/cart");
         HashMap<Integer, Cart> cartItems = (HashMap<Integer, Cart>) session.getAttribute("myCartItems");
         if(cartItems == null) {
@@ -88,6 +86,44 @@ public class CartController {
 
     }
 
+    // update cart by Many Ids (Many items)
+    @GetMapping("/update")
+    public ModelAndView updateCartManyItems(@RequestParam("ids") int[] ids, @RequestParam("quantity") int[] quantity, HttpSession session){
+        ModelAndView modelAndView = new ModelAndView("redirect:/cart");
+        HashMap<Integer, Cart> cartItems = (HashMap<Integer, Cart>) session.getAttribute("myCartItems");
+        if (cartItems == null) {
+            cartItems = new HashMap<>();
+        }
+//        plan 1: use both array: ids[] and quantity[]
+//        int i = -1;
+//        for (Integer id : ids){
+//            Product product = productService.findById(id);
+//            i++;
+//            if(cartItems.containsKey(id)){
+//                Cart item = cartItems.get(id);
+//                item.setProduct(product);
+//                item.setQuantity(quantity[i]);
+//
+//                cartItems.put(id, item);
+//            }
+//        }
+
+//        plan 2: use only one array: quantity[]
+        int i = -1;
+        for (Map.Entry<Integer, Cart> entry : cartItems.entrySet()){
+            i++;
+            Cart item = entry.getValue();
+            item.setQuantity(quantity[i]);
+        }
+
+        session.setAttribute("myCartItems", cartItems);
+        session.setAttribute("myCartTotalAmount", totalAmount(cartItems));
+        session.setAttribute("myCartNumber", cartItems.size());
+
+        return modelAndView;
+
+    }
+
     // Delete
     @GetMapping(value = "delete/{id}")
     public String viewRemove(ModelMap modelMap, HttpSession session, @PathVariable("id") int productId) {
@@ -95,24 +131,26 @@ public class CartController {
         if (cartItems == null) {
             cartItems = new HashMap<>();
         }
+
         if (cartItems.containsKey(productId)) {
             cartItems.remove(productId);
         }
+
         session.setAttribute("myCartItems", cartItems);
         session.setAttribute("myCartTotalAmount", totalAmount(cartItems));
         session.setAttribute("myCartNumber", cartItems.size());
         return "cart/show";
     }
 
-    // total amount
+    // get total amount
     public double totalAmount(HashMap<Integer, Cart> cartItems){
         double sum = 0;
-        int count = 0;
+        int numberOfProduct = 0;
         double price = 0;
-        for(Map.Entry<Integer, Cart> entry : cartItems.entrySet()){
+        for (Map.Entry<Integer, Cart> entry : cartItems.entrySet()){
             price = Double.parseDouble(entry.getValue().getProduct().getPrice());
-            count = entry.getValue().getQuantity();
-            sum += price * count;
+            numberOfProduct = entry.getValue().getQuantity();
+            sum += price * numberOfProduct;
         }
         return  sum;
     }

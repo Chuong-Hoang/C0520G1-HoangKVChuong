@@ -2,94 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="909e1dca-b955-47a6-a6ad-a3ff23a9e147" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../mvc_contact/out/artifacts/mvc_contact_war_exploded/element/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc_contact/out/artifacts/mvc_contact_war_exploded/element/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_contact/web/element/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../mvc_contact/web/element/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/artifacts/mvc_demo_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/mvc_student.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/bo/ElementBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/bo/ElementBOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/controller/ElementServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/dao/ElementDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/dao/ElementDAOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/classes/element_management/model/Element.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/lib/jstl-1.2.jar.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/delete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/artifacts/mvc_demo_war_exploded/element/view.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/bo/ElementBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/bo/ElementBOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/controller/ElementServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/dao/ElementDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/dao/ElementDAOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/out/production/mvc_demo/element_management/model/Element.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/bo/ElementBO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/bo/ElementBOImplement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/controller/ElementServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/dao/ElementDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/dao/ElementDAOImplement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/src/element_management/model/Element.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/delete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_student/web/element/view.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/artifacts/mvc_contact_war_exploded.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/mvc_contact.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/META-INF/mvc_contact.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/bo/UserBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/bo/UserBOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/dao/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/classes/main/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.21.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/delete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/artifacts/mvc_contact_war_exploded/user/view.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/META-INF/mvc_contact.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/bo/UserBO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/bo/UserBOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/controller/UserServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/dao/UserDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/dao/UserDAOImplement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/out/production/mvc_contact/main/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/bo/UserBO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/bo/UserBOImplement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/controller/UserServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/dao/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/dao/UserDAOImplement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/src/main/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/create.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/delete.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/edit.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/list.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mvc_user/web/user/view.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/controller/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/artifacts/users_war_exploded/WEB-INF/classes/main/dao/UserDAOImplement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/controller/UserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/controller/UserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/dao/UserDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/out/production/users/main/dao/UserDAOImplement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/controller/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/dao/UserDAOImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jdbc_and_crud/homework/users/src/main/dao/UserDAOImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session_exam/out/artifacts/session_exam_war_exploded/WEB-INF/classes/main/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session_exam/out/production/session_exam/main/controller/ProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../session_exam/out/production/session_exam/main/controller/ProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session_exam/web/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../session_exam/web/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session04_views_and_thymeleaf/practice/customer/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session04_views_and_thymeleaf/practice/customer/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/resources/templates/cart/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/resources/templates/cart/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/resources/templates/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session10_session_and_cookies/homework/cart/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/blog_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete_many.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/session14_security_in_web_app/homework/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +48,13 @@
       </set>
     </option>
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectId" id="1gwujjXSif9qvFxkTkuLt4l3sCx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -117,23 +66,77 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/furama" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module4/case_study_4" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.37" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.37" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="case_study_2:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/case_study_2_war_exploded" />
+            <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_9_0_37_case_study_2" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57663" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -141,6 +144,28 @@
         </option>
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -153,6 +178,12 @@
       <option name="presentableId" value="Default" />
       <updated>1599038112851</updated>
       <workItem from="1599038119794" duration="186000" />
+      <workItem from="1602260886298" duration="739000" />
+      <workItem from="1602326024200" duration="396000" />
+      <workItem from="1602337564126" duration="558000" />
+      <workItem from="1602473563278" duration="1324000" />
+      <workItem from="1602503996869" duration="226000" />
+      <workItem from="1602504261778" duration="35000" />
     </task>
     <servers />
   </component>
@@ -160,9 +191,69 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="571" y="146" key="FileChooserDialogImpl" timestamp="1599038305564">
+    <state x="232" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602337950411">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="571" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1599038305564" />
+    <state x="232" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1602337950411" />
+    <state x="604" y="269" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602337736740">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="604" y="269" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.768@0.0.1366.768" timestamp="1602337736740" />
+    <state x="571" y="146" key="FileChooserDialogImpl" timestamp="1602504294109">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="571" y="146" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602504294109" />
+    <state width="748" height="272" key="GridCell.Tab.0.bottom" timestamp="1602338130981">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602338130981" />
+    <state width="748" height="272" key="GridCell.Tab.0.center" timestamp="1602338130981">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1602338130981" />
+    <state width="748" height="272" key="GridCell.Tab.0.left" timestamp="1602338130981">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1602338130981" />
+    <state width="748" height="272" key="GridCell.Tab.0.right" timestamp="1602338130981">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1602338130981" />
+    <state width="748" height="272" key="GridCell.Tab.1.bottom" timestamp="1602338130982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602338130982" />
+    <state width="748" height="272" key="GridCell.Tab.1.center" timestamp="1602338130982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1602338130982" />
+    <state width="748" height="272" key="GridCell.Tab.1.left" timestamp="1602338130982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1602338130982" />
+    <state width="748" height="272" key="GridCell.Tab.1.right" timestamp="1602338130982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1602338130982" />
+    <state width="748" height="272" key="GridCell.Tab.2.bottom" timestamp="1602338130983">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.2.bottom/0.0.1366.768@0.0.1366.768" timestamp="1602338130983" />
+    <state width="748" height="272" key="GridCell.Tab.2.center" timestamp="1602338130983">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.2.center/0.0.1366.768@0.0.1366.768" timestamp="1602338130983" />
+    <state width="748" height="272" key="GridCell.Tab.2.left" timestamp="1602338130982">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.2.left/0.0.1366.768@0.0.1366.768" timestamp="1602338130982" />
+    <state width="748" height="272" key="GridCell.Tab.2.right" timestamp="1602338130983">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="748" height="272" key="GridCell.Tab.2.right/0.0.1366.768@0.0.1366.768" timestamp="1602338130983" />
+    <state x="70" y="0" key="SettingsEditor" timestamp="1602337996219">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="70" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1602337996219" />
   </component>
 </project>

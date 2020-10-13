@@ -9,13 +9,16 @@
     <title>Blog</title>
 </head>
 <body>
+
+<div sec:authorize="isAuthenticated()">
+    <p>User Role: <span sec:authentication="principal.username"></span></p>
+    <a th:href="@{/logout}">Logout</a>
+</div><br>
 <a href="/">Home</a>
 <br><br>
 <a href="/blog/create">Create new blog</a>
 <h3>Blog List</h3>
-<div sec:authorize="isAuthenticated()">
-        <a th:href="@{/logout}">Logout</a>
-</div>
+
  <form th:action="@{/blog}" method="get">
     <input type="text" name="search" th:value="${search}" placeholder="input some text">
     <input type="submit" value="Search">

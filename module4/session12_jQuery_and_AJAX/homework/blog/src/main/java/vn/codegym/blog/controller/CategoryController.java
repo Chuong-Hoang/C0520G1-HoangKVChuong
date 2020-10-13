@@ -41,7 +41,7 @@ public class CategoryController {
     @GetMapping("/create")
     public ModelAndView getCreatePage(){
         ModelAndView modelAndView = new ModelAndView(CREATE_PAGE);
-        modelAndView.addObject("el", new Category());
+        modelAndView.addObject("category", new Category());
         return modelAndView;
     }
 
@@ -56,7 +56,7 @@ public class CategoryController {
     @GetMapping("/edit/{id}")
     public ModelAndView getEditPage(@PathVariable int id){
         ModelAndView modelAndView = new ModelAndView(EDIT_PAGE);
-        modelAndView.addObject("el", categoryService.findById(id));
+        modelAndView.addObject("category", categoryService.findById(id));
         return modelAndView;
     }
 
@@ -71,7 +71,7 @@ public class CategoryController {
     @GetMapping("/delete/{id}")
     public ModelAndView getDeletePage(@PathVariable int id){
         ModelAndView modelAndView = new ModelAndView(DELETE_PAGE);
-        modelAndView.addObject("el", categoryService.findById(id));
+        modelAndView.addObject("category", categoryService.findById(id));
         return modelAndView;
     }
 

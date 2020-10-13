@@ -33,7 +33,7 @@
             <th>Description</th>
 
             <th>
-                <select id="select-option" type="text" name="cate" onchange="findByCategoryId()" th:object="${cateSelected}">
+                <select id="select-option" name="cate" onchange="findByCategoryId()" th:object="${cateSelected}">
                     <option value="0">All</option>
                     <option th:if="${cateSelected != null}" th:value="${cateSelected.categoryId}" th:text="${cateSelected.categoryName}" selected></option>
                     <option th:each="cate : ${cateList}" th:value="${cate.categoryId}" th:text="${cate.categoryName}"></option>

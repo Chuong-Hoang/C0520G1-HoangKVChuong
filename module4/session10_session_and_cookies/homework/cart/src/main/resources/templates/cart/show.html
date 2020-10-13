@@ -7,7 +7,7 @@
 <body>
 <h3>My Cart</h3>
 <a href="/product">Back to product list</a>
-<!--<form>-->
+<form name="update-form" th:action="@{/cart/update}">
 <table>
     <p>Total Item: <span th:text="${session.myCartNumber}"></span></p>
     <tr>
@@ -19,13 +19,11 @@
     </tr>
 
     <tr th:each="entry : ${session.myCartItems}">
-<!--        <form name="update-form" th:action="@{/cart/update/{productId}(productId = ${entry.key})}"-->
-        <form name="update-form" th:action="@{/cart/update}"
-              th:object="${editItem}">
+<!--        <form name="update-form" th:action="@{/cart/update/{productId}(productId = ${entry.key}) }" th:object="${editItem}">-->
+
             <input type="hidden" name="ids" th:value="${entry.key}">
             <td th:text="${entry.value.product.name}"></td>
             <td th:text="${entry.value.product.price}"></td>
-            <!--            <td><input type="text" th:name="quantity" th:value="${editItem.quantity != 0} ? ${editItem.quantity} : ${entry.value.quantity}" /></td>-->
             <td><input type="text" th:name="quantity" th:value="${entry.value.quantity}"/></td>
             <td>
                 <button type="submit">Update</button>
@@ -34,23 +32,17 @@
                 <button type="button"><a th:href="@{/cart/delete/{productId}(productId = ${entry.key})}">Delete</a>
                 </button>
             </td>
+
         </form>
     </tr>
+
     <tr>
         <th>Total Amount:</th>
         <th th:text="${session.myCartTotalAmount}"></th>
     </tr>
 </table>
-<button type="submit" value="Update cart" />
+<input type="submit" value="Update Cart">
 </form>
 
-<script>
-    function editMass() {
-        let update_form = document.getElementsByName('update-form');
-        for (let i = 0; i < update_form.length; i++) {
-            update_form[i].submit();
-        }
-    }
-</script>
 </body>
 </html>

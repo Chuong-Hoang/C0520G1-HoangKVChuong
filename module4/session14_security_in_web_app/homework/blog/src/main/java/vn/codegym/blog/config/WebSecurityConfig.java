@@ -32,9 +32,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .defaultSuccessUrl("/home").permitAll()
                 .and()
-                .authorizeRequests().antMatchers("/", "/home", "/blog").permitAll()
-                .and()
-                .authorizeRequests().antMatchers("/category/create","/blog/create","/category/edit","/blog/edit","/category/delete","/blog/delete").authenticated()
+                .authorizeRequests()
+                    .antMatchers("/", "/home", "/blog", "/category").permitAll()
+                    .antMatchers("/blog/edit/**", "/category/edit/**").hasAnyRole("MEMBER")
+                    .antMatchers("/blog/**", "/category/**").hasRole("ADMIN")
+//                .anyRequest().authenticated()
                 .and()
                 .logout().permitAll();
     }

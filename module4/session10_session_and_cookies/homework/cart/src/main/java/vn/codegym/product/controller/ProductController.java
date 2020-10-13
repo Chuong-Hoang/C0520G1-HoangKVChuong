@@ -36,6 +36,7 @@ public class ProductController {
     @Autowired
     CategoryService categoryService;
 
+    // 1.List
     @GetMapping
     public ModelAndView getListPage(@RequestParam(value = "keyText", defaultValue = "") String keyText, @PageableDefault(value = 2) Pageable pageable){
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
@@ -53,6 +54,7 @@ public class ProductController {
         return modelAndView;
     }
 
+    // 2.Create
     @GetMapping("/create")
     public ModelAndView getCreatePage(){
         ModelAndView modelAndView = new ModelAndView(CREATE_PAGE);
@@ -69,6 +71,7 @@ public class ProductController {
         return modelAndView;
     }
 
+    // 3.Edit
     @GetMapping("/edit/{id}")
     public ModelAndView getEditPage(@PathVariable int id){
         ModelAndView modelAndView = new ModelAndView(EDIT_PAGE);
@@ -85,6 +88,7 @@ public class ProductController {
         return modelAndView;
     }
 
+    // 4.Delete
     @GetMapping("/delete/{id}")
     public ModelAndView getDeletePage(@PathVariable int id){
         ModelAndView modelAndView = new ModelAndView(DELETE_PAGE);
@@ -100,7 +104,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // Search
+    // 5.Search
     @GetMapping("/search")
     public ModelAndView getSearched(@RequestParam(value = "keyText", defaultValue = "") String keyText, @PageableDefault(value = 2) Pageable pageable){
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
@@ -115,7 +119,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // View details
+    // 6.View details
     @GetMapping("/view/{id}")
     public ModelAndView getViewPage(@PathVariable int id){
         ModelAndView modelAndView = new ModelAndView(VIEW_PAGE);
@@ -124,7 +128,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // Delete many elements
+    // 7.Delete many elements
     @PostMapping("/delete-many")
     public ModelAndView getDeleteManyDone(@RequestParam int[] ids, RedirectAttributes redirect){
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
@@ -137,7 +141,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // Create on list page
+    // 8.Create on list page
     @GetMapping("/create-on-list")
     public ModelAndView getCreateOnListPage(@PageableDefault(value = 5) Pageable pageable){
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
@@ -156,7 +160,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // Edit on list page
+    // 9.Edit on list page
     @GetMapping("/edit-on-list/{id}")
     public ModelAndView getEditOnListPage(@PathVariable int id, @PageableDefault(value = 5) Pageable pageable){
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
@@ -175,7 +179,7 @@ public class ProductController {
         return modelAndView;
     }
 
-    // Find by category
+    // 10.Find by category
     @GetMapping("/find-by-category/{cateId}")
     public ModelAndView getFoundByCategory(@PathVariable int cateId, @PageableDefault(value = 5) Pageable pageable){
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);

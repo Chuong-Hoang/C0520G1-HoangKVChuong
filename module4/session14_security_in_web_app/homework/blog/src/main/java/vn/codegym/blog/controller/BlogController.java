@@ -87,10 +87,10 @@ public class BlogController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView getEdited(@ModelAttribute Blog blog) {
+    public ModelAndView getEdited(@ModelAttribute Blog blog, Pageable pageable) {
         blogService.save(blog);
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        modelAndView.addObject("eList", blogService.findAll());
+        modelAndView.addObject("eList", blogService.findAll(pageable));
         modelAndView.addObject("msg", EDIT_MSG);
         return modelAndView;
     }
@@ -110,10 +110,10 @@ public class BlogController {
     }
 
     @PostMapping("/delete")
-    public ModelAndView getDeleted(@ModelAttribute Blog blog) {
+    public ModelAndView getDeleted(@ModelAttribute Blog blog, Pageable pageable) {
         blogService.remove(blog.getId());
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        modelAndView.addObject("eList", blogService.findAll());
+        modelAndView.addObject("eList", blogService.findAll(pageable));
         modelAndView.addObject("msg", DELETE_MSG);
         return modelAndView;
     }

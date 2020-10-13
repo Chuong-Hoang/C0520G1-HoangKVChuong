@@ -1,0 +1,22 @@
+body {
+    font-size: 0.8em;
+}
+.required {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+}
+.message {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+}
+
+img {
+    width: 100%;
+    display: block;
+    height: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}

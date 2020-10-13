@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="common/layout :: head">
+    <title>list</title>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Employee</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!--<a class="nav-link" th:href="@{/employee/create}">Create new</a>-->
+                <div class="container">
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createModal">
+                        <span>Create new</span>
+                    </button>
+
+                    <!-- The Modal Create-->
+                    <div class="modal fade" id="createModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Register Employee</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form id="createForm" th:action="@{/employee/create}" method="post"
+                                          th:object="${employee}">
+                                        <input th:type="hidden" name="id" th:field="*{employeeId}">
+                                        <table class="table-hover w-auto">
+                                            <tr>
+                                                <td><b>Name</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeeName}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Birthday</b></td>
+                                                <td>
+                                                    <input type="date" th:field="*{employeeBirthday}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>IdCard</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeeIdCard}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Phone</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeePhone}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Email</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeeEmail}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Address</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeeAddress}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Salary</b></td>
+                                                <td>
+                                                    <input type="text" th:field="*{employeeSalary}" required/>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Position</b></td>
+                                                <td>
+                                                    <select th:field="*{position}">
+                                                        <option th:each="pos : ${positionList}"
+                                                                th:value="${pos.positionId}"
+                                                                th:text="${pos.positionName}">
+                                                        </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Division</b></td>
+                                                <td>
+                                                    <select th:field="*{division}">
+                                                        <option th:each="di : ${divisionList}"
+                                                                th:value="${di.divisionId}"
+                                                                th:text="${di.divisionName}">
+                                                        </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><b>Education</b></td>
+                                                <td>
+                                                    <select th:field="*{educationDegree}">
+                                                        <option th:each="ed : ${educationDegreeList}"
+                                                                th:value="${ed.eductionDegreeId}"
+                                                                th:text="${ed.educationDegreeName}">
+                                                        </option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success btn-sm"
+                                            onclick="document.getElementById('createForm').submit()">Save
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Modal create-->
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Back home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/employee}">Back to list</a>
+            </li>
+        </ul>
+
+        <form class="form-inline" id="searchForm" th:action="@{/employee}" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #d6d8db !important;"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" th:name="search" th:value="${search}"
+                       placeholder="search here..." onchange="document.getElementById('searchForm').submit();">
+            </div>
+        </form>
+    </nav>
+</div>
+
+<!--SHOW LIST-->
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>IdCard</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Position</th>
+            <th>Division</th>
+            <th>Education</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="emp, empStat : ${eList}">
+            <tr>
+                <td th:text="${empStat.index + 1}"></td>
+                <td th:text="${emp.employeeName}"></td>
+                <td th:text="${emp.employeeBirthday}"></td>
+                <td th:text="${emp.employeeIdCard}"></td>
+                <td th:text="${emp.employeePhone}"></td>
+                <td th:text="${emp.employeeEmail}"></td>
+                <td th:text="${emp.employeeAddress}"></td>
+                <td th:text="${emp.employeeSalary}"></td>
+                <td th:text="${emp.position.positionName}"></td>
+                <td th:text="${emp.division.divisionName}"></td>
+                <td th:text="${emp.educationDegree.educationDegreeName}"></td>
+
+<!--                <td>-->
+<!--                    &lt;!&ndash;<a th:href="@{/customer/edit/{id} (id=${customer.customerId})}">Edit</a>&ndash;&gt;-->
+<!--                    &lt;!&ndash;Edit by Modal&ndash;&gt;-->
+<!--                    <div class="container">-->
+<!--                        &lt;!&ndash; Button to Open the Modal &ndash;&gt;-->
+<!--                        <button id="editModalButton" type="button" class="btn btn-primary btn-sm"-->
+<!--                                data-toggle="modal" th:attr="data-target='#edit'+ ${emp.customerId}">-->
+<!--                            <span>Edit</span>-->
+<!--                        </button>-->
+<!--                        &lt;!&ndash; The Modal Edit&ndash;&gt;-->
+<!--                        <div class="modal fade" th:id="'edit'+ ${emp.customerId}">-->
+<!--                            <div class="modal-dialog">-->
+<!--                                <div class="modal-content">-->
+
+<!--                                    &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--                                    <div class="modal-header">-->
+<!--                                        <h4 class="modal-title">Update Information</h4>-->
+<!--                                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                                    </div>-->
+
+<!--                                    &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--                                    <div class="modal-body">-->
+<!--                                        <form th:id="'editForm'+ ${emp.customerId}" th:action="@{/customer/edit}" method="post" th:object="${customer}">-->
+<!--                                            <table class="table table-hover table-sm table-bordered w-auto">-->
+<!--                                                <tr>-->
+<!--                                                    <td><b>ID</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerId}" th:name="customerId">-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Name</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerName}" th:name="customerName" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Birthday</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="date" th:value="${emp.customerBirthday}" th:name="customerBirthday" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Gender</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="radio" th:name="customerGender" th:value="male"/><span>&nbsp;Male&nbsp;&nbsp;</span>-->
+<!--                                                        <input type="radio" th:name="customerGender" th:value="female"/><span>&nbsp;Female&nbsp;&nbsp;</span>-->
+<!--                                                        <input type="radio" th:name="customerGender" th:value="other"/><span>&nbsp;Other&nbsp;&nbsp;</span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>IdCard</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerIdCard}" th:name="customerIdCard" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Phone</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerPhone}" th:name="customerPhone" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Email</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerEmail}" th:name="customerEmail" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Address</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <input type="text" th:value="${emp.customerAddress}" th:name="customerAddress" required/>-->
+<!--                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>CustomerType</b></td>-->
+<!--                                                    <td>-->
+<!--                                                        <select th:name="customerType">-->
+<!--                                                            <option th:each="type : ${customerTypeList}"-->
+<!--                                                                    th:value="${type.customerTypeId}"-->
+<!--                                                                    th:text="${type.customerTypeName}">-->
+<!--                                                            </option>-->
+<!--                                                        </select>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                            </table>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+
+<!--                                    &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--                                    <div class="modal-footer">-->
+<!--                                        <button type="button" class="btn btn-success btn-sm"-->
+<!--                                                th:onclick="|getEdit('${cus.customerId}')|">Update-->
+<!--                                        </button>-->
+<!--                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;End Modal Edit&ndash;&gt;-->
+<!--                </td>-->
+
+<!--                <td>-->
+<!--                    &lt;!&ndash;<a th:href="@{/customer/delete/{id} (id=${cus.customerId})}">Delete</a>&ndash;&gt;-->
+<!--                    &lt;!&ndash;Delete on Modal&ndash;&gt;-->
+<!--                    <div class="container">-->
+<!--                        &lt;!&ndash; Button to Open the Modal &ndash;&gt;-->
+<!--                        <button id="deleteModalButton" type="button" class="btn btn-primary btn-sm"-->
+<!--                                data-toggle="modal"-->
+<!--                                th:data-target="'#del'+ ${cus.customerId}">-->
+<!--                            <span>Delete</span>-->
+<!--                        </button>-->
+<!--                        &lt;!&ndash; The Modal Delete&ndash;&gt;-->
+<!--                        <div class="modal fade"  th:id="'del' + ${cus.customerId}" tabindex="-1"-->
+<!--                             aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                            <div class="modal-dialog">-->
+<!--                                <div class="modal-content">-->
+
+<!--                                    &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--                                    <div class="modal-header">-->
+<!--                                        <h5 class="modal-title" style="color: red">Do you really want to delete?</h5>-->
+<!--                                        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                                    </div>-->
+
+<!--                                    &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--                                    <div class="modal-body">-->
+<!--                                        <form th:id="'deleteForm'+${cus.customerId}" th:action="@{/customer/delete (id=${cus.customerId})}" method="post">-->
+<!--                                            &lt;!&ndash;No need of ID input hidden here...&ndash;&gt;-->
+<!--                                            <table class="table table-hover table-sm table-bordered w-auto">-->
+<!--                                                <tr>-->
+<!--                                                    <td><b>ID</b></td>-->
+<!--                                                    <td th:text="${cus.customerId}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Name</b></td>-->
+<!--                                                    <td th:text="${cus.customerName}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Birthday</b></td>-->
+<!--                                                    <td th:text="${cus.customerBirthday}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Gender</b></td>-->
+<!--                                                    <td th:text="${cus.customerGender}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>IdCard</b></td>-->
+<!--                                                    <td th:text="${cus.customerIdCard}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Phone</b></td>-->
+<!--                                                    <td th:text="${cus.customerPhone}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Email</b></td>-->
+<!--                                                    <td th:text="${cus.customerEmail}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>Address</b></td>-->
+<!--                                                    <td th:text="${cus.customerAddress}"></td>-->
+<!--                                                </tr>-->
+
+<!--                                                <tr>-->
+<!--                                                    <td><b>CustomerType</b></td>-->
+<!--                                                    <td th:if="${cus.customerType != null}" th:text="${cus.customerType.customerTypeName}"></td>-->
+<!--                                                    <td th:if="${cus.customerType == null}" th:text="${'N/A'}"></td>-->
+<!--                                                </tr>-->
+<!--                                            </table>-->
+<!--                                        </form>-->
+<!--                                    </div>-->
+
+<!--                                    &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--                                    <div class="modal-footer">-->
+<!--                                        <button type="button" class="btn btn-success btn-sm"-->
+<!--                                                th:onclick="|getDelete('${cus.customerId}')|">Delete-->
+<!--                                        </button>-->
+<!--                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;End Modal Delete&ndash;&gt;-->
+<!--                </td>-->
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div style="color: blue" th:if="${msg}">
+        <span th:text="${msg}"></span>
+    </div>
+    <!--  Paging and Sorting -->
+    <div>
+        <br>
+        <a th:href="@{'/employee'(page=${eList.number - 1}, search=${search})}"
+           th:if="${eList.hasPrevious()}"><i
+                class="fas fa-arrow-circle-left"></i></a>
+        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
+        <a th:href="@{'/employee'(page=${eList.number + 1}, search=${search})}"
+           th:if="${eList.hasNext()}"><i
+                class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+
+<!--Edit modal-->
+<script>
+    function getEdit(id){
+        document.getElementById('editForm' + id).submit();
+    }
+    function getDelete(id){
+        document.getElementById('deleteForm' + id).submit();
+    }
+</script>
+</body>
+</html>

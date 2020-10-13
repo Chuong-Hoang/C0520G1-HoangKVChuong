@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="common/layout :: head">
+    <title>edit</title>
+</head>
+<body style="max-width: max-content; margin: auto">
+<div class="container">
+    <h3>Edit customer</h3>
+    <form th:action="@{/customer/edit}" method="post" th:object="${customer}">
+        <input th:type="hidden" name="id" th:field="*{customerId}">
+        <table class="table table-hover table-sm table-bordered w-auto">
+            <tr>
+                <td><b>Name</b></td>
+                <td>
+                    <input type="text" th:field="*{customerName}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Birthday</b></td>
+                <td>
+                    <input type="date" th:field="*{customerBirthday}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Gender</b></td>
+                <td>
+                    <input type="radio" th:field="*{customerGender}" th:value="male"/><span>&nbsp;Male&nbsp;&nbsp;</span>
+                    <input type="radio" th:field="*{customerGender}" th:value="female"/><span>&nbsp;Female&nbsp;&nbsp;</span>
+                    <input type="radio" th:field="*{customerGender}" th:value="other"/><span>&nbsp;Other&nbsp;&nbsp;</span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>IdCard</b></td>
+                <td>
+                    <input type="text" th:field="*{customerIdCard}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Phone</b></td>
+                <td>
+                    <input type="text" th:field="*{customerPhone}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Email</b></td>
+                <td>
+                    <input type="text" th:field="*{customerEmail}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Address</b></td>
+                <td>
+                    <input type="text" th:field="*{customerAddress}" required/>
+                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>CustomerType</b></td>
+                <td>
+                    <select th:field="*{customerType}">
+                        <option th:each="type : ${customerTypeList}"
+                                th:value="${type.customerTypeId}"
+                                th:text="${type.customerTypeName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-outline-danger"><a th:href="@{/customer}">Cancel</a></button>
+                </td>
+                <td><button type="submit" class="btn btn-outline-danger">Update</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+</body>
+</html>

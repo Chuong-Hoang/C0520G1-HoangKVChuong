@@ -2,15 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>blog detail</title>
+    <title>Blog Detail</title>
 </head>
 <body>
-<a href="/">Home</a>
-<br><br>
-<a href="/blog">Blog List</a>
-<br><br>
-<a href="/category">Category List</a>
-<br><br>
+<a th:href="@{/}">Home</a><br><br>
+<a th:href="@{/blog}">Blog List</a><br><br>
+<a th:href="@{/category}">Category List</a><br><br>
+
 <table>
     <tr>
         <th>Blog Title</th>

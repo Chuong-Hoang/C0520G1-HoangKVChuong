@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="609f4aa7-ae42-4301-acb8-ae7a21871a7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session10_session_and_cookies/homework/cart/src/main/java/vn/codegym/product/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session10_session_and_cookies/homework/cart/src/main/resources/templates/cart/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session10_session_and_cookies/homework/cart/src/main/resources/templates/cart/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/java/vn/codegym/blog/service/BlogServiceImplement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/list_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/blog/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/blog_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/delete_many.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/category/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/home/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session12_jQuery_and_AJAX/homework/blog/src/main/resources/templates/home/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/java/vn/codegym/blog/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/resources/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../session14_security_in_web_app/homework/blog/src/main/resources/templates/blog/list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1ie9m3Dlgxb7kzMLxOUCJAX8jHv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../case_study_4" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RunManager">
+    <configuration name="FuramaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="furama.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.codegym.furama.FuramaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="609f4aa7-ae42-4301-acb8-ae7a21871a7f" name="Default Changelist" comment="" />
+      <created>1602257346009</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602257346009</updated>
+      <workItem from="1602257351585" duration="106000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="85" key="FileChooserDialogImpl" timestamp="1602257457805">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="413" y="85" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1602257457805" />
+  </component>
+</project>
