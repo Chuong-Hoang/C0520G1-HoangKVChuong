@@ -3,6 +3,7 @@ package vn.codegym.furama.model.main_model;
 import vn.codegym.furama.model.sub_model.CustomerType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -21,6 +22,9 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "customerTypeId")
     private CustomerType customerType;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
 
     public Customer() {
     }
@@ -48,6 +52,13 @@ public class Customer {
         this.customerType = customerType;
     }
 
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
 
     public Long getCustomerId() {
         return customerId;

@@ -1,12 +1,10 @@
 package vn.codegym.furama.model.main_model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class AttachServiceFu {
+public class AttachService {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long attachServiceId;
@@ -16,15 +14,26 @@ public class AttachServiceFu {
     private String attachServiceUnit;
     private String attachServiceStatus;
 
-    public AttachServiceFu() {
+    @OneToMany(mappedBy = "attachService")
+    private List<ContractDetail> contractDetailList;
+
+    public AttachService() {
     }
 
-    public AttachServiceFu(String attachServiceName, String attachServiceCost,
-                           String attachServiceUnit, String attachServiceStatus) {
+    public AttachService(String attachServiceName, String attachServiceCost,
+                         String attachServiceUnit, String attachServiceStatus) {
         this.attachServiceName = attachServiceName;
         this.attachServiceCost = attachServiceCost;
         this.attachServiceUnit = attachServiceUnit;
         this.attachServiceStatus = attachServiceStatus;
+    }
+
+    public List<ContractDetail> getContractDetailList() {
+        return contractDetailList;
+    }
+
+    public void setContractDetailList(List<ContractDetail> contractDetailList) {
+        this.contractDetailList = contractDetailList;
     }
 
     public Long getAttachServiceId() {

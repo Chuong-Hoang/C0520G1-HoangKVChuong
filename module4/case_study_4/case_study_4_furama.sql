@@ -36,3 +36,10 @@ insert into `education_degree` values
 (2, 'College'),
 (3, 'University'),
 (4, 'After-University');
+
+insert into `attach_service`(attach_service_id, attach_service_name, attach_service_cost, attach_service_unit, attach_service_status) values
+(1, 'Karaoke', '25', 'hour', 'available'),
+(2, 'Massage', '35', 'hour', 'available'),
+(3, 'Drink', '5', 'bottle', 'available'),
+(4, 'Food', '45', 'meal', 'available'),
+(5, 'Car', '50', 'hour', 'available');

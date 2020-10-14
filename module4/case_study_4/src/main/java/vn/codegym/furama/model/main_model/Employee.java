@@ -5,6 +5,7 @@ import vn.codegym.furama.model.sub_model.EducationDegree;
 import vn.codegym.furama.model.sub_model.Position;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -32,6 +33,9 @@ public class Employee {
     @JoinColumn(name = "educationDegreeId")
     private EducationDegree educationDegree;
 
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
+
     public Employee() {
     }
 
@@ -48,6 +52,14 @@ public class Employee {
         this.position = position;
         this.division = division;
         this.educationDegree = educationDegree;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 
     public Long getEmployeeId() {

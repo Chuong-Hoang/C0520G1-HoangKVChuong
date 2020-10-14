@@ -1,16 +1,16 @@
 package vn.codegym.furama.service.main_service;
 
 import org.springframework.stereotype.Service;
-import vn.codegym.furama.model.main_model.AttachServiceFu;
+import vn.codegym.furama.model.main_model.AttachService;
 import java.util.List;
 
 @Service
 public interface AttachServiceFuService {
-    List<AttachServiceFu> findAll();
+    List<AttachService> findAll();
 
-    AttachServiceFu findById(long id);
+    AttachService findById(long id);
 
-    void save(AttachServiceFu obj);
+    void save(AttachService obj);
 
     void remove(long id);
 }

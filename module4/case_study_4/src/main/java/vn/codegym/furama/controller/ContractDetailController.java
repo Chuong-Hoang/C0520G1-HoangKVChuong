@@ -2,24 +2,21 @@ package vn.codegym.furama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import vn.codegym.furama.model.main_model.Employee;
-import vn.codegym.furama.service.main_service.EmployeeService;
-import vn.codegym.furama.service.sub_service.DivisionService;
-import vn.codegym.furama.service.sub_service.EducationDegreeService;
-import vn.codegym.furama.service.sub_service.PositionService;
+import vn.codegym.furama.model.main_model.Contract;
+import vn.codegym.furama.model.main_model.ContractDetail;
+import vn.codegym.furama.service.main_service.*;
 
 @Controller
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/contractDetail")
+public class ContractDetailController {
     // Constants
-    private final String EL_NAME = "employee";
+    private final String EL_NAME = "contractDetail";
     private final String LIST_PAGE = EL_NAME + "/list";
     private final String CREATE_PAGE = EL_NAME + "/create";
     private final String EDIT_PAGE = EL_NAME + "/edit";
@@ -34,35 +31,34 @@ public class EmployeeController {
     private final String DELETE_MANY_MSG = "Delete the selected " + EL_NAME + "(s) successfully.";
 
     @Autowired
-    private EmployeeService employeeService;
+    private ContractDetailService contractDetailService;
     @Autowired
-    private DivisionService divisionService;
+    private AttachServiceFuService attachServiceFuService;
     @Autowired
-    private PositionService positionService;
-    @Autowired
-    private EducationDegreeService educationDegreeService;
+    private ContractService contractService;
+
 
     // 1.List
     @GetMapping
     public ModelAndView getListPage(@RequestParam(value = "search", defaultValue = "") String search,
                                     @PageableDefault(value = 5) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
-        Page<Employee> eList = null;
-        long total = employeeService.count();
+        Page<ContractDetail> eList = null;
+        long total = contractDetailService.count();
 
         if ("".equals(search)) {
-            eList = employeeService.findAll(pageable);
+            eList = contractDetailService.findAll(pageable);
         } else {
-            eList = employeeService.findByEmployeeName(pageable, search);
+            eList = contractDetailService.findByAttachServiceName(pageable, search);
+//            eList = contractDetailService.findAll(pageable); // test
         }
         modelAndView.addObject("eList", eList);
         modelAndView.addObject("search", search);
 
         // add new on modal
-        modelAndView.addObject("employee", new Employee());
-        modelAndView.addObject("positionList", positionService.findAll());
-        modelAndView.addObject("divisionList", divisionService.findAll());
-        modelAndView.addObject("educationDegreeList", educationDegreeService.findAll());
+        modelAndView.addObject("contract", new Contract());
+        modelAndView.addObject("attachServiceList", attachServiceFuService.findAll());
+        modelAndView.addObject("contractList", contractService.findAll());
         return modelAndView;
     }
 
@@ -70,17 +66,16 @@ public class EmployeeController {
     @GetMapping("/create")
     public ModelAndView getCreatePage() {
         ModelAndView modelAndView = new ModelAndView(CREATE_PAGE);
-        modelAndView.addObject("employee", new Employee());
-        modelAndView.addObject("positionList", positionService.findAll());
-        modelAndView.addObject("divisionList", divisionService.findAll());
-        modelAndView.addObject("educationDegreeList", educationDegreeService.findAll());
+        modelAndView.addObject("contract", new Contract());
+        modelAndView.addObject("attachServiceList", attachServiceFuService.findAll());
+        modelAndView.addObject("contractList", contractService.findAll());
         return modelAndView;
     }
 
     @PostMapping("/create")
-    public ModelAndView getCreated(@ModelAttribute Employee employee,
+    public ModelAndView getCreated(@ModelAttribute ContractDetail contractDetail,
                                    Pageable pageable, RedirectAttributes redirect) {
-        employeeService.save(employee);
+        contractDetailService.save(contractDetail);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", CREATE_MSG);
         return modelAndView;
@@ -90,17 +85,16 @@ public class EmployeeController {
     @GetMapping("/edit/{id}")
     public ModelAndView getEditPage(@PathVariable(value = "id") long id) {
         ModelAndView modelAndView = new ModelAndView(EDIT_PAGE);
-        modelAndView.addObject("employee", employeeService.findById(id));
-        modelAndView.addObject("positionList", positionService.findAll());
-        modelAndView.addObject("divisionList", divisionService.findAll());
-        modelAndView.addObject("educationDegreeList", educationDegreeService.findAll());
+        modelAndView.addObject("contract", contractDetailService.findById(id));
+        modelAndView.addObject("attachServiceList", attachServiceFuService.findAll());
+        modelAndView.addObject("contractList", contractService.findAll());
         return modelAndView;
     }
 
     @PostMapping("/edit")
-    public ModelAndView getEdited(@ModelAttribute Employee employee, Pageable pageable, RedirectAttributes redirect) {
+    public ModelAndView getEdited(@ModelAttribute ContractDetail contractDetail, Pageable pageable, RedirectAttributes redirect) {
 
-        employeeService.save(employee);
+        contractDetailService.save(contractDetail);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", EDIT_MSG);
         return modelAndView;
@@ -108,15 +102,15 @@ public class EmployeeController {
 
     // 4. Delete
     @GetMapping("/delete/{id}")
-    public ModelAndView getDeletePage(@PathVariable(value = "employeeId") long employeeId) {
+    public ModelAndView getDeletePage(@PathVariable(value = "id") long contractDetailId) {
         ModelAndView modelAndView = new ModelAndView(DELETE_PAGE);
-        modelAndView.addObject("employee", employeeService.findById(employeeId));
+        modelAndView.addObject("contract", contractDetailService.findById(contractDetailId));
         return modelAndView;
     }
 
     @PostMapping("/delete")
-    public ModelAndView getDeleted(@RequestParam("employeeId") long employeeId, Pageable pageable, RedirectAttributes redirect) {
-        employeeService.remove(employeeId);
+    public ModelAndView getDeleted(@RequestParam("contractDetailId") long contractDetailId, Pageable pageable, RedirectAttributes redirect) {
+        contractDetailService.remove(contractDetailId);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", DELETE_MSG);
         return modelAndView;
@@ -126,8 +120,7 @@ public class EmployeeController {
     @GetMapping("/view/{id}")
     public ModelAndView getViewPage(@PathVariable(value = "id") long id) {
         ModelAndView modelAndView = new ModelAndView(VIEW_PAGE);
-        modelAndView.addObject("employee", employeeService.findById(id));
+        modelAndView.addObject("contract", contractDetailService.findById(id));
         return modelAndView;
     }
-
 }

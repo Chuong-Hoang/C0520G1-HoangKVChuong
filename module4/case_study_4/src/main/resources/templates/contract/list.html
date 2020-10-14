@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="common/layout :: head">
+    <title>list</title>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Contract</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!--<a class="nav-link" th:href="@{/contract/create}">Create new</a>-->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" onclick="createOnModal()"><span>Create new</span></button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Back home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/contract}">Back to list</a>
+            </li>
+        </ul>
+
+        <form class="form-inline" id="searchForm" th:action="@{/contract}" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: #d6d8db !important;"><i class="fas fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" th:name="search" th:value="${search}"
+                       placeholder="search here..." onchange="document.getElementById('searchForm').submit();">
+            </div>
+        </form>
+    </nav>
+</div>
+
+<!--SHOW LIST-->
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>Deposit</th>
+            <th>TotalMoney</th>
+            <th>Employee</th>
+            <th>Customer</th>
+            <th>ServiceName</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="cont, contStat : ${eList}">
+            <tr>
+                <td th:text="${contStat.index + 1}"></td>
+                <td th:text="${cont.contractStartDate}"></td>
+                <td th:text="${cont.contractEndDate}"></td>
+                <td th:text="${cont.contractDeposit}"></td>
+                <td th:text="${cont.contractTotalMoney}"></td>
+                <td th:if="${cont.employee}" th:text="${cont.employee.employeeName}"></td>
+                <td th:if="${cont.customer}" th:text="${cont.customer.customerName}"></td>
+                <td th:if="${cont.service}" th:text="${cont.service.serviceName}"></td>
+                <td>
+                    <a class="material-icons" href="#editModal" data-toggle="modal"><i class="material-icons edit"
+                         th:data-id="${cont.contractId}"
+                         th:data-start="${cont.contractStartDate}"
+                         th:data-end="${cont.contractEndDate}"
+                         th:data-deposit="${cont.contractDeposit}"
+                         th:data-total="${cont.contractTotalMoney}"
+                         th:data-employee_id="${cont.employee.employeeId}" th:data-employee_name="${cont.employee.employeeName}"
+                         th:data-customer_id="${cont.customer.customerId}" th:data-customer_name="${cont.customer.customerName}"
+                         th:data-service_id="${cont.service.serviceId}" th:data-service_name="${cont.service.serviceName}"
+                    >edit</i></a>
+                </td>
+                <td >
+                    <a class="material-icons" href="#editModal" data-toggle="modal" onclick="deleteOnModal()"><i class="material-icons edit"
+                        th:data-id="${cont.contractId}"
+                        th:data-start="${cont.contractStartDate}"
+                        th:data-end="${cont.contractEndDate}"
+                        th:data-deposit="${cont.contractDeposit}"
+                        th:data-total="${cont.contractTotalMoney}"
+                        th:data-employee_id="${cont.employee.employeeId}" th:data-employee_name="${cont.employee.employeeName}"
+                        th:data-customer_id="${cont.customer.customerId}" th:data-customer_name="${cont.customer.customerName}"
+                        th:data-service_id="${cont.service.serviceId}" th:data-service_name="${cont.service.serviceName}"
+                    >delete</i></a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div style="color: blue" th:if="${msg}">
+        <span th:text="${msg}"></span>
+    </div>
+    <!--  Paging and Sorting -->
+    <div>
+        <br>
+        <a th:href="@{'/contract'(page=${eList.number - 1}, search=${search})}"
+           th:if="${eList.hasPrevious()}"><i
+                class="fas fa-arrow-circle-left"></i></a>
+        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
+        <a th:href="@{'/contract'(page=${eList.number + 1}, search=${search})}"
+           th:if="${eList.hasNext()}"><i
+                class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!--Calling Modal-->
+<div id="editModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="editForm" th:action="@{/contract/edit}"  method="post">
+                <div class="modal-header" style="background: dimgrey">
+                    <h4 class="modal-title" style="color: #e9e9e9">Contract Information</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="location.reload()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="contractId">
+                    <div class="form-group">
+                        <label>StartDate</label>
+                        <input type="date" class="form-control" name="contractStartDate">
+                        <!--<span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{name}"></span>-->
+                    </div>
+                    <div class="form-group">
+                        <label>EndDate</label>
+                        <input type="date" class="form-control" name="contractEndDate"/>
+                        <!--<span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Deposit</label>
+                        <input type="text" class="form-control" name="contractDeposit"/>
+                    </div>
+                    <div class="form-group">
+                        <label>TotalMoney</label>
+                        <input type="text"class="form-control" name="contractTotalMoney"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Employee</label>
+                        <select name="employee">
+                            <option th:each="emp: ${employeeList}" th:value="${emp.employeeId}" th:text="${emp.employeeName}"></option>
+                        </select>
+                        <!-- <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <select name="customer">
+                            <option th:each="cus: ${customerList}" th:value="${cus.customerId}" th:text="${cus.customerName}"></option>
+                        </select>
+                        <!-- <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+                    <div class="form-group">
+                        <label>Service</label>
+                        <select name="service">
+                            <option th:each="sv: ${serviceFuList}" th:value="${sv.serviceId}" th:text="${sv.serviceName}"></option>
+                        </select>
+                        <!-- <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input id="submitButton" type="submit" class="btn btn-success" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+
+<script>
+    $(".edit").click(function () {
+        $("input[name='contractId']").val($(this).data("id"));
+        $("input[name='contractStartDate']").val($(this).data("start"));
+        $("input[name='contractEndDate']").val($(this).data("end"));
+        $("input[name='contractDeposit']").val($(this).data("deposit"));
+        $("input[name='contractTotalMoney']").val($(this).data("total"));
+
+        let emp = $(this).data("employee_id");
+        $("select[name='employee'] option").each(function () {
+            if(this.value == emp){
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+        let cus = $(this).data("customer_id");
+        $("select[name='customer'] option").each(function () {
+            if(this.value == cus){
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+        let sv = $(this).data("service_id");
+        $("select[name='service'] option").each(function () {
+            if(this.value == sv){
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+    });
+</script>
+
+<script>
+    function deleteOnModal() {
+        document.getElementById('editForm').action = '/contract/delete';
+        document.getElementById('editForm').method = 'post';
+        document.getElementById('submitButton').value = 'Delete';
+        document.getElementById('submitButton').style.backgroundColor = 'red';
+        document.getElementById('submitButton').style.borderColor = 'red';
+    }
+
+    function createOnModal() {
+        document.getElementById('editForm').action = '/contract/create';
+        document.getElementById('editForm').method = 'post';
+        document.getElementById('submitButton').value = 'Save';
+        document.getElementById('submitButton').style.backgroundColor = 'blue';
+        document.getElementById('submitButton').style.borderColor = 'blue';
+    }
+</script>
+</body>
+</html>

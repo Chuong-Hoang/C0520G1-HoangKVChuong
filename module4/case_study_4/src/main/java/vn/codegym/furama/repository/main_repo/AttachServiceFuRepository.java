@@ -1,7 +1,7 @@
 package vn.codegym.furama.repository.main_repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import vn.codegym.furama.model.main_model.AttachServiceFu;
+import vn.codegym.furama.model.main_model.AttachService;
 
-public interface AttachServiceFuRepository extends JpaRepository<AttachServiceFu, Long> {
+public interface AttachServiceFuRepository extends JpaRepository<AttachService, Long> {
 }

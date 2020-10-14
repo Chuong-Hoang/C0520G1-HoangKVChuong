@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="common/layout :: head">
+    <title>list</title>
+</head>
+<body>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="/contractDetail">ContractDetail</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!--<a class="nav-link" th:href="@{/contractDetail/create}">Create new</a>-->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal"
+                        onclick="createOnModal()"><span>Create new</span></button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/}">Back home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/contractDetail}">Back to list</a>
+            </li>
+        </ul>
+
+        <form class="form-inline" id="searchForm" th:action="@{/contractDetail}" method="get">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: #d6d8db !important;"><i
+                            class="fas fa-search"></i></span>
+                </div>
+                <input type="text" class="form-control" th:name="search" th:value="${search}"
+                       placeholder="search here..." onchange="document.getElementById('searchForm').submit();">
+            </div>
+        </form>
+    </nav>
+</div>
+
+<!--SHOW LIST-->
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Contract.ID</th>
+            <th>Attach.Service.ID</th>
+            <th>Attach.Service.Name</th>
+            <th>Quantity</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="cont, contStat : ${eList}">
+            <tr>
+                <td th:text="${contStat.index + 1}"></td>
+                <td th:text="${cont.contract.contractId}"></td>
+                <td th:text="${cont.attachService.attachServiceId}"></td>
+                <td th:text="${cont.attachService.attachServiceName}"></td>
+                <td th:text="${cont.quantity}"></td>
+
+                <td>
+                    <a class="material-icons" href="#editModal" data-toggle="modal"><i class="material-icons edit"
+                         th:data-id="${cont.contractDetailId}"
+                         th:data-contract_id="${cont.contract.contractId}"
+                         th:data-attach_service_id="${cont.attachService.attachServiceId}"
+                         th:data-attach_service_name="${cont.attachService.attachServiceName}"
+                         th:data-quantity="${cont.quantity}"
+                    >edit</i></a>
+                </td>
+                <td>
+                    <a class="material-icons" href="#editModal" data-toggle="modal" onclick="deleteOnModal()"><i
+                            class="material-icons edit"
+                            th:data-id="${cont.contractDetailId}"
+                            th:data-contract_id="${cont.contract.contractId}"
+                            th:data-attach_service_id="${cont.attachService.attachServiceId}"
+                            th:data-attach_service_name="${cont.attachService.attachServiceName}"
+                            th:data-quantity="${cont.quantity}"
+                    >delete</i></a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div style="color: blue" th:if="${msg}">
+        <span th:text="${msg}"></span>
+    </div>
+    <!--  Paging and Sorting -->
+    <div>
+        <br>
+        <a th:href="@{'/contractDetail'(page=${eList.number - 1}, search=${search})}"
+           th:if="${eList.hasPrevious()}"><i
+                class="fas fa-arrow-circle-left"></i></a>
+        <span th:text="${eList.number + 1}"></span>/<span th:text="${eList.totalPages}"></span>
+        <a th:href="@{'/contractDetail'(page=${eList.number + 1}, search=${search})}"
+           th:if="${eList.hasNext()}"><i
+                class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</div>
+
+<!--Calling Modal-->
+<div id="editModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="editForm" th:action="@{/contractDetail/edit}" method="post">
+                <div class="modal-header" style="background: dimgrey">
+                    <h4 class="modal-title" style="color: #e9e9e9">Contract-Detail Information</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                            onclick="location.reload()">&times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="contractDetailId">
+
+                    <div class="form-group">
+                        <label>Contract ID</label>
+                        <select name="contract">
+                            <option th:each="cont: ${contractList}" th:value="${cont.contractId}"
+                                    th:text="${cont.contractId}"></option>
+                        </select>
+                        <!-- <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Attach-Service</label>
+                        <select name="attachService">
+                            <option th:each="ats: ${attachServiceList}" th:value="${ats.attachServiceId}"
+                                    th:text="${ats.attachServiceName}"></option>
+                        </select>
+                        <!-- <span style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>AttachService Q.ty</label>
+                        <input type="text" class="form-control" name="quantity"/>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input id="submitButton" type="submit" class="btn btn-success" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+
+<script>
+    $(".edit").click(function () {
+        $("input[name='contractDetailId']").val($(this).data("id"));
+        $("input[name='quantity']").val($(this).data("quantity"));
+
+        let cont = $(this).data("contract_id");
+        $("select[name='contract'] option").each(function () {
+            if (this.value == cont) {
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+        let ats = $(this).data("attach_service_id");
+        $("select[name='attachService'] option").each(function () {
+            if (this.value == ats) {
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+    });
+</script>
+
+<script>
+    function deleteOnModal() {
+        document.getElementById('editForm').action = '/contractDetail/delete';
+        document.getElementById('editForm').method = 'post';
+        document.getElementById('submitButton').value = 'Delete';
+        document.getElementById('submitButton').style.backgroundColor = 'red';
+        document.getElementById('submitButton').style.borderColor = 'red';
+    }
+
+    function createOnModal() {
+        document.getElementById('editForm').action = '/contractDetail/create';
+        document.getElementById('editForm').method = 'post';
+        document.getElementById('submitButton').value = 'Save';
+        document.getElementById('submitButton').style.backgroundColor = 'blue';
+        document.getElementById('submitButton').style.borderColor = 'blue';
+    }
+</script>
+</body>
+</html>

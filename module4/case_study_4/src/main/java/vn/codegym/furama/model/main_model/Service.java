@@ -4,6 +4,7 @@ import vn.codegym.furama.model.sub_model.RentType;
 import vn.codegym.furama.model.sub_model.ServiceType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Service{
@@ -29,6 +30,9 @@ public class Service{
     private String numberOfFloors;
 
     private String freeService;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
 
     public Service() {
     }
@@ -82,6 +86,14 @@ public class Service{
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
         this.numberOfFloors = numberOfFloors;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 
     public Long getServiceId() {
