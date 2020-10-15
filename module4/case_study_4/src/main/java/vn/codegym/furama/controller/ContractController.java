@@ -2,6 +2,7 @@ package vn.codegym.furama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.codegym.furama.model.main_model.Contract;
+import vn.codegym.furama.model.main_model.ContractDetail;
+import vn.codegym.furama.model.main_model.Customer;
 import vn.codegym.furama.model.main_model.Employee;
 import vn.codegym.furama.service.main_service.ContractService;
 import vn.codegym.furama.service.main_service.CustomerService;
@@ -17,6 +20,9 @@ import vn.codegym.furama.service.main_service.ServiceFuService;
 import vn.codegym.furama.service.sub_service.DivisionService;
 import vn.codegym.furama.service.sub_service.EducationDegreeService;
 import vn.codegym.furama.service.sub_service.PositionService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/contract")
@@ -131,6 +137,28 @@ public class ContractController {
     public ModelAndView getViewPage(@PathVariable(value = "id") long id) {
         ModelAndView modelAndView = new ModelAndView(VIEW_PAGE);
         modelAndView.addObject("contract", contractService.findById(id));
+        return modelAndView;
+    }
+
+    // 6. ContractDetail List
+    @GetMapping("/contractDetailList/{id}")
+    public ModelAndView getContractDetailList(@PathVariable(value = "id") long id, Pageable pageable) {
+        ModelAndView modelAndView = new ModelAndView("contractDetail/list");
+        List<ContractDetail> contractDetailList = contractService.findById(id).getContractDetailList();
+        Page<ContractDetail> eList = new PageImpl<>(contractDetailList);
+        Double totalAmount = 0.0D;
+        for(ContractDetail cont : contractDetailList){
+            totalAmount += (Double.parseDouble(cont.getQuantity()) * Double.parseDouble(cont.getAttachService().getAttachServiceCost()));
+        }
+        Double deposit = Double.parseDouble(contractService.findById(id).getContractDeposit());
+        Double serviceCost = Double.parseDouble(contractService.findById(id).getService().getServiceCost());
+        Double payment = totalAmount + serviceCost - deposit;
+        modelAndView.addObject("eList", eList);
+        modelAndView.addObject("totalAmount", totalAmount);
+        modelAndView.addObject("deposit", deposit);
+        modelAndView.addObject("serviceCost", serviceCost);
+        modelAndView.addObject("payment", payment);
+
         return modelAndView;
     }
 }

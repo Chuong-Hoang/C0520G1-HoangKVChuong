@@ -1,5 +1,7 @@
 package vn.codegym.furama.model.main_model;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 import vn.codegym.furama.model.sub_model.Division;
 import vn.codegym.furama.model.sub_model.EducationDegree;
 import vn.codegym.furama.model.sub_model.Position;
@@ -8,7 +10,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long employeeId;
@@ -33,7 +35,7 @@ public class Employee {
     @JoinColumn(name = "educationDegreeId")
     private EducationDegree educationDegree;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contractList;
 
     public Employee() {
@@ -148,5 +150,46 @@ public class Employee {
 
     public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Employee.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee = (Employee) target;
+
+        // name
+        if (employee.getEmployeeName().isEmpty()) {
+            errors.rejectValue("employeeName", "employeeName.notValid");
+        }
+
+        // address
+        if (employee.getEmployeeAddress().isEmpty()) {
+            errors.rejectValue("employeeAddress", "employeeAddress.notValid");
+        }
+
+        // phone-number
+        if (!employee.getEmployeePhone().matches("^[0][\\d]{9,10}$")) {
+            errors.rejectValue("employeePhone", "employeePhone.notValid");
+        }
+
+        // salary
+        if (!employee.getEmployeeSalary().matches("^[1-9]+[\\.]?[\\d]{1,}$")) {
+            errors.rejectValue("employeeSalary", "employeeSalary.notValid");
+        }
+
+        // Id card
+        if (!employee.getEmployeeIdCard().matches("^[0][\\d]{9}([\\d]{3})?$")) {
+            errors.rejectValue("employeeIdCard", "employeeIdCard.notValid");
+        }
+
+        // email
+        if (!employee.getEmployeeEmail().matches("^([a-z]+[a-zA-Z0-9_.]*@[a-z]{2,}[\\.][\\w]{2,})$")) {
+            errors.rejectValue("employeeEmail", "employeeEmail.notValid");
+        }
+
     }
 }

@@ -2,7 +2,7 @@ package vn.codegym.furama.service.main_service.main_impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.codegym.furama.model.main_model.User;
+import vn.codegym.furama.model.security_model.User;
 import vn.codegym.furama.repository.main_repo.UserRepository;
 import vn.codegym.furama.service.main_service.UserService;
 
@@ -30,5 +30,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void remove(long id) {
         xRepository.deleteById(id);
+    }
+
+    @Override
+    public User findByUserName(String name) {
+        return xRepository.findByUserName(name);
     }
 }

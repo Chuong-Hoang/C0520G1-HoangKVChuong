@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="common/layout :: head">
+    <title>list</title>
+</head>
+
+<body style="background-color: lavender">
+<center>
+    <br>
+    <h3 style="color: blue;">FURAMA RESORT MANAGEMENT</h3>
+    <hr class="my-5" width="97%">
+    <div style="height: 400px">
+        <p><span class="msg-invalid"></span></p>
+        <form method="post" action="/login" style="border: 1px solid lightgray; width: 20%; color: blue; padding: 5px">
+            <fieldset>
+<!--                <input type="hidden" name="action" value="login">-->
+                <label>Username</label><br>
+                <input type="text" id="username" th:name="username" placeholder="username" th:value="${username}"><br>
+                <br>
+                <label>Password</label><br>
+                <input type="password" id="password" th:name="password" placeholder="password"  th:value="${password}"><br>
+                <input type="checkbox" id="remember" name="remember"> Remember me?<br>
+                <br>
+                <button class="btn btn-outline-success btn-sm" type="submit">Login</button>
+            </fieldset>
+        </form>
+    </div>
+</center>
+<!-- End body -->
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+</body>
+</html>

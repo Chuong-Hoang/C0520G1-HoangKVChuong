@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.codegym.furama.model.main_model.Customer;
+import vn.codegym.furama.service.main_service.ContractService;
 import vn.codegym.furama.service.main_service.CustomerService;
 import vn.codegym.furama.service.sub_service.CustomerTypeService;
 
@@ -38,6 +39,8 @@ public class CustomerController {
     @Autowired
     private CustomerTypeService customerTypeService;
 
+    @Autowired
+    ContractService contractService;
     // 1.List
     @GetMapping
     public ModelAndView getListPage(@RequestParam(value = "search", defaultValue = "") String search,
@@ -76,7 +79,7 @@ public class CustomerController {
 
     @PostMapping("/create")
     public ModelAndView getCreated(@ModelAttribute Customer customer,
-                                   Pageable pageable, RedirectAttributes redirect) {
+                                   @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
         customerService.save(customer);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", CREATE_MSG);
@@ -93,7 +96,8 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView getEdited(@ModelAttribute Customer customer, Pageable pageable, RedirectAttributes redirect) {
+    public ModelAndView getEdited(@ModelAttribute Customer customer,
+                                  @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
 
         customerService.save(customer);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
@@ -110,7 +114,8 @@ public class CustomerController {
     }
 
     @PostMapping("/delete")
-    public ModelAndView getDeleted(@RequestParam("id") long id, Pageable pageable, RedirectAttributes redirect) {
+    public ModelAndView getDeleted(@RequestParam("id") long id,
+                                   @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
         customerService.remove(id);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", DELETE_MSG);
@@ -122,6 +127,19 @@ public class CustomerController {
     public ModelAndView getViewPage(@PathVariable(value = "id") long id) {
         ModelAndView modelAndView = new ModelAndView(VIEW_PAGE);
         modelAndView.addObject("customer", customerService.findById(id));
+        return modelAndView;
+    }
+
+    // 6. Disable/available
+    @PostMapping("/setStatus")
+    public ModelAndView turnCustomerOnOff(@RequestParam("customerId") Long customerId,
+                                          @PageableDefault(value = 5) Pageable pageable,
+                                          RedirectAttributes redirectAttributes) {
+        ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
+        Customer customer = customerService.findById(customerId);
+        customer.setStatus("disable");
+        customerService.save(customer);
+        redirectAttributes.addFlashAttribute("msg", DELETE_MSG);
         return modelAndView;
     }
 

@@ -46,7 +46,9 @@
             <th>Contract.ID</th>
             <th>Attach.Service.ID</th>
             <th>Attach.Service.Name</th>
+            <th>Attach.Service.Cost</th>
             <th>Quantity</th>
+            <th>Total.Amount</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -58,7 +60,9 @@
                 <td th:text="${cont.contract.contractId}"></td>
                 <td th:text="${cont.attachService.attachServiceId}"></td>
                 <td th:text="${cont.attachService.attachServiceName}"></td>
+                <td th:text="${cont.attachService.attachServiceCost}"></td>
                 <td th:text="${cont.quantity}"></td>
+                <td th:text="1*${cont.quantity}*${cont.attachService.attachServiceCost}"></td>
 
                 <td>
                     <a class="material-icons" href="#editModal" data-toggle="modal"><i class="material-icons edit"
@@ -83,11 +87,17 @@
         </th:block>
         </tbody>
     </table>
+    <div style="color: navy" th:if="${totalAmount}">
+        <b>Total Amount:&nbsp;</b><span th:text="${totalAmount}"></span><br>
+        <b>Deposit:&nbsp;</b><span th:text="${deposit}"></span><br>
+        <b>Service Cost:&nbsp;</b><span th:text="${serviceCost}"></span><br>
+        <b>Remained:&nbsp;</b><span th:text="${payment}"></span><br>
+    </div>
     <div style="color: blue" th:if="${msg}">
         <span th:text="${msg}"></span>
     </div>
     <!--  Paging and Sorting -->
-    <div>
+    <div style="float: right">
         <br>
         <a th:href="@{'/contractDetail'(page=${eList.number - 1}, search=${search})}"
            th:if="${eList.hasPrevious()}"><i

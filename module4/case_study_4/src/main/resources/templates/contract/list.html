@@ -48,6 +48,7 @@
             <th>Employee</th>
             <th>Customer</th>
             <th>ServiceName</th>
+            <th>Detail</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -63,6 +64,7 @@
                 <td th:if="${cont.employee}" th:text="${cont.employee.employeeName}"></td>
                 <td th:if="${cont.customer}" th:text="${cont.customer.customerName}"></td>
                 <td th:if="${cont.service}" th:text="${cont.service.serviceName}"></td>
+                <td><a th:href="@{/contract/contractDetailList/{id}(id=${cont.contractId})}">detail</a></td>
                 <td>
                     <a class="material-icons" href="#editModal" data-toggle="modal"><i class="material-icons edit"
                          th:data-id="${cont.contractId}"

@@ -19,11 +19,14 @@ public class Customer {
     private String customerEmail;
     private String customerAddress;
 
+    // attribute to disable;
+    private String status = "available";
+
     @ManyToOne
     @JoinColumn(name = "customerTypeId")
     private CustomerType customerType;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contractList;
 
     public Customer() {
@@ -50,6 +53,15 @@ public class Customer {
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
         this.customerType = customerType;
+    }
+
+    // disable/available
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String disableAvailable) {
+        this.status = disableAvailable;
     }
 
     public List<Contract> getContractList() {

@@ -2,33 +2,38 @@ package vn.codegym.furama.service.main_service.main_impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import vn.codegym.furama.model.main_model.UserRole;
-import vn.codegym.furama.repository.main_repo.UserRoleRepository;
-import vn.codegym.furama.service.main_service.UserRoleService;
+import vn.codegym.furama.model.security_model.Role;
+import vn.codegym.furama.repository.main_repo.RoleRepository;
+import vn.codegym.furama.service.main_service.RoleService;
 
 import java.util.List;
 
 @Service
-public class UserRoleServiceImpl implements UserRoleService {
+public class RoleServiceImpl implements RoleService {
     @Autowired
-    private UserRoleRepository xRepository;
+    private RoleRepository xRepository;
     @Override
-    public List<UserRole> findAll() {
+    public List<Role> findAll() {
         return xRepository.findAll();
     }
 
     @Override
-    public UserRole findById(long id) {
+    public Role findById(long id) {
         return xRepository.findById(id).orElse(null);
     }
 
     @Override
-    public void save(UserRole obj) {
+    public void save(Role obj) {
         xRepository.save(obj);
     }
 
     @Override
     public void remove(long id) {
         xRepository.deleteById(id);
+    }
+
+    @Override
+    public Role findByRoleName(String name) {
+        return xRepository.findByRoleName(name);
     }
 }

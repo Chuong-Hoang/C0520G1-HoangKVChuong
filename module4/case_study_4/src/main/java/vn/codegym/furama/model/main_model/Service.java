@@ -31,7 +31,7 @@ public class Service{
 
     private String freeService;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contractList;
 
     public Service() {

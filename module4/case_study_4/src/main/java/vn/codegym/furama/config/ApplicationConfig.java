@@ -1,4 +1,4 @@
-package vn.codegym.user.config;
+package vn.codegym.furama.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

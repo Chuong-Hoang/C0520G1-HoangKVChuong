@@ -1,21 +1,24 @@
-package vn.codegym.furama.model.main_model;
+package vn.codegym.furama.model.security_model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import vn.codegym.furama.model.security_model.User;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class UserRole {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long roleId;
     private String roleName;
 
-    public UserRole() {
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
+
+    public Role() {
     }
 
-    public UserRole(String roleName) {
+    public Role(String roleName) {
         this.roleName = roleName;
     }
 
@@ -33,5 +36,13 @@ public class UserRole {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

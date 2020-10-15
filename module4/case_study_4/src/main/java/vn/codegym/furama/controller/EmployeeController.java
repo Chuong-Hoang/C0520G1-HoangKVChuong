@@ -6,6 +6,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -78,12 +80,23 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public ModelAndView getCreated(@ModelAttribute Employee employee,
-                                   Pageable pageable, RedirectAttributes redirect) {
-        employeeService.save(employee);
-        ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
-        redirect.addFlashAttribute("msg", CREATE_MSG);
-        return modelAndView;
+    public ModelAndView getCreated(@Validated @ModelAttribute("employee") Employee employee, BindingResult bindingResult,
+                                   @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
+        new Employee().validate(employee, bindingResult);
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
+            modelAndView.addObject("eList", employeeService.findAll(pageable));
+
+            modelAndView.addObject("positionList", positionService.findAll());
+            modelAndView.addObject("divisionList", divisionService.findAll());
+            modelAndView.addObject("educationDegreeList", educationDegreeService.findAll());
+            return modelAndView;
+        } else {
+            employeeService.save(employee);
+            ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
+            redirect.addFlashAttribute("msg", CREATE_MSG);
+            return modelAndView;
+        }
     }
 
     // 3.Edit
@@ -98,12 +111,23 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public ModelAndView getEdited(@ModelAttribute Employee employee, Pageable pageable, RedirectAttributes redirect) {
+    public ModelAndView getEdited(@Validated @ModelAttribute("employee") Employee employee, BindingResult bindingResult,
+                                  @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
+        new Employee().validate(employee, bindingResult);
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
+            modelAndView.addObject("eList", employeeService.findAll(pageable));
 
-        employeeService.save(employee);
-        ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
-        redirect.addFlashAttribute("msg", EDIT_MSG);
-        return modelAndView;
+            modelAndView.addObject("positionList", positionService.findAll());
+            modelAndView.addObject("divisionList", divisionService.findAll());
+            modelAndView.addObject("educationDegreeList", educationDegreeService.findAll());
+            return modelAndView;
+        } else {
+            employeeService.save(employee);
+            ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
+            redirect.addFlashAttribute("msg", EDIT_MSG);
+            return modelAndView;
+        }
     }
 
     // 4. Delete
@@ -115,7 +139,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/delete")
-    public ModelAndView getDeleted(@RequestParam("employeeId") long employeeId, Pageable pageable, RedirectAttributes redirect) {
+    public ModelAndView getDeleted(@RequestParam("employeeId") long employeeId, RedirectAttributes redirect) {
         employeeService.remove(employeeId);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", DELETE_MSG);
