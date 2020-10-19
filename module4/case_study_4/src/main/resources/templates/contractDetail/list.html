@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="common/layout :: head">
     <title>list</title>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div th:replace="~{home/index :: furama-bar}"></div>
+<div class="container-fluid mt-3">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <!-- Brand -->
         <a class="navbar-brand" href="/contractDetail">ContractDetail</a>
 
         <!-- Links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-3">
             <li class="nav-item">
                 <!--<a class="nav-link" th:href="@{/contractDetail/create}">Create new</a>-->
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal"
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal"
                         onclick="createOnModal()"><span>Create new</span></button>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/}">Back home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/contractDetail}">Back to list</a>
             </li>
         </ul>
 
@@ -88,10 +84,10 @@
         </tbody>
     </table>
     <div style="color: navy" th:if="${totalAmount}">
-        <b>Total Amount:&nbsp;</b><span th:text="${totalAmount}"></span><br>
-        <b>Deposit:&nbsp;</b><span th:text="${deposit}"></span><br>
-        <b>Service Cost:&nbsp;</b><span th:text="${serviceCost}"></span><br>
-        <b>Remained:&nbsp;</b><span th:text="${payment}"></span><br>
+        <b>Att.service Fee ($):&nbsp;</b><span th:text="${totalAmount}"></span><br>
+        <b>Deposit ($):&nbsp;</b><span th:text="${deposit}"></span><br>
+        <b>Service Cost ($):&nbsp;</b><span th:text="${serviceCost}"></span><br>
+        <b>Remained ($):&nbsp;</b><span th:text="${payment}"></span><br>
     </div>
     <div style="color: blue" th:if="${msg}">
         <span th:text="${msg}"></span>

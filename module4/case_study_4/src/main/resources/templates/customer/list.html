@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="common/layout :: head">
     <title>list</title>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div th:replace="~{home/index :: furama-bar}"></div>
+<div class="container-fluid mt-3">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <!-- Brand -->
         <a class="navbar-brand" href="#">Customer</a>
 
@@ -15,7 +17,7 @@
                 <!--<a class="nav-link" th:href="@{/customer/create}">Create new</a>-->
                 <div class="container">
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
                         <span>Create new</span>
                     </button>
 
@@ -130,7 +132,8 @@
                                     <button type="button" class="btn btn-success btn-sm"
                                             onclick="document.getElementById('createForm').submit()">Save
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancel
+                                    </button>
                                 </div>
 
                             </div>
@@ -139,12 +142,6 @@
                     <!--End Modal create-->
 
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/}">Back home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/customer}">Back to list</a>
             </li>
         </ul>
 
@@ -168,7 +165,8 @@
                         </span>
                 </div>
                 <div class="input-group-prepend">
-                    <span class="input-group-text" style="background-color: #d6d8db !important;"><i class="fas fa-search"></i></span>
+                    <span class="input-group-text" style="background-color: #d6d8db !important;"><i
+                            class="fas fa-search"></i></span>
                 </div>
                 <input type="text" class="form-control" th:name="search" th:value="${search}"
                        placeholder="search here..." onchange="document.getElementById('searchForm').submit();">
@@ -234,69 +232,85 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                            <form th:id="'editForm'+ ${cus.customerId}" th:action="@{/customer/edit}" method="post" th:object="${customer}">
+                                        <form th:id="'editForm'+ ${cus.customerId}" th:action="@{/customer/edit}"
+                                              method="post" th:object="${customer}">
                                             <table class="table table-hover table-sm table-bordered w-auto">
                                                 <tr>
                                                     <td><b>ID</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerId}" th:name="customerId">
+                                                        <input type="text" th:value="${cus.customerId}"
+                                                               th:name="customerId">
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Name</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerName}" th:name="customerName" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="text" th:value="${cus.customerName}"
+                                                               th:name="customerName" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Birthday</b></td>
                                                     <td>
-                                                        <input type="date" th:value="${cus.customerBirthday}" th:name="customerBirthday" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="date" th:value="${cus.customerBirthday}"
+                                                               th:name="customerBirthday" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Gender</b></td>
                                                     <td>
-                                                        <input type="radio" th:name="customerGender" th:value="male"/><span>&nbsp;Male&nbsp;&nbsp;</span>
+                                                        <input type="radio" th:name="customerGender"
+                                                               th:value="male"/><span>&nbsp;Male&nbsp;&nbsp;</span>
                                                         <input type="radio" th:name="customerGender" th:value="female"/><span>&nbsp;Female&nbsp;&nbsp;</span>
-                                                        <input type="radio" th:name="customerGender" th:value="other"/><span>&nbsp;Other&nbsp;&nbsp;</span>
+                                                        <input type="radio" th:name="customerGender"
+                                                               th:value="other"/><span>&nbsp;Other&nbsp;&nbsp;</span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>IdCard</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerIdCard}" th:name="customerIdCard" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="text" th:value="${cus.customerIdCard}"
+                                                               th:name="customerIdCard" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Phone</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerPhone}" th:name="customerPhone" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="text" th:value="${cus.customerPhone}"
+                                                               th:name="customerPhone" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Email</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerEmail}" th:name="customerEmail" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="text" th:value="${cus.customerEmail}"
+                                                               th:name="customerEmail" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><b>Address</b></td>
                                                     <td>
-                                                        <input type="text" th:value="${cus.customerAddress}" th:name="customerAddress" required/>
-                                                        <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                        <input type="text" th:value="${cus.customerAddress}"
+                                                               th:name="customerAddress" required/>
+                                                        <span class="required">&nbsp;(*)</span><br><span
+                                                            class="message"></span>
                                                     </td>
                                                 </tr>
 
@@ -313,8 +327,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td><b>Status</b></td>
-                                                    <td><input type="text" th:name="status" th:value="${cus.status}"></td>
-                                                    <span class="required">&nbsp;(*)</span><br><span class="message"></span>
+                                                    <td><input type="text" th:name="status" th:value="${cus.status}">
+                                                    </td>
+                                                    <span class="required">&nbsp;(*)</span><br><span
+                                                        class="message"></span>
                                                 </tr>
                                             </table>
                                         </form>
@@ -347,7 +363,7 @@
                             <span>Delete</span>
                         </button>
                         <!-- The Modal Delete-->
-                        <div class="modal fade"  th:id="'del' + ${cus.customerId}" tabindex="-1"
+                        <div class="modal fade" th:id="'del' + ${cus.customerId}" tabindex="-1"
                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -360,7 +376,8 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <form th:id="'deleteForm'+${cus.customerId}" th:action="@{/customer/delete (id=${cus.customerId})}" method="post">
+                                        <form th:id="'deleteForm'+${cus.customerId}"
+                                              th:action="@{/customer/delete (id=${cus.customerId})}" method="post">
                                             <!--No need of ID input hidden here...-->
                                             <table class="table table-hover table-sm table-bordered w-auto">
                                                 <tr>
@@ -405,7 +422,8 @@
 
                                                 <tr>
                                                     <td><b>CustomerType</b></td>
-                                                    <td th:if="${cus.customerType != null}" th:text="${cus.customerType.customerTypeName}"></td>
+                                                    <td th:if="${cus.customerType != null}"
+                                                        th:text="${cus.customerType.customerTypeName}"></td>
                                                     <td th:if="${cus.customerType == null}" th:text="${'N/A'}"></td>
                                                 </tr>
 
@@ -492,10 +510,11 @@
 
 <!--functions Edit/Delete on modal-->
 <script>
-    function getEdit(id){
+    function getEdit(id) {
         document.getElementById('editForm' + id).submit();
     }
-    function getDelete(id){
+
+    function getDelete(id) {
         document.getElementById('deleteForm' + id).submit();
     }
 </script>

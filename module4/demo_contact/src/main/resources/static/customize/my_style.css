@@ -1,0 +1,44 @@
+body {
+    font-size: 0.8em;
+}
+.required {
+    color: red;
+    font-style: italic;
+    font-size: 10px;
+}
+.message, .msg {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+}
+
+img {
+    width: 100%;
+    display: block;
+    height: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 1.2em !important;
+}
+
+button a {
+    color: white !important;
+}
+button a:hover {
+    text-decoration: none;
+}
+
+form .create-form {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.close {
+    color: red !important;
+}

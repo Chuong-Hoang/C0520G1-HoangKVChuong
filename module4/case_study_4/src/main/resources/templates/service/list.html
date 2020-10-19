@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="common/layout :: head">
     <title>list</title>
 </head>
 <body>
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div th:replace="~{home/index :: furama-bar}"></div>
+<div class="container-fluid mt-3">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <!-- Brand -->
         <a class="navbar-brand" href="#">Service</a>
 
@@ -15,7 +17,7 @@
                 <!--<a class="nav-link" th:href="@{/service/create}">Create new</a>-->
                 <div class="container">
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#createModal">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
                         <span>Create new</span>
                     </button>
 
@@ -160,12 +162,6 @@
                     <!--End Modal create-->
                 </div>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/}">Back home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/service}">Back to list</a>
             </li>
         </ul>
 

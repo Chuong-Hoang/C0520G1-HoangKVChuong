@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="common/layout :: head">
+    <title>delete</title>
+</head>
+<body>
+<div class="container">
+    <h3>Delete customer</h3>
+    <form th:action="@{/customer/delete}" method="post" th:object="${customer}">
+        <input th:type="hidden" name="id" th:field="*{customerId}">
+        <table class="table table-hover table-sm table-bordered w-auto">
+            <tr>
+                <td><b>Name</b></td>
+                <td th:text="${customer.customerName}"></td>
+            </tr>
+
+            <tr>
+                <td><b>Birthday</b></td>
+                <td th:text="${customer.customerBirthday}"></td>
+            </tr>
+
+            <tr>
+                <td><b>Gender</b></td>
+                <td th:text="${customer.customerGender}"></td>
+            </tr>
+
+            <tr>
+                <td><b>IdCard</b></td>
+                <td th:text="${customer.customerIdCard}"></td>
+            </tr>
+
+            <tr>
+                <td><b>Phone</b></td>
+                <td th:text="${customer.customerPhone}"></td>
+            </tr>
+
+            <tr>
+                <td><b>Email</b></td>
+                <td th:text="${customer.customerEmail}"></td>
+            </tr>
+
+            <tr>
+                <td><b>Address</b></td>
+                <td th:text="${customer.customerAddress}"></td>
+            </tr>
+
+            <tr>
+                <td><b>CustomerType</b></td>
+                <td th:if="${customer.customerType != null}" th:text="${customer.customerType.customerTypeName}"></td>
+                <td th:if="${customer.customerType == null}" th:text="${'N/A'}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-outline-danger"><a th:href="@{/customer}">Cancel</a></button>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+</body>
+</html>

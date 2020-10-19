@@ -15,16 +15,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 @EnableWebMvc
 @ComponentScan("vn.codegym.user")
-public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
-    private ApplicationContext applicationContext;
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
+public class ApplicationConfig implements WebMvcConfigurer{
+
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasenames("validateMessage");
+        messageSource.setDefaultEncoding("utf-8");
         return messageSource;
     }
 }

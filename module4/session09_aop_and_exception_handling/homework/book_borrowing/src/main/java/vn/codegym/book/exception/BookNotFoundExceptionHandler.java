@@ -6,6 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
 public class BookNotFoundExceptionHandler {
+
+    // if exception of this class happens, this method will handle
     @ExceptionHandler(BookNotFoundException.class)
     public ModelAndView showNotRemainedPage(){
         System.err.println("There is no book of this kind remained here...");

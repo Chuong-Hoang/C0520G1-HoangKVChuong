@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -41,18 +41,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/register").permitAll()
-                    .antMatchers("/").hasRole("MEMBER")
-                    .antMatchers("/admin").hasRole("ADMIN")
-                    .and()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/").hasRole("MEMBER")
+                .antMatchers("/admin").hasRole("ADMIN")
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .usernameParameter("email")
-                    .passwordParameter("password")
-                    .defaultSuccessUrl("/")
-                    .failureUrl("/login?error")
-                    .and()
+                .loginPage("/login")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/")
+                .failureUrl("/login?error")
+                .and()
                 .exceptionHandling()
-                    .accessDeniedPage("/403");
+                .accessDeniedPage("/403");
     }
 }

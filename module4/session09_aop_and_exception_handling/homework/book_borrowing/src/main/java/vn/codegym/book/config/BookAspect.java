@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Component
 @Aspect
 public class BookAspect {
+    // 1. Pointcut (1)
     @Pointcut("execution(* vn.codegym.book.controller.BookController.*(..))")
     public void bookControllerMethod() {}
 
@@ -27,8 +28,10 @@ public class BookAspect {
         );
     }
 
+    // 2. Pointcut (2)
     @Pointcut("execution(* vn.codegym.book.controller.BookController.getBorrowedBook(..))")
     public void getBorrowedBookMethod() {}
+
     @Before("getBorrowedBookMethod()")
     public void beforeCallBorrowedBookMethod(JoinPoint joinPoint) {
         System.err.println("Start method name: "
@@ -46,6 +49,7 @@ public class BookAspect {
     }
 
 
+    // 3. pointcut (3)
     @Pointcut("execution(* vn.codegym.book.controller.BookController.getReturnedBook(..))")
     public void getReturnedBookMethod() {}
     @Before("getReturnedBookMethod()")
