@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="common/layout :: head">
+    <title>list</title>
+</head>
+<body>
+<div th:replace="~{home/index :: furama-bar}"></div>
+<div class="container-fluid mt-3">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light d-flex justify-content-between">
+        <div class="d-flex">
+            <!-- Brand -->
+            <button type="button" class="btn"><span class="navbar-brand">Question List</span></button>
+
+            <!-- Links and Search -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link material-icons" href="#createModal" data-toggle="modal">
+                        <i class="material-icons create" style="color: white !important;">
+                            <button class="btn btn-primary">Create new</button>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+
+            <form class="form-inline" id="searchForm" th:action="@{/question}" method="get">
+                <div class="form-group mr-2">
+                    <select class="form-control" style="background-color: #007bff; color: #fff"
+                            th:name="typeId" th:object="${typeSelected}"
+                            onchange="document.getElementById('searchForm').submit();">
+                        <option th:value="${'0'}">Sort by</option>
+                        <option th:if="${typeSelected != null}"
+                                th:value="${typeSelected.questionTypeId}"
+                                th:text="${typeSelected.questionTypeName}" selected>
+                        </option>
+                        <option th:each="type : ${questionTypeList}"
+                                th:value="${type.questionTypeId}"
+                                th:text="${type.questionTypeName}">
+                        </option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" class="form-control" th:name="search" th:value="${search}"
+                           placeholder="search here..." onchange="document.getElementById('searchForm').submit();">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" style="background-color: #d6d8db !important;"><i
+                                class="fas fa-search"></i></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--  Button Delete Many  -->
+        <div>
+            <button id="deleteManyButton" type="button"
+                    class="btn btn-danger mr-1" style="display: none">
+                <a class="material-icons" href="#deleteManyModal" data-toggle="modal">
+                    <i class="material-icons deleteMany" style="color: white !important;">Delete Selected</i>
+                </a>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<!--SHOW LIST-->
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+<!--            <th>Code</th>-->
+            <th>Title</th>
+            <th>Content</th>
+            <th>PostDate</th>
+            <th>QuestionType</th>
+            <th>Questioner</th>
+            <th>Replier</th>
+            <th>Status</th>
+
+            <th>Edit</th>
+            <th>View</th>
+            <th>Delete</th>
+            <th>
+                <button id="selectAll" class="btn btn-primary btn-sm" onclick="selectAllCheckBoxes()">Select All
+                </button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="ele,elStat : ${eList}">
+            <tr>
+                <td th:text="${elStat.index + 1}"></td>
+                <td th:text="${ele.title}"></td>
+                <td th:text="${ele.content}"></td>
+                <td th:text="${ele.postDate}"></td>
+
+                <td th:if="${ele.questionType != null}" th:text="${ele.questionType.questionTypeName}"></td>
+                <td th:if="${ele.questionType == null}" th:text="${'N/A'}"></td>
+
+                <td th:if="${ele.testUser != null}" th:text="${ele.testUser.userName}"></td>
+                <td th:if="${ele.testUser == null}" th:text="${'N/A'}"></td>
+
+                <td th:text="${ele.replier}"></td>
+                <td th:text="${ele.status}"></td>
+
+                <td>
+                    <a class="material-icons" href="#editModal" data-toggle="modal">
+                        <i class="material-icons edit"
+                           th:data-id="${ele.questionId}"
+                           th:data-title="${ele.title}"
+                           th:data-content="${ele.content}"
+                           th:data-post_date="${ele.postDate}"
+
+                           th:data-question_type_id="${ele.questionType.questionTypeId}"
+                           th:data-questioner_id="${ele.testUser.userId}"
+                        >Edit</i></a>
+                </td>
+
+                <td>
+                    <!--<a th:href="@{/student/view/{id} (id=${ele.studentId})}">View</a>-->
+                    <!-- Re-use EDIT Modal to VIEW detail -->
+                    <a class="material-icons" href="#editModal" data-toggle="modal">
+                        <i class="material-icons edit view"
+                           th:data-id="${ele.questionId}"
+                           th:data-title="${ele.title}"
+                           th:data-content="${ele.content}"
+                           th:data-post_date="${ele.postDate}"
+
+                           th:data-question_type_id="${ele.questionType.questionTypeId}"
+                           th:data-questioner_id="${ele.testUser.userId}"
+                        >View</i></a>
+                </td>
+
+                <td>
+                    <a class="material-icons" href="#deleteOneModal" data-toggle="modal">
+                        <i class="material-icons deleteOne" th:data-id="${ele.questionId}">Delete</i></a>
+                </td>
+
+                <td>
+                    <input type="checkbox" class="check-box" id="checkbox" th:name="questionId"
+                           th:value="${ele.questionId}"
+                           onclick="hideAndShowBtn()">
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+    <!--  Message successfully  -->
+    <div class="d-flex justify-content-between">
+        <div style="color: blue;">
+            <span th:if="${msg}" th:text="${msg}"></span>
+            <span>&nbsp;</span>
+        </div>
+
+    </div>
+</div>
+
+<!--Footer-->
+<div class="container-fluid">
+    <footer class="fixed-bottom" th:insert="common/layout :: footer"></footer>
+</div>
+<!--........................................ FOOTER ends ................................................-->
+
+<!-- CREATE Modal calling -->
+<div th:if="${question}">
+    <div id="createModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="createForm" th:action="@{/question/create}" method="post" th:object="${question}">
+                    <div class="modal-header" style="background: dimgrey">
+                        <h5 class="modal-title" style="color:#e9e9e9">Create new question</h5>
+                        <button type="button" id="cancelCreateBtn" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="disableErrors()">&times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Body here -->
+<!--                        <input type="hidden" id="validateCreateData" th:if="${#fields.hasErrors()}"-->
+<!--                               th:value="${#fields.hasErrors()}">-->
+                        <div class="form-group row form-group-sm">
+                            <input th:type="hidden" class="form-control" name="studentId" th:field="*{questionId}">
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="title">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="title" name="title" th:field="*{title}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="content">Content</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="content" name="content"
+                                       th:field="*{content}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('content')}"-->
+<!--                                      th:errors="*{content}"></span>-->
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="postDate">PostDate</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control" id="postDate" name="postDate" th:field="*{postDate}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('postDate')}" th:errors="*{postDate}"></span>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="questionType">QuestionType</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="questionType" name="questionType" th:field="*{questionType}">
+                                    <option th:each="type : ${questionTypeList}"
+                                            th:value="${type.questionTypeId}"
+                                            th:text="${type.questionTypeName}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="questioner">Questioner</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="questioner" name="questioner" th:field="*{testUser}">
+                                    <option th:each="type : ${testUserList}"
+                                            th:value="${type.userId}"
+                                            th:text="${type.userName}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Save">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Create modal-->
+
+<!-- EDIT Modal calling -->
+<div th:if="${questionEdit}">
+    <div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="editForm" th:action="@{/question/edit}" method="post" th:object="${questionEdit}">
+                    <div class="modal-header" style="background: dimgrey">
+                        <h5 class="modal-title" style="color:#e9e9e9">Edit question</h5>
+                        <button type="button" id="cancelEditBtn" class="close" data-dismiss="modal" aria-hidden="true"
+                                onclick="disableErrors()">&times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Body here -->
+                        <input type="hidden" id="validateEditData" style="color: red" th:if="${#fields.hasErrors()}"
+                               th:value="${#fields.hasErrors()}">
+                        <div class="form-group row form-group-sm">
+                            <input th:type="hidden" class="form-control" name="questionId" th:field="*{questionId}">
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="title1">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="title1" class="form-control" name="title" th:field="*{title}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="content1">Content</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="content1" class="form-control" name="content"
+                                       th:field="*{content}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('content')}"-->
+<!--                                      th:errors="*{content}"></span>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="postDate1">PostDate</label>
+                            <div class="col-sm-10">
+                                <input type="date" id="postDate1" class="form-control" name="postDate"
+                                       th:field="*{postDate}"/>
+<!--                                <span class="msg" th:if="${#fields.hasErrors('postDate')}"-->
+<!--                                      th:errors="*{postDate}"></span>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="questionType1">QuestionType</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="questionType1" name="questionType" th:field="*{questionType}">
+                                    <option th:each="type : ${questionTypeList}"
+                                            th:value="${type.questionTypeId}"
+                                            th:text="${type.questionTypeName}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row form-group-sm">
+                            <label class="control-label col-sm-2" for="questioner1">Questioner</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="questioner1" name="questioner" th:field="*{testUser}">
+                                    <option th:each="type : ${testUserList}"
+                                            th:value="${type.userId}"
+                                            th:text="${type.userName}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Update">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Edit modal-->
+
+<!-- Delete-One Modal calling -->
+<div id="deleteOneModal" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="deleteOneForm" th:action="@{/question/delete}" method="post">
+                <div class="modal-header" style="background: dimgrey">
+                    <h5 class="modal-title" style="color:#e9e9e9">Confirm to delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="questionId">
+                    <p style="color: red">Agree to permanently delete?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--End Delete-One-->
+
+<!-- Delete-Many Modal calling -->
+<div id="deleteManyModal" class="modal fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="deleteManyForm" th:action="@{/question/setStatus}" method="post">
+                <div class="modal-header" style="background: dimgrey">
+                    <h5 class="modal-title" style="color:#e9e9e9">Confirm to delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" class="pass-value" th:each="cont : ${eList}" name="questionId">
+                    <p style="color: red">Agree to permanently delete?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--End Delete-Many-->
+
+<!--.............................. JAVASCRIPT here .......................................-->
+<!-- Delete-One -->
+<script>
+    $(".deleteOne").click(function () {
+        $("input[name='questionId']").val($(this).data("id"));
+    });
+</script>
+
+<!--Select all-->
+<script>
+    function selectAllCheckBoxes() {
+        let deleteManyButton = document.getElementById('deleteManyButton');
+        let selectAll = document.getElementById('selectAll');
+        let checkboxes = document.getElementsByName('questionId');
+        for (checkbox of checkboxes) {
+            if (selectAll.innerHTML == 'Select All') {
+                checkbox.checked = true;
+            } else {
+                checkbox.checked = false;
+            }
+        }
+
+        if (selectAll.innerHTML == 'Select All') {
+            selectAll.innerHTML = 'Uncheck';
+            showDeleteManyBtn();
+        } else {
+            selectAll.innerHTML = 'Select All';
+            hideDeleteManyBtn();
+        }
+    }
+</script>
+
+<!--Calling Delete-Many button-->
+<script>
+    $('#deleteManyButton').on('click', function () {
+        $('input[type="checkbox"]').each(function () {
+            if ($(this).prop('checked') !== true)
+                $(this).val(-1);
+        });
+        passValuesFromCheckboxesToModal();
+    })
+</script>
+
+<!-- Pass values from checkboxes to delete-many modal -->
+<script>
+    function passValuesFromCheckboxesToModal() {
+        let checkboxes = document.getElementsByClassName('check-box');
+        let passValues = document.getElementsByClassName('pass-value');
+        for (let i = 0; i < checkboxes.length; i++) {
+            passValues[i].value = checkboxes[i].value;
+        }
+    }
+
+    function hideAndShowBtn() {
+        let checkboxes = document.getElementsByClassName('check-box');
+        let isChecked = false;
+        for (checkbox of checkboxes) {
+            if (checkbox.checked == true) {
+                showDeleteManyBtn();
+                isChecked = true;
+                break;
+            }
+        }
+        if (!isChecked) {
+            hideDeleteManyBtn();
+        }
+    }
+</script>
+
+<!-- Set Delete-Many button hide/show -->
+<script>
+    let deleteManyBtn = document.getElementById('deleteManyButton');
+
+    function hideDeleteManyBtn() {
+        deleteManyBtn.style.display = 'none';
+    }
+
+    function showDeleteManyBtn() {
+        deleteManyBtn.style.display = 'inline-block';
+    }
+</script>
+
+<!--Check errors -->
+<script>
+    if ($("#validateCreateData").val() == 'true') {
+        $("#createModal").modal("show");
+    }
+    if ($("#validateEditData").val() == 'true') {
+        $("#editModal").modal("show");
+    }
+</script>
+
+<!--Disable Error messages-->
+<script>
+    function disableErrors() {
+        let errorBag = document.getElementsByClassName('msg');
+        for (let i = 0; i < errorBag.length; i++) {
+            errorBag[i].style.display = 'none';
+        }
+    }
+</script>
+
+<!--Clear contents in Create Modal-->
+<script>
+    $('#cancelCreateBtn, #cancelEditBtn').on('click', function () {
+        $("input[name='title']").val("");
+        $("input[name='questionId']").val("");
+        $("input[name='content']").val("");
+        $("input[name='post_date']").val("");
+    });
+</script>
+
+<!--Pass values to Edit Modal-->
+<script>
+    $(".edit").click(function () {
+        $("input[name='title']").val($(this).data("title"));
+        $("input[name='questionId']").val($(this).data("id"));
+        $("input[name='content']").val($(this).data("content"));
+        $("input[name='postDate']").val($(this).data("post_date"));
+
+        let di = $(this).data("question_type_id");
+        $("select[name='questionType'] option").each(function () {
+            if (this.value == di) {
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+        let ed = $(this).data("questioner_id");
+        $("select[name='questioner'] option").each(function () {
+            if (this.value == ed) {
+                $(this).prop("selected", true);
+                return;
+            }
+        });
+
+        // change from 'view mode' to 'edit mode'
+        $("#editForm input").each(function () {
+            $(this).prop('readonly', false);
+        });
+        $('#editForm .modal-title').text('Edit Information');
+        // $('#editForm').action = '/student/edit';
+        // $('#editForm').method = 'POST';
+        // $('#editForm input[type="submit"]').val('Update');
+        $('#editForm input[type="submit"]').show();
+    });
+</script>
+
+<!--Create View mode from Edit Modal-->
+<script>
+    $('.view').on('click', function () {
+        // change from 'edit mode' to 'view mode'
+        $("#editForm input").each(function () {
+            $(this).prop('readonly', true);
+        });
+        $('#editForm .modal-title').text('Detail Information');
+        // $('#editForm').action = '/student';
+        // $('#editForm').method = 'GET';
+        // $('#editForm input[type="submit"]').val('OK');
+        $('#editForm input[type="submit"]').hide();
+    });
+</script>
+</body>
+</html>

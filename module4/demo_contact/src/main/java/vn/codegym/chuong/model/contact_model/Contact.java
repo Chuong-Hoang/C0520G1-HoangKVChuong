@@ -18,6 +18,7 @@ public class Contact implements Validator {
     private String email;
     private String address;
 
+    private String code;
     private boolean status = true;
 
     @ManyToOne
@@ -45,6 +46,14 @@ public class Contact implements Validator {
         this.email = email;
         this.address = address;
 
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public boolean isStatus() {

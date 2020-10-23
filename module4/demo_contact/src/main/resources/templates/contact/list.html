@@ -78,6 +78,7 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Code</th>
             <th>Name</th>
             <th>Birthday</th>
             <th>Gender</th>
@@ -99,6 +100,7 @@
         <th:block th:each="ele, elStat : ${eList}">
             <tr>
                 <td th:text="${elStat.index + 1}"></td>
+                <td th:text="${ele.code}"></td>
                 <td th:text="${ele.name}"></td>
                 <td th:text="${ele.birthday}"></td>
                 <td th:text="${ele.gender}"></td>

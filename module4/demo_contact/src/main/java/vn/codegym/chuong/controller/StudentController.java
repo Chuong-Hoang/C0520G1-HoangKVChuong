@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -47,7 +48,7 @@ public class StudentController {
     public ModelAndView getListPage(@RequestParam(value = "search", defaultValue = "") String search,
                                     @RequestParam(value = "typeId", defaultValue = "0") Long typeId,
                                     @RequestParam(value = "propSelected", defaultValue = "") String propSelected,
-                                    @PageableDefault(value = 5) Pageable pageable) {
+                                    @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
         Page<Student> eList = null;
         //long total = studentService.count();
@@ -107,7 +108,7 @@ public class StudentController {
                                    @RequestParam(value = "search", defaultValue = "") String search,
                                    @RequestParam(value = "typeId", defaultValue = "0") Long typeId,
                                    @RequestParam(value = "propSelected", defaultValue = "") String propSelected,
-                                   @PageableDefault(value = 5) Pageable pageable,
+                                   @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                    RedirectAttributes redirect) {
         new Student().validate(student, bindingResult);
         if(bindingResult.hasErrors()){
@@ -140,7 +141,7 @@ public class StudentController {
                                   @RequestParam(value = "search", defaultValue = "") String search,
                                   @RequestParam(value = "typeId", defaultValue = "0") Long typeId,
                                   @RequestParam(value = "propSelected", defaultValue = "") String propSelected,
-                                  @PageableDefault(value = 5) Pageable pageable,
+                                  @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                   RedirectAttributes redirect) {
         new Student().validate(student, bindingResult);
         if(bindingResult.hasErrors()) {
@@ -173,7 +174,8 @@ public class StudentController {
 
     @PostMapping("/delete")
     public ModelAndView getDeleted(@RequestParam("studentId") long studentId,
-                                   @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
+                                   @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
+                                   RedirectAttributes redirect) {
         studentService.remove(studentId); // ---> s t u d e n t Id
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", DELETE_MSG);
@@ -191,7 +193,7 @@ public class StudentController {
     // 6. Disable/available
     @PostMapping("/setStatus")
     public ModelAndView turnCustomerOnOff(@RequestParam("studentId") Long[] studentId,
-                                          @PageableDefault(value = 5) Pageable pageable,
+                                          @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                           RedirectAttributes redirectAttributes) {
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         Student student = null;

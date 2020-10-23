@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,7 +12,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import vn.codegym.chuong.common.SettingCode;
 import vn.codegym.chuong.model.contact_model.Contact;
+import vn.codegym.chuong.model.student_model.Student;
 import vn.codegym.chuong.service.contact_service.ContactService;
 import vn.codegym.chuong.service.contact_service.GroupService;
 
@@ -43,7 +46,7 @@ public class ContactController {
     public ModelAndView getListPage(@RequestParam(value = "search", defaultValue = "") String search,
                                     @RequestParam(value = "typeId", defaultValue = "0") Long typeId,
                                     @RequestParam(value = "propSelected", defaultValue = "") String propSelected,
-                                    @PageableDefault(value = 5) Pageable pageable) {
+                                    @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
         ModelAndView modelAndView = new ModelAndView(LIST_PAGE);
         Page<Contact> eList = null;
         //long total = contactService.count();
@@ -73,6 +76,16 @@ public class ContactController {
             // (4) show by search on (name/address/email)
             eList = contactService.findByNameAddressEmail(pageable, search);
         }
+
+        // set code as 'SV-zzzz'
+        if(!eList.isEmpty()) {
+            for (Contact contact : eList) {
+                if(contact.getCode() == null) {
+                    contact.setCode(SettingCode.setUpCodeContact(contact));
+                    contactService.save(contact);
+                }
+            }
+        }
         modelAndView.addObject("eList", eList);
         modelAndView.addObject("search", search);
         modelAndView.addObject("typeId", typeId);
@@ -96,7 +109,7 @@ public class ContactController {
     @PostMapping("/create")
     public ModelAndView getCreated(@Validated @ModelAttribute Contact contact,
                                    BindingResult bindingResult,
-                                   @PageableDefault(value = 5) Pageable pageable,
+                                   @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                    RedirectAttributes redirect) {
         new Contact().validate(contact, bindingResult);
         if(bindingResult.hasErrors()){
@@ -123,7 +136,7 @@ public class ContactController {
     @PostMapping("/edit")
     public ModelAndView getEdited(@Validated @ModelAttribute Contact contact,
                                   BindingResult bindingResult,
-                                  @PageableDefault(value = 5) Pageable pageable,
+                                  @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                   RedirectAttributes redirect) {
         new Contact().validate(contact, bindingResult);
         if(bindingResult.hasErrors()) {
@@ -148,7 +161,7 @@ public class ContactController {
 
     @PostMapping("/delete")
     public ModelAndView getDeleted(@RequestParam("contactId") long id,
-                                   @PageableDefault(value = 5) Pageable pageable, RedirectAttributes redirect) {
+                                   @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable, RedirectAttributes redirect) {
         contactService.remove(id);
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         redirect.addFlashAttribute("msg", DELETE_MSG);
@@ -166,7 +179,7 @@ public class ContactController {
     // 6. Disable/available
     @PostMapping("/setStatus")
     public ModelAndView turnCustomerOnOff(@RequestParam("contactId") Long[] contactId,
-                                          @PageableDefault(value = 5) Pageable pageable,
+                                          @PageableDefault(value = 5, sort = "name", direction = Sort.Direction.ASC) Pageable pageable,
                                           RedirectAttributes redirectAttributes) {
         ModelAndView modelAndView = new ModelAndView(REDIRECT_TO_LIST);
         Contact contact = null;

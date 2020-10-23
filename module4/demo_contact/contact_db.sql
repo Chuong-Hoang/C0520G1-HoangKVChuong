@@ -22,3 +22,8 @@ insert into `hobby` values
 (4, 'Gym'),
 (5, 'Travel'),
 (6, 'Gaming');
+
+insert into `question_type` values
+(1, 'Study'),
+(2, 'Service'),
+(3, 'Other');
