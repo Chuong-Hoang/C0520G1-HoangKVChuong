@@ -1,0 +1,13 @@
+<h2>Today's Article</h2>
+<button class="btn btn-primary btn-sm mb-3" (click)="isShowCreateForm = !isShowCreateForm">Add new</button>
+<div *ngIf="isShowCreateForm">
+  <textarea [(ngModel)]="article.title" cols="77" id="article-title"></textarea><br>
+  <textarea [(ngModel)]="article.url" cols="77" id="article-url"></textarea><br>
+  <input (click)="addArticle();" type="button" class="btn btn-success btn-sm" value="Save">
+</div>
+<p style="color:plum">{{ CREATE_MSG }}</p>
+<hr>
+<div *ngFor="let art of articles; let f = first; let l = last; let o = odd; let e = even;">
+  <a [style.color]="f==true?'red':'blue'" href="{{ art.url }}" target="_blank">{{ art.title }}</a><br>
+  <app-likes></app-likes>
+</div>

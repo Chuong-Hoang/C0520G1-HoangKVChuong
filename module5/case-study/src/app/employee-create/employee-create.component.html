@@ -1,0 +1,119 @@
+<div class="container mt-3">
+  <button class="btn btn-sm btn-secondary mr-3" (click)="displayListForm();">Employee List</button>
+  <button class="btn btn-sm btn-secondary" (click)="displayCreateForm();">Add new employee</button>
+</div>
+
+<div class="container" *ngIf="showCreateForm">
+  <h4 >Employee Information</h4>
+  <input type="hidden" class="form-control" name="id" [(ngModel)]="employee.id" [readOnly]="readonly"/>
+  <div class="form-group">
+    <label>name</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="employee.name" [readOnly]="readonly"/>
+  </div>
+  <div class="form-group">
+    <label>birthday</label>
+    <input type="date" class="form-control" name="birthday" [(ngModel)]="employee.birthday"/>
+  </div>
+
+  <div class="form-group">
+    <label>IdCard</label>
+    <input type="text" class="form-control" name="idCard" [(ngModel)]="employee.idCard" [readOnly]="readonly"/>
+  </div>
+  <div class="form-group">
+    <label>phone</label>
+    <input type="text" class="form-control" name="phone" [(ngModel)]="employee.phone" [readOnly]="readonly"/>
+  </div>
+  <div class="form-group">
+    <label>email</label>
+    <input type="text" class="form-control" name="email" [(ngModel)]="employee.email" [readOnly]="readonly"/>
+  </div>
+  <div class="form-group">
+    <label>address</label>
+    <input type="text" class="form-control" name="address" [(ngModel)]="employee.address" [readOnly]="readonly"/>
+  </div>
+  <div class="form-group">
+    <label>salary</label>
+    <input type="text" class="form-control" name="salary" [(ngModel)]="employee.salary" [readOnly]="readonly"/>
+  </div>
+
+  <div class="form-group">
+    <label>position</label>
+    <select class="ml-3" name="position" [(ngModel)]="employee.position">
+      <option value="receptionist">Receptionist</option>
+      <option value="waiter">Waiter</option>
+      <option value="staff">Staff</option>
+      <option value="supervisor">Supervisor</option>
+      <option value="manager">Manager</option>
+      <option value="director">Director</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>division</label>
+    <select class="ml-3" name="division" [(ngModel)]="employee.division">
+      <option value="service">Service</option>
+      <option value="administration">Administration</option>
+      <option value="sale-marketing">Sale-Marketing</option>
+      <option value="management">Management</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>education</label>
+    <select class="ml-3" name="education" [(ngModel)]="employee.education">
+      <option value="pre-college">Pre-college</option>
+      <option value="college">College</option>
+      <option value="university">University</option>
+      <option value="after-university">After-University</option>
+    </select>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-secondary btn-sm col-5" (click)="displayListForm();">Cancel</button>
+    <button class="btn btn-success btn-sm col-5" [hidden]="hidden" (click)="addNew();">Save</button>
+  </div>
+</div>
+
+<hr class="mt-3 mb-3">
+
+<div class="container-fluid" *ngIf="showListForm">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Birthday</th>
+      <th>IdCard</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Salary</th>
+      <th>Position</th>
+      <th>Division</th>
+      <th>Education</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ele of eList">
+      <td>{{ ele.id }}</td>
+      <td>{{ ele.name }}</td>
+      <td>{{ ele.birthday }}</td>
+      <td>{{ ele.idCard }}</td>
+      <td>{{ ele.phone }}</td>
+      <td>{{ ele.email }}</td>
+      <td>{{ ele.address }}</td>
+      <td>{{ ele.salary }}</td>
+      <td>{{ ele.position }}</td>
+      <td>{{ ele.division }}</td>
+      <td>{{ ele.education }}</td>
+      <td class="d-flex">
+        <button class="btn btn-sm btn-outline-info mr-1"><i class="fas fa-info-circle" (click)="displayViewForm(ele.id)"></i></button>
+        <button class="btn btn-sm btn-outline-warning mr-1"><i class="far fa-edit" (click)="updateOne(ele.id)"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash" (click)="deleteOne(ele.id)"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

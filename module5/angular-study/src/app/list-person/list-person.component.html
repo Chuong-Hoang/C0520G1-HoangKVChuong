@@ -1,0 +1,27 @@
+<div *ngFor="let person of arrPersons">
+  <app-person
+    [name]="person.name"
+    [age]="person.age"
+    (removePerson)="removeByName($event)"
+  ></app-person>
+  <hr class="my-1">
+</div>
+
+<div>
+  <table class="table table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Delete</th>
+    </tr>
+    <ng-container *ngFor="let p of arrPersons">
+      <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.age }}</td>
+        <td><button class="btn btn-sm btn-danger" (click)="removeByName(p.name)">delete</button></td>
+      </tr>
+    </ng-container>
+  </table>
+</div>

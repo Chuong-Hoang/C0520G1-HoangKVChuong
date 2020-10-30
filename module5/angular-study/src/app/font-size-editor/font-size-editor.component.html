@@ -1,0 +1,9 @@
+<h2>Font Size Editor</h2>
+<div>
+  <label>Enter font size (px): {{ fontSize }}</label><br>
+  <input type="range" min="12" max="80" value="18" [(ngModel)]="fontSize">
+</div>
+<p class="output" [style.fontSize.px]="fontSize">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  Eligendi cumque nostrum quibusdam. Inventore quibusdam debitis, tempore error voluptatem explicabo ipsum?
+</p>

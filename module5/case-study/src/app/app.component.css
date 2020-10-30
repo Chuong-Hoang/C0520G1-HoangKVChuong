@@ -1,0 +1,6 @@
+* {
+  font-size: 0.7em !important;
+}
+.btn, .btn-sm, .btn-* {
+  font-size: 8px !important;
+}

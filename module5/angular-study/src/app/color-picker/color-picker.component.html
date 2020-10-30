@@ -1,0 +1,12 @@
+<h3>color-picker</h3>
+<label>Select a color: </label>
+<select [(ngModel)]="colorName" [style.backgroundColor]="colorName" class="select-color">
+  <option value="blue">Blue</option>
+  <option value="green">Green</option>
+  <option value="yellow">Yellow</option>
+  <option value="red">Red</option>
+  <option value="purple">Purple</option>
+</select><br>
+
+<label>Output:</label>
+<div [style.backgroundColor]="colorName" class="output"></div>

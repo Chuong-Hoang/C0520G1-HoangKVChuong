@@ -1,0 +1,14 @@
+p {
+  color: navy;
+  font-weight: lighter;
+  font-size: 25px;
+  font-family: Verdana;
+  background-color: yellow;
+}
+
+h3 {
+  color: purple;
+  font-family: Tahoma;
+  font-size: 1.5em;
+  background-color: #e6ebf1;
+}

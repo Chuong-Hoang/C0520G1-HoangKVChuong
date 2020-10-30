@@ -1,0 +1,8 @@
+.word {
+  background-color: #d5d5d5;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 0px;
+  margin: 5px;
+  width: 200px;
+}

@@ -1,0 +1,11 @@
+<p *ngIf="isShown">
+  This is struct-component1
+  This is struct-component2
+  This is struct-component3
+</p>
+<button (click)="isShown = !isShown">Toggle</button>
+<ul>
+  <li *ngFor="let subject of arrSubjects">
+    <p>{{'Subject: ' + subject }}</p>
+  </li>
+</ul>
