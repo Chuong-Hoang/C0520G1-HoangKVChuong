@@ -1,30 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {  } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerCreateComponent } from './customer-create/customer-create.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import {FormsModule} from "@angular/forms";
-import { EmployeeCreateComponent } from './employee-create/employee-create.component';
-import { ServiceCreateComponent } from './service-create/service-create.component';
-import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CustomerCreateComponent,
-    NavbarComponent,
-    EmployeeCreateComponent,
-    ServiceCreateComponent,
-    ParentComponent,
-    ChildComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

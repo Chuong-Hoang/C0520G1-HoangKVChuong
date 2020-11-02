@@ -1,0 +1,54 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Chuong",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "chuong@abc.com",
+      "address": "QT",
+      "customerType": "Silver"
+    },
+    {
+      "id": 2,
+      "name": "Nhat",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "nhat@abc.com",
+      "address": "SG",
+      "customerType": "Diamond"
+    },
+    {
+      "id": 3,
+      "name": "Nguyen",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "nguyen@abc.com",
+      "address": "QN",
+      "customerType": "Member"
+    },
+    {
+      "id": 4,
+      "name": "Hoang",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "hoang@abc.com",
+      "address": "DN",
+      "customerType": "Gold"
+    },
+    {
+      "id": 5,
+      "name": "Ngoc",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "ngoc@abc.com",
+      "address": "HN",
+      "customerType": "Platinum"
+    }
+  ]
+}

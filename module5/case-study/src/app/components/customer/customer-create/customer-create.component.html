@@ -1,0 +1,59 @@
+<div class="w-50 mx-auto mt-5">
+  <h4>Create new customer</h4>
+  <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
+    <input type="hidden" class="form-control" formControlName="id"/>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="name" placeholder="name"/>
+      <span class="error-msg"
+            *ngIf="formCreate.get('name').invalid && formCreate.get('name').touched">{{ name_msg }}</span>
+    </div>
+    <div class="form-group">
+      <mat-form-field>
+        <input matInput [matDatepicker]="myDatepicker" [max]="maxDate" [min]="minDate" formControlName="birthday" placeholder="birthday">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker startView="month"></mat-datepicker>
+      </mat-form-field>
+      <span class="error-msg"
+            *ngIf="formCreate.get('birthday').invalid && formCreate.get('birthday').touched">{{ birthday_msg }}</span>
+    </div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="idCard" placeholder="idCard"/>
+      <span class="error-msg"
+            *ngIf="formCreate.get('idCard').invalid && formCreate.get('idCard').touched">{{ idCard_msg }}</span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="phone" placeholder="phone"/>
+      <span class="error-msg"
+            *ngIf="formCreate.get('phone').invalid && formCreate.get('phone').touched">{{ phone_msg }}</span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="email" placeholder="email"/>
+      <span class="error-msg"
+            *ngIf="formCreate.get('email').invalid && formCreate.get('email').touched">{{ email_msg }}</span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="address" placeholder="address"/>
+      <span class="error-msg"
+            *ngIf="formCreate.get('address').invalid && formCreate.get('address').touched">{{ address_msg }}</span>
+    </div>
+
+    <div class="form-group">
+      <label>customerType<sup class="error-msg ml-1">*</sup></label>
+      <select class="ml-3" formControlName="customerType">
+        <option name="Diamond">Diamond</option>
+        <option name="Platinum">Platinum</option>
+        <option name="Gold">Gold</option>
+        <option name="Silver">Silver</option>
+        <option name="Member">Member</option>
+      </select>
+      <span class="error-msg"
+            *ngIf="formCreate.get('customerType').invalid && formCreate.get('customerType').touched">{{ customerType_msg }}</span>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-success btn-sm col-3" type="submit" [disabled]="formCreate.invalid">Save</button>
+    </div>
+  </form>
+</div>
+

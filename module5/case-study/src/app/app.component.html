@@ -1,8 +1,49 @@
-<!--<app-navbar></app-navbar>-->
-<!--<app-customer-create></app-customer-create>-->
-<!--<app-employee-create></app-employee-create>-->
-<!--<app-service-create></app-service-create>-->
+<div class="container-fluid px-0" style="height:100vh">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark rounded" style="height: 8%">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">Chuong Hoang</a>
 
-<!--PRACTICE, NOT CASE STUDY-->
-<app-parent></app-parent>
-
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['employee-list']">Employee</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['customer-list']">Customer</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['service-list']">Service</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['contract-list']">Contract</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [routerLink]="['contract-detail-list']">Contract-Detail</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="row px-0 mx-0" style="height: 88%">
+    <div class="col-2 px-0">
+      <div class="list-group border border-primary h-100">
+        <a href="#" class="list-group-item list-group-item-action active">Management</a>
+        <a href="#" class="list-group-item list-group-item-action">Employee</a>
+        <a href="#" class="list-group-item list-group-item-action">Customer</a>
+        <a href="#" class="list-group-item list-group-item-action">Service</a>
+        <a href="#" class="list-group-item list-group-item-action">Contract</a>
+        <a href="#" class="list-group-item list-group-item-action">Contract-Detail</a>
+      </div>
+    </div>
+    <div class="col-10">
+      <!--   MAIN CONTENT   -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="row px-0 mx-0 bg-light border border-primary rounded align-items-center justify-content-center" style="height: 4%">
+    <div>
+      Hoang Kim Van Chuong &copy;2020. All rights reserved.
+    </div>
+  </div>
+</div>
