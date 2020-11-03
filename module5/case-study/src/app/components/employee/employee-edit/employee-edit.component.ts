@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
 import {EmployeeService} from "../../../services/employee.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-employee-create',
-  templateUrl: './employee-create.component.html',
-  styleUrls: ['./employee-create.component.css']
+  selector: 'app-employee-edit',
+  templateUrl: './employee-edit.component.html',
+  styleUrls: ['./employee-edit.component.css']
 })
-export class EmployeeCreateComponent implements OnInit {
+export class EmployeeEditComponent implements OnInit {
   id_msg = 'id is required';
   name_msg = 'name is required';
   birthday_msg = 'birthday is required';
@@ -21,21 +21,23 @@ export class EmployeeCreateComponent implements OnInit {
   education_msg = 'education is required';
   position_msg = 'position is required';
 
-  public formCreate: FormGroup;
+  public formEdit: FormGroup;
   public maxDate = new Date();
   public minDate = new Date(1920, 0,1);
   educationList: any;
   divisionList: any;
   positionList: any;
+  eleId: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private employeeService: EmployeeService,
-    private router: Router
+    private router: Router,
+    private activeRouter: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.formCreate = this.formBuilder.group({
+    this.formEdit = this.formBuilder.group({
       id: '',
       name: ['', Validators.required],
       birthday: ['', Validators.required],
@@ -44,21 +46,28 @@ export class EmployeeCreateComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       address: ['', Validators.required],
       salary: ['', Validators.required],
-      education: ['', Validators.required],
-      position: ['', Validators.required],
-      division: ['', Validators.required]
+      education: '',
+      position: '',
+      division: ''
+    });
+    this.activeRouter.params.subscribe(data =>{
+      this.eleId = data.id;
+      this.employeeService.getById(this.eleId).subscribe(dataFromServer =>{
+        this.formEdit.patchValue(dataFromServer);
+      })
     });
     this.employeeService.getDivision().subscribe(data => this.divisionList = data, error => this.divisionList = []);
     this.employeeService.getEducation().subscribe(data => this.educationList = data, error => this.educationList = []);
     this.employeeService.getPosition().subscribe(data => this.positionList = data, error => this.positionList = []);
     console.log(this.positionList);
   }
-  onSubmit(){
-    console.log(this.formCreate.value);
-    this.employeeService.createNew(this.formCreate.value).subscribe(data => {
-      console.log(data);
-      this.router.navigate(['/employee-list'], {queryParams: {create_msg: 'Create successfully!', si: true}});
-      // this.router.navigateByUrl('employee-list');
-    })
+
+ clickToEdit() {
+   console.log(this.formEdit.value);
+   this.employeeService.editElement(this.eleId, this.formEdit.value).subscribe(data => {
+     console.log(data);
+     this.router.navigate(['/employee-list'], {queryParams: {edit_msg: 'Update successfully!', si: true}});
+     // this.router.navigateByUrl('customer-list');
+   })
   }
 }

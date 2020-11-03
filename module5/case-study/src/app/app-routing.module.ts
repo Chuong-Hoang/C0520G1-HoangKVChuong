@@ -12,10 +12,18 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MaterialModule } from './material.module';
+import { CustomerViewDialogComponent } from './components/customer/customer-view-dialog/customer-view-dialog.component';
+import {EmployeeCreateComponent} from "./components/employee/employee-create/employee-create.component";
+import { EmployeeDeleteDialogComponent } from './components/employee/employee-delete-dialog/employee-delete-dialog.component';
+import { EmployeeViewDialogComponent } from './components/employee/employee-view-dialog/employee-view-dialog.component';
+import { EmployeeEditComponent } from './components/employee/employee-edit/employee-edit.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'employee-list', component: EmployeeListComponent},
+  {path: 'employee-create', component: EmployeeCreateComponent},
+  {path: 'employee-edit/:id', component: EmployeeEditComponent},
   {path: 'customer-list', component: CustomerListComponent},
   {path: 'customer-create', component: CustomerCreateComponent},
   {path: 'customer-edit/:id', component: CustomerEditComponent},
@@ -42,10 +50,15 @@ const routes: Routes = [
     HomeComponent,
     PageNotFoundComponent,
     EmployeeListComponent,
+    EmployeeCreateComponent,
     CustomerListComponent,
     CustomerCreateComponent,
     CustomerDeleteDialogComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    CustomerViewDialogComponent,
+    EmployeeDeleteDialogComponent,
+    EmployeeViewDialogComponent,
+    EmployeeEditComponent
   ]
 })
 export class AppRoutingModule { }

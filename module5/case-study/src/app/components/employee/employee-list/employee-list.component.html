@@ -1,2 +1,63 @@
-<p>employee-list works!</p>
-<h3>Employee List</h3>
+<div class="container-fluid">
+  <div class="d-flex justify-content-between mt-2">
+    <div class="d-flex">
+      <h3 class="mr-2">Employee List</h3>
+    </div>
+    <div class="d-flex justify-content-between form-group">
+      <div class="input-group-append">
+        <button class="btn btn-primary btn-sm mr-3" [routerLink]="['/employee-create']">Create new</button>
+      </div>
+      <input class="form-control rounded-0" type="text" placeholder="search name" style="width: 350px"
+             [(ngModel)]="term">
+      <div class="input-group-append">
+        <span class="input-group-text rounded-0"><i class="fas fa-search"></i></span>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Birthday</th>
+      <th>IdCard</th>
+      <th>Phone</th>
+<!--      <th>Email</th>-->
+<!--      <th>Address</th>-->
+<!--      <th>Salary</th>-->
+      <th>Position</th>
+      <th>Division</th>
+      <th>Education</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ele of eList| filter:term | paginate:{itemsPerPage:2, currentPage: p}; let i = index;">
+      <td>{{ ele.id }}</td>
+      <td>{{ ele.name }}</td>
+      <td>{{ ele.birthday | date: 'yyyy/LL/dd' }}</td>
+      <td>{{ ele.idCard }}</td>
+      <td>{{ ele.phone }}</td>
+<!--      <td>{{ ele.email }}</td>-->
+<!--      <td>{{ ele.address }}</td>-->
+<!--      <td>{{ ele.salary }}</td>-->
+      <td>{{ ele.position.name }}</td>
+      <td>{{ ele.division.name }}</td>
+      <td>{{ ele.education.name }}</td>
+      <td class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-outline-info" (click)="openViewDialog(ele.id)">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-warning" [routerLink]="['/employee-edit/'+ ele.id]">
+          <i class="far fa-edit"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="openDeleteDialog(ele.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="text-primary">{{ delete_msg }} {{ create_msg }} {{ edit_msg }}</p>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

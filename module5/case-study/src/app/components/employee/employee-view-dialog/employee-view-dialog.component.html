@@ -1,0 +1,20 @@
+<h4>Detail Information</h4>
+<hr class="mt-2 mb-2">
+<div class="row d-flex justify-content-start">
+  <div class="ml-3">
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Name: {{ele.name}}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Birthday: {{ele.birthday | date:'yyyy/LL/dd' }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>IdCard: {{ele.idCard }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Phone: {{ele.phone }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Email: {{ele.email }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Address: {{ele.address }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Salary: {{ele.salary }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Education: {{ele.education.name }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Position: {{ele.position.name }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>Division: {{ele.division.name }}</p>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <button mat-dialog-close class="btn btn-secondary btn-sm mr-3 w-25">OK</button>
+</div>
+

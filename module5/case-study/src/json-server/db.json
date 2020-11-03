@@ -8,27 +8,362 @@
       "phone": "0909090909",
       "email": "chuong@abc.com",
       "address": "QT",
-      "customerType": "Silver"
-    },
-    {
-      "id": 5,
-      "name": "Ngoc",
-      "birthday": "1988-07-25T17:00:00.000Z",
-      "idCard": "123456789",
-      "phone": "0909090909",
-      "email": "ngoc@abc.com",
-      "address": "HN",
-      "customerType": "Platinum"
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
     },
     {
       "id": 6,
       "name": "Lan Anh",
       "birthday": "2020-11-01T17:00:00.000Z",
-      "idCard": "123",
-      "phone": "123",
+      "idCard": "123456789",
+      "phone": "0909090909",
       "email": "123@dfd",
       "address": "DN",
-      "customerType": "Member"
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Quang",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789000",
+      "phone": "234",
+      "email": "quang@com.vn",
+      "address": "DN",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Hai",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "123456789",
+      "email": "hai@gmail.com",
+      "address": "HT",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Hien",
+      "birthday": "2020-11-01T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "(+84)909090909",
+      "email": "hien@gmail.com",
+      "address": "PY",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Chanh",
+      "birthday": "2020-11-01T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "chanh@gmail.com",
+      "address": "Dn",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Tung Sy",
+      "birthday": "2020-10-11T17:00:00.000Z",
+      "idCard": "123123123",
+      "phone": "0909080808",
+      "email": "tung@si.com.vn",
+      "address": "QB",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Toan Le",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0910001112",
+      "email": "toan@le.com.vn",
+      "address": "DN",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Son Tra",
+      "birthday": "2020-10-04T17:00:00.000Z",
+      "idCard": "222333444",
+      "phone": "0905215707",
+      "email": "son@tra.com",
+      "address": "QT",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Phung",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "phung@gmail.com",
+      "address": "QN",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Quan Vu",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "vu@gmail.com",
+      "address": "QB",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Phuong Le",
+      "birthday": "2020-11-01T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "phung@le.com",
+      "address": "HT",
+      "customerType": {
+        "id": 5,
+        "name": "Member"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Hoai Le",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "le@hoai.com",
+      "address": "QB",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Quynh",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "quynh@bac.com",
+      "address": "HN",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": 19,
+      "name": "An An",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "an@an.com",
+      "address": "SG",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      }
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "name": "Pre-college"
+    },
+    {
+      "id": 2,
+      "name": "College"
+    },
+    {
+      "id": 3,
+      "name": "University"
+    },
+    {
+      "id": 4,
+      "name": "After-university"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Sale"
+    },
+    {
+      "id": 2,
+      "name": "Service"
+    },
+    {
+      "id": 3,
+      "name": "Administration"
+    },
+    {
+      "id": 4,
+      "name": "Management"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Waiter"
+    },
+    {
+      "id": 2,
+      "name": "Staff"
+    },
+    {
+      "id": 3,
+      "name": "Supervisor"
+    },
+    {
+      "id": 4,
+      "name": "Manager"
+    },
+    {
+      "id": 5,
+      "name": "Director"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Chuong",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "chuong@abc.com",
+      "address": "QT",
+      "salary": "1500",
+      "education": {
+        "id": 4,
+        "name": "After-university"
+      },
+      "position": {
+        "id": 5,
+        "name": "Director"
+      },
+      "division": {
+        "id": 4,
+        "name": "Management"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Toan",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "toan@abc.com",
+      "address": "QT",
+      "salary": "1500",
+      "position": {
+        "id": 2,
+        "name": "Staff"
+      },
+      "division": {
+        "id": 2,
+        "name": "Service"
+      },
+      "education": {
+        "id": 2,
+        "name": "College"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Quang",
+      "birthday": "1988-04-20",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "quang@abc.com",
+      "address": "QT",
+      "salary": "1500",
+      "position": {
+        "id": 3,
+        "name": "Waiter"
+      },
+      "division": {
+        "id": 3,
+        "name": "Administration"
+      },
+      "education": {
+        "id": 3,
+        "name": "University"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Hoang Nhung",
+      "birthday": "2020-10-31T17:00:00.000Z",
+      "idCard": "123456789",
+      "phone": "0909090909",
+      "email": "nhung@hoang.com",
+      "address": "QT",
+      "salary": "1200",
+      "education": {
+        "id": 2,
+        "name": "College"
+      },
+      "position": {
+        "id": 2,
+        "name": "Staff"
+      },
+      "division": {
+        "id": 2,
+        "name": "Service"
+      }
     }
   ]
 }

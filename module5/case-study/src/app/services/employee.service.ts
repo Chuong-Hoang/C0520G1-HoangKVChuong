@@ -4,9 +4,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerService {
-  public API:string = 'http://localhost:3000/customers';
-  public API_CustomerType:string = 'http://localhost:3000/customerType';
+export class EmployeeService {
+  public API:string = 'http://localhost:3000/employees';
+  public API_division:string = 'http://localhost:3000/division';
+  public API_education:string = 'http://localhost:3000/education';
+  public API_position:string = 'http://localhost:3000/position';
 
   constructor(public http:HttpClient) { }
 
@@ -28,7 +30,13 @@ export class CustomerService {
   editElement(id, ele){
     return this.http.put(this.API + '/' + id, ele);
   }
-  getCustomerType():Observable<any>{
-    return this.http.get(this.API_CustomerType);
+  getEducation():Observable<any>{
+    return this.http.get(this.API_education);
+  }
+  getPosition():Observable<any>{
+    return this.http.get(this.API_position);
+  }
+  getDivision():Observable<any>{
+    return this.http.get(this.API_division);
   }
 }

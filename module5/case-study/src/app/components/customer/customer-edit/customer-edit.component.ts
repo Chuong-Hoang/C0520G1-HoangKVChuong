@@ -22,6 +22,7 @@ export class CustomerEditComponent implements OnInit {
 
   formEdit:FormGroup;
   eleId: number;
+  public customerTypeList;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,25 +36,28 @@ export class CustomerEditComponent implements OnInit {
       id: '',
       name: ['', Validators.required],
       birthday: ['', Validators.required],
-      idCard: ['', Validators.required],
-      phone: ['', Validators.required],
-      email: ['', [Validators.required, this.emailValidators]],
+      idCard: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+      phone: ['', [Validators.required, Validators.pattern('^((090|091|([\(][\+]84[\)])90|([\(][\+]84[\)])91)[0-9]{7})$')]],
+      email: ['', [Validators.required, Validators.email]],
       address: ['', Validators.required],
-      customerType: 'Platinum'
+      customerType: ''
     });
     this.activeRouter.params.subscribe(data =>{
       this.eleId = data.id;
       this.customerService.getById(this.eleId).subscribe(dataFromServer =>{
         this.formEdit.patchValue(dataFromServer);
       })
-    })
+    });
+    this.customerService.getCustomerType()
+      .subscribe(data => this.customerTypeList = data, error => this.customerTypeList = []);
   }
 
   clickToEdit(){
     console.log(this.formEdit.value);
     this.customerService.editElement(this.eleId, this.formEdit.value).subscribe(data => {
       console.log(data);
-      this.router.navigateByUrl('customer-list');
+      this.router.navigate(['/customer-list'], {queryParams: {edit_msg: 'Update successfully!', si: true}});
+      // this.router.navigateByUrl('customer-list');
     })
   }
 

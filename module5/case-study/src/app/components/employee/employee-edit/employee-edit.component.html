@@ -1,12 +1,12 @@
 <div class="w-50 mx-auto mt-5">
-  <h4>Create New Employee</h4>
-  <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
+  <h4>Edit Employee</h4>
+  <form (ngSubmit)="clickToEdit();" [formGroup]="formEdit">
     <input type="hidden" class="form-control" formControlName="id"/>
     <div class="form-group">
       <label>name<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="name"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('name').invalid && formCreate.get('name').touched">{{ name_msg }}</span>
+            *ngIf="formEdit.get('name').invalid && formEdit.get('name').touched">{{ name_msg }}</span>
     </div>
     <div class="form-group">
       <label>birthday<sup class="text-danger ml-1">*</sup></label><br>
@@ -16,72 +16,73 @@
         <mat-datepicker #myDatepicker2 startView="month"></mat-datepicker>
       </mat-form-field>
       <span class="text-danger"
-            *ngIf="formCreate.get('birthday').invalid && formCreate.get('birthday').touched">{{ birthday_msg }}</span>
+            *ngIf="formEdit.get('birthday').invalid && formEdit.get('birthday').touched">{{ birthday_msg }}</span>
     </div>
 
     <div class="form-group">
       <label>idCard<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="idCard"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('idCard').invalid && formCreate.get('idCard').touched">{{ idCard_msg }}</span>
+            *ngIf="formEdit.get('idCard').invalid && formEdit.get('idCard').touched">{{ idCard_msg }}</span>
     </div>
     <div class="form-group">
       <label>phone<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="phone"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('phone').invalid && formCreate.get('phone').touched">{{ phone_msg }}</span>
+            *ngIf="formEdit.get('phone').invalid && formEdit.get('phone').touched">{{ phone_msg }}</span>
     </div>
     <div class="form-group">
       <label>email<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="email"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('email').invalid && formCreate.get('email').touched">{{ email_msg }}</span>
+            *ngIf="formEdit.get('email').invalid && formEdit.get('email').touched">{{ email_msg }}</span>
     </div>
     <div class="form-group">
       <label>address<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="address"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('address').invalid && formCreate.get('address').touched">{{ address_msg }}</span>
+            *ngIf="formEdit.get('address').invalid && formEdit.get('address').touched">{{ address_msg }}</span>
     </div>
     <div class="form-group">
       <label>salary<sup class="text-danger ml-1">*</sup></label>
       <input type="text" class="form-control" formControlName="salary"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('salary').invalid && formCreate.get('salary').touched">{{ salary_msg }}</span>
+            *ngIf="formEdit.get('salary').invalid && formEdit.get('salary').touched">{{ salary_msg }}</span>
     </div>
 
     <div class="form-group">
       <label>position<sup class="text-danger ml-1">*</sup></label>
       <select class="form-control" formControlName="position">
-        <option value = ''>-select-</option>
+        <option [ngValue]="formEdit.value.position">{{ formEdit.value.position.name }}</option>
         <option *ngFor="let type1 of positionList" [ngValue]="type1">{{ type1.name }}</option>
       </select>
       <span class="text-danger"
-            *ngIf="formCreate.get('position').invalid && formCreate.get('position').touched">{{ position_msg }}</span>
+            *ngIf="formEdit.get('position').invalid && formEdit.get('position').touched">{{ position_msg }}</span>
     </div>
 
     <div class="form-group">
       <label>division<sup class="text-danger ml-1">*</sup></label>
       <select class="form-control" formControlName="division">
-        <option value = ''>-select-</option>
+        <option [ngValue]="formEdit.value.division">{{ formEdit.value.division.name }}</option>
         <option *ngFor="let type2 of divisionList" [ngValue]="type2">{{ type2.name }}</option>
       </select>
       <span class="text-danger"
-            *ngIf="formCreate.get('division').invalid && formCreate.get('division').touched">{{ division_msg }}</span>
+            *ngIf="formEdit.get('division').invalid && formEdit.get('division').touched">{{ division_msg }}</span>
     </div>
 
     <div class="form-group">
       <label>education<sup class="text-danger ml-1">*</sup></label>
       <select class="form-control" formControlName="education">
-        <option value = ''>-select-</option>
+        <option [ngValue]="formEdit.value.education">{{ formEdit.value.education.name }}</option>
         <option *ngFor="let type3 of educationList" [ngValue]="type3">{{ type3.name }}</option>
       </select>
       <span class="text-danger"
-            *ngIf="formCreate.get('education').invalid && formCreate.get('education').touched">{{ education_msg }}</span>
+            *ngIf="formEdit.get('education').invalid && formEdit.get('education').touched">{{ education_msg }}</span>
     </div>
 
     <div class="d-flex justify-content-center mb-5">
-      <button class="btn btn-success btn-sm w-25" type="submit" [hidden]="formCreate.invalid">Save</button>
+      <button class="btn btn-success btn-sm w-25" type="submit" [disabled]="formEdit.invalid">Update</button>
     </div>
   </form>
 </div>
+
