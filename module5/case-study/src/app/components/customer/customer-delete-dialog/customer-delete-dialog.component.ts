@@ -14,7 +14,8 @@ export class CustomerDeleteDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<CustomerDeleteDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA)
+    public data: any,
     public customerService: CustomerService,
     private router: Router
   ) {}

@@ -31,7 +31,6 @@ export class CustomerListComponent implements OnInit {
     })
   }
   sendMessage(){
-    console.log(this.route.snapshot.queryParamMap.get('create_msg'));
     this.create_msg = this.route.snapshot.queryParamMap.get('create_msg');
     this.delete_msg = this.route.snapshot.queryParamMap.get('delete_msg');
     this.edit_msg = this.route.snapshot.queryParamMap.get('edit_msg');

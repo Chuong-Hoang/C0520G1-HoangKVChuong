@@ -28,7 +28,7 @@ export class CustomerEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private customerService: CustomerService,
     private router: Router,
-    private activeRouter: ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -40,14 +40,17 @@ export class CustomerEditComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern('^((090|091|([\(][\+]84[\)])90|([\(][\+]84[\)])91)[0-9]{7})$')]],
       email: ['', [Validators.required, Validators.email]],
       address: ['', Validators.required],
-      customerType: ''
+      customerType: ['', Validators.required]
     });
-    this.activeRouter.params.subscribe(data =>{
+
+    // only for Edit
+    this.route.params.subscribe(data =>{
       this.eleId = data.id;
       this.customerService.getById(this.eleId).subscribe(dataFromServer =>{
         this.formEdit.patchValue(dataFromServer);
       })
     });
+
     this.customerService.getCustomerType()
       .subscribe(data => this.customerTypeList = data, error => this.customerTypeList = []);
   }

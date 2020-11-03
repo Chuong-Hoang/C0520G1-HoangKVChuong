@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between mt-2">
+    <div class="d-flex">
+      <h3 class="mr-2">Service List</h3>
+    </div>
+    <div class="d-flex justify-content-between form-group">
+      <div class="input-group-append">
+        <button class="btn btn-primary btn-sm mr-3" [routerLink]="['/service-create']">Create new</button>
+      </div>
+      <input class="form-control rounded-0" type="text" placeholder="search name" style="width: 350px"
+             [(ngModel)]="term">
+      <div class="input-group-append">
+        <span class="input-group-text rounded-0"><i class="fas fa-search"></i></span>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+<!--      <th>Area</th>-->
+<!--      <th>Cost</th>-->
+<!--      <th>MaxPeople</th>-->
+      <th>ServiceType</th>
+      <th>RentType</th>
+      <th>StandardRoom</th>
+      <th>NumberOfFloors</th>
+<!--      <th>OtherConvenience</th>-->
+      <th>PoolArea</th>
+      <th>FreeService</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ele of eList| filter:term | paginate:{itemsPerPage:2, currentPage: p}; let i = index;">
+      <td>{{ ele.id }}</td>
+      <td>{{ ele.name }}</td>
+<!--      <td>{{ ele.area }}</td>-->
+<!--      <td>{{ ele.cost }}</td>-->
+<!--      <td>{{ ele.maxPeople }}</td>-->
+      <td>{{ ele.serviceType.name }}</td>
+      <td>{{ ele.rentType.name }}</td>
+      <td>{{ ele.standardRoom }}</td>
+      <td>{{ ele.numberOfFloors }}</td>
+<!--      <td>{{ ele.otherConvenience }}</td>-->
+      <td>{{ ele.poolArea }}</td>
+      <td>{{ ele.freeService }}</td>
+      <td class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-outline-info" (click)="openViewDialog(ele.id)">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-warning" [routerLink]="['/service-edit/'+ ele.id]">
+          <i class="far fa-edit"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="openDeleteDialog(ele.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="text-primary">{{ delete_msg }} {{ create_msg }} {{ edit_msg }}</p>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

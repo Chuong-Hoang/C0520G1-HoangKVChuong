@@ -1,0 +1,81 @@
+<div class="w-50 mx-auto mt-5">
+  <h4>Edit Contract</h4>
+  <form (ngSubmit)="clickToEdit();" [formGroup]="formEdit">
+    <input type="hidden" class="form-control" formControlName="id"/>
+    <div class="form-group">
+      <label>startDate<sup class="text-danger ml-1">*</sup></label>
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="myDatepicker" [min]="minDate" [max]="maxDate" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker startView="month"></mat-datepicker>
+      </mat-form-field>
+      <span class="text-danger"
+            *ngIf="formEdit.get('startDate').invalid && formEdit.get('startDate').touched">{{ startDate_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>endDate<sup class="text-danger ml-1">*</sup></label><br>
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="myDatepicker2" [min]="minDate" [max]="maxDate" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker2 startView="month"></mat-datepicker>
+      </mat-form-field>
+      <span class="text-danger"
+            *ngIf="formEdit.get('endDate').invalid && formEdit.get('endDate').touched">{{ endDate_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>totalMoney<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="totalMoney"/>
+      <span class="text-danger"
+            *ngIf="(formEdit.get('totalMoney').invalid ) && formEdit.get('totalMoney').touched">{{ totalMoney_msg }}</span>
+    </div>
+    <div class="form-group">
+      <label>deposit<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="deposit"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('deposit').invalid && formEdit.get('deposit').touched">{{ deposit_msg }}</span>
+    </div>
+
+    <div class="form-group">
+      <label>service<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="service">
+        <option [ngValue]="formEdit.value.service">{{ formEdit.value.service.name }}</option>
+        <option *ngFor="let type3 of serviceList" [ngValue]="type3">{{ type3.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('service').invalid && formEdit.get('service').touched">{{ service_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>customer<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="customer">
+        <option [ngValue]="formEdit.value.customer">{{ formEdit.value.customer.name }}</option>
+        <option *ngFor="let type1 of customerList" [ngValue]="type1">{{ type1.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('customer').invalid && formEdit.get('customer').touched">{{ customer_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>employee<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="employee">
+        <option [ngValue]="formEdit.value.employee">{{ formEdit.value.employee.name }}</option>
+        <option *ngFor="let type2 of employeeList" [ngValue]="type2">{{ type2.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('employee').invalid && formEdit.get('employee').touched">{{ employee_msg }}
+      </span>
+    </div>
+
+    <div class="d-flex justify-content-center mb-5">
+      <button class="btn btn-success btn-sm col-3" type="submit" [disabled]="formEdit.invalid">Update</button>
+    </div>
+  </form>
+</div>
+
+
+

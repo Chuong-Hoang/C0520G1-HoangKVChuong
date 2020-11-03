@@ -1,0 +1,80 @@
+<div class="w-50 mx-auto mt-5">
+  <h4>Create New Contract</h4>
+  <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
+    <input type="hidden" class="form-control" formControlName="id"/>
+    <div class="form-group">
+      <label>startDate<sup class="text-danger ml-1">*</sup></label>
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="myDatepicker" [max]="maxDate" [min]="minDate" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker startView="month"></mat-datepicker>
+      </mat-form-field>
+      <span class="text-danger"
+            *ngIf="formCreate.get('startDate').invalid && formCreate.get('startDate').touched">{{ startDate_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>endDate<sup class="text-danger ml-1">*</sup></label><br>
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="myDatepicker2" [max]="maxDate" [min]="minDate" formControlName="endDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #myDatepicker2 startView="month"></mat-datepicker>
+      </mat-form-field>
+      <span class="text-danger"
+            *ngIf="formCreate.get('endDate').invalid && formCreate.get('endDate').touched">{{ endDate_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>totalMoney<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="totalMoney"/>
+      <span class="text-danger"
+            *ngIf="(formCreate.get('totalMoney').invalid ) && formCreate.get('totalMoney').touched">{{ totalMoney_msg }}</span>
+    </div>
+    <div class="form-group">
+      <label>deposit<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="deposit"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('deposit').invalid && formCreate.get('deposit').touched">{{ deposit_msg }}</span>
+    </div>
+
+    <div class="form-group">
+      <label>service<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="service">
+        <option value = ''>-select-</option>
+        <option *ngFor="let type3 of serviceList" [ngValue]="type3">{{ type3.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('service').invalid && formCreate.get('service').touched">{{ service_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>customer<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="customer">
+        <option value = ''>-select-</option>
+        <option *ngFor="let type1 of customerList" [ngValue]="type1">{{ type1.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('customer').invalid && formCreate.get('customer').touched">{{ customer_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>employee<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="employee">
+        <option value = ''>-select-</option>
+        <option *ngFor="let type2 of employeeList" [ngValue]="type2">{{ type2.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('employee').invalid && formCreate.get('employee').touched">{{ employee_msg }}
+      </span>
+    </div>
+
+    <div class="d-flex justify-content-center mb-5">
+      <button class="btn btn-success btn-sm col-3" type="submit" [disabled]="formCreate.invalid">Save</button>
+    </div>
+  </form>
+</div>
+
+

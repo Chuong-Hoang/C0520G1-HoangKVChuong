@@ -12,7 +12,8 @@ export class EmployeeViewDialogComponent implements OnInit {
   public ele;
   constructor(
     public dialogRef: MatDialogRef<EmployeeViewDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA)
+    public data: any
   ) { }
 
   ngOnInit(): void {

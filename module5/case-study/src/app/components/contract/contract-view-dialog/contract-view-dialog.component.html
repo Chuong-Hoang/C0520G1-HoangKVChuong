@@ -1,0 +1,16 @@
+<h4>Detail Information</h4>
+<hr class="mt-2 mb-2">
+<div class="row d-flex justify-content-start">
+  <div class="ml-3">
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>startDate: {{ele.startDate | date:'yyyy/LL/dd' }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>endDate: {{ele.endDate | date:'yyyy/LL/dd' }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>totalMoney: {{ele.totalMoney }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>deposit: {{ele.deposit }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>customer: {{ele.customer.name }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>employee: {{ele.employee.name }}</p>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <button mat-dialog-close class="btn btn-primary btn-sm mr-3 w-25">OK</button>
+</div>
+

@@ -35,7 +35,7 @@
     <tr *ngFor="let ele of eList| filter:term | paginate:{itemsPerPage:2, currentPage: p}; let i = index;">
       <td>{{ ele.id }}</td>
       <td>{{ ele.name }}</td>
-      <td>{{ ele.birthday | date: 'yyyy/LL/dd' }}</td>
+      <td>{{ ele.birthday | date: 'yyyy/LL/dd': '-120' }}</td>
       <td>{{ ele.idCard }}</td>
       <td>{{ ele.phone }}</td>
 <!--      <td>{{ ele.email }}</td>-->

@@ -14,7 +14,8 @@ export class EmployeeDeleteDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EmployeeDeleteDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA)
+    public data: any,
     public employeeService: EmployeeService,
     private router: Router
   ) { }

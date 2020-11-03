@@ -33,7 +33,7 @@ export class EmployeeEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private employeeService: EmployeeService,
     private router: Router,
-    private activeRouter: ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -50,12 +50,15 @@ export class EmployeeEditComponent implements OnInit {
       position: '',
       division: ''
     });
-    this.activeRouter.params.subscribe(data =>{
+
+    // only for Edit
+    this.route.params.subscribe(data =>{
       this.eleId = data.id;
       this.employeeService.getById(this.eleId).subscribe(dataFromServer =>{
         this.formEdit.patchValue(dataFromServer);
       })
     });
+
     this.employeeService.getDivision().subscribe(data => this.divisionList = data, error => this.divisionList = []);
     this.employeeService.getEducation().subscribe(data => this.educationList = data, error => this.educationList = []);
     this.employeeService.getPosition().subscribe(data => this.positionList = data, error => this.positionList = []);

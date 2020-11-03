@@ -1,0 +1,102 @@
+<div class="w-50 mx-auto mt-5">
+  <h4>Edit Service</h4>
+  <form (ngSubmit)="clickToEdit();" [formGroup]="formEdit">
+    <input type="hidden" class="form-control" formControlName="id"/>
+    <div class="form-group">
+      <label>serviceType<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="serviceType">
+        <option [ngValue]="formEdit.value.serviceType">{{ formEdit.value.serviceType.name }}</option>
+        <option *ngFor="let typeS of serviceTypeList" [ngValue]="typeS">{{ typeS.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('serviceType').invalid && formEdit.get('serviceType').touched">{{ serviceType_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>rentType<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="rentType">
+        <option [ngValue]="formEdit.value.rentType">{{ formEdit.value.rentType.name }}</option>
+        <option *ngFor="let typeA of rentTypeList" [ngValue]="typeA">{{ typeA.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('rentType').invalid && formEdit.get('rentType').touched">{{ rentType_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>name<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="name"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('name').invalid && formEdit.get('name').touched">{{ name_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>area<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="area"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('area').invalid && formEdit.get('area').touched">{{ area_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>cost<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="cost"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('cost').invalid && formEdit.get('cost').touched">{{ cost_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>maxPeople<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="maxPeople"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('maxPeople').invalid && formEdit.get('maxPeople').touched">{{ maxPeople_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>standardRoom<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="standardRoom">
+        <option value="Vip" [selected]="true">Vip</option>
+        <option value="Business">Business</option>
+        <option value="Normal">Normal</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formEdit.get('standardRoom').invalid && formEdit.get('standardRoom').touched">{{ standardRoom_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>numberOfFloors<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="numberOfFloors"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('numberOfFloors').invalid && formEdit.get('numberOfFloors').touched">{{ numberOfFloors_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>otherConvenience<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="otherConvenience"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('otherConvenience').invalid && formEdit.get('otherConvenience').touched">{{ otherConvenience_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>poolArea<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="poolArea"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('poolArea').invalid && formEdit.get('poolArea').touched">{{ poolArea_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>freeService<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="freeService"/>
+      <span class="text-danger"
+            *ngIf="formEdit.get('freeService').invalid && formEdit.get('freeService').touched">{{ freeService_msg }}
+      </span>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-success btn-sm w-25 mb-5" type="submit" [disabled]="formEdit.invalid">Update</button>
+    </div>
+  </form>
+</div>
+

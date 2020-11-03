@@ -1,0 +1,17 @@
+<h4>Detail Information</h4>
+<hr class="mt-2 mb-2">
+<div class="row d-flex justify-content-start">
+  <div class="ml-3">
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>contractId: {{ ele.contract.id }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>contract-cost: {{ ele.contract.totalMoney }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>deposit: {{ ele.contract.deposit }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>attachService: {{ ele.attachService.name }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>att.Service Cost: {{ ele.attachService.cost }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>quantity: {{ ele.quantity }}</p>
+    <p><span><i class="fas fa-hand-point-right mr-2 text-primary"></i></span>totalAmount: {{ ele.quantity * ele.attachService.cost }}</p>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <button mat-dialog-close class="btn btn-primary btn-sm mr-3 w-25">OK</button>
+</div>
+

@@ -1,12 +1,13 @@
 <div class="w-50 mx-auto mt-5">
-  <h4>Create new customer</h4>
+  <h4>Create New Customer</h4>
   <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
     <input type="hidden" class="form-control" formControlName="id"/>
     <div class="form-group">
       <label>name<sup class="text-danger ml-1">*</sup></label>
-      <input type="text" class="form-control" formControlName="name" placeholder="name"/>
+      <input type="text" class="form-control" formControlName="name"/>
       <span class="text-danger"
-            *ngIf="formCreate.get('name').invalid && formCreate.get('name').touched">{{ name_msg }}</span>
+            *ngIf="formCreate.get('name').invalid && formCreate.get('name').touched">{{ name_msg }}
+      </span>
     </div>
     <div class="form-group">
       <label>birthday<sup class="text-danger ml-1">*</sup></label><br>
@@ -21,25 +22,25 @@
 
     <div class="form-group">
       <label>idCard<sup class="text-danger ml-1">*</sup></label>
-      <input type="text" class="form-control" formControlName="idCard" placeholder="idCard"/>
+      <input type="text" class="form-control" formControlName="idCard"/>
       <span class="text-danger"
             *ngIf="(formCreate.get('idCard').invalid ) && formCreate.get('idCard').touched">{{ idCard_msg }}</span>
     </div>
     <div class="form-group">
       <label>phone<sup class="text-danger ml-1">*</sup></label>
-      <input type="text" class="form-control" formControlName="phone" placeholder="phone"/>
+      <input type="text" class="form-control" formControlName="phone"/>
       <span class="text-danger"
             *ngIf="formCreate.get('phone').invalid && formCreate.get('phone').touched">{{ phone_msg }}</span>
     </div>
     <div class="form-group">
       <label>email<sup class="text-danger ml-1">*</sup></label>
-      <input type="text" class="form-control" formControlName="email" placeholder="email"/>
+      <input type="text" class="form-control" formControlName="email"/>
       <span class="text-danger"
             *ngIf="formCreate.get('email').invalid && formCreate.get('email').touched">{{ email_msg }}</span>
     </div>
     <div class="form-group">
       <label>address<sup class="text-danger ml-1">*</sup></label>
-      <input type="text" class="form-control" formControlName="address" placeholder="address"/>
+      <input type="text" class="form-control" formControlName="address"/>
       <span class="text-danger"
             *ngIf="formCreate.get('address').invalid && formCreate.get('address').touched">{{ address_msg }}</span>
     </div>

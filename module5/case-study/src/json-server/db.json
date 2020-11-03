@@ -280,7 +280,7 @@
     {
       "id": 1,
       "name": "Chuong",
-      "birthday": "1988-04-20",
+      "birthday": "1991-06-19T17:00:00.000Z",
       "idCard": "123456789",
       "phone": "0909090909",
       "email": "chuong@abc.com",
@@ -364,6 +364,1168 @@
         "id": 2,
         "name": "Service"
       }
+    }
+  ],
+  "serviceType": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Hour"
+    },
+    {
+      "id": 2,
+      "name": "Day"
+    },
+    {
+      "id": 3,
+      "name": "Month"
+    },
+    {
+      "id": 4,
+      "name": "Year"
+    }
+  ],
+  "serviceFus": [
+    {
+      "id": 1,
+      "name": "VL-0001",
+      "area": "123",
+      "cost": "1200",
+      "maxPeople": "4",
+      "rentType": {
+        "id": 3,
+        "name": "Month"
+      },
+      "serviceType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Vip",
+      "numberOfFloors": "2",
+      "otherConvenience": "Laundry",
+      "poolArea": "90",
+      "freeService": "N/A"
+    },
+    {
+      "id": 2,
+      "name": "HO-0002",
+      "area": "123",
+      "cost": "1200",
+      "maxPeople": "4",
+      "rentType": {
+        "id": 3,
+        "name": "Month"
+      },
+      "serviceType": {
+        "id": 2,
+        "name": "House"
+      },
+      "standardRoom": "Vip",
+      "numberOfFloors": "2",
+      "otherConvenience": "Laundry",
+      "poolArea": "N/A",
+      "freeService": "N/A"
+    },
+    {
+      "id": 3,
+      "name": "RO-003",
+      "area": "123",
+      "cost": "1200",
+      "maxPeople": "4",
+      "rentType": {
+        "id": 2,
+        "name": "Day"
+      },
+      "serviceType": {
+        "id": 3,
+        "name": "Room"
+      },
+      "standardRoom": "Normal",
+      "numberOfFloors": "N/A",
+      "otherConvenience": "N/A",
+      "poolArea": "N/A",
+      "freeService": "Laundry"
+    },
+    {
+      "id": 4,
+      "name": "VL-004",
+      "area": 120,
+      "cost": 1000,
+      "maxPeople": 3,
+      "rentType": {
+        "id": 3,
+        "name": "Month"
+      },
+      "serviceType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Business",
+      "numberOfFloors": "3",
+      "otherConvenience": "Laundry",
+      "poolArea": "120",
+      "freeService": "zzz"
+    },
+    {
+      "id": 5,
+      "name": "VL-005",
+      "area": 150,
+      "cost": 1100,
+      "maxPeople": 4,
+      "rentType": {
+        "id": 2,
+        "name": "Day"
+      },
+      "serviceType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Normal",
+      "numberOfFloors": "3",
+      "otherConvenience": "Laundry",
+      "poolArea": "140",
+      "freeService": "zzz"
+    },
+    {
+      "id": 6,
+      "name": "HO-006",
+      "area": 120,
+      "cost": 1000,
+      "maxPeople": 3,
+      "rentType": {
+        "id": 4,
+        "name": "Year"
+      },
+      "serviceType": {
+        "id": 2,
+        "name": "House"
+      },
+      "standardRoom": "Business",
+      "numberOfFloors": "2",
+      "otherConvenience": "Laundry",
+      "poolArea": "120",
+      "freeService": "zzz"
+    },
+    {
+      "id": 9,
+      "name": "HO-007",
+      "area": 123,
+      "cost": 1111,
+      "maxPeople": 3,
+      "rentType": {
+        "id": 2,
+        "name": "Day"
+      },
+      "serviceType": {
+        "id": 2,
+        "name": "House"
+      },
+      "standardRoom": "Vip",
+      "numberOfFloors": "3",
+      "otherConvenience": "Laundry",
+      "poolArea": "99",
+      "freeService": "zzz"
+    },
+    {
+      "id": 10,
+      "name": "VL-008",
+      "area": 123,
+      "cost": 1212,
+      "maxPeople": 4,
+      "rentType": {
+        "id": 3,
+        "name": "Month"
+      },
+      "serviceType": {
+        "id": 1,
+        "name": "Villa"
+      },
+      "standardRoom": "Normal",
+      "numberOfFloors": "3",
+      "otherConvenience": "abcd",
+      "poolArea": "99",
+      "freeService": "ddd"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "startDate": "2020-11-04T17:00:00.000Z",
+      "endDate": "2020-11-28T17:00:00.000Z",
+      "totalMoney": "1500",
+      "deposit": "500",
+      "service": {
+        "id": 1,
+        "name": "VL-0001",
+        "area": "123",
+        "cost": "1200",
+        "maxPeople": "4",
+        "rentType": {
+          "id": 3,
+          "name": "Month"
+        },
+        "serviceType": {
+          "id": 1,
+          "name": "Villa"
+        },
+        "standardRoom": "Vip",
+        "numberOfFloors": "2",
+        "otherConvenience": "Laundry",
+        "poolArea": "90",
+        "freeService": "N/A"
+      },
+      "customer": {
+        "id": 17,
+        "name": "Hoai Le",
+        "birthday": "2020-10-31T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "le@hoai.com",
+        "address": "QB",
+        "customerType": {
+          "id": 4,
+          "name": "Silver"
+        }
+      },
+      "employee": {
+        "id": 1,
+        "name": "Chuong",
+        "birthday": "1991-06-19T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "chuong@abc.com",
+        "address": "QT",
+        "salary": "1500",
+        "education": {
+          "id": 4,
+          "name": "After-university"
+        },
+        "position": {
+          "id": 5,
+          "name": "Director"
+        },
+        "division": {
+          "id": 4,
+          "name": "Management"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "startDate": "2019-06-19",
+      "endDate": "2019-09-19",
+      "totalMoney": "1800",
+      "deposit": "600",
+      "service": {
+        "id": 2,
+        "name": "HO-0002",
+        "area": "123",
+        "cost": "1200",
+        "maxPeople": "4",
+        "rentType": {
+          "id": 3,
+          "name": "Month"
+        },
+        "serviceType": {
+          "id": 2,
+          "name": "House"
+        },
+        "standardRoom": "Vip",
+        "numberOfFloors": "2",
+        "otherConvenience": "Laundry",
+        "poolArea": "N/A",
+        "freeService": "N/A"
+      },
+      "employee": {
+        "id": 2,
+        "name": "Toan",
+        "birthday": "1988-04-20",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "toan@abc.com",
+        "address": "QT",
+        "salary": "1500",
+        "position": {
+          "id": 2,
+          "name": "Staff"
+        },
+        "division": {
+          "id": 2,
+          "name": "Service"
+        },
+        "education": {
+          "id": 2,
+          "name": "College"
+        }
+      },
+      "customer": {
+        "id": 8,
+        "name": "Hai",
+        "birthday": "2020-10-31T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "123456789",
+        "email": "hai@gmail.com",
+        "address": "HT",
+        "customerType": {
+          "id": 4,
+          "name": "Silver"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "startDate": "2020-11-17T17:00:00.000Z",
+      "endDate": "2020-11-29T17:00:00.000Z",
+      "totalMoney": "1900",
+      "deposit": "900",
+      "service": {
+        "id": 3,
+        "name": "RO-003",
+        "area": "123",
+        "cost": "1200",
+        "maxPeople": "4",
+        "rentType": {
+          "id": 2,
+          "name": "Day"
+        },
+        "serviceType": {
+          "id": 3,
+          "name": "Room"
+        },
+        "standardRoom": "Normal",
+        "numberOfFloors": "N/A",
+        "otherConvenience": "N/A",
+        "poolArea": "N/A",
+        "freeService": "Laundry"
+      },
+      "customer": {
+        "id": 10,
+        "name": "Chanh",
+        "birthday": "2020-11-01T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "chanh@gmail.com",
+        "address": "Dn",
+        "customerType": {
+          "id": 2,
+          "name": "Platinum"
+        }
+      },
+      "employee": {
+        "id": 2,
+        "name": "Toan",
+        "birthday": "1988-04-20",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "toan@abc.com",
+        "address": "QT",
+        "salary": "1500",
+        "position": {
+          "id": 2,
+          "name": "Staff"
+        },
+        "division": {
+          "id": 2,
+          "name": "Service"
+        },
+        "education": {
+          "id": 2,
+          "name": "College"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "startDate": "2020-11-04T17:00:00.000Z",
+      "endDate": "2020-11-19T17:00:00.000Z",
+      "totalMoney": "2100",
+      "deposit": "1200",
+      "service": {
+        "id": 4,
+        "name": "VL-004",
+        "area": 120,
+        "cost": 1000,
+        "maxPeople": 3,
+        "rentType": {
+          "id": 3,
+          "name": "Month"
+        },
+        "serviceType": {
+          "id": 1,
+          "name": "Villa"
+        },
+        "standardRoom": "Business",
+        "numberOfFloors": "3",
+        "otherConvenience": "Laundry",
+        "poolArea": "120",
+        "freeService": "zzz"
+      },
+      "customer": {
+        "id": 16,
+        "name": "Phuong Le",
+        "birthday": "2020-11-01T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "phung@le.com",
+        "address": "HT",
+        "customerType": {
+          "id": 5,
+          "name": "Member"
+        }
+      },
+      "employee": {
+        "id": 4,
+        "name": "Hoang Nhung",
+        "birthday": "2020-10-31T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "nhung@hoang.com",
+        "address": "QT",
+        "salary": "1200",
+        "education": {
+          "id": 2,
+          "name": "College"
+        },
+        "position": {
+          "id": 2,
+          "name": "Staff"
+        },
+        "division": {
+          "id": 2,
+          "name": "Service"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "startDate": "2020-11-11T17:00:00.000Z",
+      "endDate": "2020-11-16T17:00:00.000Z",
+      "totalMoney": "550",
+      "deposit": "250",
+      "service": {
+        "id": 6,
+        "name": "HO-006",
+        "area": 120,
+        "cost": 1000,
+        "maxPeople": 3,
+        "rentType": {
+          "id": 4,
+          "name": "Year"
+        },
+        "serviceType": {
+          "id": 2,
+          "name": "House"
+        },
+        "standardRoom": "Business",
+        "numberOfFloors": "2",
+        "otherConvenience": "Laundry",
+        "poolArea": "120",
+        "freeService": "zzz"
+      },
+      "customer": {
+        "id": 18,
+        "name": "Quynh",
+        "birthday": "2020-10-31T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "quynh@bac.com",
+        "address": "HN",
+        "customerType": {
+          "id": 1,
+          "name": "Diamond"
+        }
+      },
+      "employee": {
+        "id": 3,
+        "name": "Quang",
+        "birthday": "1988-04-20",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "quang@abc.com",
+        "address": "QT",
+        "salary": "1500",
+        "position": {
+          "id": 3,
+          "name": "Waiter"
+        },
+        "division": {
+          "id": 3,
+          "name": "Administration"
+        },
+        "education": {
+          "id": 3,
+          "name": "University"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "startDate": "2020-11-09T17:00:00.000Z",
+      "endDate": "2020-11-27T17:00:00.000Z",
+      "totalMoney": "990",
+      "deposit": "220",
+      "service": {
+        "id": 5,
+        "name": "VL-005",
+        "area": 150,
+        "cost": 1100,
+        "maxPeople": 4,
+        "rentType": {
+          "id": 2,
+          "name": "Day"
+        },
+        "serviceType": {
+          "id": 1,
+          "name": "Villa"
+        },
+        "standardRoom": "Normal",
+        "numberOfFloors": "3",
+        "otherConvenience": "Laundry",
+        "poolArea": "140",
+        "freeService": "zzz"
+      },
+      "customer": {
+        "id": 11,
+        "name": "Tung Sy",
+        "birthday": "2020-10-11T17:00:00.000Z",
+        "idCard": "123123123",
+        "phone": "0909080808",
+        "email": "tung@si.com.vn",
+        "address": "QB",
+        "customerType": {
+          "id": 4,
+          "name": "Silver"
+        }
+      },
+      "employee": {
+        "id": 4,
+        "name": "Hoang Nhung",
+        "birthday": "2020-10-31T17:00:00.000Z",
+        "idCard": "123456789",
+        "phone": "0909090909",
+        "email": "nhung@hoang.com",
+        "address": "QT",
+        "salary": "1200",
+        "education": {
+          "id": 2,
+          "name": "College"
+        },
+        "position": {
+          "id": 2,
+          "name": "Staff"
+        },
+        "division": {
+          "id": 2,
+          "name": "Service"
+        }
+      }
+    }
+  ],
+  "attachService": [
+    {
+      "id": 1,
+      "name": "Drink",
+      "unit": "1",
+      "cost": "10"
+    },
+    {
+      "id": 2,
+      "name": "Food",
+      "unit": "1",
+      "cost": "15"
+    },
+    {
+      "id": 3,
+      "name": "Karaoke",
+      "unit": "1",
+      "cost": "35"
+    },
+    {
+      "id": 4,
+      "name": "Massage",
+      "unit": "1",
+      "cost": "55"
+    },
+    {
+      "id": 5,
+      "name": "Car Rental",
+      "unit": "1",
+      "cost": "75"
+    }
+  ],
+  "contractDetails": [
+    {
+      "id": 1,
+      "contract": {
+        "id": 1,
+        "startDate": "2020-11-04T17:00:00.000Z",
+        "endDate": "2020-11-28T17:00:00.000Z",
+        "totalMoney": "1500",
+        "deposit": "500",
+        "customer": {
+          "id": 1,
+          "name": "Chuong Hoang",
+          "birthday": "1988-04-18T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "customerType": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "employee": {
+          "id": 1,
+          "name": "Chuong",
+          "birthday": "1991-06-19T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "education": {
+            "id": 4,
+            "name": "After-university"
+          },
+          "position": {
+            "id": 5,
+            "name": "Director"
+          },
+          "division": {
+            "id": 4,
+            "name": "Management"
+          }
+        }
+      },
+      "attachService": {
+        "id": 1,
+        "name": "Drink",
+        "unit": "1",
+        "cost": "10"
+      },
+      "quantity": 5
+    },
+    {
+      "id": 2,
+      "contract": {
+        "id": 1,
+        "startDate": "2020-11-04T17:00:00.000Z",
+        "endDate": "2020-11-28T17:00:00.000Z",
+        "totalMoney": "1500",
+        "deposit": "500",
+        "customer": {
+          "id": 1,
+          "name": "Chuong Hoang",
+          "birthday": "1988-04-18T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "customerType": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "employee": {
+          "id": 1,
+          "name": "Chuong",
+          "birthday": "1991-06-19T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "education": {
+            "id": 4,
+            "name": "After-university"
+          },
+          "position": {
+            "id": 5,
+            "name": "Director"
+          },
+          "division": {
+            "id": 4,
+            "name": "Management"
+          }
+        }
+      },
+      "attachService": {
+        "id": 2,
+        "name": "Food",
+        "unit": "1",
+        "cost": "15"
+      },
+      "quantity": "2"
+    },
+    {
+      "id": 3,
+      "contract": {
+        "id": 1,
+        "startDate": "2020-11-04T17:00:00.000Z",
+        "endDate": "2020-11-28T17:00:00.000Z",
+        "totalMoney": "1500",
+        "deposit": "500",
+        "customer": {
+          "id": 1,
+          "name": "Chuong Hoang",
+          "birthday": "1988-04-18T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "customerType": {
+            "id": 1,
+            "name": "Diamond"
+          }
+        },
+        "employee": {
+          "id": 1,
+          "name": "Chuong",
+          "birthday": "1991-06-19T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chuong@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "education": {
+            "id": 4,
+            "name": "After-university"
+          },
+          "position": {
+            "id": 5,
+            "name": "Director"
+          },
+          "division": {
+            "id": 4,
+            "name": "Management"
+          }
+        }
+      },
+      "attachService": {
+        "id": 4,
+        "name": "Massage",
+        "unit": "1",
+        "cost": "55"
+      },
+      "quantity": "4"
+    },
+    {
+      "id": 4,
+      "contract": {
+        "id": 2,
+        "startDate": "2019-06-19",
+        "endDate": "2019-09-19",
+        "totalMoney": "1800",
+        "deposit": "600",
+        "employee": {
+          "id": 2,
+          "name": "Toan",
+          "birthday": "1988-04-20",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "toan@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          },
+          "education": {
+            "id": 2,
+            "name": "College"
+          }
+        },
+        "customer": {
+          "id": 8,
+          "name": "Hai",
+          "birthday": "2020-10-31T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "123456789",
+          "email": "hai@gmail.com",
+          "address": "HT",
+          "customerType": {
+            "id": 4,
+            "name": "Silver"
+          }
+        }
+      },
+      "attachService": {
+        "id": 5,
+        "name": "Car Rental",
+        "unit": "1",
+        "cost": "75"
+      },
+      "quantity": "4"
+    },
+    {
+      "id": 5,
+      "contract": {
+        "id": 2,
+        "startDate": "2019-06-19",
+        "endDate": "2019-09-19",
+        "totalMoney": "1800",
+        "deposit": "600",
+        "employee": {
+          "id": 2,
+          "name": "Toan",
+          "birthday": "1988-04-20",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "toan@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          },
+          "education": {
+            "id": 2,
+            "name": "College"
+          }
+        },
+        "customer": {
+          "id": 8,
+          "name": "Hai",
+          "birthday": "2020-10-31T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "123456789",
+          "email": "hai@gmail.com",
+          "address": "HT",
+          "customerType": {
+            "id": 4,
+            "name": "Silver"
+          }
+        }
+      },
+      "attachService": {
+        "id": 4,
+        "name": "Massage",
+        "unit": "1",
+        "cost": "55"
+      },
+      "quantity": "4"
+    },
+    {
+      "id": 6,
+      "contract": {
+        "id": 2,
+        "startDate": "2019-06-19",
+        "endDate": "2019-09-19",
+        "totalMoney": "1800",
+        "deposit": "600",
+        "employee": {
+          "id": 2,
+          "name": "Toan",
+          "birthday": "1988-04-20",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "toan@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          },
+          "education": {
+            "id": 2,
+            "name": "College"
+          }
+        },
+        "customer": {
+          "id": 8,
+          "name": "Hai",
+          "birthday": "2020-10-31T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "123456789",
+          "email": "hai@gmail.com",
+          "address": "HT",
+          "customerType": {
+            "id": 4,
+            "name": "Silver"
+          }
+        }
+      },
+      "attachService": {
+        "id": 3,
+        "name": "Karaoke",
+        "unit": "1",
+        "cost": "35"
+      },
+      "quantity": "3"
+    },
+    {
+      "id": 7,
+      "contract": {
+        "id": 4,
+        "startDate": "2020-11-17T17:00:00.000Z",
+        "endDate": "2020-11-29T17:00:00.000Z",
+        "totalMoney": "1900",
+        "deposit": "900",
+        "customer": {
+          "id": 10,
+          "name": "Chanh",
+          "birthday": "2020-11-01T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chanh@gmail.com",
+          "address": "Dn",
+          "customerType": {
+            "id": 2,
+            "name": "Platinum"
+          }
+        },
+        "employee": {
+          "id": 2,
+          "name": "Toan",
+          "birthday": "1988-04-20",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "toan@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          },
+          "education": {
+            "id": 2,
+            "name": "College"
+          }
+        }
+      },
+      "attachService": {
+        "id": 5,
+        "name": "Car Rental",
+        "unit": "1",
+        "cost": "75"
+      },
+      "quantity": "4"
+    },
+    {
+      "id": 8,
+      "contract": {
+        "id": 4,
+        "startDate": "2020-11-17T17:00:00.000Z",
+        "endDate": "2020-11-29T17:00:00.000Z",
+        "totalMoney": "1900",
+        "deposit": "900",
+        "customer": {
+          "id": 10,
+          "name": "Chanh",
+          "birthday": "2020-11-01T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "chanh@gmail.com",
+          "address": "Dn",
+          "customerType": {
+            "id": 2,
+            "name": "Platinum"
+          }
+        },
+        "employee": {
+          "id": 2,
+          "name": "Toan",
+          "birthday": "1988-04-20",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "toan@abc.com",
+          "address": "QT",
+          "salary": "1500",
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          },
+          "education": {
+            "id": 2,
+            "name": "College"
+          }
+        }
+      },
+      "attachService": {
+        "id": 4,
+        "name": "Massage",
+        "unit": "1",
+        "cost": "55"
+      },
+      "quantity": "5"
+    },
+    {
+      "id": 9,
+      "contract": {
+        "id": 5,
+        "startDate": "2020-11-04T17:00:00.000Z",
+        "endDate": "2020-11-19T17:00:00.000Z",
+        "totalMoney": "2100",
+        "deposit": "1200",
+        "service": {
+          "id": 4,
+          "name": "VL-004",
+          "area": 120,
+          "cost": 1000,
+          "maxPeople": 3,
+          "rentType": {
+            "id": 3,
+            "name": "Month"
+          },
+          "serviceType": {
+            "id": 1,
+            "name": "Villa"
+          },
+          "standardRoom": "Business",
+          "numberOfFloors": "3",
+          "otherConvenience": "Laundry",
+          "poolArea": "120",
+          "freeService": "zzz"
+        },
+        "customer": {
+          "id": 16,
+          "name": "Phuong Le",
+          "birthday": "2020-11-01T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "phung@le.com",
+          "address": "HT",
+          "customerType": {
+            "id": 5,
+            "name": "Member"
+          }
+        },
+        "employee": {
+          "id": 4,
+          "name": "Hoang Nhung",
+          "birthday": "2020-10-31T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "nhung@hoang.com",
+          "address": "QT",
+          "salary": "1200",
+          "education": {
+            "id": 2,
+            "name": "College"
+          },
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          }
+        }
+      },
+      "attachService": {
+        "id": 2,
+        "name": "Food",
+        "unit": "1",
+        "cost": "15"
+      },
+      "quantity": 5
+    },
+    {
+      "id": 10,
+      "contract": {
+        "id": 7,
+        "startDate": "2020-11-09T17:00:00.000Z",
+        "endDate": "2020-11-27T17:00:00.000Z",
+        "totalMoney": "990",
+        "deposit": "220",
+        "service": {
+          "id": 5,
+          "name": "VL-005",
+          "area": 150,
+          "cost": 1100,
+          "maxPeople": 4,
+          "rentType": {
+            "id": 2,
+            "name": "Day"
+          },
+          "serviceType": {
+            "id": 1,
+            "name": "Villa"
+          },
+          "standardRoom": "Normal",
+          "numberOfFloors": "3",
+          "otherConvenience": "Laundry",
+          "poolArea": "140",
+          "freeService": "zzz"
+        },
+        "customer": {
+          "id": 11,
+          "name": "Tung Sy",
+          "birthday": "2020-10-11T17:00:00.000Z",
+          "idCard": "123123123",
+          "phone": "0909080808",
+          "email": "tung@si.com.vn",
+          "address": "QB",
+          "customerType": {
+            "id": 4,
+            "name": "Silver"
+          }
+        },
+        "employee": {
+          "id": 4,
+          "name": "Hoang Nhung",
+          "birthday": "2020-10-31T17:00:00.000Z",
+          "idCard": "123456789",
+          "phone": "0909090909",
+          "email": "nhung@hoang.com",
+          "address": "QT",
+          "salary": "1200",
+          "education": {
+            "id": 2,
+            "name": "College"
+          },
+          "position": {
+            "id": 2,
+            "name": "Staff"
+          },
+          "division": {
+            "id": 2,
+            "name": "Service"
+          }
+        }
+      },
+      "attachService": {
+        "id": 5,
+        "name": "Car Rental",
+        "unit": "1",
+        "cost": "75"
+      },
+      "quantity": 3
     }
   ]
 }

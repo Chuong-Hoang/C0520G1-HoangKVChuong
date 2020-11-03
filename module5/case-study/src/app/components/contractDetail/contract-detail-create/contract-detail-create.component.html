@@ -1,0 +1,43 @@
+<div class="w-50 mx-auto mt-5">
+  <h4>Create New Contract-Detail</h4>
+  <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
+    <input type="hidden" class="form-control" formControlName="id"/>
+
+    <div class="form-group">
+      <label>contract<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="contract">
+        <option value = ''>-select-</option>
+        <option *ngFor="let type1 of contractList" [ngValue]="type1">{{ type1.id }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('contract').invalid && formCreate.get('contract').touched">{{ contract_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>attachService<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="attachService">
+        <option value = ''>-select-</option>
+        <option *ngFor="let type3 of attachServiceList" [ngValue]="type3">{{ type3.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('attachService').invalid && formCreate.get('attachService').touched">{{ attachService_msg }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>quantity<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" min="1" class="form-control" formControlName="quantity"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('quantity').invalid && formCreate.get('quantity').touched">{{ quantity_msg }}
+      </span>
+    </div>
+
+    <div class="d-flex justify-content-center mb-5">
+      <button class="btn btn-success btn-sm col-3" type="submit" [disabled]="formCreate.invalid">Save</button>
+    </div>
+  </form>
+</div>
+
+
+

@@ -1,118 +1,101 @@
-<div class="container mt-3">
-  <button class="btn btn-sm btn-secondary mr-3" (click)="displayListForm();">Service List</button>
-  <button class="btn btn-sm btn-secondary" (click)="displayCreateForm();">Add new service</button>
-</div>
+<div class="w-50 mx-auto mt-5">
+  <h4>Create New Service</h4>
+  <form (ngSubmit)="onSubmit();" [formGroup]="formCreate">
+    <input type="hidden" class="form-control" formControlName="id"/>
+    <div class="form-group">
+      <label>serviceType<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="serviceType">
+        <option value="">--select an option--</option>
+        <option *ngFor="let typeS of serviceTypeList" [ngValue]="typeS">{{ typeS.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('serviceType').invalid && formCreate.get('serviceType').touched">{{ serviceType_msg }}
+      </span>
+    </div>
 
-<div class="container" *ngIf="showCreateForm">
-  <h4>Service Information</h4>
-  <input type="hidden" class="form-control" name="id" [(ngModel)]="service.id"/>
-  <div class="form-group">
-    <label>ServiceType</label>
-    <select class="form-control" name="serviceType" [(ngModel)]="service.serviceType">
-      <option value="Villa">Villa</option>
-      <option value="House">House</option>
-      <option value="Room">Room</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>name</label>
-    <input type="text" class="form-control" name="name" [(ngModel)]="service.name" [readOnly]="readonly"/>
-  </div>
+    <div class="form-group">
+      <label>rentType<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="rentType">
+        <option value="">--select an option--</option>
+        <option *ngFor="let typeA of rentTypeList" [ngValue]="typeA">{{ typeA.name }}</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('rentType').invalid && formCreate.get('rentType').touched">{{ rentType_msg }}
+      </span>
+    </div>
 
-  <div class="form-group">
-    <label>area</label>
-    <input type="number" class="form-control" name="area" [(ngModel)]="service.area" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>cost</label>
-    <input type="number" class="form-control" name="cost" [(ngModel)]="service.cost" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>maxPeople</label>
-    <input type="number" class="form-control" name="maxPeople" [(ngModel)]="service.maxPeople" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>rentType</label>
-    <select class="form-control" name="rentType" [(ngModel)]="service.rentType">
-      <option value="Hour">Hour</option>
-      <option value="Day">Day</option>
-      <option value="Month">Month</option>
-      <option value="Year">Year</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <label>name<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="name"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('name').invalid && formCreate.get('name').touched">{{ name_msg }}
+      </span>
+    </div>
 
-  <div class="form-group">
-    <label>standardRoom</label>
-    <select class="form-control" name="standardRoom" [(ngModel)]="service.standardRoom">
-      <option value="Vip">Vip</option>
-      <option value="Business">Business</option>
-      <option value="Normal">Normal</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label>numberOfFloors</label>
-    <input type="text" class="form-control" name="numberOfFloors" [(ngModel)]="service.numberOfFloors" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>otherConvenience</label>
-    <input type="text" class="form-control" name="otherConvenience" [(ngModel)]="service.otherConvenience" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>poolArea</label>
-    <input type="text" class="form-control" name="poolArea" [(ngModel)]="service.poolArea" [readOnly]="readonly"/>
-  </div>
-  <div class="form-group">
-    <label>freeService</label>
-    <input type="text" class="form-control" name="freeService" [(ngModel)]="service.freeService" [readOnly]="readonly"/>
-  </div>
+    <div class="form-group">
+      <label>area<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="area"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('area').invalid && formCreate.get('area').touched">{{ area_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>cost<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="cost"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('cost').invalid && formCreate.get('cost').touched">{{ cost_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>maxPeople<sup class="text-danger ml-1">*</sup></label>
+      <input type="number" class="form-control" formControlName="maxPeople"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('maxPeople').invalid && formCreate.get('maxPeople').touched">{{ maxPeople_msg }}
+      </span>
+    </div>
 
-  <div class="d-flex justify-content-between">
-    <button class="btn btn-secondary btn-sm col-5" [hidden]="hidden" (click)="displayListForm();">Cancel</button>
-    <button class="btn btn-success btn-sm col-5" [hidden]="hidden" (click)="addNew();">Save</button>
-  </div>
-</div>
-<hr class="mt-3 mb-3">
-<div class="container-fluid" *ngIf="showListForm">
-  <table class="table">
-    <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Area</th>
-      <th>Cost</th>
-      <th>MaxPeople</th>
-      <th>ServiceType</th>
-      <th>RentType</th>
-      <th>StandardRoom</th>
-      <th>NumberOfFloors</th>
-      <th>OtherConvenience</th>
-      <th>PoolArea</th>
-      <th>FreeService</th>
-      <th>Action</th>
+    <div class="form-group">
+      <label>standardRoom<sup class="text-danger ml-1">*</sup></label>
+      <select class="form-control" formControlName="standardRoom">
+        <option value="Vip" [selected]="true">Vip</option>
+        <option value="Business">Business</option>
+        <option value="Normal">Normal</option>
+      </select>
+      <span class="text-danger"
+            *ngIf="formCreate.get('standardRoom').invalid && formCreate.get('standardRoom').touched">{{ standardRoom_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>numberOfFloors<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="numberOfFloors"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('numberOfFloors').invalid && formCreate.get('numberOfFloors').touched">{{ numberOfFloors_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>otherConvenience<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="otherConvenience"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('otherConvenience').invalid && formCreate.get('otherConvenience').touched">{{ otherConvenience_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>poolArea<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="poolArea"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('poolArea').invalid && formCreate.get('poolArea').touched">{{ poolArea_msg }}
+      </span>
+    </div>
+    <div class="form-group">
+      <label>freeService<sup class="text-danger ml-1">*</sup></label>
+      <input type="text" class="form-control" formControlName="freeService"/>
+      <span class="text-danger"
+            *ngIf="formCreate.get('freeService').invalid && formCreate.get('freeService').touched">{{ freeService_msg }}
+      </span>
+    </div>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let ele of eList">
-      <td>{{ ele.id }}</td>
-      <td>{{ ele.name }}</td>
-      <td>{{ ele.area }}</td>
-      <td>{{ ele.cost }}</td>
-      <td>{{ ele.maxPeople }}</td>
-      <td>{{ ele.serviceType }}</td>
-      <td>{{ ele.rentType }}</td>
-      <td>{{ ele.standardRoom }}</td>
-      <td>{{ ele.numberOfFloors }}</td>
-      <td>{{ ele.otherConvenience }}</td>
-      <td>{{ ele.poolArea }}</td>
-      <td>{{ ele.freeService }}</td>
-      <td class="d-flex">
-        <button class="btn btn-sm btn-outline-info mr-1"><i class="fas fa-info-circle" (click)="displayViewForm(ele.id)"></i></button>
-        <button class="btn btn-sm btn-outline-warning mr-1"><i class="far fa-edit" (click)="updateOne(ele.id)"></i>
-        </button>
-        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash" (click)="deleteOne(ele.id)"></i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-success btn-sm w-25 mb-5" type="submit" [disabled]="formCreate.invalid">Save</button>
+    </div>
+  </form>
 </div>

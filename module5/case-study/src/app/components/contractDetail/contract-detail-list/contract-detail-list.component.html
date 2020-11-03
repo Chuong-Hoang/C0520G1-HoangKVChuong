@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="d-flex justify-content-between mt-2">
+    <div class="d-flex">
+      <h3 class="mr-2">Contract-Detail List</h3>
+    </div>
+    <div class="d-flex justify-content-between form-group">
+      <div class="input-group-append">
+        <button class="btn btn-primary btn-sm mr-3" [routerLink]="['/contract-detail-create']">Create new</button>
+      </div>
+      <input class="form-control rounded-0" type="text" placeholder="search name" style="width: 350px"
+             [(ngModel)]="term">
+      <div class="input-group-append">
+        <span class="input-group-text rounded-0"><i class="fas fa-search"></i></span>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Contract-ID</th>
+      <th>Contract-Cost</th>
+      <th>Deposit</th>
+      <th>Remained</th>
+      <th>Att.Service-Name</th>
+      <th>Att.Service-Cost</th>
+      <th>Quantity</th>
+      <th>Total-Amount</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ele of eList| filter:term | paginate:{itemsPerPage:2, currentPage: p}; let i = index;">
+      <td>{{ ele.id }}</td>
+      <td>{{ ele.contract.id }}</td>
+      <td>{{ ele.contract.totalMoney }}</td>
+      <td>{{ ele.contract.deposit }}</td>
+      <td>{{ (ele.contract.totalMoney)-(ele.contract.deposit) }}</td>
+      <td>{{ ele.attachService.name }}</td>
+      <td>{{ ele.attachService.cost }}</td>
+      <td>{{ ele.quantity }}</td>
+      <td>{{ (ele.contract.totalMoney)-(ele.contract.deposit) + ((ele.quantity) * (ele.attachService.cost)) }}</td>
+      <td class="d-flex justify-content-between">
+        <button class="btn btn-sm btn-outline-info" (click)="openViewDialog(ele.id)">
+          <i class="fas fa-info-circle"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-warning" [routerLink]="['/contract-detail-edit/'+ ele.id]">
+          <i class="far fa-edit"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="openDeleteDialog(ele.id)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="text-primary">{{ delete_msg }} {{ create_msg }} {{ edit_msg }}</p>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
